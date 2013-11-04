@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.UserTypeMapper">
+	<!-- <resultMap type="userType" id="userTypeMap">
+		<id property="id" column="id"/>
+		<result property="typeName" column="type_name"/>
+	</resultMap> -->
+	
+	<sql id="select_userType_sql_segment">
+		SELECT 
+			id, type_name as typeName
+		FROM
+			t_type
+	</sql>
+	
+	<select id="getAll" resultType="userType">
+		<include refid="select_userType_sql_segment"/>
+	</select>
+	
+	<select id="getByTypeId" parameterType="long" resultType="userType">
+		<include refid="select_userType_sql_segment"/>
+		WHERE
+			id = #{typeId}
+	</select>
+	
+</mapper>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>邮件</title>
+</head>
+
+<body>
+	<table align="center" border="0" style="border-collapse: collapse;" width="595">
+		<tr>
+			<td colspan="3" style="padding: 0px;" width="595">
+				<div style="color:#d5346c; width:500px; margin:0 auto; padding:20px; line-height:30px; font-size:18px">
+				尊敬的 ${name} 先生/女士：<br />
+    				百度品茗会邀请您参与！
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

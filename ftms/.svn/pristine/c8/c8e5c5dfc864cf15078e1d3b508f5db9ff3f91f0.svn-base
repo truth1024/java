@@ -1,0 +1,447 @@
+package com.richmobi.checkin.action;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.mail.SendFailedException;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.json.annotations.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import richmobi.commons.utils.Configer;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.richmobi.checkin.domain.PageResult;
+import com.richmobi.checkin.domain.User;
+import com.richmobi.checkin.domain.UserType;
+import com.richmobi.checkin.exception.AlreadyCheckinException;
+import com.richmobi.checkin.exception.UserAlreadyExistException;
+import com.richmobi.checkin.qrcode.GenerateQRCode;
+import com.richmobi.checkin.exception.UserNotFoundException;
+import com.richmobi.checkin.service.CheckinService;
+import com.richmobi.checkin.service.EmailService;
+import com.richmobi.checkin.service.SmsService;
+import com.richmobi.checkin.service.UserService;
+import com.richmobi.checkin.service.UserTypeService;
+import com.richmobi.checkin.service.impl.UserServiceImpl;
+import com.richmobi.checkin.util.Utils;
+
+public class UserAction extends BasicAction{
+	
+	private final Logger log = LoggerFactory.getLogger(ActionSupport.class);
+
+	private static final long serialVersionUID = 1500447644435275108L;
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	SmsService smsService;
+	
+	@Autowired
+	EmailService emailService;
+	
+	@Autowired
+	GenerateQRCode generateQRCode;
+	
+	@Autowired
+	CheckinService checkinService;
+	
+	@Autowired
+	UserTypeService userTypeService;
+	
+	private User user;
+	
+	private List<User> userList;
+	
+	private int[] delIds;
+	
+	private int status;
+	
+	private String code;
+	
+	private String checkinStatus;
+	
+	private int page;
+	
+	private int count;
+	
+	private PageResult<User> users;
+	
+	private String tip; //明信片提示信息
+	
+	private int checkinMaxNum;
+	
+	private boolean isOverstep = false; //是否超出签到最大限制
+	
+	private List<UserType> userTypes;
+	
+	private InputStream excelStream;
+	
+	private String fileName = "GDC.xls";//导出excel
+	
+	/**
+	 * 排序类型：1为code升序
+	 *       2为code降序
+	 *       3为date升序
+	 *       4为date降序
+	 */
+	private int orderType;
+	
+	
+	public String createImg(){
+		generateQRCode.generate();
+		return SUCCESS;
+	}
+	
+	public String gainUserType(){
+		userTypes = userTypeService.getAll();
+		return SUCCESS;
+	}
+	
+	public String exportExcel(){
+		try{
+			Map conditions = createConditionMap();
+			log.debug("查询条件："+ conditions);
+			List<User> users = userService.getAllByConditions(conditions);
+			log.debug("需要导出条数为："+ users.size());
+			if(users.isEmpty()){
+				log.debug("没有需要导出的记录！");
+			}
+			StringBuffer sb = new StringBuffer();
+			sb.append("编码").append("\t").append("姓名").append("\t")
+			.append("胸卡类型").append("\t").append("电话").append("\t")
+			.append("公司").append("\t").append("备注").append("\n");
+			for(User u:users){
+				sb.append(u.getCode()).append("\t").append(u.getName()).append("\t")
+				.append(u.getUserType().getTypeName()).append("\t").append(u.getPhone()).append("\t")
+				.append(u.getCompany()).append(u.getNote()).append("\n");
+			}
+	        excelStream = new ByteArrayInputStream(sb.toString().getBytes("GBK"), 0, sb.toString().getBytes("GBK").length);
+		}catch(Exception e){
+			log.error("find user errer",e);
+		}
+		return "excel";
+	}
+	
+	public String updateUser(){
+		log.debug("update user,user is:" + user);
+		if(user != null){
+//			if(StringUtils.isNotBlank(user.getPhone())){
+//				User u = new User();
+//				try {
+//					u = userService.getUserByPhone(user.getPhone());
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//				if(u != null){
+//					if(!user.getCode().equals(u.getCode())){
+//						status = 301;
+//						return SUCCESS;
+//					}
+//				}
+//			}
+			user.setImageName(user.getCode()+".png");
+			userService.update(user);
+			user = userService.getByCode(user.getCode());
+		}
+		return SUCCESS;
+	}
+	
+	private int checkinWay;
+	
+	public String findUserByCode(){
+		try{
+			if(StringUtils.isNotBlank(code)){
+				user = userService.getByCode(code);
+				if(user == null){//尝试根据手机号查询
+					userList = userService.getUserByPhone(code);
+				}
+				if(user != null || userList.size() != 0){
+					checkinMaxNum = Integer.parseInt(Configer.get("checkinMaxNum"));
+					status = 200;
+				} else {
+					status = 404;
+				}
+			} else {
+				status = 412;
+			}
+		}catch (Exception e){
+			status = 500;
+		}
+		return SUCCESS;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public String findUser(){
+		try{
+			Map conditions = createConditionMap();
+			users = userService.getUserByConditions(conditions, page, count);
+			status = 200;
+		}catch(Exception e){
+			status = 500;
+			log.error("find user errer",e);
+		}
+		return SUCCESS;
+	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Map createConditionMap(){
+		Map conditions = new HashMap();
+		if(user != null){
+			log.debug("condtions:[{}]", users);
+			if(StringUtils.isNotBlank(user.getCode())){
+				conditions.put("code", user.getCode());
+			}
+			if(StringUtils.isNotBlank(user.getName())){
+				conditions.put("name", user.getName());
+			}
+			if(StringUtils.isNotBlank(user.getPhone())){
+				conditions.put("phone", user.getPhone());
+			}
+			if(StringUtils.isNotBlank(user.getEmail())){
+				conditions.put("email", user.getEmail());
+			}
+			if(StringUtils.isNotBlank(user.getCompany())){
+				conditions.put("company", user.getCompany());
+			}
+			System.out.println(user.getType());
+			if(user.getType() != 0){
+				conditions.put("type", user.getType());
+			}
+		}
+		log.debug("checkinStatus:{}",checkinStatus);
+		if(checkinStatus != null && !checkinStatus.equals("")){
+			conditions.put("checkinNum", Integer.parseInt(checkinStatus));
+		}
+		return conditions;
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public String orderByCodeOrDate(){
+		try {
+			Map conditions = createConditionMap();
+			conditions.put("orderType", orderType);
+			users = userService.orderByCode(conditions, page, count);
+			status = 200;
+		} catch (Exception e) {
+			status = 500;
+			log.error("find user errer",e);
+		}
+		return SUCCESS;
+	}
+	public String add(){
+		log.debug("add user: [{}]",user);
+		if(StringUtils.isBlank(user.getCode())){
+			try {
+				userService.add(user);
+				//如果电话不为空，并且是手机号则发送短信
+//				if(StringUtils.isNotBlank(user.getPhone())){
+//					if(Utils.isMobileNO(user.getPhone())){
+//						smsService.sendNotificationSMS(user);
+//					}
+//				}
+				
+//				if(StringUtils.isNotBlank(user.getEmail())){
+//					try {
+//						emailService.sendEmail(user);
+//					} catch (SendFailedException e) {
+//						log.error("send email to [{}] failed!",user.getEmail(),e);
+//					}
+//				}
+				status = 200;
+			} catch (UserAlreadyExistException e) {
+				status = 501;
+				log.warn("add user failed,user:[{}]",user);
+			}
+		} else {
+//			//如果插入的对象电话不为空，根据电话查找是否存在该用户
+//			if(StringUtils.isNotBlank(user.getPhone())){
+//				User u = userService.getUserByPhone(user.getPhone());
+//				if(u != null){
+//					status = 501;
+//					return SUCCESS;
+//				}
+//			}
+			userService.update(user);
+			try {
+				checkinService.checkin(user.getCode(), checkinWay);
+			} catch (UserNotFoundException e) {
+				e.printStackTrace();
+			} catch (AlreadyCheckinException e) {
+				e.printStackTrace();
+			}
+			status = 412;
+		}
+		return SUCCESS;
+	}
+	
+//	public String updatePhotoDate(){
+//		int photoNum = userService.getPhotoDateNum()+1;
+//		user.setPhotoDate(photoNum);
+//		userService.updatePhotoDate(user);
+//		return SUCCESS;
+//	}
+	
+	public String updatePhotoName(){
+		userService.updatePhotoName(user);
+		return SUCCESS;
+	}
+	
+	public String updatePrize(){
+		userService.updatePrize(user);
+		return SUCCESS;
+	}
+	
+	public String delete(){
+		if(delIds != null && delIds.length > 0){
+			for(int id: delIds){
+				userService.deleteById(id);
+				status = 200;
+			}
+		} else {
+			status = 412;
+		}
+		return SUCCESS;
+	}
+	
+	public String findAll(){
+		page = 1;
+		count = 20;
+		findUser();
+		checkinMaxNum = Integer.parseInt(Configer.get("checkinMaxNum"));
+		return "findAll";
+	}
+	
+	public String findAllSms(){
+		findAll();
+		return "findAllSms";
+	}
+
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public List<User> getUserList() {
+		return userList;
+	}
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	@JSON(serialize=false)
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	@JSON(serialize=false)
+	public String getCheckinStatus() {
+		return checkinStatus;
+	}
+	public void setCheckinStatus(String checkinStatus) {
+		this.checkinStatus = checkinStatus;
+	}
+	@JSON(serialize=false)
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
+	@JSON(serialize=false)
+	public int getCount() {
+		return count;
+	}
+	@JSON(serialize=false)
+	public int[] getDelIds() {
+		return delIds;
+	}
+	public void setDelIds(int[] delIds) {
+		this.delIds = delIds;
+	}
+	public PageResult<User> getUsers() {
+		return users;
+	}
+	public void setUsers(PageResult<User> users) {
+		this.users = users;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	public int getOrderType() {
+		return orderType;
+	}
+	public void setOrderType(int orderType) {
+		this.orderType = orderType;
+	}
+	@JSON(serialize=false)
+	public int getCheckinWay() {
+		return checkinWay;
+	}
+	public void setCheckinWay(int checkinWay) {
+		this.checkinWay = checkinWay;
+	}
+	public String getTip() {
+		return tip;
+	}
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+	public int getCheckinMaxNum() {
+		return checkinMaxNum;
+	}
+	public void setCheckinMaxNum(int checkinMaxNum) {
+		this.checkinMaxNum = checkinMaxNum;
+	}
+	public boolean isOverstep() {
+		return isOverstep;
+	}
+	public void setOverstep(boolean isOverstep) {
+		this.isOverstep = isOverstep;
+	}
+	public List<UserType> getUserTypes() {
+		return userTypes;
+	}
+	public void setUserTypes(List<UserType> userTypes) {
+		this.userTypes = userTypes;
+	}
+	public InputStream getExcelStream() {
+		return excelStream;
+	}
+	public void setExcelStream(InputStream excelStream) {
+		this.excelStream = excelStream;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String createQRImgWithoutInfo(){
+		count=count+1;
+		for(int i=1;i<count;i++){
+			User user = new User();
+			try {
+				userService.add(user);
+			} catch (UserAlreadyExistException e) {
+				e.printStackTrace();
+			}
+		}
+		return "createImg";
+	}
+}

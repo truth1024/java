@@ -1,0 +1,27 @@
+<%@ page language="java" pageEncoding="utf-8"%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="<%=basePath %>/js/cropzoom/script.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=basePath %>/css/uploadify/uploadify.css" />
+<link rel="Stylesheet" type="text/css" href="<%=basePath %>/css/cropzoom/jquery.cropzoom.css"/> 
+
+<script type="text/javascript" src="<%=basePath %>/js/cropzoom/jquery.cropzoom.js"></script>
+<script type="text/javascript" src="<%=basePath %>/js/uploadify/jquery.uploadify.js"></script>
+<script type="text/javascript" src="<%=basePath %>/js/uploadify/flash_detect.1.0.4.min.js"></script>
+<script type="text/javascript" src="<%=basePath %>/js/image_upload_edit.js"></script>
+
+</head>
+<body>
+<!--编辑图片弹出框-->
+<div id="image_edit_dialog" title="图片编辑" style="display:none">
+	<div id="cropzoom_container"></div>
+</div>
+<input type="hidden" name="uri" id="uri">
+<div id="uploading_dialog" title="上传图片" style="display:none">
+	<div id="error_info">图片上传中...</div>
+	<div id="fileQueue" align="center"></div>
+</div>
+
+</body>
+</html>
