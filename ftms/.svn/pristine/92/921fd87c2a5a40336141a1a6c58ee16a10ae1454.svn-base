@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.SmsSendRecdMapper">
+
+	
+	<sql id="select_sms_send_recd_sql_segment">
+		SELECT 
+			id, u_id as userId, send_date as checkinDate
+		FROM
+			t_sms_send_record
+	</sql>
+	
+	<insert id="insert" parameterType="smsSendRecd">
+		<selectKey keyProperty="id" resultType="long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO t_sms_send_record
+			(u_id)
+		VALUES
+			(#{userId})
+	</insert>
+	
+	<select id="getById" parameterType="long" resultType="smsSendRecd">
+		<include refid="select_sms_send_recd_sql_segment"/>
+		WHERE
+			id = #{value}
+	</select>
+	
+	<select id="getByUserId" parameterType="long" resultType="list">
+		<include refid="select_sms_send_recd_sql_segment"/>
+		WHERE
+			u_id = #{value}
+	</select>
+	
+</mapper>

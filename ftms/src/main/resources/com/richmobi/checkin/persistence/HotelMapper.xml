@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.HotelMapper">
+
+	<resultMap type="hotel" id="hotelMap">
+		<id property="id" column="id"/>
+	</resultMap>
+	<sql id="select_hotel_sql_segment">
+		SELECT
+			id, u_id as uid, is_stay as isStay, in_date as inDate, out_date as outDate,
+			room, is_with as isWith, with_name as withName, with_shop as withShop
+		FROM
+			t_hotel
+	</sql>
+
+	<insert id="add" parameterType="hotel">
+		<selectKey keyProperty="id" resultType="long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO 
+			t_hotel
+			(
+				u_id, is_stay, in_date, out_date,
+				room, is_with, with_name, with_shop
+			)
+		VALUES
+			(
+				#{uid},#{isStay},#{inDate},#{outDate},#{room},
+				#{isWith},#{withName},#{withShop}
+			)
+	</insert>
+
+	<select id="getByUid" parameterType="long" resultType="hotel">
+		<include refid="select_hotel_sql_segment"/>
+		WHERE
+			u_id = #{uid}
+	</select>
+	
+	<update id="update" parameterType="hotel">
+		UPDATE 
+			t_hotel
+		SET
+			is_stay = #{isStay}, in_date = #{inDate}, out_date = #{outDate},
+			room = #{room}, is_with = #{isWith}, with_name = #{withName}, with_shop = #{withShop}
+		WHERE 
+			u_id = #{uid}
+	</update>
+</mapper>

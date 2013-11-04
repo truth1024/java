@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1,user-scalable=no;">
+<title>二维码</title>
+<style>
+body {
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	color:#3477A8;
+	font-family: "微软雅黑",Verdana, Arial, Helvetica, sans-serif;
+}
+h1,h4 {
+	letter-spacing:4px
+}
+h3{
+	margin:0px 0px 2px;
+}
+h3,h4{
+	font-size: 1.0em;
+}
+h1 {
+	font-size: 1.7em;margin:0px 0px 2px;
+}
+#golf{
+	font-size: 1.5em;
+}
+h4 {
+	margin:0px 0px 5px;
+}
+.small {
+	font-weight:normal;font-size:0.8em;
+}
+span {
+	color:red;
+}
+</style>
+<script type="text/javascript">
+addEventListener("load", function(){
+	setTimeout(hideURLbar, 0);
+}, false);
+function hideURLbar(){
+	window.scrollTo(0, 1);
+}
+</script>
+</head>
+<body>
+	<img alt="" src="images/logo300x200.png" width="170">
+	<h3>太平洋联盟<i>Greg Norman</i> 先生邀请您</h3>
+	<h1 id="golf">共享高尔夫盛宴</h1>
+	<h1 style="margin: 0px">签到二维码</h1>
+	<h4 class="small" style="margin: 20px 4% 10px 6%;text-align:left;">尊敬的嘉宾：<br>2012年9月19日下午17：00时，钓鱼台国宾馆芳菲苑，太平洋联盟Greg Norman先生邀请您共享高尔夫盛宴。届时，高尔夫球坛传奇、拥有大白鲨之称的Greg Norman先生将亲临现场，为您呈现太平洋联盟球场的风采；超级球迷将与您共享在联盟顶级球场的挥杆体验和观赛感受；现场您不仅可以抽取9月20日与大白鲨同场竞技的重磅邀请，更有机会赢得免费畅打太平洋联盟夏威夷高尔夫球场的震撼惊喜！太平洋联盟期待与您共享盛宴。请于9月19日下午17：00时，执邀请函移步芳菲苑，进场后请出示此二维码签到，谢谢。太平洋联盟</h4>
+	<img alt="" src="${imageURI}" width="150" >
+	<h4 style="font-size:1.3em;">${name}</h4>
+</body>
+</html>

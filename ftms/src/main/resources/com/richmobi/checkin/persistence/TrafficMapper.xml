@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.TrafficMapper">
+
+	<resultMap type="traffic" id="trafficMap">
+		<id property="id" column="id"/>
+	</resultMap>
+	<sql id="select_traffic_sql_segment">
+		SELECT
+			id, u_id as uid, departure_traffic_tool as departureTrafficTool, departure_city as departureCity,
+			departure_flight as departureFlight, arrival_date as arrivalDate, pick_up as pickUp, 
+			back_traffic_tool as backTrafficTool, back_city as backCity, back_flight as backFlight, 
+			back_date as backDate, send
+		FROM
+			t_traffic
+	</sql>
+
+	<insert id="add" parameterType="traffic">
+		<selectKey keyProperty="id" resultType="long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO 
+			t_traffic
+			(
+				u_id, departure_traffic_tool, departure_city, departure_flight, arrival_date, pick_up,
+				back_traffic_tool, back_city, back_flight, back_date, send
+			)
+		VALUES
+			(
+				#{uid}, #{departureTrafficTool}, #{departureCity}, #{departureFlight}, #{arrivalDate}, #{pickUp}, 
+			 	#{backTrafficTool}, #{backCity}, #{backFlight}, #{backDate}, #{send}
+			)
+	</insert>
+
+	<select id="getByUid" parameterType="long" resultType="traffic">
+		<include refid="select_traffic_sql_segment"/>
+		WHERE
+			u_id = #{uid}
+	</select>
+	
+	<update id="update" parameterType="traffic">
+		UPDATE 
+			t_traffic
+		SET
+			departure_traffic_tool = #{departureTrafficTool}, departure_city = #{departureCity}, 
+			departure_flight = #{departureFlight}, arrival_date = #{arrivalDate}, pick_up = #{pickUp},
+			back_traffic_tool = #{backTrafficTool}, back_city = #{backCity}, back_flight = #{backFlight}, 
+			back_date = #{backDate}, send = #{send}
+		WHERE 
+			u_id = #{uid}
+	</update>
+</mapper>

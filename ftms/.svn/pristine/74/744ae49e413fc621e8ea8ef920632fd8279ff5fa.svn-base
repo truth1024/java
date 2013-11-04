@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="lazyLoadingEnabled" value="false" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="false" />
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<setting name="defaultStatementTimeout" value="25000" />
+	</settings>
+	<typeAliases>
+		<typeAlias type="com.richmobi.checkin.domain.User" alias="user"/>
+		<typeAlias type="com.richmobi.checkin.domain.UserType" alias="userType"/>
+		<typeAlias type="com.richmobi.checkin.domain.Conference" alias="conference"/>
+		<typeAlias type="com.richmobi.checkin.domain.CheckinRecd" alias="checkinRecd"/>
+		<typeAlias type="com.richmobi.checkin.domain.SmsSendRecd" alias="smsSendRecd"/>
+	</typeAliases>
+</configuration>

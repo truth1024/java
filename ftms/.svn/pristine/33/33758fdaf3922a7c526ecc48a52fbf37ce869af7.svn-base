@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<!-- 所有文件上传大小 -->
+	<constant name="struts.multipart.maxSize" value="10485760"/>
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="default" extends="json-default">
+		<action name="administrator" class="com.richmobi.checkin.action.AdminAction">
+			<result type="json"></result>
+		</action>
+		<action name="getQRCodeSms" class="com.richmobi.checkin.action.GetQRCodeSms">
+			<result type="json"></result>
+		</action>
+		<action name="qrimage" class="com.richmobi.checkin.action.QRImageAction">
+			<result name="success">qrimage.jsp</result>
+			<result name="error">codeError.jsp</result>
+		</action>
+		<action name="importExcel" class="com.richmobi.checkin.action.ImportExcelAction">
+			<result>importUser.jsp</result>
+		</action>
+	</package>
+	<package name="admin" namespace="/admin" extends="json-default">
+		<action name="checkinAction" class="com.richmobi.checkin.action.CheckinAction">
+			<result type="json"></result>
+		</action>
+		<action name="userAction" class="com.richmobi.checkin.action.UserAction">
+			<result type="json"></result>
+			<result name="findAll">tab/users.jsp</result>
+			<result name="findAllSms">tab/sms.jsp</result>
+			<result name="excel" type="stream">
+				<param name="encode">true</param>
+				<param name="contentType">application/vnd.ms-excel;charset=GBK</param>
+				<param name="inputName">excelStream</param>
+				<param name="contentDisposition">attachment;filename=${fileName}</param>
+				<param name="bufferSize">20480</param>
+			</result>
+		</action>
+		<action name="sendSmsAction" class="com.richmobi.checkin.action.SendSmsAction">
+			<result type="json"></result>
+		</action>
+	</package>
+	
+
+	<package name="admin-default" extends="json-default">
+		
+		<interceptors>
+			<interceptor name="sessionout"
+				class="com.richmobi.checkin.action.SessionInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="sessionout" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="mydefault"></default-interceptor-ref>
+		
+		<global-results>
+			<result name="postcard" type="redirect">/postcard/home.jsp</result>
+			<result name="answer" type="redirect">/answer/1f.jsp</result>
+		</global-results>
+	</package>
+
+	<package name="upload-plugin" namespace="/" extends="json-default">
+
+		<action name="imageupload" class="com.richmobi.checkin.uploadify.ImageUploadAction">
+		</action>
+		<action name="imageHandler" class="com.richmobi.checkin.uploadify.ImageHandlerAction">
+		</action>
+
+	</package>
+	
+</struts>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.UserTypeMapper">
+
+	<resultMap type="userType" id="userTypeMap">
+		<id property="id" column="id"/>
+		<collection property="users" column="id" select="com.richmobi.checkin.persistence.UserMapper.getByUid"></collection>
+	</resultMap>
+	<sql id="select_user_type_sql_segment">
+		SELECT
+			id, type ,login_date as loginDate 
+		FROM
+			t_user_type
+	</sql>
+
+	<insert id="batchAdd">
+		INSERT INTO t_user_type
+			(id,type)
+		VALUES
+			<foreach collection="list" index="index" item="item" separator=",">
+				(#{item.id},#{item.type})
+			</foreach>
+	</insert>
+
+	<select id="getById" parameterType="long" resultMap="userTypeMap">
+		<include refid="select_user_type_sql_segment"/>
+		WHERE
+			id = #{id}
+	</select>
+	
+	<select id="getAll" resultMap="userTypeMap">
+		<include refid="select_user_type_sql_segment"/>
+	</select>
+	
+	<update id="updateById" parameterType="long">
+		UPDATE 
+			t_user_type
+		SET
+			login_date = now()
+		WHERE
+			id = #{id}
+	</update>
+</mapper>

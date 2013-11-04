@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.OtherMapper">
+
+	<resultMap type="other" id="otherMap">
+		<id property="id" column="id"/>
+	</resultMap>
+	<sql id="select_other_sql_segment">
+		SELECT
+			id, u_id as uid, meeting, tourist_route as touristRoute, has_pass as hasPass, is_visa as isVisa,
+			sign, tourist_back as touristBack, is_play as isPlay, play_almost as playAlmost, stature,
+			play_size as playSize, diet, effective_date as effectiveDate, pass_image as passImage, visa_image as visaImage
+		FROM
+			t_other
+	</sql>
+
+	<insert id="add" parameterType="other">
+		<selectKey keyProperty="id" resultType="long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO 
+			t_other
+			(
+				u_id, meeting, tourist_route , has_pass, is_visa,
+				sign, tourist_back, is_play, play_almost, stature,
+				play_size, diet, effective_date, pass_image, visa_image
+			)
+		VALUES
+			(
+				#{uid},#{meeting},#{touristRoute},#{hasPass},#{isVisa},
+				#{sign},#{touristBack},#{isPlay},#{playAlmost},#{stature},
+				#{playSize},#{diet},#{effectiveDate},#{passImage},#{visaImage}
+			)
+	</insert>
+
+	<select id="getByUid" parameterType="long" resultType="other">
+		<include refid="select_other_sql_segment"/>
+		WHERE
+			u_id = #{uid}
+	</select>
+	
+	<update id="update" parameterType="other">
+		UPDATE 
+			t_other
+		SET
+			meeting = #{meeting}, tourist_route = #{touristRoute}, has_pass = #{hasPass}, 
+			is_visa = #{isVisa},sign = #{sign}, tourist_back = #{touristBack}, is_play = #{isPlay}, 
+			play_almost = #{playAlmost}, stature = #{stature},play_size = #{playSize}, 
+			diet = #{diet}, effective_date = #{effectiveDate}, pass_image = #{passImage}, visa_image = #{visaImage}
+		WHERE 
+			u_id = #{uid}
+	</update>
+</mapper>

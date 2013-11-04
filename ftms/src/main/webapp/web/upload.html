@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>Insert title here</title> 
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/ajaxfileupload.js"></script> 
+<script type="text/javascript"> 
+function ajaxFileUpload(obj) {
+	if(validateImage(obj)){
+		$("#loading") 
+		.ajaxStart(function(){ 
+			$(this).show(); 
+		})//开始上传文件时显示一个图片 
+		.ajaxComplete(function(){ 
+			$(this).hide(); 
+		});//文件上传完成将图片隐藏起来
+		$.ajaxFileUpload({
+			url:'/web/image_upload',//用于文件上传的服务器端请求地址 
+			secureuri:false,//一般设置为false 
+			fileElementId:obj.id,//文件上传空间的id属性 <input type="file" id="file" name="file" /> 
+			dataType: 'json',//返回值类型 一般设置为json 
+			success: function (data, status) //服务器成功响应处理函数 
+			{
+				alert(data.message);//从服务器返回的json中取出message中的数据,其中message为在struts2中action中定义的成员变量 
+				if(typeof(data.error) != 'undefined'){
+					if(data.error != ''){
+						alert(data.error);
+					}else{
+						alert(data.message);
+					}
+				}
+			},
+			error: function (data, status, e)//服务器响应失败处理函数
+			{
+				alert(e);
+			}
+		});
+	}
+	
+	return false;
+};
+function validateImage(obj) {
+    var file = obj;
+    var tmpFileValue = file.value;
+    
+    //校验图片格式
+    if(/^.*?\.(gif|png|jpg|jpeg|bmp)$/.test(tmpFileValue.toLowerCase())){
+	    if(/.*\-[(首页扫描件)|(签证页扫描件)]/.test(tmpFileValue.toLowerCase())){
+	    	return true;
+	    }else{
+	    	alert('图片命名格式不正确');
+	    	return false;
+	    }
+    } else {
+        alert("只能上传jpg、jpeg、png、bmp或gif格式的图片！");
+        return false;
+    }
+    
+    
+    //校验图片大小,这段代码需调整浏览器安全级别(调到底级)和添加可信站点(将服务器站点添加到可信站点中)
+    //var imgSize = 1024 * 100; //最大100K
+    //var img = new Image();
+    if(file.value != ""){
+        
+    //    img.onreadystatechange = function(){
+    //        if(img.readyState == "complete"){
+    //            if(img.fileSize <=0 || img.fileSize > imgSize){
+    //                alert("当前文件大小" + img.fileSize / 1024 + "KB, 超出最大限制 " + imgSize / 1024 + "KB");
+    //                return false;
+    //            }else{
+    //                alert("OK");
+    //                return true;
+    //            }
+    //        }
+    //    }
+        
+    //    img.src = file.value;
+        //return true;
+    }else{
+        alert("请选择上传的文件!");
+        return false;
+    }
+};
+</script>
+</head>
+<body>
+<img src="image/loading.gif" id="loading" style="display: none;">
+<input type="file" id="passFile" name="file" />
+<br />
+<input type="button" value="上传" onclick="return ajaxFileUpload($('#passFile').get(0));"><br>
+<input type="file" id="visaFile" name="file" />
+<br />
+<input type="button" value="上传" onclick="return ajaxFileUpload($('#visaFile').get(0));">
+
+</body> 
+</html>

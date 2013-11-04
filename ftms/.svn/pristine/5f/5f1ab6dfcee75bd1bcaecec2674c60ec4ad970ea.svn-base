@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.CheckinRecdMapper">
+
+	
+	<sql id="select_checkinRecd_sql_segment">
+		SELECT 
+			id, u_id as userId, checkin_way as checkinWary, checkin_date as checkinDate
+		FROM
+			t_checkin_record
+	</sql>
+	
+	<insert id="insert" parameterType="checkinRecd">
+		<selectKey keyProperty="id" resultType="long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO t_checkin_record
+			(u_id, checkin_way)
+		VALUES
+			(#{userId},#{checkinWary})
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		DELETE FROM 
+			t_checkin_record
+		WHERE
+			id = #{value}
+	</delete>
+	
+	<delete id="deleteByUserId" parameterType="long">
+		DELETE FROM 
+			t_checkin_record
+		WHERE
+			u_id = #{value}
+	</delete>
+	
+	<select id="getById" parameterType="long" resultType="checkinRecd">
+		<include refid="select_checkinRecd_sql_segment"/>
+		WHERE
+			id = #{value}
+	</select>
+	
+	<select id="getByUserId" parameterType="long" resultType="checkinRecd">
+		<include refid="select_checkinRecd_sql_segment"/>
+		WHERE
+			u_id = #{value}
+	</select>
+	
+</mapper>
