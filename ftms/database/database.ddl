@@ -113,3 +113,4 @@ CREATE TABLE `t_user_type` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
