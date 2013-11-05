@@ -176,7 +176,7 @@ public class ExportAction extends BasicAction {
             		cell = row.createCell(11);
             		cell.setCellValue(u.getContactPhone());
             		cell = row.createCell(12);
-            		cell.setCellValue("");
+            		cell.setCellValue(u.getMobilePhone());
             		cell = row.createCell(13);
             		cell.setCellValue(u.getContactEmail());
             		cell = row.createCell(14);
@@ -186,9 +186,9 @@ public class ExportAction extends BasicAction {
             		cell.setCellValue(cers[1]);
             		cell = row.createCell(16);
             		cell.setCellValue(u.getNationality());
-            		cell = row.createCell(17);
-            		cell.setCellValue("");
             		if(h != null){            			
+            			cell = row.createCell(17);
+            			cell.setCellValue(Utils.room(h.getRoom()));
             			cell = row.createCell(18);
             			cell.setCellValue(Utils.yseOrNo(h.getIsWith()));
             			cell = row.createCell(19);
@@ -249,11 +249,11 @@ public class ExportAction extends BasicAction {
             			cell.setCellValue(Utils.playSize(o.getPlaySize()));
             			cell = row.createCell(45);
             			cell.setCellValue(o.getDiet());
-            			cell = row.createCell(46);
-            			cell.setCellValue("");
             			cell = row.createCell(47);
             			cell.setCellValue("");
             		}
+            		cell = row.createCell(46);
+            		cell.setCellValue(Utils.dateFormat(ut.getLoginDate()));
             		j++;
             	}
             }

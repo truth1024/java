@@ -117,4 +117,9 @@ public class Utils {
 		}
 		return name;
 	}
+	
+	public static String room(int room){
+		return (room == 1 ? "一人一间" : "二人一间");
+		
+	}
 }
