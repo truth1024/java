@@ -21,6 +21,9 @@
 		
 		<action name="user_*"  class="com.richmobi.checkin.action.UserAction" method="{1}">
 			<result name="userType" type="json"></result>
+			<result name="saveUser" type="json">
+				<param name="includeProperties">status</param>
+			</result>
 		</action>
 		
         <action name="image_*" class="com.richmobi.checkin.action.ImageAction" method="{1}">

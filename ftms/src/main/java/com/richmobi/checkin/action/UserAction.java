@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionContext;
 import com.richmobi.checkin.constant.Constant;
 import com.richmobi.checkin.domain.Arr;
+import com.richmobi.checkin.domain.User;
 import com.richmobi.checkin.domain.UserType;
+import com.richmobi.checkin.service.UserSevice;
 import com.richmobi.checkin.service.UserTypeService;
 
 public class UserAction extends BasicAction {
@@ -22,9 +24,14 @@ public class UserAction extends BasicAction {
 	private int status;
 	private String page;
 	private List<Arr[]> selectArr;
+	private User user;
+	private String cerNum;
+	
 	
 	@Autowired
 	UserTypeService userTypeService;
+	@Autowired
+	UserSevice userSevice;
 	
 	public String gainUserType(){
 		long id = Long.parseLong(ActionContext.getContext().getSession().get("token").toString());
@@ -41,6 +48,14 @@ public class UserAction extends BasicAction {
 		return "userType";
 	}
 
+	public String saveUser(){
+		log.debug("user : "+user);
+		user.setCertificate(cerNum+"#"+user.getCertificate());
+		userSevice.add(user);
+		status = 1;
+		return "saveUser";
+	}
+	
 	public UserType getUserType() {
 		return userType;
 	}
@@ -70,5 +85,17 @@ public class UserAction extends BasicAction {
 	}
 	public void setSelectArr(List<Arr[]> selectArr) {
 		this.selectArr = selectArr;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public String getCerNum() {
+		return cerNum;
+	}
+	public void setCerNum(String cerNum) {
+		this.cerNum = cerNum;
 	}
 }

@@ -5,48 +5,19 @@
 <title>toyota一汽丰田2014年全国经销商大会</title>
 <link href="/web/css/main.css" rel="stylesheet" type="text/css" />
 <link href="/web/css/registMessage.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
+<link href="/web/css/jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/web/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="/web/js/jquery.ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="/web/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="/web/js/jquery-ui-timepicker-addon-zh-CN.js"></script>
+<script type="text/javascript" src="/web/js/jquery-ui-sliderAccess.js"></script>
 <script type="text/javascript" src="/web/js/template.min.js"></script>
 <script type="text/javascript" src="/web/js/template-syntax.js"></script>
 <script type="text/javascript" src="/web/js/template.js"></script>
 <script type="text/javascript" src="/web/js/main.js"></script>
 <script type="text/javascript" src="/web/js/regist.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$.post(
-			'/web/user_gainUserType',
-			{'page':'regist'},
-			function(data){
-				console.log(data);
-				if(data.userType.users.length != 0){
-					$('#tags li').eq(data.userType.type-1).show();
-					$('#tagContent1').append($(template.render('regist_basic',data)))
-					.append($(template.render('regist_hotel',null)))
-					.append($(template.render('regist_traffic',null)))
-					.append($(template.render('regist_other',null)));
-					$('select').bind('change',function(){
-						var id = $(this).attr('id');
-						var value = $(this).val();
-						if(value == 3){
-							$('input[name="'+id+'"]').show();
-							$('input[name="user.'+id+'"]').val(0);
-							inputValue(id);
-						}else{
-							$('input[name="'+id+'"]').hide();
-							$('input[name="user.'+id+'"]').val(value);						
-						}
-					});
-				}
-			}
-		);
-		
-		function inputValue(id){
-			$('input[name="'+id+'"]').blur(function(){
-				$('input[name="user.'+id+'"]').val($(this).val());
-			});
-		};
-	});
-</script>
 </head>
 
 <body id="registMessage">

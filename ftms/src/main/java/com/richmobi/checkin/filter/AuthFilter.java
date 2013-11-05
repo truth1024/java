@@ -39,13 +39,13 @@ public class AuthFilter implements Filter{
 			log.debug("token : "+token);
 			log.debug(requestURL.indexOf("/login") > -1 || requestURL.indexOf("/js/") > -1
 					|| requestURL.indexOf("/css/") > -1|| requestURL.indexOf("/images/") > -1);
+			String accept = req.getHeader("Accept");
+			log.debug("accept : " + accept);
 			if(requestURL.indexOf("/login") > -1 || requestURL.indexOf("/js/") > -1
 					|| requestURL.indexOf("/css/") > -1 || requestURL.indexOf("/images/") > -1){
 				chain.doFilter(request, response);
 			}else{
 				if(StringUtils.isBlank(token)){
-					String accept = req.getHeader("Accept");
-					log.debug("accept : " + accept);
 					if (accept.indexOf("application/json") > -1) {
 						res.setStatus(401);
 					} else {

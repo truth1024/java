@@ -1,5 +1,5 @@
 $.ajaxSetup({
-//	contentType:'json',
+	dataType:'json',
 	statusCode:{
 		401:function(){
 			location.href = 'login.html';

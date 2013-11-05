@@ -18,8 +18,9 @@
                 <span>尊敬的先生/女士, 您好!<br />欢迎您参加一汽丰田2014全国经销商大会，请您依次填写本次活动相关的各部分信息。</span>\
                 <font>注：以下信息为必填项</font>\
                 <ul>\
+					<input type="hidden" name="user.uid" value="{userType.id}">\
                     <li><strong>姓名：</strong><input name="user.name" type="text" class="input-regist" /></li>\
-                    <li><strong>姓别：</strong><input name="user.sex" type="radio" value="1"/> 男<input name="user.sex" type="radio" value="2" style="margin-left:20px;" /> 女</li>\
+                    <li><strong>姓别：</strong><input name="user.sex" type="radio" value="1" checked/>男<input name="user.sex" type="radio" value="2" style="margin-left:20px;" /> 女</li>\
                     <li><strong>职位：</strong><select id="title">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[0] as t}\
@@ -42,10 +43,10 @@
 						{/each}\
                       </select><input name="certificate" type="text" class="input-eat" /><input type="hidden" name="user.certificate">\
                     </li>\
-                    <li><strong>证件号码：</strong><input name="" type="text" class="input-regist" /></li>\
-                    <li><strong>固定电话：</strong><input name="" type="text" class="input-regist" /></li>\
-                    <li><strong>移动电话：</strong><input name="" type="text" class="input-regist" /></li>\
-                    <li><strong>电子邮箱：</strong><input name="" type="text" class="input-regist" /></li>\
+                    <li><strong>证件号码：</strong><input name="cerNum" type="text" class="input-regist" /></li>\
+                    <li><strong>固定电话：</strong><input name="user.telephone" type="text" class="input-regist" /></li>\
+                    <li><strong>移动电话：</strong><input name="user.mobilePhone" type="text" class="input-regist" /></li>\
+                    <li><strong>电子邮箱：</strong><input name="user.email" type="text" class="input-regist" /></li>\
                     <li><strong>饮食忌口：</strong><select id="diet">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[3] as n}\
@@ -55,12 +56,12 @@
                 </ul>\
                 <font>如非本人填写，或者您希望事务局通过其他人联系到您, 请填写以下几项信息【可选填】</font>\
                 <ul>\
-                    <li><strong>联系人姓名：</strong><input name="" type="text" class="input-regist" /></li>\
+                    <li><strong>联系人姓名：</strong><input name="user.contactName" type="text" class="input-regist" /></li>\
                     <li><strong>联系电话：</strong><input name="" type="text" class="input-regist" /></li>\
-                    <li><strong>手机号：</strong><input name="" type="text" class="input-regist" /></li>\
-                    <li><strong>电子邮箱：</strong><input name="" type="text" class="input-regist" /></li>\
+                    <li><strong>手机号：</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
+                    <li><strong>电子邮箱：</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
-                <div class="operate"><a href="#" class="save">保存</a><a href="#" class="edit">编辑</a></div>\
+                <div class="operate"><a href="javascript:void(0);" class="save">保存</a><a href="#" class="edit">编辑</a></div>\
             </div>\
         </div></form>'
 	);
