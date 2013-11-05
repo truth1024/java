@@ -44,19 +44,18 @@ public class LoginAction extends BasicAction {
 		//下面就是将session中保存验证码字符串与客户输入的验证码字符串对比了
 		if(!arandom.equals(this.getRand())){
 			tip = "验证码错误";
-			return ERROR;
 		}else{
 			UserType ut = userTypeService.getById(id);
 			if(ut != null){
-				ActionContext.getContext().getSession().put("token",MD5Util.encryptByMD5(id+""));
+				ActionContext.getContext().getSession().put("token",id+"");
 				userTypeService.updateById(id);
 				status = 1;
-				return LOGIN;
 			}else{
 				tip = "登录码不存在";
-				return ERROR;
 			}
 		}
+		
+		return LOGIN;
 	}
 
 	public long getId() {

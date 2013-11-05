@@ -13,7 +13,7 @@
 	<sql id="select_user_sql_segment">
 		SELECT
 			id, u_id as uid, name, sex, size, color, birth_date as birthDate, nationality, 
-			company, title, certificate,mobile_phone as mobilePhone, telephone, email, 
+			company, title, certificate,mobile_phone as mobilePhone, telephone, email, diet, 
 			contact_name as contactName, contact_phone as contactPhone, contact_email as contactEmail
 		FROM
 			t_user_info
@@ -27,14 +27,14 @@
 			t_user_info
 			(
 				u_id, name, sex, size, color, birth_date, nationality, 
-				company, title, certificate,mobile_phone, telephone, email, 
+				company, title, certificate,mobile_phone, telephone, email, diet,
 				contact_name, contact_phone, contact_email
 			)
 		VALUES
 			(
 				#{uid},#{name},#{sex},#{size},#{color},#{birthDate},
 				#{nationality},#{company},#{title},#{certificate},#{mobilePhone}
-				,#{telephone},#{email},#{contactName},#{contactPhone},#{contactEmail}
+				,#{telephone},#{email},#{diet},#{contactName},#{contactPhone},#{contactEmail}
 			)
 	</insert>
 	
@@ -57,7 +57,7 @@
 			name = #{name}, sex = #{sex}, size = #{size}, color = #{color}, 
 			birth_date = #{birthDate}, nationality = #{nationality}, 
 			company = #{company}, title = #{title}, certificate = #{certificate},
-			mobile_phone = #{mobilePhone}, telephone = #{telephone}, email = #{email}, 
+			mobile_phone = #{mobilePhone}, telephone = #{telephone}, email = #{email}, diet = #{diet}
 			contact_name = #{contactName}, contact_phone = #{contactPhone}, contact_email = #{contactEmail}
 		WHERE
 			id = #{id}

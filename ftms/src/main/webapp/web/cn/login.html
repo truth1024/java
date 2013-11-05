@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>toyota一汽丰田2014年全国经销商大会</title>
+<link href="/web/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/login.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/web/js/main.js"></script>
+<script type="text/javascript">
+function changeValidateCode(obj) {
+	//获取当前的时间作为参数，无具体意义
+	var timenow = new Date().getTime();
+	//每次请求需要一个不同的参数，否则可能会返回同样的验证码
+	//这和浏览器的缓存机制有关系，也可以把页面设置为不缓存，这样就不用这个参数了。
+	obj.src="/web/login_randomNum?d="+timenow;
+};
+$(function(){
+	$('#login').click(function(){
+		$.post(
+			'/web/login_login',
+			$('#login_form').serialize(),
+			function(data){
+				console.log(data);
+				if(data.status == 1){
+					location.href = 'schedule.html';
+				}else{
+					alert(data.tip);
+					$('input[type="text"]').val('');
+				}
+			}
+		);
+	});
+});
+
+</script>
+</head>
+
+<body>
+<div class="top">
+    <span><img src="/web/images/logo.png" /></span>
+    <div class="server"><img src="/web/images/logo_r.png" /><em> >> <font>English</font> | 服务热线400-1177-488</em></div>
+</div>
+<div class="content">
+    <div class="content-box">
+    	<form action="/web/login_login" method="post" id="login_form">
+	        <div class="userlogin">
+	            <h4><img src="/web/images/icon_login_title.png" align="absmiddle" /><em>报名系统登录</em></h4>
+	            <ul>
+	                <li><span>登录码</span><input name="id" type="text" class="input-login" /></li>
+	                <li><font>经销商请使用本店网点编码进行登录 <br />内部人员请使用分配的ID号登录</font></li>
+	                <li><span>验证码</span><input name="rand" type="text" class="input-login-code" /><img src="/web/login_randomNum"  onclick="changeValidateCode(this)" title="点击图片刷新验证码" /></li>
+	                <li class="operate-login"><a id="login" href="javascript:;">登 录</a></li>
+	            </ul>
+	        </div>
+        </form>
+    </div>
+</div>
+<div class="copyright">
+    @2013-2014 一汽丰田经销商大会事务局 版权所有<br />北京xxxxxx公司<br />活动热线：400-1177-488<br />活动邮箱：dfadf@adfad.com
+</div>
+</body>
+</html>

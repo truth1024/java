@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>toyota一汽丰田2014年全国经销商大会</title>
+<link href="/web/css/main.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/registMessage.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/web/js/template.min.js"></script>
+<script type="text/javascript" src="/web/js/template-syntax.js"></script>
+<script type="text/javascript" src="/web/js/template.js"></script>
+<script type="text/javascript" src="/web/js/main.js"></script>
+<script type="text/javascript" src="/web/js/regist.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.post(
+			'/web/user_gainUserType',
+			{'page':'regist'},
+			function(data){
+				console.log(data);
+				if(data.userType.users.length != 0){
+					$('#tags li').eq(data.userType.type-1).show();
+					$('#tagContent1').append($(template.render('regist_basic',data)))
+					.append($(template.render('regist_hotel',null)))
+					.append($(template.render('regist_traffic',null)))
+					.append($(template.render('regist_other',null)));
+					$('select').bind('change',function(){
+						var id = $(this).attr('id');
+						var value = $(this).val();
+						if(value == 3){
+							$('input[name="'+id+'"]').show();
+							$('input[name="user.'+id+'"]').val(0);
+							inputValue(id);
+						}else{
+							$('input[name="'+id+'"]').hide();
+							$('input[name="user.'+id+'"]').val(value);						
+						}
+					});
+				}
+			}
+		);
+		
+		function inputValue(id){
+			$('input[name="'+id+'"]').blur(function(){
+				$('input[name="user.'+id+'"]').val($(this).val());
+			});
+		};
+	});
+</script>
+</head>
+
+<body id="registMessage">
+<div class="top">
+    <span><img src="/web/images/logo.png" /></span>
+    <div class="server"><img src="/web/images/logo_r.png" /><em> >> <font>English</font> | 服务热线400-1177-488</em></div>
+</div>
+<div class="menu">
+    <ul>
+        <li><a href="schedule.html" class="schedule"><img src="/web/images/icon_schedule.png" align="absmiddle" />日程安排</a></li>
+        <li><a href="registMessage.html" class="registMessage"><img src="/web/images/icon_regist.png" align="absmiddle" />注册信息</a></li>
+        <li><a href="messageManage.html" class="messageManage"><img src="/web/images/icon_message.png" align="absmiddle" />信息管理</a></li>
+        <li><a href="travel.html" class="travel"><img src="/web/images/icon_travel.png" align="absmiddle" />旅游路线</a></li>
+        <li><a href="contactUs.html" class="contactUs"><img src="/web/images/icon_contact.png" align="absmiddle" />联系我们</a></li>
+    </ul>
+</div>
+<div id="con">
+    <ul id="tags">
+		<li class="selectTag"><a href="javascript:void(0)">丰田员工</a></li>
+        <li class="selectTag"><a href="javascript:void(0)">经销商</a></li>
+	</ul>
+
+    <div id="tagContent">
+        <div class="tagContent selectTag" id="tagContent1">
+        	
+        </div>
+    </div>
+</div>
+
+<div class="copyright">
+    @2013-2014 一汽丰田经销商大会事务局 版权所有<br />北京xxxxxx公司<br />活动热线：400-1177-488<br />活动邮箱：dfadf@adfad.com
+</div>
+</body>
+</html>

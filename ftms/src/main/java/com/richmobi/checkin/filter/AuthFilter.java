@@ -38,9 +38,9 @@ public class AuthFilter implements Filter{
 			String token = (String) req.getSession().getAttribute("token");
 			log.debug("token : "+token);
 			log.debug(requestURL.indexOf("/login") > -1 || requestURL.indexOf("/js/") > -1
-					|| requestURL.indexOf("/css/") > -1|| requestURL.indexOf("/image/") > -1);
+					|| requestURL.indexOf("/css/") > -1|| requestURL.indexOf("/images/") > -1);
 			if(requestURL.indexOf("/login") > -1 || requestURL.indexOf("/js/") > -1
-					|| requestURL.indexOf("/css/") > -1 || requestURL.indexOf("/image/") > -1){
+					|| requestURL.indexOf("/css/") > -1 || requestURL.indexOf("/images/") > -1){
 				chain.doFilter(request, response);
 			}else{
 				if(StringUtils.isBlank(token)){
@@ -49,14 +49,14 @@ public class AuthFilter implements Filter{
 					if (accept.indexOf("application/json") > -1) {
 						res.setStatus(401);
 					} else {
-						res.sendRedirect("/web/login.html");
+						res.sendRedirect("login.html");
 					}
 				} else {
 					chain.doFilter(request, response);
 				}
 			}
 		} else {
-			request.getRequestDispatcher("/web/error.html");
+			request.getRequestDispatcher("error.html");
 		}
 	}
 
