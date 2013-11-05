@@ -11,7 +11,7 @@
 	<package name="web" namespace="/web" extends="json-default">
 		<action name="login_*" class="com.richmobi.checkin.action.LoginAction" method="{1}">
 			<result name="login" type="redirect">/web/index.html</result>
-			<result name="error">/web/login.html</result>
+			<result name="error" type="redirect">/web/login.html</result>
 			<result type="stream">
 	            <param name="contentType">image/jpeg</param>
 	            <param name="inputName">inputStream</param>
@@ -31,7 +31,7 @@
 	
 	<package name="admin" namespace="/admin" extends="json-default">
 		<action name="excel_*" class="com.richmobi.checkin.action.ExcelAction" method="{1}">
-			<result>/admin/excel.html</result>
+			<result>/admin/excel.jsp</result>
 		</action>
 		<action name="export" class="com.richmobi.checkin.action.ExportAction">
 			<result type="stream">
