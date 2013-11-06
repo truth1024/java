@@ -71,7 +71,7 @@
                     <li><strong>手机号：</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
                     <li><strong>电子邮箱：</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
-                <div class="operate"><a href="javascript:void(0);" class="save">保存</a><a href="#" class="edit">编辑</a></div>\
+                <div class="operate"><a href="javascript:void(0);" class="save">保存</a><a href="" class="edit">编辑</a></div>\
             </div>\
         </div></form>'
 	);
@@ -82,7 +82,7 @@
             <h4>酒店安排</h4>\
 	            <div class="content">\
 	                <ol>\
-	                <li><strong>是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" />否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="#">查看酒店地图</a></div></li>\
+	                <li><strong>是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="#">查看酒店地图</a></div></li>\
 	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist required" /></li>\
 	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist required" /></li>\
 	                <li><strong>住宿类型：</strong><select index="hotel." id="room">\
@@ -141,14 +141,14 @@
                     <li class="back" style="display:none;"><strong>航班号：</strong><input name="traffic.backFlight" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;"><strong>返回日期：</strong><input name="backDate" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;"><strong>返回时间：</strong><input name="backTime" type="text" class="input-regist" /></li>\
-                    <li class="back" style="display:none;"><strong>是否需要接机：</strong><input name="traffic.send" type="radio" value="1" />是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
+                    <li class="back" style="display:none;"><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" />是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
                    </ol>\
                    <div class="tips">\
                     <font style="font-size:12px;"><strong>备注：</strong>1、事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾，需自行安排前往酒店的交通</font>\
                     <font style="padding-left:36px; display:block; width:100%">2、系统关闭后，如有信息更改，请主动联系活动会务组进行信息更新，会务组联系</font>\
                     <font style="padding-left:36px; width:100%">联系方式：电话 13888888888 邮箱 sdfadf@adfad.com</font>\
                 </div>\
-                  <div class="operate"><a href="javascript:void(0);" class="save">保存</a><a href="#" class="edit">编辑</a></div>\
+                  <div class="operate"><a href="javascript:void(0);" class="save">保存</a><a href="" class="edit">编辑</a></div>\
             </div>\
         </div></form>'
 	);
@@ -230,7 +230,7 @@
                     <font style="font-size:12px;">2、报名系统分阶段关闭，系统一旦关闭，网页上将无法进行信息修改，请各位贵宾在填写时务必确保信息的准确性，如系统关闭后仍有信息变动，请主动联系大会事务局告知变动内容</font>\
                     <font style="font-size:12px;">3、大会报名和进行期间，事务局会通过短信和邮件提示和告知大会各项安排以及统一发放温馨提示，届时请您注意查收</font>\
                 </div>\
-                  <div class="operate" style="padding-bottom:20px;"><a href="#" class="save">保存</a><a href="#" class="edit">编辑</a></div>\
+                  <div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save">保存</a><a href="" class="edit">编辑</a></div>\
             </div>\
         </div></form>'
 	);

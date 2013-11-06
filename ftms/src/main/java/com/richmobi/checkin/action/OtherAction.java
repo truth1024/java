@@ -11,7 +11,6 @@ public class OtherAction extends BasicAction {
 	private static final long serialVersionUID = 4710396194153479571L;
 	private static final Logger log = Logger.getLogger(OtherAction.class);
 	
-	
 	private Other other;
 	private int status;
 
@@ -19,24 +18,31 @@ public class OtherAction extends BasicAction {
 	OtherService otherService;
 	
 	public String saveOther(){
-//		if(other.getTouristRoute() != 2){
-//			other.setHasPass(0);
-//			other.setSign(0);
-//			other.setIsVisa(0);
-//			other.setEffectiveDate(null);
-//			other.setTouristBack(0);
-//		}else{
-//			if(other.getHasPass() != 1){
-//				other.setSign(0);
-//				other.setIsVisa(0);
-//				other.setEffectiveDate(null);
-//			}
-//		}
-//		if(other.getTouristRoute() == 3){
-//			
-//		}
-		log.debug(other);
-//		otherService.add(other);
+		Other o = new Other();
+		o.setUid(other.getUid());
+		o.setMeeting(other.getMeeting());
+		o.setTouristRoute(other.getTouristRoute());
+		o.setHasPass(other.getHasPass());
+		switch(other.getTouristRoute()){
+			case 1:
+				break;
+			case 2:
+				o.setTouristBack(other.getTouristBack());
+				if(other.getHasPass() == 1){
+					o.setIsVisa(other.getIsVisa());
+					o.setSign(other.getSign());
+					o.setEffectiveDate(other.getEffectiveDate());
+				}
+				break;
+			case 3:
+				o.setIsPlay(other.getIsPlay());
+				o.setPlayAlmost(other.getPlayAlmost());
+				o.setStature(other.getStature());
+				o.setPlaySize(other.getPlaySize());
+				break;
+		}
+		log.debug(o);
+		otherService.add(o);
 		status = 1;
 		return "saveOther";
 	}

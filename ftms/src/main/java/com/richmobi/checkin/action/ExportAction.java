@@ -162,7 +162,7 @@ public class ExportAction extends BasicAction {
             		cell = row.createCell(4);
             		cell.setCellValue(Utils.sex(u.getSex()));
             		cell = row.createCell(5);
-            		cell.setCellValue(u.getTitle());
+            		cell.setCellValue(Utils.title(u.getTitle()));
             		cell = row.createCell(6);
             		cell.setCellValue(Utils.dateFormat(u.getBirthDate()));
             		cell = row.createCell(7);
@@ -185,8 +185,10 @@ public class ExportAction extends BasicAction {
             		cell = row.createCell(15);
             		cell.setCellValue(cers[1]);
             		cell = row.createCell(16);
-            		cell.setCellValue(u.getNationality());
-            		if(h != null){            			
+            		cell.setCellValue(Utils.nationality(u.getNationality()));
+            		cell = row.createCell(45);
+        			cell.setCellValue(Utils.diet(u.getDiet()));
+            		if(h != null){
             			cell = row.createCell(17);
             			cell.setCellValue(Utils.room(h.getRoom()));
             			cell = row.createCell(18);
@@ -202,7 +204,7 @@ public class ExportAction extends BasicAction {
             		}
             		if(t != null){            			
             			cell = row.createCell(23);
-            			cell.setCellValue(t.getDepartureTrafficTool());
+            			cell.setCellValue(Utils.trafficTool(t.getDepartureTrafficTool()));
             			cell = row.createCell(24);
             			cell.setCellValue(Utils.dateFormat(t.getArrivalDate()));
             			cell = row.createCell(25);
@@ -214,7 +216,7 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(28);
             			cell.setCellValue(Utils.yseOrNo(t.getPickUp()));
             			cell = row.createCell(29);
-            			cell.setCellValue(t.getBackTrafficTool());
+            			cell.setCellValue(Utils.trafficTool(t.getBackTrafficTool()));
             			cell = row.createCell(30);
             			cell.setCellValue(Utils.dateFormat(t.getBackDate()));
             			cell = row.createCell(31);
@@ -230,7 +232,7 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(35);
             			cell.setCellValue(Utils.route(o.getTouristRoute()));
             			cell = row.createCell(36);
-            			cell.setCellValue(Utils.yseOrNo(o.getHasPass()));
+            			cell.setCellValue(Utils.hasPass(o.getHasPass()));
             			cell = row.createCell(37);
             			cell.setCellValue("");
             			cell = row.createCell(38);
@@ -244,11 +246,9 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(42);
             			cell.setCellValue(o.getPlayAlmost());
             			cell = row.createCell(43);
-            			cell.setCellValue(o.getStature()+"cm");
+            			cell.setCellValue(Utils.stature(o.getStature()));
             			cell = row.createCell(44);
             			cell.setCellValue(Utils.playSize(o.getPlaySize()));
-            			cell = row.createCell(45);
-            			cell.setCellValue(o.getDiet());
             			cell = row.createCell(47);
             			cell.setCellValue("");
             		}

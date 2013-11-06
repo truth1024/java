@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.richmobi.checkin.constant.Constant;
+
 public class Utils {
 
 	private static String phoneBasic = "((?:(?:13[0-9])|(?:15[^4,\\D])|(?:18[0,2,5-9]))\\d{8})";
@@ -57,45 +59,61 @@ public class Utils {
 	}
 	
 	public static String basicFormat(Date myDate,String fromatString){
-
-	     SimpleDateFormat myFormat = new SimpleDateFormat(fromatString); 
-	     return myFormat .format(myDate);
+		if(myDate != null){
+			SimpleDateFormat myFormat = new SimpleDateFormat(fromatString);
+			return myFormat .format(myDate);
+		}else{
+			return "";
+		}
+	}
+	
+	public static String nationality(String nationality){
+		if(nationality.matches("\\d{1}")){
+			int cerInt = Integer.parseInt(nationality);
+			return Constant.nationArr[cerInt-1].getName();
+		}else{
+			return nationality;
+		}
+	}
+	
+	public static String title(String title){
+		if(title != null && !title.equals("") && title.matches("\\d{1}")){
+			int cerInt = Integer.parseInt(title);
+			return Constant.titleArr[cerInt-1].getName();
+		}else{
+			return title;
+		}
+	}
+	
+	public static String trafficTool(String trafficTool){
+		if(trafficTool.matches("\\d{1}")){
+			int cerInt = Integer.parseInt(trafficTool);
+			return Constant.trafficArr[cerInt-1].getName();
+		}else{
+			return trafficTool;
+		}
 	}
 	
 	public static String cer(String cer){
-		String name = "";
-		int cerInt = Integer.parseInt(cer);
-		switch(cerInt){
-		case 1 : name = "身份证";
-			break;
-		case 2 : name = "护照";
-			break;
+		if(cer.matches("\\d{1}")){
+			int cerInt = Integer.parseInt(cer);
+			return Constant.cerArr[cerInt-1].getName();
+		}else{
+			return cer;
 		}
-		return name;
 	}
 	
 	public static String yseOrNo(int yon){
-		return (yon == 1 ? "是" : "否");
+		return (yon == 1 ? "是" :(yon == 2 ? "否" : ""));
 	}
 	
 	public static String route(int route){
-		String name = "";
-		switch(route){
-		case 1 : name = "A线路";
-			break;
-		case 2 : name = "B线路";
-			break;	
-		case 3 : name = "C线路";
-			break;
-		default:
-				name = "默认";
-			break;
-		}
-		return name;
+		return Constant.touristArr[route-1].getName();
+		
 	}
 	
 	public static String gol(int gol){
-		return (gol == 1 ? "G签" : "L签");
+		return (gol == 1 ? "G签" : (gol == 2 ? "L签" : ""));
 	}
 	
 	public static String sex(int sex){
@@ -103,23 +121,27 @@ public class Utils {
 	}
 	
 	public static String playSize(int size){
-		String name = "";
-		switch(size){
-		case 1 : name = "S";
-			break;
-		case 2 : name = "M";
-			break;	
-		case 3 : name = "L";
-			break;
-		default:
-				name = "XS";
-			break;
+		return (size == 0 ? "" : Constant.sizeArr[size-1].getName());
+	}
+	
+	public static String diet(String diet){
+		if(diet != null && !diet.equals("") && diet.matches("\\d{1}")){
+			int cerInt = Integer.parseInt(diet);
+			return Constant.dietArr[cerInt-1].getName();
+		}else{
+			return diet;
 		}
-		return name;
+	}
+	
+	public static String stature(int stature){
+		return (stature == 0 ? "" : stature+"CM");
 	}
 	
 	public static String room(int room){
-		return (room == 1 ? "一人一间" : "二人一间");
-		
+		return Constant.roomArr[room-1].getName();
+	}
+	
+	public static String hasPass(int hasPass){
+		return (hasPass == 0 ? "" : Constant.passArr[hasPass-1].getName());
 	}
 }

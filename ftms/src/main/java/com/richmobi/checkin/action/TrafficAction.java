@@ -29,9 +29,16 @@ public class TrafficAction extends BasicAction {
 	public String saveTraffic() throws Exception{
 		log.debug(traffic);
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-ddHH:mm");
-		log.debug(format1.parse(arrivalDate+arrivalTime));
-		traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));
-		traffic.setBackDate(format1.parse(backDate+backTime));
+		if(traffic.getDepartureTrafficTool().equals("1")){
+			traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));						
+		}else{
+			traffic.setPickUp(0);
+		}
+		if(traffic.getBackTrafficTool().equals("1")){
+			traffic.setBackDate(format1.parse(backDate+backTime));			
+		}else{
+			traffic.setSend(0);
+		}
 		trafficService.add(traffic);
 		status = 1;
 		return "saveTraffic";

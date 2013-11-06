@@ -4,7 +4,7 @@ $(function(){
 		'/web/user_gainUserType',
 		{'page':'regist'},
 		function(data){
-			console.log(data);
+			// console.log(data);
 			var type = data.userType.type;
 			if(data.userType.users.length == 0){
 				$('#tags li').eq(type-1).show();
@@ -29,19 +29,19 @@ $(function(){
 					if(id == 'departureTrafficTool'){
 						if(value == 1){
 							$('.depar').show();
-							$('.depar input').addClass('required');
+							$('.depar input[type="text"]').addClass('required');
 						}else{
 							$('.depar').hide();
-							$('.depar input').removeClass('required').val('');
+							$('.depar input[type="text"]').removeClass('required').val('');
 						}
 					}
 					if(id == 'backTrafficTool'){
 						if(value == 1){
 							$('.back').show();
-							$('.back input').addClass('required');
+							$('.back input[type="text"]').addClass('required');
 						}else{
 							$('.back').hide();
-							$('.back input').removeClass('required').val('');
+							$('.back input[type="text"]').removeClass('required').val('');
 						}
 					}
 					
@@ -81,7 +81,7 @@ $(function(){
 					
 				});
 				//日期时间初始化
-				dateInit();
+				dateInit(type);
 			}else{
 				$('#tagContent1').append('已注册');
 			}
@@ -95,7 +95,7 @@ $(function(){
 				'/web/user_saveUser',
 				$('#regist_basic').serialize(),
 				function(data){
-					console.log(data);
+					// console.log(data);
 					if(data.status == 1){
 						alert('保存成功');
 						$('#regist_basic').remove();
@@ -132,13 +132,13 @@ $(function(){
 		}
 	});
 	
-	//酒店信息保存功能
+	//交通信息保存功能
 	$('body').delegate('#regist_traffic .save','click',function(){
 		if($('input[name="traffic.uid"]').val() == '' || $('input[name="traffic.uid"]').val() == 0){
 			alert('请先填写用户信息并保存');
 			return false;
 		}
-		console.log(verify('#regist_traffic'));
+		// console.log(verify('#regist_traffic'));
 		if(verify('#regist_traffic')){
 			$.post(
 				'/web/traffic_saveTraffic',
@@ -162,7 +162,7 @@ $(function(){
 			alert('请先填写用户信息并保存');
 			return false;
 		}
-		console.log(verify('#regist_other'));
+		// console.log(verify('#regist_other'));
 		if(verify('#regist_other')){
 			$.post(
 				'/web/other_saveOther',
@@ -183,10 +183,11 @@ $(function(){
 	//是否指定同住
 	$('body').delegate('input[name="hotel.isWith"]','click',function(){
 		if($('input[name="hotel.isWith"]:checked').val() == 1){
-			$('#regist_hotel .hide').addClass('required').show();
-			
+			$('#regist_hotel .hide').show();
+			$('#regist_hotel .hide input').addClass('required');
 		}else{
-			$('#regist_hotel .hide').removeClass('required').hide();
+			$('#regist_hotel .hide').hide();
+			$('#regist_hotel .hide input').removeClass('required');
 		}
 	});
 	
@@ -197,7 +198,7 @@ $(function(){
 		}else{
 			$('input[name="other.hasPass"]').removeClass('required');
 			$('input[name="other.hasPass"]').val(0);
-			$('#hasPass option[value="0"]').Attr('selected','selected');
+			$('#hasPass option[value="0"]').get(0).selected = true;
 		}
 		if($('#hasPass').val() == 1 && $('input[name="pass"]').get(0).checked){
 			$('#regist_other .showMessage:eq(0)').show();
@@ -220,7 +221,7 @@ function inputValue(prefix,id){
 function verify(str){
 	var flag = true;
 	$(str+' .required').each(function(){
-		console.log($(this).attr('name'),$(this).val());
+		// console.log($(this).attr('name'),$(this).val());
 		if($(this).val() == '' || $(this).val() == 0){
 			flag = false;
 			return false;
@@ -258,24 +259,24 @@ function dateInit(type){
 		};
 	if(type == 1){
 		$('[name="hotel.inDate"]').datepicker({
-			onSelect:function(dateText,inst){  
-			       $('[name="hotel.outDate"]').datepicker("option","minDate",dateText);  
+			onSelect:function(dateText,inst){
+			       $('[name="hotel.outDate"]').datepicker("option","minDate",dateText);
 			    }
 		});
 		$('[name="hotel.outDate"]').datepicker({
 			onSelect:function(dateText,inst){
-		        $('[name="hotel.inDate"]').datepicker("option","maxDate",dateText);  
+		        $('[name="hotel.inDate"]').datepicker("option","maxDate",dateText);
 		    }
 		});
 		$('[name="arrivalDate"]').datepicker({
-			onSelect:function(dateText,inst){  
-			       $('[name="backDate"]').datepicker("option","minDate",dateText);  
+			onSelect:function(dateText,inst){
+			       $('[name="backDate"]').datepicker("option","minDate",dateText);
 			    }
 		});
 		$('[name="arrivalTime"]').timepicker();
 		$('[name="backDate"]').datepicker({
 			onSelect:function(dateText,inst){
-		        $('[name="arrivalDate"]').datepicker("option","maxDate",dateText);  
+		        $('[name="arrivalDate"]').datepicker("option","maxDate",dateText);
 		    }
 		});
 		$('[name="backTime"]').timepicker();
