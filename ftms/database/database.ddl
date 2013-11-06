@@ -93,6 +93,7 @@ CREATE TABLE `t_user_info` (
   `mobile_phone` varchar(20) DEFAULT NULL,
   `telephone` varchar(30) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
+  `diet` varchar(50) DEFAULT NULL,
   `contact_name` varchar(100) DEFAULT NULL,
   `contact_phone` varchar(20) DEFAULT NULL,
   `contact_email` varchar(100) DEFAULT NULL,

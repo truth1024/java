@@ -26,7 +26,7 @@ public class UserAction extends BasicAction {
 	private List<Arr[]> selectArr;
 	private User user;
 	private String cerNum;
-	
+	private long uid;
 	
 	@Autowired
 	UserTypeService userTypeService;
@@ -40,18 +40,29 @@ public class UserAction extends BasicAction {
 		userType = userTypeService.getById(id);
 		if(page != null && page.equals("regist")){
 			selectArr = new ArrayList<Arr[]>();
-			selectArr.add(Constant.titleArr);
+			if(userType.getType() == 1){
+				selectArr.add(Constant.companyArr);
+			}else{
+				selectArr.add(Constant.titleArr);
+			}
 			selectArr.add(Constant.nationArr);
 			selectArr.add(Constant.cerArr);
 			selectArr.add(Constant.dietArr);
+			selectArr.add(Constant.roomArr);
+			selectArr.add(Constant.trafficArr);
+			selectArr.add(Constant.touristArr);
+			selectArr.add(Constant.passArr);
+			selectArr.add(Constant.sizeArr);
 		}
 		return "userType";
 	}
 
 	public String saveUser(){
 		log.debug("user : "+user);
-		user.setCertificate(cerNum+"#"+user.getCertificate());
+		user.setCertificate(user.getCertificate()+"#"+cerNum);
 		userSevice.add(user);
+		uid = user.getId();
+		log.debug("uid : "+uid);
 		status = 1;
 		return "saveUser";
 	}
@@ -97,5 +108,11 @@ public class UserAction extends BasicAction {
 	}
 	public void setCerNum(String cerNum) {
 		this.cerNum = cerNum;
+	}
+	public long getUid() {
+		return uid;
+	}
+	public void setUid(long uid) {
+		this.uid = uid;
 	}
 }

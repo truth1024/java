@@ -3,18 +3,28 @@ package com.richmobi.checkin.action;
 import java.io.File;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.richmobi.checkin.domain.Hotel;
+import com.richmobi.checkin.service.HotelService;
 import com.richmobi.checkin.util.UploadUtil;
 
 public class HotelAction extends BasicAction {
 
 	private static final long serialVersionUID = -4987893548300076883L;
-    
+    private static final Logger log = Logger.getLogger(HotelAction.class);
+	
 	private File file; 
 	private String fileFileName; 
 	private String fileFileContentType; 
 	private String message = "上传成功";
+	private int status;
+	private Hotel hotel;
+	
+	@Autowired
+	HotelService hotelService;
 	
     public String upload(){
     	String rootPath = ServletActionContext.getServletContext().getRealPath("")+"/uploadImage/";
@@ -44,6 +54,12 @@ public class HotelAction extends BasicAction {
 		}
     	return SUCCESS;
     }
+    
+    public String saveHotel(){
+    	hotelService.add(hotel);
+    	status = 1;
+    	return "saveHotel";
+    }
 
     public String getMessage() { 
 		return message; 
@@ -69,5 +85,16 @@ public class HotelAction extends BasicAction {
 	public void setFileFileContentType(String fileFileContentType) {
 		this.fileFileContentType = fileFileContentType;
 	}
-    
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
 }

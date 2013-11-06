@@ -5,7 +5,7 @@ padding: 0px;
 }
 A {blr:expression(this.onFocus=this.close());}
 A {blr:expression(this.onFocus=this.blur());} 
-A:focus{outline:0;} /*去除Firefox中的链接虚线框*/
+A:focus{outline:0;}
 input,button,select,textarea{ outline:none;}
 textarea{ font-size:13px; resize:none;}
 
@@ -56,3 +56,5 @@ li { list-style:none}
 .userMessage span { float:left; margin-right:15px;}
 .userMessage font { float:right; font-size:12px;}
 .userMessage font a { font-style:normal; margin-left:20px;}
+
+.hide{display:none;}
