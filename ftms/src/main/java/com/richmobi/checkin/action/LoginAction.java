@@ -58,6 +58,12 @@ public class LoginAction extends BasicAction {
 		return LOGIN;
 	}
 
+	public String logout(){
+		ActionContext.getContext().getSession().remove("token");
+		status = 1;
+		return "logout";
+	}
+	
 	public long getId() {
 		return id;
 	}

@@ -38,7 +38,7 @@ public class UserAction extends BasicAction {
 		log.debug("id : "+id);
 		log.debug(Constant.titleArr[0].getName());
 		userType = userTypeService.getById(id);
-		if(page != null && page.equals("regist")){
+		if(page != null && !page.equals("")){
 			selectArr = new ArrayList<Arr[]>();
 			if(userType.getType() == 1){
 				selectArr.add(Constant.companyArr);

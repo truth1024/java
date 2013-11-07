@@ -15,6 +15,18 @@
 					$('#user_type').text(userTypeArr[data.userType.type-1]);
 				}
 			);
+			
+			$('#logout').click(function(){
+				$.post(
+					'/web/login_logout',
+					function(data){
+						if(data.status == 1){
+							location.href = 'login.html';
+						}
+					}
+				);
+			});
+			
 	});
 </script>
 </head>
@@ -34,7 +46,7 @@
     </ul>
 </div>
 <div class="userMessage">
-    <span>活动热线：400-1177-488</span><span>活动邮箱：asdfasdfa@adfad.com</span><font><span id="user_type"></span><a href="#">[退出]</a></em></font>
+    <span>活动热线：400-1177-488</span><span>活动邮箱：asdfasdfa@adfad.com</span><font><span id="user_type"></span><a id="logout" href="javascript:void(0);">[退出]</a></em></font>
 </div>
 <div class="content">
     <div class="content-box left">
