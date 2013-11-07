@@ -27,6 +27,7 @@ public class UserAction extends BasicAction {
 	private User user;
 	private String cerNum;
 	private long uid;
+	private String method;
 	
 	@Autowired
 	UserTypeService userTypeService;
@@ -60,7 +61,11 @@ public class UserAction extends BasicAction {
 	public String saveUser(){
 		log.debug("user : "+user);
 		user.setCertificate(user.getCertificate()+"#"+cerNum);
-		userSevice.add(user);
+		if(method.equals("submit")){
+			userSevice.add(user);
+		}else{
+			userSevice.update(user);
+		}
 		uid = user.getId();
 		log.debug("uid : "+uid);
 		status = 1;
@@ -114,5 +119,11 @@ public class UserAction extends BasicAction {
 	}
 	public void setUid(long uid) {
 		this.uid = uid;
+	}
+	public String getMethod() {
+		return method;
+	}
+	public void setMethod(String method) {
+		this.method = method;
 	}
 }

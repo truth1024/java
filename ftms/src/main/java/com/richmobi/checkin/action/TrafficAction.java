@@ -22,6 +22,7 @@ public class TrafficAction extends BasicAction {
 	private String backDate;
 	private String backTime;
 	private int status;
+	private String method;
 	
 	@Autowired
 	TrafficService trafficService;
@@ -30,16 +31,26 @@ public class TrafficAction extends BasicAction {
 		log.debug(traffic);
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-ddHH:mm");
 		if(traffic.getDepartureTrafficTool().equals("1")){
-			traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));						
+			traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));
 		}else{
 			traffic.setPickUp(0);
+			traffic.setDepartureCity("");
+			traffic.setArrivalDate(null);
+			traffic.setDepartureFlight("");
 		}
 		if(traffic.getBackTrafficTool().equals("1")){
 			traffic.setBackDate(format1.parse(backDate+backTime));			
 		}else{
 			traffic.setSend(0);
+			traffic.setBackCity("");
+			traffic.setBackDate(null);
+			traffic.setBackFlight("");
 		}
-		trafficService.add(traffic);
+		if(method == null || method.equals("") || method.equals("submit")){
+			trafficService.add(traffic);			
+		}else{
+			trafficService.update(traffic);
+		}
 		status = 1;
 		return "saveTraffic";
 	}
@@ -80,5 +91,11 @@ public class TrafficAction extends BasicAction {
 	}
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	public String getMethod() {
+		return method;
+	}
+	public void setMethod(String method) {
+		this.method = method;
 	}
 }

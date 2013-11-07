@@ -13,7 +13,8 @@ public class OtherAction extends BasicAction {
 	
 	private Other other;
 	private int status;
-
+	private String method;
+	
 	@Autowired
 	OtherService otherService;
 	
@@ -22,12 +23,12 @@ public class OtherAction extends BasicAction {
 		o.setUid(other.getUid());
 		o.setMeeting(other.getMeeting());
 		o.setTouristRoute(other.getTouristRoute());
-		o.setHasPass(other.getHasPass());
 		switch(other.getTouristRoute()){
 			case 1:
 				break;
 			case 2:
 				o.setTouristBack(other.getTouristBack());
+				o.setHasPass(other.getHasPass());
 				if(other.getHasPass() == 1){
 					o.setIsVisa(other.getIsVisa());
 					o.setSign(other.getSign());
@@ -42,7 +43,11 @@ public class OtherAction extends BasicAction {
 				break;
 		}
 		log.debug(o);
-		otherService.add(o);
+		if(method == null || method.equals("") || method.equals("submit")){
+			otherService.add(o);			
+		}else{
+			otherService.update(o);
+		}
 		status = 1;
 		return "saveOther";
 	}
@@ -59,6 +64,10 @@ public class OtherAction extends BasicAction {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
-	
+	public String getMethod() {
+		return method;
+	}
+	public void setMethod(String method) {
+		this.method = method;
+	}
 }

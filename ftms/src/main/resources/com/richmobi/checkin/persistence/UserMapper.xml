@@ -57,7 +57,7 @@
 			name = #{name}, sex = #{sex}, size = #{size}, color = #{color}, 
 			birth_date = #{birthDate}, nationality = #{nationality}, 
 			company = #{company}, title = #{title}, certificate = #{certificate},
-			mobile_phone = #{mobilePhone}, telephone = #{telephone}, email = #{email}, diet = #{diet}
+			mobile_phone = #{mobilePhone}, telephone = #{telephone}, email = #{email}, diet = #{diet},
 			contact_name = #{contactName}, contact_phone = #{contactPhone}, contact_email = #{contactEmail}
 		WHERE
 			id = #{id}

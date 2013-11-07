@@ -22,6 +22,7 @@ public class HotelAction extends BasicAction {
 	private String message = "上传成功";
 	private int status;
 	private Hotel hotel;
+	private String method;
 	
 	@Autowired
 	HotelService hotelService;
@@ -56,7 +57,16 @@ public class HotelAction extends BasicAction {
     }
     
     public String saveHotel(){
-    	hotelService.add(hotel);
+    	if(hotel.getIsWith() == 2){
+    		hotel.setWithName("");
+    		hotel.setWithShop("");
+    	}
+    	log.debug(hotel);
+    	if(method == null || method.equals("") || method.equals("submit")){
+    		hotelService.add(hotel);
+    	}else{
+    		hotelService.update(hotel);
+    	}
     	status = 1;
     	return "saveHotel";
     }
@@ -96,5 +106,11 @@ public class HotelAction extends BasicAction {
 	}
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+	public String getMethod() {
+		return method;
+	}
+	public void setMethod(String method) {
+		this.method = method;
 	}
 }
