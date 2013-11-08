@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>toyota一 Team Faw Toyota 2014</title>
+<link href="/web/css/main_en.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/schedule_en.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/web/js/main.js"></script>
+<script type="text/javascript">
+	$(function(){
+			$.post(
+				'/web/user_gainUserType',
+				function(data){
+					$('#user_type').text(userTypeArr[lang][data.userType.type-1]);
+				}
+			);
+			
+			$('#logout').click(function(){
+				$.post(
+					'/web/login_logout',
+					function(data){
+						if(data.status == 1){
+							location.href = 'login.html';
+						}
+					}
+				);
+			});
+			
+	});
+</script>
+</head>
+
+<body id="schedule">
+<div class="top">
+    <span><img src="/web/images/logo.png" /></span>
+    <div class="server"><img src="/web/images/logo_r.png" /><em> >> <font id="changeLang">中文</font> | Service hotline 400-1177-488</em></div>
+</div>
+<div class="menu">
+    <ul>
+        <li><a href="schedule.html" class="schedule"><img src="/web/images/icon_schedule.png" align="absmiddle" />Schedule</a></li>
+        <li><a href="registMessage.html" class="registMessage"><img src="/web/images/icon_regist.png" align="absmiddle" />Registration Information</a></li>
+        <li><a href="messageManage.html" class="messageManage"><img src="/web/images/icon_message.png" align="absmiddle" /> Information Management</a></li>
+        <li><a href="travel.html" class="travel"><img src="/web/images/icon_travel.png" align="absmiddle" />Tourist Routes</a></li>
+        <li><a href="contactUs.html" class="contactUs"><img src="/web/images/icon_contact.png" align="absmiddle" />Contact Us</a></li>
+    </ul>
+</div>
+<div class="userMessage">
+    <span>Service hotline 400-1177-488</span><span>Email：asdfasdfa@adfad.com</span><font>User Name <span id="user_type" style="float:none;"></span><a id="logout" href="javascript:void(0);">[Logout]</a></em></font>
+</div>
+<div class="content">
+    <div class="content-box">
+        <h4>Basic information of the convention</h4>
+        <ul>
+            <li><strong>Conference date: </strong>January 15th, 2014 to January 18th, 2014</li>
+            <li><strong>Place of regional conference:</strong> Dongguan Jiahua Hotel</li>
+            <li><strong>Place of DLR conference：</strong>Block C,Hall 3,Guangdong Modern International Exhibition Center, Dongguan</li>
+            <li><strong>Place of banquet:</strong> banquet hall of Dongguan Jiahua Hotel</li>
+            <li>January 15th: check in</li>
+            <li>January 16th: conference</li>
+            <li>January 17th: commercial activities</li>
+            <li>January 18th: return</li>
+        </ul>
+    </div>
+    <div class="content-box">
+        <h4>Inviting plan</h4>
+        <span>Outlets opened before December 31, 2013: one president and one general manager<br />
+            Outlets finishing affirmation before December 31, 2013: one president</span>
+    </div>
+    <div style="clear:both"></div>
+    <div class="content-agenda">
+        <h4>Conference schedule</h4>
+        <table border="0" cellspacing="2" cellpadding="0" class="table">
+          <tr>
+            <th width="54" scope="col">Date</th>
+            <th width="142" scope="col"><strong>January 15th (Wednesday)</strong></th>
+            <th width="159" scope="col"><strong>January 16th (Thursday)</strong></th>
+            <th width="159" scope="col"><strong>January 17th <br />(Friday)</strong></th>
+            <th width="162" scope="col"><strong>January 18th (Saturday)</strong></th>
+          </tr>
+          <tr>
+            <td>a.m.</td>
+            <td rowspan="3">Dongguan</td>
+            <td>09:00-12:00 regional conference</td>
+            <td rowspan="3">Commercial activities</td>
+            <td rowspan="3">Return</td>
+          </tr>
+          <tr>
+            <td class="grey">p.m.</td>
+            <td class="grey">15:00-17:00 DLR conference</td>
+          </tr>
+          <tr>
+            <td>Evening</td>
+            <td>18:00-20:00 reception dinner</td>
+          </tr>
+        </table>
+    </div>
+    <div class="content-box">
+        <h4>Reception arrangement</h4>
+        <ul>
+            <li><strong>Hotel arrangement:</strong> Dongguan Jiahua Hotel</li>
+            <li style="padding-left:24px;"><strong>Address: </strong>No.1 Furniture Road, Houjie Town, Dongguan City, Guangdong Province</li>
+            <li><strong>Dress code:</strong></li>
+            <li style="padding-left:24px;">  <strong>conference: </strong>formal wears</li>
+            <li style="padding-left:24px;"><strong>Banquet and commercial activities:</strong> casual clothing</li>
+        </ul>
+    </div>
+    <div style="clear:both"></div>
+    <div class="content-agenda">
+        <h4>Airport pick-up information tips:</h4>
+        <table border="0" cellspacing="2" cellpadding="0" class="table" width="100%">
+          <tr>
+            <th colspan="4" class="grey">The organizing committee will offer airport pick-up and drop-off service of following routes on January 15th and 18th respectively:</th>
+          </tr>
+          <tr>
+            <td>Starting point</td>
+            <td>Destination</td>
+            <td>Distance</td>
+            <td>Estimated time</td>
+          </tr>
+          <tr>
+            <td class="grey">Shenzhen Bao’an International airport</td>
+            <td class="grey">Dongguan Jiahua Hotel</td>
+            <td class="grey">60 kilometers</td>
+            <td class="grey">60 minutes</td>
+          </tr>
+          <tr>
+            <td>Guangzhou Baiyun International airport</td>
+            <td>Dongguan Jiahua Hotel</td>
+            <td>133 kilometers</td>
+            <td>100 minutes</td>
+          </tr>
+        </table>
+    </div>
+    <div class="content-agenda">
+        <h4>Undertaking of the costs</h4>
+        <ul>
+            <li>FAW Toyota Motor Sales Co., LTD will bear the correlative charges of conferences during the activities, including the following items:</li>
+            <li>(1) conferences and banquet in Dongguan</li>
+            <li>(2)	meals during the established meeting schedule in Dongguan</li>
+            <li>(3)	correlative charges of the commercial activities on January 17th</li>
+            <li>(4)	bus transferring between airport and hotel on January 15th and 18th </li>
+            <li style="padding-top:22px;">You will undertake the round-trip transport expense from your city to Guangzhou/Shenzhen within Chinese territory, hotel expense in Dongguan and other personal consumption of yours by yourself.</li>
+        </ul>
+    </div>
+</div>
+<div class="copyright">
+    @2013-2014 一汽丰田经销商大会事务局 版权所有<br />北京xxxxxx公司<br />活动热线：400-1177-488<br />活动邮箱：dfadf@adfad.com
+</div>
+</body>
+</html>

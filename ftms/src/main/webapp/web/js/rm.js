@@ -1,5 +1,9 @@
 $(function(){
 	
+	$('body').delegate('.input-eat','focus',function(){
+		inputValue($(this).prev().attr('index'),$(this).prev().attr('id'));
+	});
+	
 	$('body').delegate('select','change',function(){
 		var id = $(this).attr('id');
 		var prefix = $(this).attr('index');
@@ -7,7 +11,7 @@ $(function(){
 		if(value == 20){
 			$('input[name="'+id+'"]').show();
 			$('input[name="'+prefix+id+'"]').val(($('input[name="'+id+'"]').val() == '' ? 0 : $('input[name="'+id+'"]').val()));
-			inputValue(prefix,id);
+//			inputValue(prefix,id);
 		}else{
 			$('input[name="'+id+'"]').hide();
 			$('input[name="'+prefix+id+'"]').val(value);
@@ -72,6 +76,7 @@ $(function(){
 	//基本信息保存功能
 	$('body').delegate('#regist_basic .save','click',function(){
 		var method = $(this).attr('index');
+		var name = $(this).attr('name');
 		if(verify('#regist_basic')){
 			$.post(
 				'/web/user_saveUser',
@@ -79,53 +84,59 @@ $(function(){
 				function(data){
 					// console.log(data);
 					if(data.status == 1){
-						alert('保存成功');
-						if(method == 'submit'){
+						alert(tipArr[lang].saveSuccess);
+						if(method == 'submit' && name == null){
 							$('#regist_basic').remove();
 							$('[name$=".uid"]').val(data.uid);
-							location.href = '#top';							
+							location.href = '#top';
+						}else{
+							getMessage(name);
 						}
 					}
 				}
 			);
 		}else{
-			alert('请填写完整');
+			alert(tipArr[lang].infoLack);
 		}
 	});
 	
 	//酒店信息保存功能
 	$('body').delegate('#regist_hotel .save','click',function(){
 		if($('input[name="hotel.uid"]').val() == '' || $('input[name="hotel.uid"]').val() == 0){
-			alert('请先填写用户信息并保存');
+			alert(tipArr[lang].userLack);
 			return false;
 		}
 		var method = $(this).attr('index');
+		var name = $(this).attr('name');
 		if(verify('#regist_hotel')){
 			$.post(
 				'/web/hotel_saveHotel',
 				$('#regist_hotel').serialize()+'&method='+method,
 				function(data){
 					if(data.status == 1){
-						alert('保存成功');
-						if(method == 'submit'){
+						alert(tipArr[lang].saveSuccess);
+						if(method == 'submit' && name == null){
 							$('#regist_hotel').remove();
 							location.href = '#top';
+						}else{
+							getMessage(name);
 						}
 					}
 				}
 			);
 		}else{
-			alert('请填写完整');
+			alert(tipArr[lang].infoLack);
 		}
 	});
 	
 	//交通信息保存功能
 	$('body').delegate('#regist_traffic .save','click',function(){
 		if($('input[name="traffic.uid"]').val() == '' || $('input[name="traffic.uid"]').val() == 0){
-			alert('请先填写用户信息并保存');
+			alert(tipArr[lang].userLack);
 			return false;
 		}
 		var method = $(this).attr('index');
+		var name = $(this).attr('name');
 		// console.log(verify('#regist_traffic'));
 		if(verify('#regist_traffic')){
 			$.post(
@@ -133,26 +144,29 @@ $(function(){
 				$('#regist_traffic').serialize()+'&method='+method,
 				function(data){
 					if(data.status == 1){
-						alert('保存成功');
-						if(method == 'submit'){
+						alert(tipArr[lang].saveSuccess);
+						if(method == 'submit' && name == null){
 							$('#regist_traffic').remove();
 							location.href = '#top';
+						}else{
+							getMessage(name);
 						}
 					}
 				}
 			);
 		}else{
-			alert('请填写完整');
+			alert(tipArr[lang].infoLack);
 		}
 	});
 	
 	//其他信息保存功能
 	$('body').delegate('#regist_other .save','click',function(){
 		if($('input[name="other.uid"]').val() == '' || $('input[name="other.uid"]').val() == 0){
-			alert('请先填写用户信息并保存');
+			alert(tipArr[lang].userLack);
 			return false;
 		}
 		var method = $(this).attr('index');
+		var name = $(this).attr('name');
 		// console.log(verify('#regist_other'));
 		if(verify('#regist_other')){
 			$.post(
@@ -160,16 +174,18 @@ $(function(){
 				$('#regist_other').serialize()+'&method='+method,
 				function(data){
 					if(data.status == 1){
-						alert('保存成功');
-						if(method == 'submit'){
+						alert(tipArr[lang].saveSuccess);
+						if(method == 'submit' && name == null){
 							$('#regist_other').remove();
 							location.href = '#top';
+						}else{
+							getMessage(name);
 						}
 					}
 				}
 			);
 		}else{
-			alert('请填写完整');
+			alert(tipArr[lang].infoLack);
 		}
 	});
 	
@@ -206,6 +222,7 @@ $(function(){
 //放入隐藏域
 function inputValue(prefix,id){
 	$('input[name="'+id+'"]').blur(function(){
+		console.log($(this).val());
 		$('input[name="'+prefix+id+'"]').val($(this).val());
 	});
 };
@@ -225,6 +242,9 @@ function verify(str){
 
 //时期时间控件初始化
 function dateInit(type){
+	$.datepicker.setDefaults({
+		dateFormat: 'yy-mm-dd'
+	});
 	//生日日期
 	$('[name="user.birthDate"]').datepicker({
 		changeYear:true,

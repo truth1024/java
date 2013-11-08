@@ -1,8 +1,12 @@
 $(function(){
+	getRegist();
+});
+
+function getRegist(){
 	//初始化
 	$.post(
 		'/web/user_gainUserType',
-		{'page':'regist'},
+		{'page':'regist','lang':lang},
 		function(data){
 			// console.log(data);
 			var type = data.userType.type;
@@ -15,8 +19,8 @@ $(function(){
 				//日期时间初始化
 				dateInit(type);
 			}else{
-				$('#tagContent1').append('已注册');
+				$('#tagContent1').append(tipArr[lang].registered);
 			}
 		}
 	);
-});
+}

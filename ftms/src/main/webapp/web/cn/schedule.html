@@ -12,7 +12,7 @@
 			$.post(
 				'/web/user_gainUserType',
 				function(data){
-					$('#user_type').text(userTypeArr[data.userType.type-1]);
+					$('#user_type').text(userTypeArr[lang][data.userType.type-1]);
 				}
 			);
 			
@@ -34,7 +34,7 @@
 <body id="schedule">
 <div class="top">
     <span><img src="/web/images/logo.png" /></span>
-    <div class="server"><img src="/web/images/logo_r.png" /><em> >> <font>English</font> | 服务热线400-1177-488</em></div>
+    <div class="server"><img src="/web/images/logo_r.png" /><em> >> <font id="changeLang">English</font> | 服务热线400-1177-488</em></div>
 </div>
 <div class="menu">
     <ul>

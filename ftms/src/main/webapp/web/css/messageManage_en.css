@@ -1,0 +1,6 @@
+/* CSS Document */
+#messageManage li a.messageManage { color:#fff; background:url(../images/bg_menu_hover.png) repeat-x; height:35px; border-radius:2px; text-align:center; line-height:35px; font-size:16px; display:block; float:left; padding:0 5px; margin:1px 5px;}
+
+.operate-message { float:right; padding-right:10px;}
+.operate-message a { float:left; color:#fff; text-decoration:underline; margin:0 10px;}
+

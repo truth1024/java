@@ -1,3 +1,5 @@
+var lang = (location.pathname.indexOf('/cn/') > -1 ? 'cn' : 'en');
+
 $.ajaxSetup({
 	dataType:'json',
 	statusCode:{
@@ -6,8 +8,38 @@ $.ajaxSetup({
 		}
 	}
 });
+$(function(){
+	$('#changeLang').click(function(){
+		if(lang == 'cn'){
+			location.href = location.pathname.replace('/cn/','/en/');
+		}else{
+			location.href = location.pathname.replace('/en/','/cn/');
+		}
+	});
+});
+var userTypeArr = {
+		'cn' : ['内部人员','经销商'],
+		'en' : ['Toyota staff','Dealer']
+};
 
-var userTypeArr = ['内部人员','经销商'];
+var tipArr = {
+		'cn' : {
+			'registered' : '已注册',
+			'unregistered' : '未注册',
+			'saveSuccess' : '保存成功',
+			'infoLack' : '信息填写不完整无法提交',
+			'userLack' : '请先填写用户信息并保存',
+			'add' : '添加'
+		},
+		'en' : {
+			'registered' : 'registered',
+			'unregistered' : 'unregistered',
+			'saveSuccess' : 'save successfully',
+			'infoLack' : 'it can’t be submitted due to incomplete information',
+			'userLack' : 'please fill in the user information and save',
+			'add' : 'Add'
+		}
+}
 
 //日期格式化
 Date.prototype.format = function(format) //author: meizz 

@@ -1,23 +1,36 @@
 $(function(){
-	getMessage();
+	
+	$('body').delegate('.input-eat','focus',function(){
+		inputValue($(this).prev().attr('index'),$(this).prev().attr('id'));
+	});
+	
+	getMessage(0);
+	
+	$('body').delegate('#tags li','click',function(){
+		getMessage($(this).attr('index'));
+	});
 });
 
 //获取信息
-function getMessage(){
+function getMessage(index){
 	$.post(
 		'/web/user_gainUserType',
-		{page:'manage'},
+		{page:'manage',lang:lang},
 		function(data){
 			window.data = data;
-			window.data.index = 0;
-			if(window.data.userType.users.length == 0){
-				$('#tagContent0').append('未注册');
+			window.data.index = index;
+			$('#tagContent'+(index != 0 ? 0 : 1)).children().remove();
+			if(window.data.userType == null || window.data.userType.users.length == 0){
+				$('#tagContent'+index).append(tipArr[lang].unregistered);
 			}else{
-				$('#tags a').text(userTypeArr[window.data.userType.type-1]);
-				$('#tags li').show();
-				render();
-				//日期时间初始化
-				dateInit(window.data.userType.type);
+					$('#tagContent'+index).children().remove();
+					//标签渲染
+					tags();
+					render();
+					$('.tagContent').removeClass('selectTag');
+					$('#tagContent'+index).addClass('selectTag');
+					//日期时间初始化
+					dateInit(window.data.userType.type);
 			}
 		}
 	);
@@ -25,24 +38,49 @@ function getMessage(){
 
 //页面渲染
 function render(){
-	var uid = window.data.userType.users[window.data.index].id;
-	$('#tagContent0').append($(template.render('manage_basic',window.data)));
-	if(window.data.userType.users[window.data.index].hotel == null){
-		$('#tagContent0').append($(template.render('regist_hotel',window.data)));
+	var user = window.data.userType.users[window.data.index];
+	var uid = (user == null ? "" :user.id);
+	if(user == null){
+		$('#tagContent'+window.data.index).append($(template.render('regist_basic',window.data)));
+	}else{
+		$('#tagContent'+window.data.index).append($(template.render('manage_basic',window.data)));
+	}
+	if(user == null || user.hotel == null){
+		$('#tagContent'+window.data.index).append($(template.render('regist_hotel',window.data)));
 		$('[name="hotel.uid"]').val(uid);
 	}else{
-		$('#tagContent0').append($(template.render('manage_hotel',window.data)));
+		$('#tagContent'+window.data.index).append($(template.render('manage_hotel',window.data)));
 	}
-	if(window.data.userType.users[window.data.index].traffic == null){
-		$('#tagContent0').append($(template.render('regist_traffic',window.data)));
+	if(user == null || user.traffic == null){
+		$('#tagContent'+window.data.index).append($(template.render('regist_traffic',window.data)));
 		$('[name="traffic.uid"]').val(uid);
 	}else{
-		$('#tagContent0').append($(template.render('manage_traffic',window.data)));
+		$('#tagContent'+window.data.index).append($(template.render('manage_traffic',window.data)));
 	}
-	if(window.data.userType.users[window.data.index].other == null){
-		$('#tagContent0').append($(template.render('regist_other',window.data)));
+	if(user == null || user.other == null){
+		$('#tagContent'+window.data.index).append($(template.render('regist_other',window.data)));
 		$('[name="other.uid"]').val(uid);
 	}else{
-		$('#tagContent0').append($(template.render('manage_other',window.data)));
+		$('#tagContent'+window.data.index).append($(template.render('manage_other',window.data)));
 	}
+	$('.save').attr('name',window.data.index);
+};
+
+//标签渲染
+function tags(){
+	$('#tags li:gt(0)').remove();
+	var tagContent1 = '<li index="1"><a href="javascript:void(0)"></a></li>';
+	var addContent = '<li index="1"><a href="javascript:void(0)">'+tipArr[lang].add+'</a></li>';
+	if(window.data.userType.users.length == 1){
+		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]);
+		if(window.data.userType.type == 1){
+			$('#tags').append($(addContent));
+		}
+	}else if(window.data.userType.users.length == 2){
+		$('#tags').append($(tagContent1));
+		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]);
+	}
+	$('#tags li').removeClass('selectTag');
+	$('#tags li').eq(window.data.index).addClass('selectTag');
+	$('#tags li').show();
 };

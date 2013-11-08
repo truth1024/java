@@ -28,6 +28,8 @@ public class UserAction extends BasicAction {
 	private String cerNum;
 	private long uid;
 	private String method;
+	private String lang;
+	
 	
 	@Autowired
 	UserTypeService userTypeService;
@@ -41,19 +43,35 @@ public class UserAction extends BasicAction {
 		userType = userTypeService.getById(id);
 		if(page != null && !page.equals("")){
 			selectArr = new ArrayList<Arr[]>();
-			if(userType.getType() == 1){
-				selectArr.add(Constant.companyArr);
+			if(lang != null && lang.equals("cn")){				
+				if(userType.getType() == 1){
+					selectArr.add(Constant.companyArr);
+				}else{
+					selectArr.add(Constant.titleArr);
+				}
+				selectArr.add(Constant.nationArr);
+				selectArr.add(Constant.cerArr);
+				selectArr.add(Constant.dietArr);
+				selectArr.add(Constant.roomArr);
+				selectArr.add(Constant.trafficArr);
+				selectArr.add(Constant.touristArr);
+				selectArr.add(Constant.passArr);
+				selectArr.add(Constant.sizeArr);
 			}else{
-				selectArr.add(Constant.titleArr);
+				if(userType.getType() == 1){
+					selectArr.add(Constant.companyEnArr);
+				}else{
+					selectArr.add(Constant.titleEnArr);
+				}
+				selectArr.add(Constant.nationEnArr);
+				selectArr.add(Constant.cerEnArr);
+				selectArr.add(Constant.dietEnArr);
+				selectArr.add(Constant.roomEnArr);
+				selectArr.add(Constant.trafficEnArr);
+				selectArr.add(Constant.touristEnArr);
+				selectArr.add(Constant.passEnArr);
+				selectArr.add(Constant.sizeEnArr);
 			}
-			selectArr.add(Constant.nationArr);
-			selectArr.add(Constant.cerArr);
-			selectArr.add(Constant.dietArr);
-			selectArr.add(Constant.roomArr);
-			selectArr.add(Constant.trafficArr);
-			selectArr.add(Constant.touristArr);
-			selectArr.add(Constant.passArr);
-			selectArr.add(Constant.sizeArr);
 		}
 		return "userType";
 	}
@@ -125,5 +143,11 @@ public class UserAction extends BasicAction {
 	}
 	public void setMethod(String method) {
 		this.method = method;
+	}
+	public String getLang() {
+		return lang;
+	}
+	public void setLang(String lang) {
+		this.lang = lang;
 	}
 }
