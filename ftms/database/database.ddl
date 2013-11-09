@@ -80,7 +80,7 @@ CREATE TABLE `t_traffic` (
 DROP TABLE IF EXISTS `t_user_info`;
 CREATE TABLE `t_user_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `u_id` bigint(20) NOT NULL,
+  `u_id` varchar(20) NOT NULL,
   `name` varchar(100) NOT NULL,
   `sex` tinyint(4) NOT NULL,
   `size` tinyint(4) DEFAULT NULL,
@@ -98,7 +98,6 @@ CREATE TABLE `t_user_info` (
   `contact_phone` varchar(20) DEFAULT NULL,
   `contact_email` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `u_id_index` (`u_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -108,7 +107,7 @@ CREATE TABLE `t_user_info` (
 
 DROP TABLE IF EXISTS `t_user_type`;
 CREATE TABLE `t_user_type` (
-  `id` bigint(20) NOT NULL,
+  `id` varchar(20) NOT NULL,
   `type` tinyint(4) NOT NULL,
   `login_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
