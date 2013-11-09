@@ -37,13 +37,13 @@ public class UserAction extends BasicAction {
 	UserSevice userSevice;
 	
 	public String gainUserType(){
-		long id = Long.parseLong(ActionContext.getContext().getSession().get("token").toString());
+		String id = ActionContext.getContext().getSession().get("token").toString();
 		log.debug("id : "+id);
 		log.debug(Constant.titleArr[0].getName());
 		userType = userTypeService.getById(id);
 		if(page != null && !page.equals("")){
 			selectArr = new ArrayList<Arr[]>();
-			if(lang != null && lang.equals("cn")){				
+			if(lang != null && lang.equals("cn")){
 				if(userType.getType() == 1){
 					selectArr.add(Constant.companyArr);
 				}else{
@@ -53,10 +53,11 @@ public class UserAction extends BasicAction {
 				selectArr.add(Constant.cerArr);
 				selectArr.add(Constant.dietArr);
 				selectArr.add(Constant.roomArr);
-				selectArr.add(Constant.trafficArr);
+				selectArr.add(Constant.deparTrafficArr);
 				selectArr.add(Constant.touristArr);
 				selectArr.add(Constant.passArr);
 				selectArr.add(Constant.sizeArr);
+				selectArr.add(Constant.backTrafficArr);
 			}else{
 				if(userType.getType() == 1){
 					selectArr.add(Constant.companyEnArr);
@@ -67,10 +68,11 @@ public class UserAction extends BasicAction {
 				selectArr.add(Constant.cerEnArr);
 				selectArr.add(Constant.dietEnArr);
 				selectArr.add(Constant.roomEnArr);
-				selectArr.add(Constant.trafficEnArr);
+				selectArr.add(Constant.deparTrafficEnArr);
 				selectArr.add(Constant.touristEnArr);
 				selectArr.add(Constant.passEnArr);
 				selectArr.add(Constant.sizeEnArr);
+				selectArr.add(Constant.backTrafficEnArr);
 			}
 		}
 		return "userType";

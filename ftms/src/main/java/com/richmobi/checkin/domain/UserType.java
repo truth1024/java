@@ -15,15 +15,16 @@ public class UserType extends AbstractDomain {
 
 	private static final long serialVersionUID = -4909563429571792574L;
 	
-	private long id;			//用户ID
+	private String id;			//用户ID
 	private int type;			//用户类别
 	private Date loginDate;		//登录时间
 	private List<User> users;	//用户信息列表
 	
-	public long getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public int getType() {

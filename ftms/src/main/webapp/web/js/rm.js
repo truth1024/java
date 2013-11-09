@@ -17,6 +17,16 @@ $(function(){
 			$('input[name="'+prefix+id+'"]').val(value);
 		}
 		
+		//是否指定同住人
+		if(id == 'room'){
+			if(value == 2){
+				$(this).parent().next().show();
+			}else{
+				$(this).parent().nextAll().hide();
+				$(this).parent().next().children('input[value=2]').get(0).checked = true;
+			}
+		}
+		
 		//交通工具选择
 		if(id == 'departureTrafficTool'){
 			if(value == 1){
@@ -41,22 +51,26 @@ $(function(){
 		if(id == 'touristRoute'){
 			if(value == 2){
 				$('.touristRouteB').show();
-				$('#regist_other .showMessage:eq(1) input').addClass('required');
 			}else{
 				$('.touristRouteB').hide();
 				$('#regist_other .showMessage:eq(0)').hide();
 				$('#regist_other .showMessage:eq(0) input').removeClass('required');
-				$('#regist_other .showMessage:eq(1) input').removeClass('required');
-				
 				$('input[name="pass"]').get(0).checked = false;
 				$('#hasPass option[value="0"]').attr('selected','selected');
 			}
-			if(value == 3){
+			if(value == 4){
 				$('#regist_other .showMessage:eq(2)').show();
 				$('#regist_other .showMessage:eq(2) input').addClass('required');
 			}else{
 				$('#regist_other .showMessage:eq(2)').hide();
 				$('#regist_other .showMessage:eq(2) input').removeClass('required');
+			}
+			if(value == 4 || value == 0){
+				$('#regist_other .showMessage:eq(1)').hide();
+				$('#regist_other .showMessage:eq(1) input').removeClass('required');				
+			}else{				
+				$('#regist_other .showMessage:eq(1)').show();
+				$('#regist_other .showMessage:eq(1) input').addClass('required');
 			}
 		}
 		
@@ -222,7 +236,7 @@ $(function(){
 //放入隐藏域
 function inputValue(prefix,id){
 	$('input[name="'+id+'"]').blur(function(){
-		console.log($(this).val());
+//		console.log($(this).val());
 		$('input[name="'+prefix+id+'"]').val($(this).val());
 	});
 };

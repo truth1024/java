@@ -66,7 +66,7 @@
 	</session-config>
 	
 	<welcome-file-list>
-	    <welcome-file>/web/login.html</welcome-file>
+	    <welcome-file>/web/cn/login.html</welcome-file>
   </welcome-file-list>
 	
 	<mime-mapping>

@@ -24,7 +24,7 @@
 			</foreach>
 	</insert>
 
-	<select id="getById" parameterType="long" resultMap="userTypeMap">
+	<select id="getById" parameterType="string" resultMap="userTypeMap">
 		<include refid="select_user_type_sql_segment"/>
 		WHERE
 			id = #{id}
@@ -34,7 +34,7 @@
 		<include refid="select_user_type_sql_segment"/>
 	</select>
 	
-	<update id="updateById" parameterType="long">
+	<update id="updateById" parameterType="string">
 		UPDATE 
 			t_user_type
 		SET

@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -64,8 +66,9 @@ public class ExcelAction extends BasicAction {
 	        for (int i = 1;i <= sum;i++){
 	    		Row ros = sheet.getRow(i);
 	    		UserType userType = new UserType();
-	    		log.debug(ros.getCell(0).getNumericCellValue());
-	    		userType.setId((long) ros.getCell(0).getNumericCellValue());
+	    		Cell cell = ros.getCell(0);
+	    		log.debug(cell.getCellType());
+	    		userType.setId((cell.getCellType() == HSSFCell.CELL_TYPE_STRING ? cell.getStringCellValue() : String.valueOf((int) cell.getNumericCellValue())));
 	    		userType.setType((int) ros.getCell(1).getNumericCellValue());
 	    		userTypes.add(userType);
 	    		successNum++;

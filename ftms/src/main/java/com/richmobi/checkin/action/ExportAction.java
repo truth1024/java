@@ -204,7 +204,7 @@ public class ExportAction extends BasicAction {
             		}
             		if(t != null){            			
             			cell = row.createCell(23);
-            			cell.setCellValue(Utils.trafficTool(t.getDepartureTrafficTool()));
+            			cell.setCellValue(Utils.deparTrafficTool(t.getDepartureTrafficTool()));
             			cell = row.createCell(24);
             			cell.setCellValue(Utils.dateFormat(t.getArrivalDate()));
             			cell = row.createCell(25);
@@ -216,7 +216,7 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(28);
             			cell.setCellValue(Utils.yseOrNo(t.getPickUp()));
             			cell = row.createCell(29);
-            			cell.setCellValue(Utils.trafficTool(t.getBackTrafficTool()));
+            			cell.setCellValue(Utils.backTrafficTool(t.getBackTrafficTool()));
             			cell = row.createCell(30);
             			cell.setCellValue(Utils.dateFormat(t.getBackDate()));
             			cell = row.createCell(31);

@@ -85,10 +85,19 @@ public class Utils {
 		}
 	}
 	
-	public static String trafficTool(String trafficTool){
+	public static String deparTrafficTool(String trafficTool){
 		if(trafficTool.matches("\\d{1}")){
 			int cerInt = Integer.parseInt(trafficTool);
-			return Constant.trafficArr[cerInt-1].getName();
+			return Constant.deparTrafficArr[cerInt-1].getName();
+		}else{
+			return trafficTool;
+		}
+	}
+	
+	public static String backTrafficTool(String trafficTool){
+		if(trafficTool.matches("\\d{1}")){
+			int cerInt = Integer.parseInt(trafficTool);
+			return Constant.backTrafficArr[cerInt-1].getName();
 		}else{
 			return trafficTool;
 		}

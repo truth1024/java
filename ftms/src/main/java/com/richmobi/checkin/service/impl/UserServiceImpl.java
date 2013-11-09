@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserSevice {
 	}
 
 	@Override
-	public List<User> getByUid(long uid) {
+	public List<User> getByUid(String uid) {
 		return userMapper.getByUid(uid);
 	}
 

@@ -23,11 +23,11 @@ public class OtherAction extends BasicAction {
 		o.setUid(other.getUid());
 		o.setMeeting(other.getMeeting());
 		o.setTouristRoute(other.getTouristRoute());
+		o.setTouristBack(other.getTouristBack());
 		switch(other.getTouristRoute()){
 			case 1:
 				break;
 			case 2:
-				o.setTouristBack(other.getTouristBack());
 				o.setHasPass(other.getHasPass());
 				if(other.getHasPass() == 1){
 					o.setIsVisa(other.getIsVisa());
@@ -36,10 +36,13 @@ public class OtherAction extends BasicAction {
 				}
 				break;
 			case 3:
+				break;
+			case 4:
 				o.setIsPlay(other.getIsPlay());
 				o.setPlayAlmost(other.getPlayAlmost());
 				o.setStature(other.getStature());
 				o.setPlaySize(other.getPlaySize());
+				o.setTouristBack(0);
 				break;
 		}
 		log.debug(o);

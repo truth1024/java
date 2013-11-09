@@ -57,7 +57,10 @@ public class HotelAction extends BasicAction {
     }
     
     public String saveHotel(){
-    	if(hotel.getIsWith() == 2){
+    	if(hotel.getRoom() == 1){
+    		hotel.setIsWith(0);
+    	}
+    	if(hotel.getIsWith() == 2 || hotel.getIsWith() == 0){
     		hotel.setWithName("");
     		hotel.setWithShop("");
     	}

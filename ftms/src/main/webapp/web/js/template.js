@@ -11,23 +11,22 @@
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
                     <li><strong>姓名：</strong><input name="user.name" type="text" class="input-regist required" /></li>\
                     <li><strong>姓别：</strong><input class="required" name="user.sex" type="radio" value="1" checked/>男<input name="user.sex" type="radio" value="2" style="margin-left:20px;" /> 女</li>\
-                    <li>\
 					{if userType.type == 1}\
-						<strong>公司：</strong><select index="user." id="company">\
+						<li><strong>公司：</strong><select index="user." id="company">\
 	                        <option value="0">--请选择--</option>\
 							{each selectArr[0] as t}\
 				            <option value="{t.value}">{t.name}</option>\
 							{/each}\
-                      	</select><input name="company" type="text" class="input-eat" /><input class="required" type="hidden" name="user.company">\
+                      	</select><input name="company" type="text" class="input-eat" /><input class="required" type="hidden" name="user.company"></li>\
+						<li><strong>职位：</strong><input class="input-regist required" type="text" name="user.title"></li>\
 					{else}\
-						<strong>职位：</strong><select index="user." id="title">\
+						<li><strong>职位：</strong><select index="user." id="title">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[0] as t}\
 				            <option value="{t.value}">{t.name}</option>\
 							{/each}\
-				      	</select><input name="title" type="text" class="input-eat" /><input class="required" type="hidden" name="user.title">\
+				      	</select><input name="title" type="text" class="input-eat" /><input class="required" type="hidden" name="user.title"></li>\
 					{/if}\
-                    </li>\
                     <li><strong>出生日期：</strong><input name="user.birthDate" type="text" class="input-regist required" /></li>\
                     <li><strong>国籍：</strong><select index="user." id="nationality">\
                         <option value="0">--请选择--</option>\
@@ -82,10 +81,10 @@
 						{/each}\
                       </select><input class="required" type="hidden" name="hotel.room">\
                     </li>\
-	                <li><strong>是否指定同住人：</strong><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
+	                <li style="display:none;"><strong>是否指定同住人：</strong><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
 	                <li class="hide" style="display:none;"><strong>同住人姓名：</strong><input name="hotel.withName" type="text" class="input-regist" /></li>\
 	                <li class="hide" style="display:none;"><strong>同住人经销店：</strong><input name="hotel.withShop" type="text" class="input-regist" /></li>\
-	               </ol>\
+	               	</ol>\
 	               <div class="tips">\
 	                <font style="font-size:12px;"><strong>备注：</strong>1、按照酒店要求正常入住时间为当日14:00之后</font>\
 	                <font style="padding-left:36px; width:100%">2、本次大会事务局统一订房时间为1月15日至17日</font>\
@@ -122,7 +121,7 @@
                     <li class="depar" style="display:none;"><strong>是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" />是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
                     <li style="margin-top:20px;"><strong>返程交通方式：</strong><select index="traffic." id="backTrafficTool">\
 				            <option value="0">--请选择--</option>\
-							{each selectArr[5] as n}\
+							{each selectArr[9] as n}\
 				            <option value="{n.value}">{n.name}</option>\
 							{/each}\
 				          </select><input name="backTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.backTrafficTool">\
@@ -189,7 +188,7 @@
                              </li>\
                              <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-签证页扫描件）</li>\
                          </div>\
-                          <div style="display:none"  class="showMessage touristRouteB">\
+                          <div style="display:none"  class="showMessage">\
                               <li>游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
                                   <input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" checked/><em>是</em><br />\
                                   <input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" /><em>否，我自行从香港离开</em><br />\
@@ -318,7 +317,7 @@
 						{/each}\
                       </select><input class="required" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
-	                <li><strong>是否指定同住人：</strong>\
+	                <li {if userType.users[index].hotel.room != 2}style="display:none;{/if}><strong>是否指定同住人：</strong>\
 						<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>是\
 						<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isWith != 1}checked{/if}/>否\
 					</li>\
@@ -365,7 +364,7 @@
                     <li style="margin-top:20px;"><strong>返程交通方式：</strong>\
 						<select index="traffic." id="backTrafficTool">\
 				            <option value="0">--请选择--</option>\
-							{each selectArr[5] as n}\
+							{each selectArr[9] as n}\
 				            <option value="{n.value}" {select userType.users[index].traffic.backTrafficTool n.value}>{n.name}</option>\
 							{/each}\
 				    	</select>\
@@ -443,14 +442,14 @@
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-签证页扫描件）</li>\
 					</div>\
-                  	<div {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}  class="showMessage touristRouteB">\
+                  	<div {if userType.users[index].other.touristRoute == 4 || userType.users[index].other.touristRoute == 0}style="display:none;"{/if}  class="showMessage">\
                       	<li>游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
                           	<input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" {if userType.users[index].other.touristBack == 1 || userType.users[index].other.touristBack == 0}checked{/if}/><em>是</em><br />\
                           	<input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" {if userType.users[index].other.touristBack == 2}checked{/if}/><em>否，我自行从香港离开</em><br />\
                           	<input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" {if userType.users[index].other.touristBack == 3}checked{/if}/><em>否，我自行从深圳离开</em>\
                       	</li>\
                   	</div>\
-                 	<div {if userType.users[index].other.touristRoute != 3}style="display:none;"{/if} class="showMessage">\
+                 	<div {if userType.users[index].other.touristRoute != 4}style="display:none;"{/if} class="showMessage">\
                       	<li><strong>是否打球：</strong>\
                           	<input name="other.isPlay" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isPlay == 1}checked{/if}/><em>是</em>\
                           	<input name="other.isPlay" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isPlay != 1}checked{/if}/><em>否</em>\

@@ -44,7 +44,7 @@
 		id = #{id}
 	</select>
 	
-	<select id="getByUid" parameterType="long" resultMap="userMap">
+	<select id="getByUid" parameterType="string" resultMap="userMap">
 		<include refid="select_user_sql_segment"/>
 		WHERE
 		u_id = #{uid}

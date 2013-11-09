@@ -24,12 +24,12 @@ public class UserTypeMapperTest extends AbstractTestCase {
 
 	@Test
 	public void testGetById() {
-		userTypeMapper.getById(1);
+		userTypeMapper.getById("1");
 	}
 
 	@Test
 	public void testUpdateById() {
-		userTypeMapper.updateById(2);
+		userTypeMapper.updateById("2");
 	}
 
 }

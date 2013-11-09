@@ -26,7 +26,7 @@ public interface UserSevice {
 	* @return List<User>
 	* @throws
 	 */
-	List<User> getByUid(long uid);
+	List<User> getByUid(String uid);
 	
 	/**
 	 * 

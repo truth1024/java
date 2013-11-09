@@ -131,7 +131,7 @@ public class AbstractTestCase {
 	protected static User u = new User();
 	
 	static{
-		user.setUid(1);
+		user.setUid("1");
 		user.setName("徐爽");
 		user.setMobilePhone("12323232323");
 		user.setTelephone("0452-4534577");
@@ -168,9 +168,9 @@ public class AbstractTestCase {
 	
 	protected static List<UserType> uts = new ArrayList<UserType>(); 
 	static{
-		ut1.setId(1);
+		ut1.setId("1");
 		ut1.setType(1);
-		ut2.setId(2);
+		ut2.setId("2");
 		ut2.setType(2);
 		uts.add(ut1);
 		uts.add(ut2);

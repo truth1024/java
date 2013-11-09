@@ -20,7 +20,7 @@ public class LoginAction extends BasicAction {
 	private ByteArrayInputStream inputStream;
 	private String rand;
 	
-	private long id;
+	private String id;
 	private int status;
 	private String tip;
 	
@@ -47,7 +47,7 @@ public class LoginAction extends BasicAction {
 		}else{
 			UserType ut = userTypeService.getById(id);
 			if(ut != null){
-				ActionContext.getContext().getSession().put("token",id+"");
+				ActionContext.getContext().getSession().put("token",id);
 				userTypeService.updateById(id);
 				status = 1;
 			}else{
@@ -64,10 +64,11 @@ public class LoginAction extends BasicAction {
 		return "logout";
 	}
 	
-	public long getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public int getStatus() {

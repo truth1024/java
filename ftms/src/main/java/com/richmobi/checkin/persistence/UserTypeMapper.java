@@ -25,7 +25,7 @@ public interface UserTypeMapper {
 	* @return UserType
 	* @throws
 	 */
-	UserType getById(long id);
+	UserType getById(String id);
 	
 	/**
 	 * 
@@ -44,5 +44,5 @@ public interface UserTypeMapper {
 	* @return void
 	* @throws
 	 */
-	void updateById(long id);
+	void updateById(String id);
 }

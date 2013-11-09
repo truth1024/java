@@ -24,7 +24,7 @@ public class UserMapperTest extends AbstractTestCase{
 
 	@Test
 	public void testGetByUid() {
-		userMapper.getByUid(1);
+		userMapper.getByUid("1");
 	}
 
 	@Test

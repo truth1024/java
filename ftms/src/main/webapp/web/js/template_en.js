@@ -9,23 +9,22 @@
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
                     <li><strong>Name：</strong><input name="user.name" type="text" class="input-regist required" /></li>\
                     <li><strong>Gender：</strong><input class="required" name="user.sex" type="radio" value="1" checked/>male<input name="user.sex" type="radio" value="2" style="margin-left:20px;" />female</li>\
-                    <li>\
 					{if userType.type == 1}\
-						<strong>Company：</strong><select index="user." id="company">\
-	                        <option value="0">--Please choose--</option>\
-							{each selectArr[0] as t}\
-				            <option value="{t.value}">{t.name}</option>\
-							{/each}\
-                      	</select><input name="company" type="text" class="input-eat" /><input class="required" type="hidden" name="user.company">\
+						<li><strong>Company：</strong><select index="user." id="company">\
+			            <option value="0">--Please choose--</option>\
+						{each selectArr[0] as t}\
+			            <option value="{t.value}">{t.name}</option>\
+						{/each}\
+			      	</select><input name="company" type="text" class="input-eat" /><input class="required" type="hidden" name="user.company"></li>\
+					<li><strong>Position：</strong><input class="input-regist required" type="text" name="user.title"></li>\
 					{else}\
-						<strong>Position：</strong><select index="user." id="title">\
-				            <option value="0">--Please choose--</option>\
-							{each selectArr[0] as t}\
-				            <option value="{t.value}">{t.name}</option>\
-							{/each}\
-				      	</select><input name="title" type="text" class="input-eat" /><input class="required" type="hidden" name="user.title">\
+					<li><strong>Position：</strong><select index="user." id="title">\
+			            <option value="0">--Please choose--</option>\
+						{each selectArr[0] as t}\
+			            <option value="{t.value}">{t.name}</option>\
+						{/each}\
+			      	</select><input name="title" type="text" class="input-eat" /><input class="required" type="hidden" name="user.title"></li>\
 					{/if}\
-                    </li>\
                     <li><strong>Date of birth：</strong><input name="user.birthDate" type="text" class="input-regist required" /></li>\
                     <li><strong>Nationality：</strong><select index="user." id="nationality">\
                         <option value="0">--Please choose--</option>\
@@ -89,7 +88,8 @@
 						{/each}\
                       </select><input class="required" type="hidden" name="hotel.room">\
                     </li>\
-	                <li><strong  style="width:350px;">Whether assign roommate sharing room with you：</strong>\
+	                <li style="display:none;">\
+						<strong style="width:350px;">Whether assign roommate sharing room with you：</strong>\
 						<input class="required" name="hotel.isWith" type="radio" value="1" />Yes\
 						<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>No\
 					</li>\
@@ -139,7 +139,7 @@
 					</li>\
                     <li style="margin-top:20px;"><strong style="width:250px;">Means of transportation to return：</strong><select index="traffic." id="backTrafficTool">\
 				            <option value="0">--Please choose--</option>\
-							{each selectArr[5] as n}\
+							{each selectArr[9] as n}\
 				            <option value="{n.value}">{n.name}</option>\
 							{/each}\
 				          </select><input name="backTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.backTrafficTool">\
@@ -265,17 +265,17 @@
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
 					<input type="hidden" class="required" name="user.id" value="{userType.users[index].id}">\
                     <li><strong>Name：</strong><input name="user.name" value="{userType.users[index].name}" type="text" class="input-regist required" /></li>\
-                    <li><strong>Gender：</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>男<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" /> 女</li>\
-                    <li>\
+                    <li><strong>Gender：</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>male<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" />female</li>\
 					{if userType.type == 1}\
-						<strong>Company：</strong><select  index="user." id="company">\
+						<li><strong>Company：</strong><select  index="user." id="company">\
 	                        <option value="0">--Please choose--</option>\
 							{each selectArr[0] as t}\
 				            <option value="{t.value}" {select userType.users[index].company t.value}>{t.name}</option>\
 							{/each}\
-                      	</select><input class="required" type="hidden" name="user.company" value="{userType.users[index].company}">\
+                      	</select><input class="required" type="hidden" name="user.company" value="{userType.users[index].company}"></li>\
+						<li><input class="input-regist required" type="text" name="user.title" value="{userType.users[index].title}"></li>\
 					{else}\
-						<strong>Position：</strong>\
+						<li><strong>Position：</strong>\
 						<select index="user." id="title">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[0] as t}\
@@ -284,8 +284,8 @@
 				      	</select>\
 						<input name="title" {selectHide userType.users[index].title} type="text" class="input-eat" />\
 						<input class="required" type="hidden" name="user.title" value="{userType.users[index].title}">\
+						</li>\
 					{/if}\
-                    </li>\
                     <li><strong>Date of birth：</strong><input name="user.birthDate" value="{dateFormat userType.users[index].birthDate}" type="text" class="input-regist required" /></li>\
                     <li><strong>Nationality：</strong>\
 						<select index="user." id="nationality">\
@@ -351,7 +351,8 @@
 						{/each}\
                       </select><input class="required" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
-	                <li><strong style="width:350px;">Whether assign roommate sharing room with you：</strong>\
+	                <li {if userType.users[index].hotel.room != 2}style="display:none;{/if}">\
+						<strong style="width:350px;">Whether assign roommate sharing room with you：</strong>\
 						<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>Yes\
 						<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isWith != 1}checked{/if}/>No\
 					</li>\
@@ -400,7 +401,7 @@
                     <li style="margin-top:20px;"><strong style="width:250px;">Means of transportation to return：</strong>\
 						<select index="traffic." id="backTrafficTool">\
 				            <option value="0">--Please choose--</option>\
-							{each selectArr[5] as n}\
+							{each selectArr[9] as n}\
 				            <option value="{n.value}" {select userType.users[index].traffic.backTrafficTool n.value}>{n.name}</option>\
 							{/each}\
 				    	</select>\
@@ -480,14 +481,14 @@
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong>(*picture naming format: name-first page scanning copy)</li>\
 					</div>\
-                  	<div {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}  class="showMessage touristRouteB">\
+                  	<div {if userType.users[index].other.touristRoute == 0 || userType.users[index].other.touristRoute == 4}style="display:none;"{/if}  class="showMessage touristRouteB">\
                       	<li>Will you return to Dongguan and stay in hotel by unified bus after finishing visit：<br />\
 			 <input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" checked/><em>Yes</em><br />\
             <input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" /><em>No, I will leave from Hong Kong by myself</em><br />\
             <input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" /><em>No, I will leave form Shenzhen by myself</em>\
                       	</li>\
                   	</div>\
-                 	<div {if userType.users[index].other.touristRoute != 3}style="display:none;"{/if} class="showMessage">\
+                 	<div {if userType.users[index].other.touristRoute != 4}style="display:none;"{/if} class="showMessage">\
                       	<li><strong>Will you play a game：</strong>\
                           	<input name="other.isPlay" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isPlay == 1}checked{/if}/><em>Yes</em>\
                           	<input name="other.isPlay" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isPlay != 1}checked{/if}/><em>No</em>\

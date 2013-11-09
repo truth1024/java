@@ -21,13 +21,13 @@ public class UserTypeServiceImpl implements UserTypeService {
 	}
 
 	@Override
-	public UserType getById(long id) {
+	public UserType getById(String id) {
 		return userTypeMapper.getById(id);
 	}
 
 	
 	@Override
-	public void updateById(long id) {
+	public void updateById(String id) {
 		userTypeMapper.updateById(id);
 	}
 

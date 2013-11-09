@@ -15,7 +15,7 @@ public class User extends AbstractDomain {
 	private static final long serialVersionUID = -1138145628576921850L;
 
 	private long id;				//用户信息ID
-	private long uid;				//用户ID
+	private String uid;				//用户ID
 	private String name;			//姓名
 	private int sex;				//性别
 	private int size;				//礼品服装尺码
@@ -43,10 +43,10 @@ public class User extends AbstractDomain {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public long getUid() {
+	public String getUid() {
 		return uid;
 	}
-	public void setUid(long uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 	public String getName() {
