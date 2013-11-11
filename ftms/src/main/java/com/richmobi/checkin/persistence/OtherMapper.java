@@ -35,4 +35,24 @@ public interface OtherMapper {
 	* @throws
 	 */
 	void update(Other other);
+	
+	/**
+	 * 
+	* @Title: updateImageById
+	* @Description: 更新图片信息
+	* @param @param other
+	* @return void
+	* @throws
+	 */
+	void updateImageById(Other other);
+	
+	/**
+	 * 
+	* @Title: delete
+	* @Description: 删除其他信息
+	* @param @param other
+	* @return void
+	* @throws
+	 */
+	void delete(long id);
 }

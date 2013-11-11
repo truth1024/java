@@ -5,6 +5,7 @@
 <title>toyota一汽丰田2014年全国经销商大会</title>
 <link href="/web/css/main.css" rel="stylesheet" type="text/css" />
 <link href="/web/css/schedule.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/add.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="/web/js/main.js"></script>
 <script type="text/javascript">
@@ -12,21 +13,9 @@
 			$.post(
 				'/web/user_gainUserType',
 				function(data){
-					$('#user_type').text(userTypeArr[lang][data.userType.type-1]);
+					setTypeName(data);
 				}
 			);
-			
-			$('#logout').click(function(){
-				$.post(
-					'/web/login_logout',
-					function(data){
-						if(data.status == 1){
-							location.href = 'login.html';
-						}
-					}
-				);
-			});
-			
 	});
 </script>
 </head>
@@ -46,7 +35,7 @@
     </ul>
 </div>
 <div class="userMessage">
-    <span>活动热线：400-1177-488</span><span>活动邮箱：asdfasdfa@adfad.com</span><font><span id="user_type"></span><a id="logout" href="javascript:void(0);">[退出]</a></em></font>
+    <span>活动热线：400-110-3271</span><span>活动邮箱：service@ftmsdlr.cn</span><font><span id="user_type"></span><a id="logout" href="javascript:void(0);">[退出]</a></em></font>
 </div>
 <div class="content">
     <div class="content-box left">

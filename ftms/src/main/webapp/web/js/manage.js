@@ -11,6 +11,7 @@ $(function(){
 		getMessage($(this).attr('index'));
 	});
 	
+	//展开收起功能
 	$('body').delegate('.reviwe','click',function(){
 		var text = $(this).text();
 		if(text == reviewArr[lang].review){
@@ -21,6 +22,25 @@ $(function(){
 			$(this).text(reviewArr[lang].review);
 		}
 	});
+	
+	//删除功能
+	$('body').delegate('.remove','click',function(){
+		var index = $(this).attr('index').split('#');
+		var name = $(this).attr('name');
+		$.post(
+			'/web/'+index[0]+'_delete',
+			{id:index[1]},
+			function(data){
+//				console.log(data);
+				if(data.status == 1){
+					alert(tipArr[lang].deleteSuccess);
+					getMessage(name);
+				}else{
+					alert(tipArr[lang].deleteFailure);
+				}
+			}
+		);
+	});
 });
 
 //获取信息
@@ -29,20 +49,24 @@ function getMessage(index){
 		'/web/user_gainUserType',
 		{page:'manage',lang:lang},
 		function(data){
+			setTypeName(data);
 			window.data = data;
 			window.data.index = index;
 			$('#tagContent'+(index != 0 ? 0 : 1)).children().remove();
+//			console.log(window.data.userType.users.length,index);
 			if(window.data.userType == null || window.data.userType.users.length == 0){
-				$('#tagContent'+index).append(tipArr[lang].unregistered);
+				$('#tagContent'+index).text(tipArr[lang].unregistered);
+				$('#tags').hide();
 			}else{
-					$('#tagContent'+index).children().remove();
-					//标签渲染
-					tags();
-					render();
-					$('.tagContent').removeClass('selectTag');
-					$('#tagContent'+index).addClass('selectTag');
-					//日期时间初始化
-					dateInit(window.data.userType.type);
+				$('#tags').show();
+				$('#tagContent'+index).children().remove();
+				//标签渲染
+				tags();
+				render();
+				$('.tagContent').removeClass('selectTag');
+				$('#tagContent'+index).addClass('selectTag');
+				//日期时间初始化
+				dateInit(window.data.userType.type);
 			}
 		}
 	);
@@ -76,6 +100,7 @@ function render(){
 		$('#tagContent'+window.data.index).append($(template.render('manage_other',window.data)));
 	}
 	$('.save').attr('name',window.data.index);
+	$('.remove').attr('name',window.data.index);
 };
 
 //标签渲染
@@ -84,13 +109,15 @@ function tags(){
 	var tagContent1 = '<li index="1"><a href="javascript:void(0)"></a></li>';
 	var addContent = '<li index="1"><a href="javascript:void(0)">'+tipArr[lang].add+'</a></li>';
 	if(window.data.userType.users.length == 1){
-		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]);
+		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]+"1");
 		if(window.data.userType.type == 2){
 			$('#tags').append($(addContent));
 		}
 	}else if(window.data.userType.users.length == 2){
 		$('#tags').append($(tagContent1));
-		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]);
+		$('#tags li').each(function(index,el){
+			$(this).children('a:eq(0)').text(userTypeArr[lang][window.data.userType.type-1]+(index+1));
+		});
 	}
 	$('#tags li').removeClass('selectTag');
 	$('#tags li').eq(window.data.index).addClass('selectTag');

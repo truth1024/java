@@ -52,4 +52,25 @@
 		WHERE 
 			u_id = #{uid}
 	</update>
+	
+	<update id="updateImageById" parameterType="other">
+		UPDATE 
+			t_other
+		SET 
+		<if test="passImage != null &amp; passImage != ''">
+			pass_image = #{passImage}
+		</if>
+		<if test="visaImage != null &amp; visaImage != ''">
+			visa_image = #{visaImage}
+		</if>
+		WHERE 
+			id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="long">
+		DELETE FROM 
+			t_other 
+		WHERE 
+			id = #{id}
+	</delete>
 </mapper>

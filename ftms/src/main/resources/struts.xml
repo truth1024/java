@@ -27,6 +27,9 @@
 			<result name="saveUser" type="json">
 				<param name="includeProperties">status,uid</param>
 			</result>
+			<result name="delete" type="json">
+				<param name="includeProperties">status</param>
+			</result>
 		</action>
 		
         <action name="image_*" class="com.richmobi.checkin.action.ImageAction" method="{1}">
@@ -41,16 +44,25 @@
 			<result name="saveHotel" type="json">
 				<param name="includeProperties">status</param>
 			</result>
+			<result name="delete" type="json">
+				<param name="includeProperties">status</param>
+			</result>
 		</action>
 		
 		<action name="traffic_*" class="com.richmobi.checkin.action.TrafficAction" method="{1}">
 			<result name="saveTraffic" type="json">
 				<param name="includeProperties">status</param>
 			</result>
+			<result name="delete" type="json">
+				<param name="includeProperties">status</param>
+			</result>
 		</action>
 		
 		<action name="other_*" class="com.richmobi.checkin.action.OtherAction" method="{1}">
 			<result name="saveOther" type="json">
+				<param name="includeProperties">status</param>
+			</result>
+			<result name="delete" type="json">
 				<param name="includeProperties">status</param>
 			</result>
 		</action>

@@ -7,44 +7,44 @@
                 <font>【mandatory】</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
-                    <li><strong>Name:</strong><input name="user.name" type="text" class="input-regist required" /></li>\
-                    <li><strong>Gender:</strong><input class="required" name="user.sex" type="radio" value="1" checked/>male<input name="user.sex" type="radio" value="2" style="margin-left:20px;" />female</li>\
+                    <li><strong>* Name:</strong><input name="user.name" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Gender:</strong><input class="required" name="user.sex" type="radio" value="1" checked/>male<input name="user.sex" type="radio" value="2" style="margin-left:20px;" />female</li>\
 					{if userType.type == 1}\
-						<li><strong>Company:</strong><select index="user." id="company">\
+						<li><strong>* Company:</strong><select index="user." id="company">\
 			            <option value="0">--Please choose--</option>\
 						{each selectArr[0] as t}\
 			            <option value="{t.value}">{t.name}</option>\
 						{/each}\
 			      	</select><input name="company" type="text" class="input-eat" /><input class="required" type="hidden" name="user.company"></li>\
-					<li><strong>Position:</strong><input class="input-regist required" type="text" name="user.title"></li>\
+					<li><strong>* Position:</strong><input class="input-regist required" type="text" name="user.title"></li>\
 					{else}\
-					<li><strong>Position:</strong><select index="user." id="title">\
+					<li><strong>* Position:</strong><select index="user." id="title">\
 			            <option value="0">--Please choose--</option>\
 						{each selectArr[0] as t}\
 			            <option value="{t.value}">{t.name}</option>\
 						{/each}\
 			      	</select><input name="title" type="text" class="input-eat" /><input class="required" type="hidden" name="user.title"></li>\
 					{/if}\
-                    <li><strong>Date of birth:</strong><input name="user.birthDate" type="text" class="input-regist required" /></li>\
-                    <li><strong>Nationality:</strong><select index="user." id="nationality">\
+                    <li><strong>* Date of birth:</strong><input name="user.birthDate" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Nationality:</strong><select index="user." id="nationality">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[1] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
                       </select><input name="nationality" type="text" class="input-eat" /><input class="required" type="hidden" name="user.nationality">\
                     </li>\
-                    <li><strong>ID type:</strong><select index="user." id="certificate">\
+                    <li><strong>* ID type:</strong><select index="user." id="certificate">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[2] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate">\
                     </li>\
-                    <li><strong>ID number:</strong><input name="cerNum" type="text" class="input-regist required" /></li>\
-                    <li><strong>Telephone:</strong><input name="user.telephone" type="text" class="input-regist required" /></li>\
-                    <li><strong>Mobile phone:</strong><input name="user.mobilePhone" type="text" class="input-regist required" /></li>\
-                    <li><strong>E-mail:</strong><input name="user.email" type="text" class="input-regist required" /></li>\
-                    <li><strong>Diet taboos:</strong><select index="user." id="diet">\
+                    <li><strong>* ID number:</strong><input name="cerNum" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Telephone:</strong><input name="user.telephone" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Mobile phone:</strong><input name="user.mobilePhone" type="text" class="input-regist required" /></li>\
+                    <li><strong>* E-mail:</strong><input name="user.email" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Diet taboos:</strong><select index="user." id="diet">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[3] as n}\
 			            <option value="{n.value}">{n.name}</option>\
@@ -69,7 +69,7 @@
             <h4>Hotel arrangement</h4>\
 	            <div class="content">\
 	                <ol>\
-	                <li><strong style="width:350px;">Whether check into the hotel appointed by FTMS:</strong>\
+	                <li><strong style="width:350px;">* Whether check into the hotel appointed by FTMS:</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isStay" type="radio" value="1" />Yes\
 							<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>No\
@@ -79,14 +79,14 @@
 							<a href="#">check the map of the hotel</a>\
 						</div>\
 					</li>\
-	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" type="text" class="input-regist required" /></li>\
-	                <li><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" type="text" class="input-regist required" /></li>\
+	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
+	                <li><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
 	                <li><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
-                      </select><input class="required" type="hidden" name="hotel.room">\
+                      </select><input class="isStay" type="hidden" name="hotel.room">\
                     </li>\
 	                <li style="display:none;">\
 						<strong style="width:350px;">Whether assign roommate sharing room with you:</strong>\
@@ -120,7 +120,7 @@
 			            <font style="padding-left:72px; width:100%">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
 					</div>\
                     <ol>\
-                    <li><strong style="width:250px;">Means of transportation to come:</strong><select index="traffic." id="departureTrafficTool">\
+                    <li><strong style="width:250px;">* Means of transportation to come:</strong><select index="traffic." id="departureTrafficTool">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[5] as n}\
 				            <option value="{n.value}">{n.name}</option>\
@@ -128,9 +128,8 @@
 				          </select><input name="departureTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.departureTrafficTool">\
 					</li>\
                     <li class="depar" style="display:none;"><strong style="width:250px;">Departure city:</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
-					<li><strong style="width:250px;">Destination city:</strong>Shenzhen  Guangzhou </li>\
 					<li class="depar" style="display:none;">\
-						<strong>Destination city:</strong>\
+						<strong style="width:250px;">Destination city:</strong>\
 						<select index="traffic." id="departureCity2">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[10] as n}\
@@ -146,7 +145,7 @@
 						<input name="traffic.pickUp" type="radio" value="1" />Yes\
 						<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;" checked/>No\
 					</li>\
-                    <li style="margin-top:20px;"><strong style="width:250px;">Means of transportation to return:</strong><select index="traffic." id="backTrafficTool">\
+                    <li style="margin-top:20px;"><strong style="width:250px;">* Means of transportation to return:</strong><select index="traffic." id="backTrafficTool">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[9] as n}\
 				            <option value="{n.value}">{n.name}</option>\
@@ -188,14 +187,14 @@
                 <div class="content">\
                     <ol>\
                     <li>\
-						<strong style="width:380px;">Whether attend the regional conference on January 16th:</strong>\
+						<strong style="width:380px;">* Whether attend the regional conference on January 16th:</strong>\
 						<div class="left">\
 							<input name="other.meeting" type="radio" value="1" />Yes\
 							<input name="other.meeting" type="radio" value="2" style="margin-left:20px;" checked/>No\
 						</div>\
 						<div style="padding-left:40px; float:left">*in principle regional conference is attended by general managers</div>\
 					</li>\
-                    <li><strong style="width:380px;">Please choose a tour route you want to participate:</strong><select index="other." id="touristRoute">\
+                    <li><strong style="width:380px;">* Please choose a tour route you want to participate:</strong><select index="other." id="touristRoute">\
 			            <option value="0">--Please choose--</option>\
 						{each selectArr[6] as n}\
 			            <option value="{n.value}">{n.name}</option>\
@@ -281,18 +280,18 @@
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
 					<input type="hidden" class="required" name="user.id" value="{userType.users[index].id}">\
-                    <li><strong>Name:</strong><input name="user.name" value="{userType.users[index].name}" type="text" class="input-regist required" /></li>\
-                    <li><strong>Gender:</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>male<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" />female</li>\
+                    <li><strong>* Name:</strong><input name="user.name" value="{userType.users[index].name}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Gender:</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>male<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" />female</li>\
 					{if userType.type == 1}\
-						<li><strong>Company:</strong><select  index="user." id="company">\
+						<li><strong>* Company:</strong><select  index="user." id="company">\
 	                        <option value="0">--Please choose--</option>\
 							{each selectArr[0] as t}\
 				            <option value="{t.value}" {select userType.users[index].company t.value}>{t.name}</option>\
 							{/each}\
                       	</select><input class="required" type="hidden" name="user.company" value="{userType.users[index].company}"></li>\
-						<li><strong>Position:</strong><input class="input-regist required" type="text" name="user.title" value="{userType.users[index].title}"></li>\
+						<li><strong>* Position:</strong><input class="input-regist required" type="text" name="user.title" value="{userType.users[index].title}"></li>\
 					{else}\
-						<li><strong>Position:</strong>\
+						<li><strong>* Position:</strong>\
 						<select index="user." id="title">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[0] as t}\
@@ -303,8 +302,8 @@
 						<input class="required" type="hidden" name="user.title" value="{userType.users[index].title}">\
 						</li>\
 					{/if}\
-                    <li><strong>Date of birth:</strong><input name="user.birthDate" value="{dateFormat userType.users[index].birthDate}" type="text" class="input-regist required" /></li>\
-                    <li><strong>Nationality:</strong>\
+                    <li><strong>* Date of birth:</strong><input name="user.birthDate" value="{dateFormat userType.users[index].birthDate}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Nationality:</strong>\
 						<select index="user." id="nationality">\
 	                    	<option value="0">--Please choose--</option>\
 							{each selectArr[1] as n}\
@@ -313,18 +312,18 @@
                       	</select>\
 						<input name="nationality" type="text" class="input-eat" {selectHide userType.users[index].nationality}/><input class="required" type="hidden" name="user.nationality" value="{userType.users[index].nationality}">\
                     </li>\
-                    <li><strong>ID type:</strong><select index="user." id="certificate">\
+                    <li><strong>* ID type:</strong><select index="user." id="certificate">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[2] as n}\
 			            <option value="{n.value}" {cerSelect userType.users[index].certificate n.value}>{n.name}</option>\
 						{/each}\
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate" value="{cerHide0 userType.users[index].certificate}">\
                     </li>\
-                    <li><strong>ID number:</strong><input name="cerNum" type="text" class="input-regist required"  value="{cerHide1 userType.users[index].certificate}"/></li>\
-                    <li><strong>Telephone:</strong><input name="user.telephone" value="{userType.users[index].telephone}" type="text" class="input-regist required" /></li>\
-                    <li><strong>Mobile phone:</strong><input name="user.mobilePhone" value="{userType.users[index].mobilePhone}" type="text" class="input-regist required" /></li>\
-                    <li><strong>E-mail:</strong><input name="user.email" value="{userType.users[index].email}" type="text" class="input-regist required" /></li>\
-                    <li><strong>Diet taboos:</strong><select index="user." id="diet">\
+                    <li><strong>* ID number:</strong><input name="cerNum" type="text" class="input-regist required"  value="{cerHide1 userType.users[index].certificate}"/></li>\
+                    <li><strong>* Telephone:</strong><input name="user.telephone" value="{userType.users[index].telephone}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Mobile phone:</strong><input name="user.mobilePhone" value="{userType.users[index].mobilePhone}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* E-mail:</strong><input name="user.email" value="{userType.users[index].email}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Diet taboos:</strong><select index="user." id="diet">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[3] as n}\
 			            <option value="{n.value}" {select userType.users[index].diet n.value}>{n.name}</option>\
@@ -349,7 +348,7 @@
             <h4><span style="float:left">Hotel arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].hotel.id}">Remove</a></div></h4>\
 	            <div style="display:none;" class="content">\
 	                <ol>\
-	                <li><strong style="width:350px;">Whether check into the hotel appointed by FTMS:</strong>\
+	                <li><strong style="width:350px;">* Whether check into the hotel appointed by FTMS:</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isStay" type="radio" value="1" {if userType.users[index].hotel.isStay == 1}checked{/if}/>Yes\
 							<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isStay != 1}checked{/if}/>No\
@@ -359,14 +358,14 @@
 							<a href="#">check the map of the hotel</a>\
 						</div>\
 					</li>\
-	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist required" /></li>\
-	                <li><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist required" /></li>\
+	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
 	                <li><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}" {select userType.users[index].hotel.room n.value}>{n.name}</option>\
 						{/each}\
-                      </select><input class="required" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
+                      </select><input class=" isStay {if userType.users[index].hotel.isStay == 1}required{/if}" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
 	                <li {if userType.users[index].hotel.room != 2}style="display:none;{/if}">\
 						<strong style="width:350px;">Whether assign roommate sharing room with you:</strong>\
@@ -400,7 +399,7 @@
 			            <font style="padding-left:72px; width:100%">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
 					</div>\
                     <ol>\
-                    <li><strong style="width:250px;">Means of transportation to come:</strong>\
+                    <li><strong style="width:250px;">* Means of transportation to come:</strong>\
 						<select index="traffic." id="departureTrafficTool">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[5] as n}\
@@ -425,7 +424,7 @@
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:250px;">Date of arrival:</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:250px;">Time of arrival:</strong><input name="arrivalTime" type="text" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:250px;">Whether need airport pick-up service:</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>Yes<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>No</li>\
-                    <li style="margin-top:20px;"><strong style="width:250px;">Means of transportation to return:</strong>\
+                    <li style="margin-top:20px;"><strong style="width:250px;">* Means of transportation to return:</strong>\
 						<select index="traffic." id="backTrafficTool">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[9] as n}\
@@ -466,14 +465,14 @@
                 <h4><span style="float:left">Tour arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].other.id}">Remove</a></div></h4>\
                 <div style="display:none;" class="content">\
                     <ol>\
-                    <li><strong style="width:380px;">Whether attend the regional conference on January 16th:</strong>\
+                    <li><strong style="width:380px;">* Whether attend the regional conference on January 16th:</strong>\
 						<div class="left">\
 							<input name="other.meeting" type="radio" value="1" {if userType.users[index].other.meeting == 1}checked{/if}/>Yes\
 							<input name="other.meeting" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].other.meeting != 1}checked{/if}/>No\
 						</div>\
 						<div style="padding-left:40px; float:left">*in principle regional conference is attended by general managers</div>\
 					</li>\
-                    <li><strong style="width:380px;">Please choose a tour route you want to participate:</strong>\
+                    <li><strong style="width:380px;">* Please choose a tour route you want to participate:</strong>\
 						<select index="other." id="touristRoute">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[6] as n}\

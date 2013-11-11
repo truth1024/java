@@ -23,6 +23,7 @@ public class HotelAction extends BasicAction {
 	private int status;
 	private Hotel hotel;
 	private String method;
+	private long id;
 	
 	@Autowired
 	HotelService hotelService;
@@ -57,7 +58,12 @@ public class HotelAction extends BasicAction {
     }
     
     public String saveHotel(){
-    	if(hotel.getRoom() == 1){
+    	if(hotel.getIsStay() == 2){
+    		hotel.setInDate(null);
+    		hotel.setOutDate(null);
+    		hotel.setRoom(0);
+    	}
+    	if(hotel.getRoom() == 1 || hotel.getRoom() == 0){
     		hotel.setIsWith(0);
     	}
     	if(hotel.getIsWith() == 2 || hotel.getIsWith() == 0){
@@ -74,6 +80,13 @@ public class HotelAction extends BasicAction {
     	return "saveHotel";
     }
 
+    public String delete(){
+    	log.debug("hotel id : "+id);
+    	hotelService.deleteHotel(id);
+    	status = 1;
+    	return "delete";
+    }
+    
     public String getMessage() { 
 		return message; 
 	} 
@@ -115,5 +128,11 @@ public class HotelAction extends BasicAction {
 	}
 	public void setMethod(String method) {
 		this.method = method;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }

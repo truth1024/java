@@ -5,8 +5,19 @@
 <title>toyota一Team Faw Toyota 2014</title>
 <link href="/web/css/main_en.css" rel="stylesheet" type="text/css" />
 <link href="/web/css/travel_en.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/add.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="/web/js/main.js"></script>
+<script type="text/javascript">
+	$(function(){
+			$.post(
+				'/web/user_gainUserType',
+				function(data){
+					setTypeName(data);
+				}
+			);
+	});
+</script>
 </head>
 
 <body id="travel">
@@ -23,7 +34,9 @@
         <li><a href="contactUs.html" class="contactUs"><img src="/web/images/icon_contact.png" align="absmiddle" />Contact Us</a></li>
     </ul>
 </div>
-
+<div class="userMessage">
+    <span>Service hotline 400-110-3271</span><span>Email：service@ftmsdlr.cn</span><font>User Name <span id="user_type" style="float:none;"></span><a id="logout" href="javascript:void(0);">[Logout]</a></em></font>
+</div>
 <div class="content">
 	<h4>Tourist Routes</h4>
     <h5>A-one-day tour of Dongguan Keyuan Garden, Weigu Village of Shipai Tang and Songshan Lake</h5>

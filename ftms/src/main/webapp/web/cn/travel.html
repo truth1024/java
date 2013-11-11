@@ -5,8 +5,19 @@
 <title>toyota一汽丰田2014年全国经销商大会</title>
 <link href="/web/css/main.css" rel="stylesheet" type="text/css" />
 <link href="/web/css/travel.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/add.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="/web/js/main.js"></script>
+<script type="text/javascript">
+	$(function(){
+			$.post(
+				'/web/user_gainUserType',
+				function(data){
+					setTypeName(data);
+				}
+			);
+	});
+</script>
 </head>
 
 <body id="travel">
@@ -23,7 +34,9 @@
         <li><a href="contactUs.html" class="contactUs"><img src="/web/images/icon_contact.png" align="absmiddle" />联系我们</a></li>
     </ul>
 </div>
-
+<div class="userMessage">
+    <span>活动热线：400-110-3271</span><span>活动邮箱：service@ftmsdlr.cn</span><font><span id="user_type"></span><a id="logout" href="javascript:void(0);">[退出]</a></em></font>
+</div>
 <div class="content">
 	<h4>旅游路线</h4>
     <h5>A-东莞可园、石排塘尾古村、松山湖</h5>

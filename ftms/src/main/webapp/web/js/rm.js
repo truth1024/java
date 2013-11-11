@@ -24,6 +24,7 @@ $(function(){
 			}else{
 				$(this).parent().nextAll().hide();
 				$(this).parent().next().children('input[value=2]').get(0).checked = true;
+				$(this).parent().nextAll().children('input').removeClass('required');
 			}
 		}
 		
@@ -31,19 +32,19 @@ $(function(){
 		if(id == 'departureTrafficTool'){
 			if(value == 1){
 				$('.depar').show();
-				$('.depar input').addClass('required');
+				$('.depar input[type!=radio]').addClass('required');
 			}else{
 				$('.depar').hide();
-				$('.depar input').removeClass('required').val('');
+				$('.depar input[type!=radio]').removeClass('required').val('');
 			}
 		}
 		if(id == 'backTrafficTool'){
 			if(value == 1){
 				$('.back').show();
-				$('.back input').addClass('required');
+				$('.back input[type!=radio]').addClass('required');
 			}else{
 				$('.back').hide();
-				$('.back input').removeClass('required').val('');
+				$('.back input[type!=radio]').removeClass('required').val('');
 			}
 		}
 		
@@ -84,7 +85,6 @@ $(function(){
 				$('#regist_other .showMessage:eq(0) input').removeClass('required');
 			}
 		}
-		
 	});
 	
 	//基本信息保存功能
@@ -232,6 +232,15 @@ $(function(){
 		}
 	});
 	
+	
+	$('body').delegate('input[name="hotel.isStay"]','click',function(){
+		if($(this).val() == 1){
+			$('.isStay').addClass('required');
+		}else{
+			$('.isStay').removeClass('required');
+		}
+	});
+	
 });
 //放入隐藏域
 function inputValue(prefix,id){
@@ -245,7 +254,7 @@ function inputValue(prefix,id){
 function verify(str){
 	var flag = true;
 	$(str+' .required').each(function(){
-		// console.log($(this).attr('name'),$(this).val());
+//		 console.log($(this).attr('name'),$(this).val());
 		if($(this).val() == '' || $(this).val() == 0){
 			flag = false;
 			return false;
@@ -323,15 +332,9 @@ function dateInit(type){
 };
 
 
+//异步上传图片
 function ajaxFileUpload(obj) {
 	if(validateImage(obj)){
-//		$("#loading") 
-//		.ajaxStart(function(){ 
-//			$(this).show(); 
-//		})//开始上传文件时显示一个图片 
-//		.ajaxComplete(function(){ 
-//			$(this).hide(); 
-//		});//文件上传完成将图片隐藏起来
 		$.ajaxFileUpload({
 			url:'/web/image_upload',//用于文件上传的服务器端请求地址 
 			secureuri:false,//一般设置为false 
@@ -339,14 +342,12 @@ function ajaxFileUpload(obj) {
 			dataType: 'json',//返回值类型 一般设置为json 
 			success: function (data, status) //服务器成功响应处理函数 
 			{
-				alert(data.message);//从服务器返回的json中取出message中的数据,其中message为在struts2中action中定义的成员变量 
-				if(typeof(data.error) != 'undefined'){
-					if(data.error != ''){
-						alert(data.error);
-					}else{
-						alert(data.message);
-					}
+				if(data.message == '1'){
+					alert(tipArr[lang].uploadSuccess);//从服务器返回的json中取出message中的数据,其中message为在struts2中action中定义的成员变量 					
+				}else{
+					alert(tipArr[lang].failure);
 				}
+				
 			},
 			error: function (data, status, e)//服务器响应失败处理函数
 			{
@@ -363,14 +364,15 @@ function validateImage(obj) {
     
     //校验图片格式
     if(/^.*?\.(gif|png|jpg|jpeg|bmp)$/.test(tmpFileValue.toLowerCase())){
-	    if(/.*\-[(首页扫描件)|(签证页扫描件)]/.test(tmpFileValue.toLowerCase())){
+    	var flag = (lang == 'cn' ? /.*\-[(首页扫描件)|(签证页扫描件)]/.test(tmpFileValue.toLowerCase()) : /.*\-(first page scanning copy)/.test(tmpFileValue.toLowerCase()));
+	    if(flag){
 	    	return true;
 	    }else{
-	    	alert('图片命名格式不正确');
+	    	alert(tipArr[lang].upload);
 	    	return false;
 	    }
     } else {
-        alert("只能上传jpg、jpeg、png、bmp或gif格式的图片！");
+        alert(tipArr[lang].imageSuffix);
         return false;
     }
     
@@ -395,7 +397,7 @@ function validateImage(obj) {
     //    img.src = file.value;
         //return true;
     }else{
-        alert("请选择上传的文件!");
+//        alert("请选择上传的文件!");
         return false;
     }
 };

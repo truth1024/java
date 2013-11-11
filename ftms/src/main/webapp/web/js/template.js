@@ -6,44 +6,44 @@
                 <font>注：标“*”为必填项</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
-                    <li><strong>姓名：</strong><input name="user.name" type="text" class="input-regist required" /></li>\
-                    <li><strong>姓别：</strong><input class="required" name="user.sex" type="radio" value="1" checked/>男<input name="user.sex" type="radio" value="2" style="margin-left:20px;" /> 女</li>\
+                    <li><strong>* 姓名：</strong><input name="user.name" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 姓别：</strong><input class="required" name="user.sex" type="radio" value="1" checked/>男<input name="user.sex" type="radio" value="2" style="margin-left:20px;" /> 女</li>\
 					{if userType.type == 1}\
-						<li><strong>公司：</strong><select index="user." id="company">\
+						<li><strong>* 公司：</strong><select index="user." id="company">\
 	                        <option value="0">--请选择--</option>\
 							{each selectArr[0] as t}\
 				            <option value="{t.value}">{t.name}</option>\
 							{/each}\
                       	</select><input name="company" type="text" class="input-eat" /><input class="required" type="hidden" name="user.company"></li>\
-						<li><strong>职位：</strong><input class="input-regist required" type="text" name="user.title"></li>\
+						<li><strong>* 职位：</strong><input class="input-regist required" type="text" name="user.title"></li>\
 					{else}\
-						<li><strong>职位：</strong><select index="user." id="title">\
+						<li><strong>* 职位：</strong><select index="user." id="title">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[0] as t}\
 				            <option value="{t.value}">{t.name}</option>\
 							{/each}\
 				      	</select><input name="title" type="text" class="input-eat" /><input class="required" type="hidden" name="user.title"></li>\
 					{/if}\
-                    <li><strong>出生日期：</strong><input name="user.birthDate" type="text" class="input-regist required" /></li>\
-                    <li><strong>国籍：</strong><select index="user." id="nationality">\
+                    <li><strong>* 出生日期：</strong><input name="user.birthDate" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 国籍：</strong><select index="user." id="nationality">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[1] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
                       </select><input name="nationality" type="text" class="input-eat" /><input class="required" type="hidden" name="user.nationality">\
                     </li>\
-                    <li><strong>证件类型：</strong><select index="user." id="certificate">\
+                    <li><strong>* 证件类型：</strong><select index="user." id="certificate">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[2] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate">\
                     </li>\
-                    <li><strong>证件号码：</strong><input name="cerNum" type="text" class="input-regist required" /></li>\
-                    <li><strong>固定电话：</strong><input name="user.telephone" type="text" class="input-regist required" /></li>\
-                    <li><strong>移动电话：</strong><input name="user.mobilePhone" type="text" class="input-regist required" /></li>\
-                    <li><strong>电子邮箱：</strong><input name="user.email" type="text" class="input-regist required" /></li>\
-                    <li><strong>饮食忌口：</strong><select index="user." id="diet">\
+                    <li><strong>* 证件号码：</strong><input name="cerNum" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 固定电话：</strong><input name="user.telephone" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 移动电话：</strong><input name="user.mobilePhone" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 电子邮箱：</strong><input name="user.email" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 饮食忌口：</strong><select index="user." id="diet">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[3] as n}\
 			            <option value="{n.value}">{n.name}</option>\
@@ -68,15 +68,15 @@
             <h4>酒店安排</h4>\
 	            <div class="content">\
 	                <ol>\
-	                <li><strong>是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="#">查看酒店地图</a></div></li>\
-	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist required" /></li>\
-	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist required" /></li>\
+	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="#">查看酒店地图</a></div></li>\
+	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
+	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
 	                <li><strong>住宿类型：</strong><select index="hotel." id="room">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
-                      </select><input class="required" type="hidden" name="hotel.room">\
+                      </select><input class="isStay" type="hidden" name="hotel.room">\
                     </li>\
 	                <li style="display:none;"><strong>是否指定同住人：</strong><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
 	                <li class="hide" style="display:none;"><strong>同住人姓名：</strong><input name="hotel.withName" type="text" class="input-regist" /></li>\
@@ -104,12 +104,14 @@
                         <font style="padding-left:72px; width:100%">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
 					</div>\
                     <ol>\
-                    <li><strong>来程交通方式：</strong><select index="traffic." id="departureTrafficTool">\
+                    <li>\
+						<strong>* 来程交通方式：</strong>\
+						<select index="traffic." id="departureTrafficTool">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[5] as n}\
 				            <option value="{n.value}">{n.name}</option>\
 							{/each}\
-				          </select><input name="departureTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.departureTrafficTool">\
+				    	</select><input name="departureTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.departureTrafficTool">\
 					</li>\
                     <li class="depar" style="display:none;"><strong>出发城市：</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
 					<li class="depar" style="display:none;">\
@@ -125,7 +127,9 @@
                     <li class="depar" style="display:none;"><strong>抵达日期：</strong><input name="arrivalDate" type="text" class="input-regist" /></li>\
                     <li class="depar" style="display:none;"><strong>抵达时间：</strong><input name="arrivalTime" type="text" class="input-regist" /></li>\
                     <li class="depar" style="display:none;"><strong>是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" />是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
-                    <li style="margin-top:20px;"><strong>返程交通方式：</strong><select index="traffic." id="backTrafficTool">\
+                    <li style="margin-top:20px;">\
+						<strong>* 返程交通方式：</strong>\
+						<select index="traffic." id="backTrafficTool">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[9] as n}\
 				            <option value="{n.value}">{n.name}</option>\
@@ -161,8 +165,8 @@
                 <h4>游览安排</h4>\
                 <div class="content">\
                     <ol>\
-                    <li><strong style="width:230px;">是否参加1月16日上午大区会议：</strong><div class="left"><input name="other.meeting" type="radio" value="1" />是<input name="other.meeting" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*原则上大区会议为总经理参加 </div></li>\
-                    <li><strong style="width:230px;">请选择您要参加的旅游线路：</strong><select index="other." id="touristRoute">\
+                    <li><strong style="width:230px;">* 是否参加1月16日上午大区会议：</strong><div class="left"><input name="other.meeting" type="radio" value="1" />是<input name="other.meeting" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*原则上大区会议为总经理参加 </div></li>\
+                    <li><strong style="width:230px;">* 请选择您要参加的旅游线路：</strong><select index="other." id="touristRoute">\
 			            <option value="0">--请选择--</option>\
 						{each selectArr[6] as n}\
 			            <option value="{n.value}">{n.name}</option>\
@@ -239,27 +243,27 @@
 	
 	template.compile('manage_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4><span style="float:left">基本信息</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].id}">删除</a></div></h4>\
+            <h4><span style="float:left">基本信息</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a></div></h4>\
             <div style="display:none;" class="content">\
                 <font>注：标“*”为必填项</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
 					<input type="hidden" class="required" name="user.id" value="{userType.users[index].id}">\
-                    <li><strong>姓名：</strong><input name="user.name" value="{userType.users[index].name}" type="text" class="input-regist required" /></li>\
-                    <li><strong>姓别：</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>男<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" /> 女</li>\
+                    <li><strong>* 姓名：</strong><input name="user.name" value="{userType.users[index].name}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 姓别：</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>男<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" /> 女</li>\
 					{if userType.type == 1}\
 					<li>\
-						<strong>公司：</strong><select  index="user." id="company">\
+						<strong>* 公司：</strong><select  index="user." id="company">\
 	                        <option value="0">--请选择--</option>\
 							{each selectArr[0] as t}\
 				            <option value="{t.value}" {select userType.users[index].company t.value}>{t.name}</option>\
 							{/each}\
                       	</select><input class="required" type="hidden" name="user.company" value="{userType.users[index].company}">\
 					</li>\
-					<li><strong>职位：</strong><input class="input-regist required" type="text" name="user.title" value="{userType.users[index].title}"></li>\
+					<li><strong>* 职位：</strong><input class="input-regist required" type="text" name="user.title" value="{userType.users[index].title}"></li>\
 					{else}\
 					<li>\
-						<strong>职位：</strong>\
+						<strong>* 职位：</strong>\
 						<select index="user." id="title">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[0] as t}\
@@ -270,8 +274,8 @@
 						<input class="required" type="hidden" name="user.title" value="{userType.users[index].title}">\
 					</li>\
 					{/if}\
-                    <li><strong>出生日期：</strong><input name="user.birthDate" value="{dateFormat userType.users[index].birthDate}" type="text" class="input-regist required" /></li>\
-                    <li><strong>国籍：</strong>\
+                    <li><strong>* 出生日期：</strong><input name="user.birthDate" value="{dateFormat userType.users[index].birthDate}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 国籍：</strong>\
 						<select index="user." id="nationality">\
 	                    	<option value="0">--请选择--</option>\
 							{each selectArr[1] as n}\
@@ -280,18 +284,18 @@
                       	</select>\
 						<input name="nationality" type="text" class="input-eat" {selectHide userType.users[index].nationality}/><input class="required" type="hidden" name="user.nationality" value="{userType.users[index].nationality}">\
                     </li>\
-                    <li><strong>证件类型：</strong><select index="user." id="certificate">\
+                    <li><strong>* 证件类型：</strong><select index="user." id="certificate">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[2] as n}\
 			            <option value="{n.value}" {cerSelect userType.users[index].certificate n.value}>{n.name}</option>\
 						{/each}\
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate" value="{cerHide0 userType.users[index].certificate}">\
                     </li>\
-                    <li><strong>证件号码：</strong><input name="cerNum" type="text" class="input-regist required"  value="{cerHide1 userType.users[index].certificate}"/></li>\
-                    <li><strong>固定电话：</strong><input name="user.telephone" value="{userType.users[index].telephone}" type="text" class="input-regist required" /></li>\
-                    <li><strong>移动电话：</strong><input name="user.mobilePhone" value="{userType.users[index].mobilePhone}" type="text" class="input-regist required" /></li>\
-                    <li><strong>电子邮箱：</strong><input name="user.email" value="{userType.users[index].email}" type="text" class="input-regist required" /></li>\
-                    <li><strong>饮食忌口：</strong><select index="user." id="diet">\
+                    <li><strong>* 证件号码：</strong><input name="cerNum" type="text" class="input-regist required"  value="{cerHide1 userType.users[index].certificate}"/></li>\
+                    <li><strong>* 固定电话：</strong><input name="user.telephone" value="{userType.users[index].telephone}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 移动电话：</strong><input name="user.mobilePhone" value="{userType.users[index].mobilePhone}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 电子邮箱：</strong><input name="user.email" value="{userType.users[index].email}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 饮食忌口：</strong><select index="user." id="diet">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[3] as n}\
 			            <option value="{n.value}" {select userType.users[index].diet n.value}>{n.name}</option>\
@@ -313,33 +317,35 @@
 	template.compile('manage_hotel',
 		'<form id="regist_hotel"><div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="{userType.users[index].id}">\
-            <h4><span style="float:left">酒店安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].hotel.id}">删除</a></div></h4>\
+            <h4><span style="float:left">酒店安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">删除</a></div></h4>\
 	            <div style="display:none;" class="content">\
 	                <ol>\
-	                <li><strong>是否入住FTMS指定酒店：</strong>\
+	                <li><strong>* 是否入住FTMS指定酒店：</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isStay" type="radio" value="1" {if userType.users[index].hotel.isStay == 1}checked{/if}/>是\
 							<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isStay != 1}checked{/if}/>否\
 						</div>\
 						<div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="#">查看酒店地图</a></div>\
 					</li>\
-	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist required" /></li>\
-	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist required" /></li>\
-	                <li><strong>住宿类型：</strong><select index="hotel." id="room">\
+	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li><strong>住宿类型：</strong>\
+						<select index="hotel." id="room">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}" {select userType.users[index].hotel.room n.value}>{n.name}</option>\
 						{/each}\
-                      </select><input class="required" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
+                      	</select><input class="isStay {if userType.users[index].hotel.isStay == 1}required{/if}" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
-	                <li {if userType.users[index].hotel.room != 2}style="display:none;{/if}><strong>是否指定同住人：</strong>\
+	                <li {if userType.users[index].hotel.room != 2}style="display:none;"{/if} >\
+						<strong>是否指定同住人：</strong>\
 						<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>是\
 						<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isWith != 1}checked{/if}/>否\
 					</li>\
 	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人姓名：</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist" /></li>\
 	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人经销店：</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist" /></li>\
-	               </ol>\
-	               <div class="tips">\
+	               	</ol>\
+	               	<div class="tips">\
 	                <font style="font-size:12px;"><strong>备注：</strong>1、按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</font>\
 	                <font style="padding-left:36px; width:100%">2、本次大会事务局统一订房时间为1月15日至17日</font>\
 	                <font style="padding-left:36px; width:100%">3、酒店住宿费用请您在签到处或前台自付</font>\
@@ -352,7 +358,7 @@
 	template.compile('manage_traffic',
 		'<form id="regist_traffic"><div class="content-regist">\
 			<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">交通安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].traffic.id}">删除</a></div></h4>\
+                <h4><span style="float:left">交通安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">删除</a></div></h4>\
                 <div style="display:none;" class="content">\
                     <font style="font-size:12px;">*请注意，您从居住地往返东莞的交通需要自行安排，请您提前安排行程，并于12月20日前将您确认后的交通安排信息填入下方。</font>\
                     <div class="tips">\
@@ -361,7 +367,8 @@
                         <font style="padding-left:72px; width:100%">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
 					</div>\
                     <ol>\
-                    <li><strong>来程交通方式：</strong>\
+                    <li>\
+						<strong>* 来程交通方式：</strong>\
 						<select index="traffic." id="departureTrafficTool">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[5] as n}\
@@ -386,7 +393,8 @@
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>抵达日期：</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>抵达时间：</strong><input name="arrivalTime" type="text" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>否</li>\
-                    <li style="margin-top:20px;"><strong>返程交通方式：</strong>\
+                    <li style="margin-top:20px;">\
+						<strong>* 返程交通方式：</strong>\
 						<select index="traffic." id="backTrafficTool">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[9] as n}\
@@ -423,17 +431,17 @@
 	template.compile('manage_other',
 		'<form id="regist_other"><div class="content-regist">\
 			<input type="hidden" name="other.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">游览安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].other.id}">删除</a></div></h4>\
+                <h4><span style="float:left">游览安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">删除</a></div></h4>\
                 <div style="display:none;" class="content">\
                     <ol>\
-                    <li><strong style="width:230px;">是否参加1月16日上午大区会议：</strong>\
+                    <li><strong style="width:230px;">* 是否参加1月16日上午大区会议：</strong>\
 						<div class="left">\
 							<input name="other.meeting" type="radio" value="1" {if userType.users[index].other.meeting == 1}checked{/if}/>是\
 							<input name="other.meeting" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].other.meeting != 1}checked{/if}/>否\
 						</div>\
 						<div style="padding-left:40px; float:left">*原则上大区会议为总经理参加 </div>\
 					</li>\
-                    <li><strong style="width:230px;">请选择您要参加的旅游线路：</strong>\
+                    <li><strong style="width:230px;">* 请选择您要参加的旅游线路：</strong>\
 						<select index="other." id="touristRoute">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[6] as n}\

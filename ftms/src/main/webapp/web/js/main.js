@@ -1,4 +1,4 @@
-var lang = (location.pathname.indexOf('/cn/') > -1 ? 'cn' : 'en');
+var lang = (location.pathname.indexOf('/en/') > -1 ? 'en' : 'cn');
 
 $.ajaxSetup({
 	dataType:'json',
@@ -8,6 +8,7 @@ $.ajaxSetup({
 		}
 	}
 });
+
 $(function(){
 	$('#changeLang').click(function(){
 		if(lang == 'cn'){
@@ -16,7 +17,26 @@ $(function(){
 			location.href = location.pathname.replace('/en/','/cn/');
 		}
 	});
+	
+	$('#logout').click(function(){
+		$.post(
+			'/web/login_logout',
+			function(data){
+				if(data.status == 1){
+					location.href = 'login.html';
+				}
+			}
+		);
+	});
 });
+
+//设置身份类别
+function setTypeName(data){
+	$('#user_type').text(userTypeArr[lang][data.userType.type-1]);
+};
+
+
+
 var userTypeArr = {
 		'cn' : ['内部人员','经销商'],
 		'en' : ['Toyota staff','Dealer']
@@ -27,17 +47,29 @@ var tipArr = {
 			'registered' : '已注册',
 			'unregistered' : '未注册',
 			'saveSuccess' : '保存成功',
-			'infoLack' : '信息填写不完整无法提交',
+			'infoLack' : '信息填写不完整无法保存',
 			'userLack' : '请先填写用户信息并保存',
-			'add' : '添加'
+			'add' : '添加',
+			'upload' : '因命名不符合要求无法上传',
+			'uploadSuccess' : '上传成功',
+			'uploadFailure' : '上传失败',
+			'imageSuffix' : '只能上传jpg、jpeg、png、bmp或gif格式的图片！',
+			'deleteSuccess' : '删除成功',
+			'deleteFailure' : '删除失败'
 		},
 		'en' : {
 			'registered' : 'registered',
 			'unregistered' : 'unregistered',
-			'saveSuccess' : 'save successfully',
-			'infoLack' : 'it can’t be submitted due to incomplete information',
+			'saveSuccess' : 'saved successfully',
+			'infoLack' : 'it can’t be saved due to incomplete information',
 			'userLack' : 'please fill in the user information and save',
-			'add' : 'Add'
+			'add' : 'Add',
+			'upload' : 'it can’t be uploaded due to the naming doesn’t meet requirement',
+			'uploadSuccess' : 'upload successfully',
+			'uploadFailure' : 'upload failed',
+			'imageSuffix' : 'it can’t be uploaded due to the suffix doesn’t meet requirement',
+			'deleteSuccess' : 'deleted successfully',
+			'deleteFailure' : 'delete failed'
 		}
 };
 

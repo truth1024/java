@@ -6,18 +6,30 @@ jQuery.extend({
 	{
 			//create frame
             var frameId = 'jUploadFrame' + id;
-            
+            var io = null;
             if(window.ActiveXObject) {
-                var io = document.createElement('<iframe id="' + frameId + '" name="' + frameId + '" />');
-                if(typeof uri== 'boolean'){
-                    io.src = 'javascript:false';
+//                var io = document.createElement('<iframe id="' + frameId + '" name="' + frameId + '" />');
+//                if(typeof uri== 'boolean'){
+//                    io.src = 'javascript:false';
+//                }
+//                else if(typeof uri== 'string'){
+//                    io.src = uri;
+//                }
+            	if($.browser.version =="9.0" || $.browser.version =="10.0"){  
+                    io = document.createElement('iframe');  
+                    io.id = frameId;
+                    io.name = frameId;
+                }else if(jQuery.browser.version=="6.0" || jQuery.browser.version=="7.0" || jQuery.browser.version=="8.0"){  
+                    io = document.createElement('<iframe id="' + frameId + '" name="' + frameId + '" />');  
+                    if(typeof uri== 'boolean'){  
+                        io.src = 'javascript:false';  
+                    }  
+                    else if(typeof uri== 'string'){  
+                        io.src = uri;  
+                    }  
                 }
-                else if(typeof uri== 'string'){
-                    io.src = uri;
-                }
-            }
-            else {
-                var io = document.createElement('iframe');
+            }else {
+                io = document.createElement('iframe');
                 io.id = frameId;
                 io.name = frameId;
             }
@@ -27,7 +39,7 @@ jQuery.extend({
 
             document.body.appendChild(io);
 
-            return io			
+            return io;			
     },
     createUploadForm: function(id, fileElementId)
 	{
@@ -51,7 +63,7 @@ jQuery.extend({
     ajaxFileUpload: function(s) {
         // TODO introduce global settings, allowing the client to modify them for all requests, not only timeout		
         s = jQuery.extend({}, jQuery.ajaxSettings, s);
-        var id = new Date().getTime()        
+        var id = new Date().getTime();
 		var form = jQuery.createUploadForm(id, s.fileElementId);
 		var io = jQuery.createUploadIframe(id, s.secureuri);
 		var frameId = 'jUploadFrame' + id;
@@ -63,7 +75,7 @@ jQuery.extend({
 		}            
         var requestDone = false;
         // Create the request object
-        var xml = {}   
+        var xml = {};
         if ( s.global )
             jQuery.event.trigger("ajaxSend", [xml, s]);
         // Wait for a response to come back
@@ -124,7 +136,7 @@ jQuery.extend({
                 if ( s.complete )
                     s.complete(xml, status);
 
-                jQuery(io).unbind()
+                jQuery(io).unbind();
 
                 setTimeout(function()
 									{	try 
@@ -137,12 +149,12 @@ jQuery.extend({
 											jQuery.handleError(s, xml, null, e);
 										}									
 
-									}, 100)
+									}, 100);
 
-                xml = null
+                xml = null;
 
             }
-        }
+        };
         // Timeout checker
         if ( s.timeout > 0 ) 
 		{

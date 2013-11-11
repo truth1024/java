@@ -15,7 +15,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `t_hotel`;
 CREATE TABLE `t_hotel` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `u_id` bigint(20) unsigned NOT NULL,
+  `u_id` bigint(20) NOT NULL,
   `is_stay` tinyint(4) DEFAULT NULL,
   `in_date` datetime DEFAULT NULL,
   `out_date` datetime DEFAULT NULL,
@@ -24,9 +24,9 @@ CREATE TABLE `t_hotel` (
   `with_name` varchar(100) DEFAULT NULL,
   `with_shop` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `u_id_index` (`u_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  KEY `hotel_fk_u_id` (`u_id`),
+  CONSTRAINT `hotel_fk_u_id` FOREIGN KEY (`u_id`) REFERENCES `t_user_info` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_hotel
@@ -38,7 +38,7 @@ CREATE TABLE `t_hotel` (
 DROP TABLE IF EXISTS `t_other`;
 CREATE TABLE `t_other` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `u_id` bigint(20) unsigned NOT NULL,
+  `u_id` bigint(20) NOT NULL,
   `meeting` tinyint(4) DEFAULT NULL,
   `tourist_route` tinyint(4) DEFAULT NULL,
   `has_pass` tinyint(4) DEFAULT NULL,
@@ -54,8 +54,8 @@ CREATE TABLE `t_other` (
   `pass_image` varchar(45) DEFAULT NULL,
   `visa_image` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `u_id_index` (`u_id`)
+  KEY `other_fk_u_id` (`u_id`),
+  CONSTRAINT `other_fk_u_id` FOREIGN KEY (`u_id`) REFERENCES `t_user_info` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -68,21 +68,23 @@ CREATE TABLE `t_other` (
 DROP TABLE IF EXISTS `t_traffic`;
 CREATE TABLE `t_traffic` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `u_id` bigint(20) unsigned NOT NULL,
+  `u_id` bigint(20) NOT NULL,
   `departure_traffic_tool` varchar(45) DEFAULT NULL,
-  `departure_city` varchar(100) DEFAULT NULL,
+  `departure_city1` varchar(100) DEFAULT NULL,
+  `departure_city2` tinyint(4) DEFAULT NULL,
   `departure_flight` varchar(45) DEFAULT NULL,
   `arrival_date` datetime DEFAULT NULL,
   `pick_up` tinyint(4) DEFAULT NULL,
   `back_traffic_tool` varchar(45) DEFAULT NULL,
-  `back_city` varchar(100) DEFAULT NULL,
+  `back_city1` varchar(100) DEFAULT NULL,
+  `back_city2` tinyint(4) DEFAULT NULL,
   `back_flight` varchar(45) DEFAULT NULL,
   `back_date` datetime DEFAULT NULL,
   `send` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `u_id_Index` (`u_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `traffic_fk_u_id` (`u_id`),
+  CONSTRAINT `traffic_fk_u_id` FOREIGN KEY (`u_id`) REFERENCES `t_user_info` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_traffic

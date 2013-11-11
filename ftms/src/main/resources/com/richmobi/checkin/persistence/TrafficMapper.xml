@@ -51,4 +51,11 @@
 		WHERE 
 			u_id = #{uid}
 	</update>
+	
+	<delete id="delete" parameterType="long">
+		DELETE FROM 
+			t_traffic 
+		WHERE 
+			id = #{id}
+	</delete>
 </mapper>

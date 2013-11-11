@@ -5,28 +5,17 @@
 <title>toyota一 Team Faw Toyota 2014</title>
 <link href="/web/css/main_en.css" rel="stylesheet" type="text/css" />
 <link href="/web/css/schedule_en.css" rel="stylesheet" type="text/css" />
+<link href="/web/css/add.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/web/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="/web/js/main.js"></script>
 <script type="text/javascript">
 	$(function(){
-			$.post(
-				'/web/user_gainUserType',
-				function(data){
-					$('#user_type').text(userTypeArr[lang][data.userType.type-1]);
-				}
-			);
-			
-			$('#logout').click(function(){
-				$.post(
-					'/web/login_logout',
-					function(data){
-						if(data.status == 1){
-							location.href = 'login.html';
-						}
-					}
-				);
-			});
-			
+		$.post(
+			'/web/user_gainUserType',
+			function(data){
+				setTypeName(data);
+			}
+		);
 	});
 </script>
 </head>
@@ -46,7 +35,7 @@
     </ul>
 </div>
 <div class="userMessage">
-    <span>Service hotline 400-1177-488</span><span>Email：asdfasdfa@adfad.com</span><font>User Name <span id="user_type" style="float:none;"></span><a id="logout" href="javascript:void(0);">[Logout]</a></em></font>
+    <span>Service hotline 400-110-3271</span><span>Email：service@ftmsdlr.cn</span><font>User Name <span id="user_type" style="float:none;"></span><a id="logout" href="javascript:void(0);">[Logout]</a></em></font>
 </div>
 <div class="content">
     <div class="content-box">

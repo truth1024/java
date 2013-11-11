@@ -29,4 +29,14 @@ public class OtherServiceImpl implements OtherService {
 		otherMapper.update(other);
 	}
 
+	@Override
+	public void updateImageById(Other other) {
+		otherMapper.updateImageById(other);
+	}
+
+	@Override
+	public void deleteOther(long id) {
+		otherMapper.delete(id);
+	}
+
 }

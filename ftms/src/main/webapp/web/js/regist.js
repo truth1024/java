@@ -9,6 +9,7 @@ function getRegist(){
 		{'page':'regist','lang':lang},
 		function(data){
 			// console.log(data);
+			setTypeName(data);
 			var type = data.userType.type;
 			if(data.userType.users.length == 0){
 				$('#tags li').eq(type-1).show();
@@ -19,7 +20,7 @@ function getRegist(){
 				//日期时间初始化
 				dateInit(type);
 			}else{
-				$('#tagContent1').append(tipArr[lang].registered);
+				$('#tagContent1').text(tipArr[lang].registered);
 			}
 		}
 	);

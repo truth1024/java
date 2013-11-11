@@ -35,4 +35,14 @@ public interface TrafficService {
 	* @throws
 	 */
 	void update(Traffic traffic);
+	
+	/**
+	 * 
+	* @Title: deleteTraffic
+	* @Description: 删除交通信息
+	* @param @param traffic
+	* @return void
+	* @throws
+	 */
+	void deleteTraffic(long id);
 }

@@ -20,7 +20,7 @@ public class ImageAction extends BasicAction {
 	private File file; 
 	private String fileFileName; 
 	private String fileFileContentType; 
-	private String message = "你已成功上传文件";
+	private String message = "0";
 	
 	public String upload() throws Exception {
 		String rootPath = ServletActionContext.getServletContext().getRealPath("")+"/uploadImage/";
@@ -28,25 +28,31 @@ public class ImageAction extends BasicAction {
     	String visaPath = rootPath+"visaImage/";
     	String filePath = "";
     	log.debug("fileName : "+fileFileName);
+    	log.debug(filePath);
     	log.debug(fileFileName.indexOf("首页扫描件") > -1);
     	log.debug(fileFileName.indexOf("签证页扫描件") > -1);
-    	if(fileFileName.indexOf("首页扫描件") > -1){
+    	
+    	if(fileFileName.indexOf("首页扫描件") > -1 || fileFileName.indexOf("first page scanning copy") > -1){
     		filePath = passPath;
     	}else if(fileFileName.indexOf("签证页扫描件") > -1){
     		filePath = visaPath;
     	}
     	File imgFile = new File(rootPath);
+    	File passFile = new File(passPath);
+    	File visaFile = new File(visaPath);
 		if (!imgFile.exists()){
 			imgFile.mkdirs();
-			File passFile = new File(passPath);
-			File visaFile = new File(visaPath);
-			passFile.mkdirs();
+		}
+		if(!passFile.exists()){
+			passFile.mkdirs();			
+		}
+		if(!visaFile.exists()){			
 			visaFile.mkdirs();
 		}
     	try {
 			boolean uploadFlag = UploadUtil.upload(file, fileFileName, filePath);
-			if(!uploadFlag){
-				message = "上传失败";
+			if(uploadFlag){
+				message = "1";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

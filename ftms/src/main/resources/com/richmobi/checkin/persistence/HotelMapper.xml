@@ -47,4 +47,11 @@
 		WHERE 
 			u_id = #{uid}
 	</update>
+	
+	<delete id="delete" parameterType="long">
+		DELETE FROM 
+			t_hotel 
+		WHERE 
+			id = #{id}
+	</delete>
 </mapper>

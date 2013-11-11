@@ -14,6 +14,7 @@ public class OtherAction extends BasicAction {
 	private Other other;
 	private int status;
 	private String method;
+	private long id;
 	
 	@Autowired
 	OtherService otherService;
@@ -55,6 +56,12 @@ public class OtherAction extends BasicAction {
 		return "saveOther";
 	}
 	
+	public String delete(){
+		otherService.deleteOther(id);
+		status = 1;
+		return "delete";
+	}
+	
 	public Other getOther() {
 		return other;
 	}
@@ -72,5 +79,11 @@ public class OtherAction extends BasicAction {
 	}
 	public void setMethod(String method) {
 		this.method = method;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }

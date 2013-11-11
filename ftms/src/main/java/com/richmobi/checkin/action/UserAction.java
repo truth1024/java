@@ -29,7 +29,7 @@ public class UserAction extends BasicAction {
 	private long uid;
 	private String method;
 	private String lang;
-	
+	private long id;
 	
 	@Autowired
 	UserTypeService userTypeService;
@@ -94,6 +94,12 @@ public class UserAction extends BasicAction {
 		return "saveUser";
 	}
 	
+	public String delete(){
+		userSevice.delete(id);
+		status = 1;
+		return "delete";
+	}
+	
 	public UserType getUserType() {
 		return userType;
 	}
@@ -153,5 +159,11 @@ public class UserAction extends BasicAction {
 	}
 	public void setLang(String lang) {
 		this.lang = lang;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }

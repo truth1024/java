@@ -90,7 +90,6 @@ public class CompressUtil {
     	            // out.putNextEntry(new org.apache.tools.zip.ZipEntry(base + "/"));
     	//            out.putNextEntry(new ZipEntry(base + "/"));
     	            ZipEntry zipEntry=new ZipEntry(base + "/");
-    	            zipEntry.setUnixMode(755);//解决linux乱码
     	            out.putNextEntry(zipEntry);
     	            base = base.length() == 0 ? "" : base + "/";
 //    	            base = base.length() == 0 ? "" : base + System.getProperties().getProperty("file.separator");
@@ -104,7 +103,6 @@ public class CompressUtil {
     	        { // 压缩目录中的所有文件
     	            // out.putNextEntry(new org.apache.tools.zip.ZipEntry(base));
     	            ZipEntry zipEntry=new ZipEntry(base);
-    	            zipEntry.setUnixMode(644);//解决linux乱码
     	            out.putNextEntry(zipEntry);
     	            FileInputStream in = new FileInputStream(f);
     	            int b;

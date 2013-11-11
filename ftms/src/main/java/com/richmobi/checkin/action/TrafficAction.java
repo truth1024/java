@@ -23,6 +23,7 @@ public class TrafficAction extends BasicAction {
 	private String backTime;
 	private int status;
 	private String method;
+	private long id;
 	
 	@Autowired
 	TrafficService trafficService;
@@ -55,6 +56,12 @@ public class TrafficAction extends BasicAction {
 		}
 		status = 1;
 		return "saveTraffic";
+	}
+	
+	public String delete(){
+		trafficService.deleteTraffic(id);
+		status = 1;
+		return "delete";
 	}
 	
 	
@@ -99,5 +106,11 @@ public class TrafficAction extends BasicAction {
 	}
 	public void setMethod(String method) {
 		this.method = method;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }

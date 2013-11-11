@@ -29,4 +29,10 @@ public class HotelServiceImpl implements HotelService {
 		hotelMapper.update(hotel);
 	}
 
+	@Override
+	public void deleteHotel(long id) {
+		hotelMapper.delete(id);
+	}
+
+
 }

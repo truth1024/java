@@ -29,4 +29,9 @@ public class TrafficServiceImpl implements TrafficService {
 		trafficMapper.update(traffic);
 	}
 
+	@Override
+	public void deleteTraffic(long id) {
+		trafficMapper.delete(id);
+	}
+
 }

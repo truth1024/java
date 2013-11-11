@@ -35,4 +35,14 @@ public interface HotelMapper {
 	* @throws
 	 */
 	void update(Hotel hotel);
+	
+	/**
+	 * 
+	* @Title: delete
+	* @Description: 删除酒店信息
+	* @param @param hotel
+	* @return void
+	* @throws
+	 */
+	void delete(long id);
 }
