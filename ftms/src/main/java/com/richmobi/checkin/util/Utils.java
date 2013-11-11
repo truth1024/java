@@ -153,4 +153,9 @@ public class Utils {
 	public static String hasPass(int hasPass){
 		return (hasPass == 0 ? "" : Constant.passArr[hasPass-1].getName());
 	}
+	
+	public static String city(int city){
+		return (city == 0 ? "" : Constant.cityArr[city-1].getName());
+	}
+	
 }

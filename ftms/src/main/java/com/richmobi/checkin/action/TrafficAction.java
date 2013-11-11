@@ -34,7 +34,8 @@ public class TrafficAction extends BasicAction {
 			traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));
 		}else{
 			traffic.setPickUp(0);
-			traffic.setDepartureCity("");
+			traffic.setDepartureCity1("");
+			traffic.setDepartureCity2(0);
 			traffic.setArrivalDate(null);
 			traffic.setDepartureFlight("");
 		}
@@ -42,7 +43,8 @@ public class TrafficAction extends BasicAction {
 			traffic.setBackDate(format1.parse(backDate+backTime));			
 		}else{
 			traffic.setSend(0);
-			traffic.setBackCity("");
+			traffic.setBackCity1("");
+			traffic.setBackCity2(0);
 			traffic.setBackDate(null);
 			traffic.setBackFlight("");
 		}

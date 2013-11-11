@@ -9,9 +9,9 @@
 	</resultMap>
 	<sql id="select_traffic_sql_segment">
 		SELECT
-			id, u_id as uid, departure_traffic_tool as departureTrafficTool, departure_city as departureCity,
+			id, u_id as uid, departure_traffic_tool as departureTrafficTool, departure_city1 as departureCity1,departure_city2 as departureCity2,
 			departure_flight as departureFlight, arrival_date as arrivalDate, pick_up as pickUp, 
-			back_traffic_tool as backTrafficTool, back_city as backCity, back_flight as backFlight, 
+			back_traffic_tool as backTrafficTool, back_city1 as backCity1, back_city2 as backCity2, back_flight as backFlight, 
 			back_date as backDate, send
 		FROM
 			t_traffic
@@ -24,13 +24,13 @@
 		INSERT INTO 
 			t_traffic
 			(
-				u_id, departure_traffic_tool, departure_city, departure_flight, arrival_date, pick_up,
-				back_traffic_tool, back_city, back_flight, back_date, send
+				u_id, departure_traffic_tool, departure_city1, departure_city2, departure_flight, arrival_date, pick_up,
+				back_traffic_tool, back_city1, back_city2, back_flight, back_date, send
 			)
 		VALUES
 			(
-				#{uid}, #{departureTrafficTool}, #{departureCity}, #{departureFlight}, #{arrivalDate}, #{pickUp}, 
-			 	#{backTrafficTool}, #{backCity}, #{backFlight}, #{backDate}, #{send}
+				#{uid}, #{departureTrafficTool}, #{departureCity1}, #{departureCity2}, #{departureFlight}, #{arrivalDate}, #{pickUp}, 
+			 	#{backTrafficTool}, #{backCity1}, #{backCity2}, #{backFlight}, #{backDate}, #{send}
 			)
 	</insert>
 
@@ -44,9 +44,9 @@
 		UPDATE 
 			t_traffic
 		SET
-			departure_traffic_tool = #{departureTrafficTool}, departure_city = #{departureCity}, 
+			departure_traffic_tool = #{departureTrafficTool}, departure_city1 = #{departureCity1}, departure_city2 = #{departureCity2},
 			departure_flight = #{departureFlight}, arrival_date = #{arrivalDate}, pick_up = #{pickUp},
-			back_traffic_tool = #{backTrafficTool}, back_city = #{backCity}, back_flight = #{backFlight}, 
+			back_traffic_tool = #{backTrafficTool}, back_city1 = #{backCity1}, back_city2 = #{backCity2}, back_flight = #{backFlight}, 
 			back_date = #{backDate}, send = #{send}
 		WHERE 
 			u_id = #{uid}

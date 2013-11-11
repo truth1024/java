@@ -31,19 +31,19 @@ $(function(){
 		if(id == 'departureTrafficTool'){
 			if(value == 1){
 				$('.depar').show();
-				$('.depar input[type="text"]').addClass('required');
+				$('.depar input').addClass('required');
 			}else{
 				$('.depar').hide();
-				$('.depar input[type="text"]').removeClass('required').val('');
+				$('.depar input').removeClass('required').val('');
 			}
 		}
 		if(id == 'backTrafficTool'){
 			if(value == 1){
 				$('.back').show();
-				$('.back input[type="text"]').addClass('required');
+				$('.back input').addClass('required');
 			}else{
 				$('.back').hide();
-				$('.back input[type="text"]').removeClass('required').val('');
+				$('.back input').removeClass('required').val('');
 			}
 		}
 		
@@ -288,12 +288,16 @@ function dateInit(type){
 		$('[name="hotel.inDate"]').datepicker({
 			onSelect:function(dateText,inst){
 			       $('[name="hotel.outDate"]').datepicker("option","minDate",dateText);
-			    }
+			    },
+			minDate:'2014-01-01',
+			maxDate:'2014-01-31'
 		});
 		$('[name="hotel.outDate"]').datepicker({
 			onSelect:function(dateText,inst){
 		        $('[name="hotel.inDate"]').datepicker("option","maxDate",dateText);
-		    }
+		    },
+			minDate:'2014-01-01',
+			maxDate:'2014-01-31'
 		});
 		$('[name="arrivalDate"]').datepicker({
 			onSelect:function(dateText,inst){

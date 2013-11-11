@@ -6,8 +6,20 @@ $(function(){
 	
 	getMessage(0);
 	
+	//tab点击
 	$('body').delegate('#tags li','click',function(){
 		getMessage($(this).attr('index'));
+	});
+	
+	$('body').delegate('.reviwe','click',function(){
+		var text = $(this).text();
+		if(text == reviewArr[lang].review){
+			$(this).parent().parent().next().show();
+			$(this).text(reviewArr[lang].packup);
+		}else{
+			$(this).parent().parent().next().hide();
+			$(this).text(reviewArr[lang].review);
+		}
 	});
 });
 
@@ -73,7 +85,7 @@ function tags(){
 	var addContent = '<li index="1"><a href="javascript:void(0)">'+tipArr[lang].add+'</a></li>';
 	if(window.data.userType.users.length == 1){
 		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]);
-		if(window.data.userType.type == 1){
+		if(window.data.userType.type == 2){
 			$('#tags').append($(addContent));
 		}
 	}else if(window.data.userType.users.length == 2){

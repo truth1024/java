@@ -39,7 +39,18 @@ var tipArr = {
 			'userLack' : 'please fill in the user information and save',
 			'add' : 'Add'
 		}
-}
+};
+
+var reviewArr = {
+		'cn' :{
+			'review' : '展开',
+			'packup' : '收起'
+		},
+		'en' :{
+			'review' : 'Unfold',
+			'packup' : 'Pack Up'
+		}
+};
 
 //日期格式化
 Date.prototype.format = function(format) //author: meizz 

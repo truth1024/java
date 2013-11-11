@@ -142,6 +142,10 @@ public class ExportAction extends BasicAction {
             cell.setCellValue("更新时间");
             cell = row.createCell(47);
             cell.setCellValue("备注");
+            cell = row.createCell(48);
+            cell.setCellValue("大区");
+            cell = row.createCell(49);
+            cell.setCellValue("经销商简称");
             int j = 1;
             List<UserType> userTypes = userTypeService.getAll();
             for(UserType ut : userTypes){
@@ -176,7 +180,7 @@ public class ExportAction extends BasicAction {
             		cell = row.createCell(11);
             		cell.setCellValue(u.getContactPhone());
             		cell = row.createCell(12);
-            		cell.setCellValue(u.getMobilePhone());
+            		cell.setCellValue(u.getContactTelephone());
             		cell = row.createCell(13);
             		cell.setCellValue(u.getContactEmail());
             		cell = row.createCell(14);
@@ -210,7 +214,7 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(25);
             			cell.setCellValue(t.getDepartureFlight());
             			cell = row.createCell(26);
-            			cell.setCellValue(t.getDepartureCity());
+            			cell.setCellValue(t.getDepartureCity1());
             			cell = row.createCell(27);
             			cell.setCellValue(Utils.timeFormat(t.getArrivalDate()));
             			cell = row.createCell(28);
@@ -222,7 +226,7 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(31);
             			cell.setCellValue(t.getBackFlight());
             			cell = row.createCell(32);
-            			cell.setCellValue(t.getBackCity());
+            			cell.setCellValue(Utils.city(t.getBackCity2()));
             			cell = row.createCell(33);
             			cell.setCellValue(Utils.timeFormat(t.getBackDate()));
             			cell = row.createCell(34);
@@ -254,6 +258,10 @@ public class ExportAction extends BasicAction {
             		}
             		cell = row.createCell(46);
             		cell.setCellValue(Utils.dateFormat(ut.getLoginDate()));
+            		cell = row.createCell(48);
+            		cell.setCellValue(ut.getRegion());
+            		cell = row.createCell(49);
+            		cell.setCellValue(ut.getShortName());
             		j++;
             	}
             }

@@ -31,6 +31,7 @@ public class User extends AbstractDomain {
 	private String diet;
 	private String contactName;		//联系人姓名
 	private String contactPhone;	//联系人电话
+	private String contactTelephone;//联系人固定电话
 	private String contactEmail;	//联系人邮箱
 	
 	private Traffic traffic;
@@ -162,5 +163,11 @@ public class User extends AbstractDomain {
 	}
 	public void setDiet(String diet) {
 		this.diet = diet;
+	}
+	public String getContactTelephone() {
+		return contactTelephone;
+	}
+	public void setContactTelephone(String contactTelephone) {
+		this.contactTelephone = contactTelephone;
 	}
 }

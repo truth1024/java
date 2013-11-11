@@ -43,24 +43,24 @@ public class AbstractTestCase {
 	static{
 		traffic.setUid(1);
 		traffic.setDepartureTrafficTool("飞机");
-		traffic.setDepartureCity("北京");
+		traffic.setDepartureCity1("北京");
 		traffic.setDepartureFlight("CA1023");
 		traffic.setArrivalDate(new Date(20131029));
 		traffic.setPickUp(1);
 		traffic.setBackTrafficTool("自驾");
-		traffic.setBackCity("北京");
+		traffic.setBackCity1("北京");
 		traffic.setBackFlight("MU2393");
 		traffic.setBackDate(new Date());
 		traffic.setSend(2);
 		
 		t.setUid(1);
 		t.setDepartureTrafficTool("自驾");
-		t.setDepartureCity("上海");
+		t.setDepartureCity1("上海");
 		t.setDepartureFlight("CA1111");
 		t.setArrivalDate(new Date());
 		t.setPickUp(2);
 		t.setBackTrafficTool("其他");
-		t.setBackCity("上海");
+		t.setBackCity1("上海");
 		t.setBackFlight("MU2222");
 		t.setBackDate(new Date());
 		t.setSend(1);

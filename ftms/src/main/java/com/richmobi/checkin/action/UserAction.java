@@ -58,6 +58,7 @@ public class UserAction extends BasicAction {
 				selectArr.add(Constant.passArr);
 				selectArr.add(Constant.sizeArr);
 				selectArr.add(Constant.backTrafficArr);
+				selectArr.add(Constant.cityArr);
 			}else{
 				if(userType.getType() == 1){
 					selectArr.add(Constant.companyEnArr);
@@ -73,6 +74,7 @@ public class UserAction extends BasicAction {
 				selectArr.add(Constant.passEnArr);
 				selectArr.add(Constant.sizeEnArr);
 				selectArr.add(Constant.backTrafficEnArr);
+				selectArr.add(Constant.cityEnArr);
 			}
 		}
 		return "userType";

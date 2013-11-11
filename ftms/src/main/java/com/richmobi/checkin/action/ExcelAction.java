@@ -70,6 +70,9 @@ public class ExcelAction extends BasicAction {
 	    		log.debug(cell.getCellType());
 	    		userType.setId((cell.getCellType() == HSSFCell.CELL_TYPE_STRING ? cell.getStringCellValue() : String.valueOf((int) cell.getNumericCellValue())));
 	    		userType.setType((int) ros.getCell(1).getNumericCellValue());
+	    		userType.setRegion(ExcelUtil.typeCast(ros.getCell(2)).toString());
+	    		userType.setShortName(ExcelUtil.typeCast(ros.getCell(3)).toString());
+	    		
 	    		userTypes.add(userType);
 	    		successNum++;
 	        }

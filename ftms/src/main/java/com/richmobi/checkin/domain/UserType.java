@@ -17,6 +17,8 @@ public class UserType extends AbstractDomain {
 	
 	private String id;			//用户ID
 	private int type;			//用户类别
+	private String region;		//大区
+	private String shortName;	//经销商简称
 	private Date loginDate;		//登录时间
 	private List<User> users;	//用户信息列表
 	
@@ -44,5 +46,17 @@ public class UserType extends AbstractDomain {
 	}
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+	public String getRegion() {
+		return region;
+	}
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	public String getShortName() {
+		return shortName;
+	}
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
 	}
 }

@@ -21,20 +21,22 @@ public class Constant {
 	public static final Arr[] passArr = {new Arr(1,"港澳通行证"),new Arr(2,"我是外籍人士，可直接凭护照赴港"),new Arr(3,"正在办理中")};
 	public static final Arr[] sizeArr = {new Arr(1,"S"),new Arr(2,"M"),new Arr(3,"L"),new Arr(4,"XL"),new Arr(5,"XXL"),new Arr(6,"XXXL")};
 	public static final Arr[] backTrafficArr = {new Arr(1,"飞机"),new Arr(2,"自驾"),new Arr(3,"17日从酒店去往蛇口码头"),new Arr(20,"其他")};
+	public static final Arr[] cityArr = {new Arr(1,"深圳"),new Arr(2,"广州")};
 	
 	//英文
 	public static final Arr[] titleEnArr = {new Arr(1,"president"),new Arr(2,"general manager"),new Arr(20,"others")};
-	public static final Arr[] nationEnArr = {new Arr(1,"mainland people"),new Arr(2,"Hong Kong, Macao and Taiwan"),new Arr(20,"foreign nationality")};
+	public static final Arr[] nationEnArr = {new Arr(1,"mainland people"),new Arr(2,"Hong Kong, Macau and Taiwan"),new Arr(20,"foreign nationality")};
 	public static final Arr[] cerEnArr = {new Arr(1,"identity card"),new Arr(2,"passport")};
-	public static final Arr[] dietEnArr = {new Arr(1,"vegetarian diet"),new Arr(2,"Halal food"),new Arr(3,"No taboos"),new Arr(20,"others")};
+	public static final Arr[] dietEnArr = {new Arr(1,"vegetarian diet"),new Arr(2,"Halal food"),new Arr(3,"not having diet taboo"),new Arr(20,"others")};
 	public static final Arr[] companyEnArr = {new Arr(1,"FAF"),new Arr(2,"FAW"),new Arr(3,"FTCE"),
 											new Arr(4,"FTMS"),new Arr(5,"SFTM(Changchun)"),new Arr(6,"SFTM(Chengdu)"),
 											new Arr(7,"TFGL"),new Arr(8,"TFS"),new Arr(9,"TFTE"),
 											new Arr(10,"TFTM"),new Arr(11,"TMC"),new Arr(12,"TMCI"),new Arr(13,"TMEC")};
 	public static final Arr[] roomEnArr = {new Arr(1,"single room"),new Arr(2,"double room")};
-	public static final Arr[] deparTrafficEnArr = {new Arr(1,"airplane"),new Arr(2,"self-driving"),new Arr(3,"16"),new Arr(20,"others")};
-	public static final Arr[] touristEnArr = {new Arr(1,"A. one-day tour of Dongguan Keyuan Garden, Weigu Village of Shipai Tang and Songshan Lake"),new Arr(2,"B. Hong Kong travel"),new Arr(3,"C. "),new Arr(4,"D. golf")};
+	public static final Arr[] deparTrafficEnArr = {new Arr(1,"airplane"),new Arr(2,"self-driving"),new Arr(3,"go to Dongguan from Guangzhou ** Hotel on 16th"),new Arr(20,"others")};
+	public static final Arr[] touristEnArr = {new Arr(1,"A. Hong Kong travel-Disney/City Gate Outlets"),new Arr(2,"B. Hong Kong travel- Hong Kong Harbor City"),new Arr(3,"C. Shenzhen Overseas Chinese Town"),new Arr(4,"D. golf")};
 	public static final Arr[] passEnArr = {new Arr(1,"One-way exit permit"),new Arr(2,"I’m a foreigner and can go to Hong Kong depending on passport"),new Arr(3,"In progress")};
 	public static final Arr[] sizeEnArr = {new Arr(1,"S"),new Arr(2,"M"),new Arr(3,"L"),new Arr(4,"XL"),new Arr(5,"XXL"),new Arr(6,"XXXL")};
-	public static final Arr[] backTrafficEnArr = {new Arr(1,"airplane"),new Arr(2,"self-driving"),new Arr(3,"17"),new Arr(20,"others")};
+	public static final Arr[] backTrafficEnArr = {new Arr(1,"airplane"),new Arr(2,"self-driving"),new Arr(3,"go to Shekou Ferry Ternimal from hotel on 17th"),new Arr(20,"others")};
+	public static final Arr[] cityEnArr = {new Arr(1,"Shenzhen"),new Arr(2,"Guangzhou")};
 }
