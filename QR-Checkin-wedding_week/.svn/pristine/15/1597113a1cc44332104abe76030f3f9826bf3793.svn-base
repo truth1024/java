@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE3 {font-size: 12px; font-weight: bold; }
+.STYLE4 {
+	color: #03515d;
+	font-size: 12px;
+}
+td{
+	font-size: 12px;
+}
+td form{
+	margin-bottom: 0px;
+}
+td img{
+	 cursor:pointer;
+}
+td div{
+	text-align:center;
+}
+td button{
+	height:20px;
+}
+#tbody tr td{
+	background-color:#FFFFFF;
+	height:20;
+	text-align:center;
+}
+
+ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+}
+
+ul li {
+	margin-top:5px;
+    clear: both;
+    display: block;
+    float: left;
+    list-style: none outside none;
+    padding: 3px 0;
+    width: 100%;
+}
+
+ul li span {
+	font-size: 12px;
+    display: block;
+    float: left;
+    padding-top: 4px;
+    text-align: right;
+    width: 120px;
+}
+
+ul li em {
+	font-size: 12px;
+    float: left;
+}
+
+ul li .input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #9B9B9B;
+    height: 22px;
+    padding-top: 3px;
+}
+
+ul li textarea{
+	height: 78px;
+    width: 258px;
+}

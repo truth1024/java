@@ -1,0 +1,44 @@
+$(document).ready(function(){
+	$(this).keydown(function(e){
+    	if(e.keyCode==13){
+    	  	Sms.find();
+    	}
+    });
+	//动态加载类型下拉列表
+	Main.addTypeSelect();
+	
+	//动态添加表头
+	Main.addHeadLine($('#infoTable thead tr td div span'));
+	Main.addHeadLine($('#sms_conditionForm table tr:eq(0) td table tr td label'),undefined,"：");
+	//动态加载签到条件下拉列表
+	Main.addCheckinSelect($('#sms_conditionForm select[name="checkinStatus"]'));
+	
+	//初始化加载用户信息功能
+	$('#sms_conditionForm').submit(function(){
+		var options = {
+			type:'POST',
+			dataType:'json',
+			success: Sms.callBack
+		}; 
+		$('#sms_conditionForm').ajaxSubmit(options); 
+		return false;  
+	});
+	
+	$("#send_sms_dialog").dialog({
+		width:500,
+		autoOpen: false,
+		modal:true,
+		open: function() {
+			$("#send_info").html("短信发送中,可能需要几分钟，请稍等...");
+		},
+		close: function(event, ui) {
+			$('#sms_conditionForm').submit();
+		},
+		buttons: {
+			"确定": function() {
+				$(this).dialog("close"); 
+			}
+		}
+	});
+	Sms.initPageButton();
+});

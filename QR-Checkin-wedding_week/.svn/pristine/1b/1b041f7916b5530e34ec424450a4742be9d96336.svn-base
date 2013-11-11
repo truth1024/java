@@ -1,0 +1,237 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%String basePath = request.getScheme()+"://"+request.getServerName()+(request.getServerPort() == 80 ? "": ":"+ request.getServerPort()) + request.getContextPath(); %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>tab</title>
+<link rel="stylesheet" href="../css/jquery-ui-1.8.16.custom.css" type="text/css"/>
+<link rel="stylesheet" href="tab/css/user.min.css" type="text/css">
+<%-- <script type="text/javascript" src="../js/jquery-1.6.1.min.js"></script> --%>
+<%-- <script type="text/javascript" src="../js/jquery-ui-1.8.16.custom.min.js"></script> --%>
+<%-- <script type="text/javascript" src="../js/jquery.form.js"></script> --%>
+<%-- <script type="text/javascript" src="../js/jquery-blocking-ui.js"></script> --%>
+<%-- <script type="text/javascript" src="tab/js/main.min.js"></script> --%>
+<%-- <script type="text/javascript" src="tab/js/userInit.min.js"></script> --%>
+<script type="text/javascript" src="../js/LAB.js"></script>
+<script>
+
+$LAB.setOptions({AlwaysPreserveOrder:true,BasePath:"../js/"})
+	.script("jquery-1.6.1.min.js")
+	.script("jquery-ui-1.8.16.custom.min.js")
+	.script("jquery.form.js")
+	.script("jquery-blocking-ui.js")
+// 	.script("../admin/tab/js/utils.js")
+// 	.script("../admin/tab/js/main.js")
+	.script("truth-canvasloader-min.js")
+	.script("../admin/tab/js/main.min.js")
+	.wait(function(){
+		Main.checkinMaxNum = ${checkinMaxNum};
+	})
+// 	.script("../admin/tab/js/user.js")
+	.script("../admin/tab/js/userInit.min.js")
+	.wait();
+</script>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="30" background="images/tab_05.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="12" height="30"><img src="images/tab_03.gif" width="12" height="30" /></td>
+        <td>
+        <form id="user_conditionForm" action="admin/userAction!findUser">
+        		<input type="hidden" id="orderType" name="orderType" value="2">
+		        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		          <tr>
+		            <td width="90%" valign="middle">
+		            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		              <tr>
+		                <td width="14%" >
+					        <label></label></dt>
+					        <input type="text" name="user.code" size="8" />
+		                </td>
+		                <td width="14%" >
+						    <label></label></dt>
+						    <input type="text" name="user.name" size="8" />
+		                </td>
+		                <td width="12%">
+						    <label style="display:none;"></label>
+						    <select id="find_type" name="user.type">
+						    	<option value="0">胸卡类型</option>
+						    </select>
+		                </td>
+		               <td width="16%" >
+						    <label></label></dt>
+						    <input type="text" name="user.phone" size="12" />
+		                </td>
+		               <td width="18%" >
+					       <label></label></dt>
+					       <input type="text" name="user.company" size="14" />
+		                </td>
+		                 <td width="8%" >
+			                <label style="display:none;"></label>
+					        <select size="1" name="checkinStatus">
+							    <option value="">签到</option>
+							</select>
+		                </td>
+		                <td >
+							<button type="button" onclick="User.find()">查询</button>
+							<button type="button" onclick="User.exportExcel()">导出</button>
+<!-- 							<button type="button" onclick="User.addTemporaryUser()">添加临时用户</button> -->
+<!-- 							<button type="button" onclick="createImg()">批量生成用户</button> -->
+		                </td>
+		              </tr>
+		            </table>
+		            </td>
+		            <td width="54%"><table border="0" align="right" cellpadding="0" cellspacing="0">
+		              <tr>
+		                <td width="60"><table width="90%" border="0" cellpadding="0" cellspacing="0">
+		                  <tr>
+		                    <td ><div><img src="images/22.gif" width="14" height="14" /></div></td>
+		                    <td ><div style="cursor:pointer;" onclick="User.add()">新增</div></td>
+		                  </tr>
+		                </table></td>
+			                <td width="52"><table width="88%" border="0" cellpadding="0" cellspacing="0">
+		                  <tr>
+		                    <td ><div><img src="images/11.gif" width="14" height="14" /></div></td>
+		                    <td ><div style="cursor:pointer;" onclick="User.delUser()">删除</div></td>
+		                  </tr>
+		                </table></td>
+		              </tr>
+		            </table></td>
+		          </tr>
+		        </table>
+		        <input type="hidden" id="page" name="page" value="${users.currentPage}">
+		        <input type="hidden" name="count" value="20">
+        </form>
+        </td>
+        <td width="16"><img src="images/tab_07.gif" width="16" height="30" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="8" background="images/tab_12.gif">&nbsp;</td>
+        <td><table id="user_infoTable" width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="b5d6e6">
+        <thead>
+        	<tr>
+	            <td width="3%" height="22" background="images/bg.gif" bgcolor="#FFFFFF"><div>
+	              <input type="checkbox" id="ucheckall" value="checkbox"/>
+	            </div></td>
+	            <td width="6%"  height="22" background="images/bg.gif" ><div><span ><a href="" id="orderByCode">编号</a> <img align="absmiddle" style="display:none" id="arrow_code" src="../images/down.ico" width="14" height="14" /></span></div></td>
+	            <td width="16%" height="22" background="images/bg.gif"><div><span ></span></div></td>
+	            <td width="14%" height="22" background="images/bg.gif"><div><span ></span></div></td>
+	            <td width="8%" height="22" background="images/bg.gif"><div><span ></span></div></td>
+	            <td height="22" background="images/bg.gif"><div><span ></span></div></td>
+	            <td width="16%" background="images/bg.gif"><div><span ></span></div></td>
+<%-- 	            <td width="4%" height="22" background="images/bg.gif"><div><span ></span></div></td> --%>
+<%-- 	            <td width="6%" height="22" background="images/bg.gif"><div><span ></span></div></td> --%>
+<%-- 	            <td width="8%" height="22" background="images/bg.gif"><div><span ></span></div></td> --%>
+	            <td width="6%" height="22" background="images/bg.gif"><div><span >签到</span></div></td>
+	            <td width="4%" height="22" background="images/bg.gif"><div><span >打印</span></div></td>
+	            <td width="4%" height="22" background="images/bg.gif"><div><span >编辑</span></div></td>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <c:if test="${users != null }">
+          <s:iterator value="users.data" id="u">
+        	<tr>
+	            <td><input type="checkbox" name="ucheckbox" value="${u.id}"/></td>
+	            <td>${u.code}</td>
+	            <td>${u.name}</td>
+	            <td>${u.userType.typeName}</td>
+	            <td>${u.phone}</td>
+	            <td>${u.company}</td>
+	            <td>${u.email}</td>
+<%-- 	            <td>${u.seatNumber}</td> --%>
+<%-- 	            <td>${u.companyAdd}</td> --%>
+<%-- 	            <td>${u.daren}</td> --%>
+	            <c:if test="${u.name != null && u.name != ''}">
+		            <c:if test="${fn:length(u.checkinRecds) < checkinMaxNum}">
+		            	<td><a href="javascript:void(0)" onclick="User.bgCheckin('${u.code}')">签到</a></td>
+		            </c:if>
+		            <c:if test="${fn:length(u.checkinRecds) >= checkinMaxNum}">
+		            	<td><a href="javascript:void(0)" onclick="User.checkout(${u.id})">取消签到</a></td>
+		            </c:if>
+		            	<td><a href="print.jsp?c=${u.code}" target="_blank">打印</a></td>
+	            </c:if>
+	            <c:if test="${u.name == null || u.name == '' }">
+	            	<td></td>
+	            	<td></td>
+	            </c:if>
+	            <td><a href="javascript:void(0)" onclick="User.updateUser('${u.code}',this)">编辑</a></td>
+	            
+          	</tr>
+          </s:iterator>
+          </c:if>
+          <c:if test="${users == null && users.data == null || fn:length(users.data) == 0 }">
+          		<tr><td colspan="100">没有记录</td></tr>
+          </c:if>
+         </tbody>
+        </table></td>
+        <td width="8" background="images/tab_15.gif">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="35" background="images/tab_19.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="12" height="35"><img src="images/tab_18.gif" width="12" height="35" /></td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="STYLE4">&nbsp;&nbsp;共有<span id="totalCount">${users.totalCount}</span>条记录，当前第 <span id="currentPage">${users.currentPage}</span> /<span id="totalPage">${users.totalPage}</span> 页</td>
+            <td><table border="0" align="right" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="40"><img id="user_first" src="images/first.gif" onclick="User.first()"/></td>
+                  <td width="45"><img id="user_back" src="images/back.gif" width="43" height="15" onclick="User.back()"/></td>
+                  <td width="45"><img id="user_next" src="images/next.gif" width="43" height="15" onclick="User.next()"/></td>
+                  <td width="40"><img id="user_last" src="images/last.gif" width="37" height="15" onclick="User.end()"/></td>
+                  <td width="100"><div><span >转到第
+                  <input name="textfield" id="anyPage" type="text" size="4" style="height:15px; width:30px; border:1px solid #999999;" /> 
+					<span>页</span></div></td>
+                  <td width="40"><img src="images/go.gif" onclick="User.gotoPage()" width="37" height="15" /></td>
+                </tr>
+            </table></td>
+          </tr>
+        </table></td>
+        <td width="16"><img src="images/tab_20.gif" width="16" height="35" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+<div id="user_add_dialog" title="用户信息" style="display:none">
+	<form id ="user_infoForm" action="admin/userAction!add" class="niceform">
+		<input type="hidden" name="user.id" id="uid">
+		<input type="hidden" name="user.code" id="ucode">
+		 <ul>
+	        <li><span></span><em><input type="text" id="uname" name="user.name" size="15" class="input" ></em></li>
+	        <li><span></span>
+	        	<em>
+	        		<select id="utype" name="user.type">
+	        			<option value="0">请选择</option>
+	        		</select> 
+	        	</em>
+	        </li>
+	        <li><span></span><em><input type="text" id="uphone" name="user.phone" size="15" class="input"></em></li>
+	        <li><span></span><em><input type="text" id="ucompany" name="user.company"  size="15" class="input"></em></li>
+	        <li><span></span><em><input type="text" id="uemail" name="user.email" size="15" class="input"></em></li>
+<%-- 	        <li><span></span><em><input type="text" id="utitle" name="user.seatNumber" size="15" class="input" ></em></li> --%>
+<%-- 	        <li><span></span><em><input type="text" id="ucompanyAdd" name="user.companyAdd" size="15" class="input"></em></li> --%>
+<%-- 	        <li><span></span><em><input type="text" id="udaren" name="user.daren"  size="15" class="input"></em></li> --%>
+<%-- 	        <li><span></span><em><input type="text" id="uprize" name="user.prize"  size="15" class="input"></em></li> --%>
+<%-- 	        <li><span></span><em><input type="text" id="uphotoName" name="user.photoName" size="15" class="input"></em></li> --%>
+	        <li><span></span><em>
+	          <textarea id="info" name="user.note" class="textarea" placeholder="请在这里输入嘉宾信息。" ></textarea>
+	        </em></li>
+  		 </ul>
+	</form>
+</div>
+</body>
+</html>

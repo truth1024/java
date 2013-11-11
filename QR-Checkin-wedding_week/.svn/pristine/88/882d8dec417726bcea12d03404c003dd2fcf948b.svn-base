@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>邮件</title>
+</head>
+
+<body>
+	<table align="center" border="0" style="border-collapse: collapse;">
+		<tr>
+			<td colspan="3" style="padding: 0px;">
+				<div style="width:595px; margin:0 auto;">
+					<img src="top.jpg" width="595" height="150" style="float:left;"/>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="padding: 0px;">
+				<div style="color:#d5346c; width:500px; margin:0 auto; padding:20px; line-height:30px; font-size:18px">
+				尊敬的戴民先生：<br />
+				    以下是您参加本次大会的电子凭证，该凭证将作为唯一入场凭证 ，请将其打印并携带至现场完成签到。 
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding: 0px;"><img src="img_01.jpg" width="29" height="125" style="float:left;"/></td>
+			<td style="padding: 0px;"><img src="img_02.jpg" width="107" height="125" style="float:left;"/> </td>
+			<td style="padding: 0px;"><img src="img_03.jpg" width="459" height="125" style="float:left;"/></td>
+		</tr>
+		<tr>
+			<td style="padding: 0px;"><img src="img_04.jpg" width="29" height="107" style="float:left;"/></td>
+			<td style="padding: 0px;"><img src="pic_ma.jpg" width="107" height="107" style="float:left;"/></td>
+			<td style="padding: 0px;"><img src="img_05.jpg" width="459" height="107" style="float:left;"/></td>
+		</tr>
+		<tr>
+			<td colspan="3" style="padding: 0px;"><img src="img_06.jpg" width="595" height="9" style="float:left;"/></td>
+		</tr>
+		<tr>
+			<td colspan="3" style="padding: 0px;"><div style=" margin:0 auto; display:block; width:330px;">
+   			 <img src="logo.jpg" width="330" height="70" style="float: left; padding-top: 30px;"/></div>
+   			</td>
+		</tr>
+	</table>
+</body>
+</html>

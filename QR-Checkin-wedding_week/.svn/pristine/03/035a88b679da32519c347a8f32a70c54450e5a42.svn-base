@@ -1,0 +1,170 @@
+package com.richmobi.checkin.util;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Hashtable;
+
+import javax.imageio.ImageIO;
+
+import org.jsoup.helper.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import richmobi.commons.utils.Configer;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.Result;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.richmobi.checkin.domain.User;
+
+public class QRcodeUtil {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		QRcodeUtil handler = new QRcodeUtil();
+		String imgPath = "414e792f.png";
+		// // 编码
+		// String contents = "Hello Michael(大大),welcome to Zxing!"
+		// + "\nMichael’s blog [ http://sjsky.iteye.com ]"
+		// + "\nEMail [ sjsky007@gmail.com ]" + "\nTwitter [ @suncto ]";
+		// int width = 300, height = 300;
+		// handler.encode(contents, width, height, imgPath);
+		//
+		// System.out.println("Michael ,you have finished zxing encode.");
+
+		// 解码
+		String decodeContent = handler.decode(imgPath);
+		System.out.println("解码内容如下：");
+		System.out.println(decodeContent);
+		System.out.println("Michael ,you have finished zxing decode.");
+
+	}
+
+	private final Logger logger = LoggerFactory.getLogger(QRcodeUtil.class);
+
+	// 图片存储路径
+	private static String imgDir;
+
+	// 编码格式
+	private String ENCODING = "GBK";
+	/**
+	 * 解码
+	 * 
+	 * @param imgDir
+	 *            +imgName 二维码图片路径
+	 * @return
+	 */
+
+	public String decode(String imgName) {
+		logger.debug("decode : {}", imgName);
+		BufferedImage image = null;
+		Result result = null;
+		try {
+			image = ImageIO.read(new File(imgDir + imgName));
+			if (image == null) {
+				logger.error("the decode image [{}] may be not exit.", imgName);
+			}
+			LuminanceSource source = new BufferedImageLuminanceSource(image);
+			BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+
+			Hashtable<Object, Object> hints = new Hashtable<Object, Object>();
+			hints.put(DecodeHintType.CHARACTER_SET, ENCODING);
+			result = new MultiFormatReader().decode(bitmap, hints);
+			logger.debug("decode result : [{}] [{}]", imgName, result.getText());
+			return result.getText();
+		} catch (Exception e) {
+			logger.error("decode qrcode image [{}] failed, reason : {}",
+					imgName, e);
+			return null;
+		}
+	}
+
+	/**
+	 * 编码
+	 * 
+	 * @param contents
+	 * @param width
+	 * @param height
+	 * @param imgName
+	 */
+	public boolean encode(String contents, int width, int height, String imgName) {
+		String imgPath = System.getProperty("basePath") + Configer.get("qr.folder.name") + "/";
+		logger.debug("encode qrcode, contents: [{}]  imgName : [{}]", contents,imgName);
+		logger.debug("qr path:[{}]",imgPath);
+		Hashtable<Object, Object> hints = new Hashtable<Object, Object>();
+		// 指定纠错等级
+		hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+		// 指定编码格式
+		hints.put(EncodeHintType.CHARACTER_SET, ENCODING);
+		try {
+			BitMatrix bitMatrix = new MultiFormatWriter().encode(
+					contents,
+					BarcodeFormat.QR_CODE,
+					width,height,hints
+			);
+			//判断存放二维码图片文件夹是否存在，不存在创建
+			File imgFile = new File(imgPath);
+			if (!imgFile.exists()){
+				imgFile.mkdirs();
+			}
+			MatrixToImageWriter.writeToFile(bitMatrix,"png",new File(imgPath+imgName));
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("encode [{}] [{}] failed, reason: {}", new Object[] {
+					contents, imgName, e });
+			return false;
+		}
+	}
+
+	public boolean encode(User user, int width, int height, String imgName) {
+		StringBuilder contents = new StringBuilder();
+		if (!StringUtil.isBlank(user.getCode())) {
+			contents.append("code:").append(user.getCode()).append(";");
+		}
+		if(user.getType() > -1){
+			contents.append("type:").append(user.getType()).append(";");
+		}
+		if (!StringUtil.isBlank(user.getPhone())) {
+			contents.append("phone:").append(user.getPhone()).append(";");
+		}
+		if (!StringUtil.isBlank(user.getName())) {
+			contents.append("name:").append(user.getName()).append(";");
+		}
+//		if (!StringUtil.isBlank(user.getEmail())) {
+//			contents.append("email:").append(user.getEmail()).append(";");
+//		}
+//		if (!StringUtil.isBlank(user.getCompany())) {
+//			contents.append("company:").append(user.getCompany()).append(";");
+//		}
+//		if (!StringUtil.isBlank(user.getCompanyAdd())) {
+//			contents.append("companyAdd:").append(user.getCompanyAdd())
+//					.append(";");
+//		}
+//		if (!StringUtil.isBlank(user.getTitle())) {
+//			contents.append("title:").append(user.getTitle()).append(";");
+//		}
+//		if (!StringUtil.isBlank(user.getNote())) {
+//			contents.append("note:").append(user.getNote()).append(";");
+//		}
+		return encode(contents.toString(), width, height, imgName);
+	}
+
+	public String getImgDir() {
+		return imgDir;
+	}
+
+	public void setImgDir(String imgDir) {
+		this.imgDir = imgDir;
+	}
+}

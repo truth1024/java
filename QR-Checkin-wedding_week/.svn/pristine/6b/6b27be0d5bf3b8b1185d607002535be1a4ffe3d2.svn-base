@@ -1,0 +1,123 @@
+@CHARSET "UTF-8";
+.red{
+	color:red;
+}
+.green{
+	color:green;
+}
+#signindiv{
+	margin:0 auto; 
+	width: 680px;
+	text-align:center;
+}
+
+#qrinput {
+    border-color: #9A9A9A #CDCDCD #CDCDCD #9A9A9A;
+    border-style: solid;
+    border-width: 1px;
+    font: 16px arial;
+    height: 22px;
+    padding: 4px 7px;
+    vertical-align: top;
+    width: 400px;
+}
+
+#signinbtn,#u2{
+	background: url("../img/png.png") repeat scroll 0 -35px #DDDDDD;
+    border: 0 none;
+    cursor: pointer;
+    height: 32px;
+    padding: 0;
+    width: 95px;
+}
+div.infostyle {
+	margin-left:50px;
+	font: 13px tahoma,arial,helvetica,sans-serif;
+}
+#addGuestBtn{
+	margin-left: 10px
+}
+#guestGrid{
+	margin:0 auto;
+}
+
+
+ul {
+    float: left;
+    margin-bottom: 20;
+    padding: 0;
+    width: 100%;
+}
+
+ul li {
+	margin-top:5px;
+    clear: both;
+    display: block;
+    float: left;
+    list-style: none outside none;
+    padding: 3px 0;
+    width: 100%;
+}
+
+ul li span {
+	font-size: 12px;
+    display: block;
+    float: left;
+    padding-top: 4px;
+    text-align: right;
+    width: 120px;
+    margin-left: 100px;
+}
+
+ul li em {
+	font-size: 12px;
+    float: left;
+}
+
+ul li .input {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #9B9B9B;
+    padding-top: 3px;
+}
+
+ul li textarea{
+	height: 78px;
+    width: 258px;
+}
+
+#conference_box table{
+	border: 1px solid #DDDDDD;
+	margin: 10px auto;
+}
+#conference_box table td{
+	border: 1px solid #DDDDDD;
+}
+
+#user_permission{
+	font-size: 14px;
+	text-align:center;
+}
+#user_permission div{
+	font-weight: bold;
+}
+#user_permission table{
+	border: 1px solid #000;
+	margin: 10px auto;
+}
+#user_permission table td{
+	border: 1px solid #000;
+	
+}
+
+#ticketForm ul li span {
+	display: inline;
+	margin-left: 0px;
+	width: 60px;
+	text-align: left;
+}
+#ticketForm ul li a {
+	float: left;
+    width: 200px;
+    font-size: 12px;
+    padding: 4px;
+}

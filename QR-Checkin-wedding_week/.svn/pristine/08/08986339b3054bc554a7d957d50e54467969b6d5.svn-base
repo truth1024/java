@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>明信片</title>
+<style>
+/* CSS Document */
+* { 
+margin: 0px; 
+padding: 0px; 
+}
+A {blr:expression(this.onFocus=this.close());}
+A {blr:expression(this.onFocus=this.blur());} 
+A:focus { -moz-outline-style: none; } 
+body {
+    margin:0;
+	padding:0;
+	font-size:12px;
+	color:#333;
+	font-family: "微软雅黑",Verdana, Arial, Helvetica, sans-serif;
+}
+img { border:0}
+
+A:link {
+	COLOR: #333; TEXT-DECORATION: underline;
+}
+A:visited {
+	COLOR: #333; TEXT-DECORATION: underline;
+}
+A:hover {
+	COLOR: #0360AE; TEXT-DECORATION: none
+}
+A:active {
+	TEXT-DECORATION: underline
+}
+
+#content_finish { width:1074px; margin:0 auto; position:relative; left:0; top:0;}
+#content_finish img { float:left; margin:0 auto;}
+#content { float:left;  width:894px; padding:12px 90px; zoom:1; overflow:hidden;}
+*+html #content { float:left;  width:894px; padding:12px 90px; zoom:1; overflow:hidden;}
+
+*html #content { width:1074px; margin:0 auto; padding:0;}
+
+#content_finish_left { float:left; width:600px;}
+*html #content_finish_left { float:left; width:600px; margin-left:45px}
+#content_finish_left .top { padding:6px 0 3px 0; clear:both; zoom:1; overflow:hidden;}
+#content_finish_left .top img {float:left}
+#content_finish_left .top .name { clear:both; float:left; border:1px solid #B6B6B6; width:480px; margin-right:10px; height:20px; font-size:18px; padding:5px; }
+
+#content_finish_left .content { width:580px; padding:10px; background:#F1F5FC;}
+#content_finish_left .content_style_other { width:580px; padding:10px 0; }
+#content_finish_left .content_style_other h3 { font-size:18px; display:block; padding-bottom:5px; font-weight:normal}
+
+#content_finish_left .content_top { clear:both; padding-bottom:10px; zoom:1; overflow:hidden}
+#content_finish_left .content_top strong { display:block; padding:5px 10px; float:left;}
+#content_finish_left .content_top ol { float:left; margin:0; padding-left:10px; display:block; width:310px; }
+#content_finish_left .content_top ol li { list-style:none; float:left; clear:both; width:100%; line-height:22px;}
+#content_finish_left .content_top ol li span { float:left; color:#000392}
+#content_finish_left .content_top ol li em { font-style:normal; float:left; width:210px;}
+
+#content_finish_left .content_top_04 { clear:both; padding:10px 0; zoom:1; overflow:hidden}
+#content_finish_left .content_top_04 strong { display:block; padding:5px 10px; float:left;}
+#content_finish_left .content_top_04 ol { float:left; margin:0; padding:0; display:block; width:600px; }
+#content_finish_left .content_top_04 ol li { list-style:none; float:left; clear:both; width:100%; line-height:22px;}
+#content_finish_left .content_top_04 ol li span { float:left; color:#000392}
+#content_finish_left .content_top_04 ol li em { font-style:normal; float:left; width:500px;}
+
+#content_finish_left ul.style_04 { float:left; margin:0 0 10px 20px; border:none; padding: 0 12px 0 0; zoom:1; overflow:hidden; width:342px;}
+#content_finish_left ul.style_04 li { list-style:none; float:left; clear:both; display:block;line-height:22px;}
+#content_finish_left ul.style_04 li span { float:left; display:block; color:#000392}
+#content_finish_left ul.style_04 li em { font-style:normal;display:block; float:left;}
+
+#content_finish_left .logo_baike { float:left; padding-bottom:10px}
+
+#content_finish_right { float:left; padding:52px 0 0 30px}
+
+.golden_finish { position:absolute; right:34px; top:0;}
+</style>
+</head>
+
+<body>
+<div id="content_finish">
+        <img src="${domain}/postcard/images/pic_finishi_top_04.png" />
+        <div id="content" style="background:url(${domain}/postcard/images/pic_finishi_bg_04.png) repeat-y 0 0;">
+            <div id="shuttering_04">
+            	<div id="content_finish_left">
+                <img src="${domain}/postcard/images/logo_baidu_finish.png" width="126" height="46" />
+                <div class="top">
+                    <div class="name">${user_name}</div>
+                    <img src="${domain}/postcard/images/button_baidu.jpg" width="97" height="34" /> 
+                </div>
+                <div class="content_style_other">
+                    <h3>${user_name}</h3>
+                    <img src="${domain}/postcard/images/tour/1/${postcard_tour}" width="203" height="152" />
+                    <ul class="style_04">
+                        <li>${user_name}</li>
+                        <li><span>星座：</span><em>${postcard_constellation}</em></li>      
+                        <li><span>血型：</span><em>${postcard_bloodGroup}</em></li>
+                        <li><span>心中的旅游圣地：</span><em>${tourInfo}</em></li>
+                    </ul>
+                    <div class="content_top_04" >
+                        <ol>
+                            <li><span>个性特质：</span><em>${personality}</em></li>
+                            <li><span>爱情态度：</span><em>${love}</em></li>
+                            <li><span>事业发展：</span><em>${career}</em></li>
+                            <li><span>财富倾向：</span><em>${wealth}</em></li>
+                            <li><span>百度态度：</span><em>${baidu_attitude}</em></li>
+                            <li><span>喜欢的百度品牌：</span><em>&nbsp;</em></li>
+                        </ol>                            
+                    </div>
+                    <div class="logo_baike"><img src="${domain}${postcard_brand}" width="87" height="31" /></div>
+              </div>
+            </div>
+        	    <div id="content_finish_right">
+                 <img src="${domain}${user_photoName}" width="239" height="341" />
+            </div>
+            </div>
+        </div>
+        <img src="${domain}/postcard/images/pic_finishi_bottom_04.png" />  
+    </div>
+</body>
+</html>

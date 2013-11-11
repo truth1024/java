@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.richmobi.checkin.persistence.ConferenceMapper">
+	
+	<select id="getAll" resultType="conference">
+		SELECT 
+			id AS id,
+			conference_room AS conferenceRoom,
+			floor AS floor,
+			conference_content AS conferenceContent,
+			conference_date AS conferenceDate 
+		FROM 
+			t_conference
+	</select>
+	
+	<select id="getByTypeId" parameterType="long" resultType="conference">
+		SELECT 
+			tcon.id AS id,
+			tcon.conference_room AS conferenceRoom,
+			tcon.floor AS floor,
+			tcon.conference_content AS conferenceContent,
+			tcon.conference_date AS conferenceDate 
+		FROM 
+			t_conference AS tcon LEFT JOIN t_type_conference_rel AS ttcr ON tcon.id = ttcr.conference_id 
+		WHERE 
+			ttcr.type_id = #{typeId};
+	</select>
+	
+</mapper>
