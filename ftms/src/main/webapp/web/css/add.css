@@ -9,5 +9,11 @@
 }
 .indent font{
 	color:red;
+}
+
+font{	
 	font-size:12px;
+}
+.tips-attention{
+	padding:0;
 }

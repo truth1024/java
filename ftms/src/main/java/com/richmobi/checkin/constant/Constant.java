@@ -34,8 +34,8 @@ public class Constant {
 											new Arr(10,"TFTM"),new Arr(11,"TMC"),new Arr(12,"TMCI"),new Arr(13,"TMEC")};
 	public static final Arr[] roomEnArr = {new Arr(1,"single room"),new Arr(2,"double room")};
 	public static final Arr[] deparTrafficEnArr = {new Arr(1,"airplane"),new Arr(2,"self-driving"),new Arr(3,"go to Dongguan from Guangzhou ** Hotel on 16th"),new Arr(20,"others")};
-	public static final Arr[] touristEnArr = {new Arr(1,"A. Hong Kong travel-Disney/City Gate Outlets"),new Arr(2,"B. Hong Kong travel- Hong Kong Harbor City"),new Arr(3,"C. Shenzhen Overseas Chinese Town"),new Arr(4,"D. golf")};
-	public static final Arr[] passEnArr = {new Arr(1,"One-way exit permit"),new Arr(2,"I’m a foreigner and can go to Hong Kong depending on passport"),new Arr(3,"In progress")};
+	public static final Arr[] touristEnArr = {new Arr(1,"A. Hong Kong travel-Disney/City Gate Outlets"),new Arr(2,"B. Hong Kong travel- Hong Kong Harbor City"),new Arr(3,"C. Shenzhen Overseas Chinese Town"),new Arr(4,"D. Golf")};
+	public static final Arr[] passEnArr = {new Arr(1,"Exit－Entry Permit for Travelling to and from Hong Kong and Macau"),new Arr(2,"I’m a foreigner and can go to Hong Kong depending on passport"),new Arr(3,"In progress")};
 	public static final Arr[] sizeEnArr = {new Arr(1,"S"),new Arr(2,"M"),new Arr(3,"L"),new Arr(4,"XL"),new Arr(5,"XXL"),new Arr(6,"XXXL")};
 	public static final Arr[] backTrafficEnArr = {new Arr(1,"airplane"),new Arr(2,"self-driving"),new Arr(3,"go to Shekou Ferry Ternimal from hotel on 17th"),new Arr(20,"others")};
 	public static final Arr[] cityEnArr = {new Arr(1,"Shenzhen"),new Arr(2,"Guangzhou")};

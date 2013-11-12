@@ -99,6 +99,7 @@ function render(){
 	}else{
 		$('#tagContent'+window.data.index).append($(template.render('manage_other',window.data)));
 	}
+	$('#tagContent'+window.data.index).append($(template.render('notice',null)));
 	$('.save').attr('name',window.data.index);
 	$('.remove').attr('name',window.data.index);
 };

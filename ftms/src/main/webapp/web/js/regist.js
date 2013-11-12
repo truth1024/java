@@ -16,7 +16,8 @@ function getRegist(){
 				$('#tagContent1').append($(template.render('regist_basic',data)))
 				.append($(template.render('regist_hotel',data)))
 				.append($(template.render('regist_traffic',data)))
-				.append($(template.render('regist_other',data)));
+				.append($(template.render('regist_other',data)))
+				.append($(template.render('notice',null)));
 				//日期时间初始化
 				dateInit(type);
 			}else{

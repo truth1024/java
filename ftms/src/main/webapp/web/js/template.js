@@ -19,13 +19,13 @@
 	
 	template.compile('regist_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4>基本信息</h4>\
+            <h4>个人信息</h4>\
             <div class="content">\
                 <font>注：标“*”为必填项</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
                     <li><strong>* 姓名：</strong><input name="user.name" type="text" class="input-regist required" /></li>\
-                    <li><strong>* 姓别：</strong><input class="required" name="user.sex" type="radio" value="1" checked/>男<input name="user.sex" type="radio" value="2" style="margin-left:20px;" /> 女</li>\
+                    <li><strong>* 性别：</strong><input class="required" name="user.sex" type="radio" value="1" checked/>男<input name="user.sex" type="radio" value="2" style="margin-left:20px;" /> 女</li>\
 					{if userType.type == 1}\
 						<li><strong>* 公司：</strong><select index="user." id="company">\
 	                        <option value="0">--请选择--</option>\
@@ -85,10 +85,14 @@
 	);
 	
 	template.compile('regist_hotel',
-		'<form id="regist_hotel"><div class="content-regist">\
+		'<form id="regist_hotel">\
+			<div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="">\
             <h4>酒店安排</h4>\
 	            <div class="content">\
+					{if userType.type == 2}\
+					<font>* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，房间预定后，原则上不允许更改，且对应的房费需在办理入住时一并支付。</font>\
+					{/if}\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div></li>\
 	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
@@ -100,18 +104,19 @@
 						{/each}\
                       </select><input class="isStay" type="hidden" name="hotel.room">\
                     </li>\
-	                <li style="display:none;"><strong>是否指定同住人：</strong><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
+	                <li style="display:none;"><strong>是否指定同住人：</strong><div class="left"><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div></li>\
 	                <li class="hide" style="display:none;"><strong>同住人姓名：</strong><input name="hotel.withName" type="text" class="input-regist" /></li>\
 	                <li class="hide" style="display:none;"><strong>同住人经销店：</strong><input name="hotel.withShop" type="text" class="input-regist" /></li>\
 	               	</ol>\
-	               <div class="tips">\
+	               	<div class="tips">\
 	                <font style="font-size:12px;"><strong>备注：</strong>1、按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</font>\
 	                <font style="padding-left:36px; width:100%">2、本次大会事务局统一订房时间为1月15日至17日</font>\
 	                <font style="padding-left:36px; width:100%">3、酒店住宿费用请您在签到处或前台自付</font>\
-	            </div>\
-	              <div class="operate"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
-	        </div>\
-	    </div></form>'
+	            	</div>\
+	              	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
+	        	</div>\
+			</div>\
+		</form>'
 	);
 	
 	template.compile('regist_traffic',
@@ -119,11 +124,13 @@
 			<input type="hidden" name="traffic.uid" value="">\
                 <h4>交通安排</h4>\
                 <div class="content">\
-                    <font style="font-size:12px;">*请注意，您从居住地往返东莞的交通需要自行安排，请您提前安排行程，并于12月20日前将您确认后的交通安排信息填入下方。</font>\
+                    <font style="font-size:12px;">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。<br/>* 需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
                     <div class="tips">\
                         <font style="font-size:12px;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
                         <font style="padding-left:72px; width:100%">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
                         <font style="padding-left:72px; width:100%">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
+						<font style="padding-left:72px; width:100%">参加TMCI会议人员：广州**酒店-东莞嘉华酒店 16日 时间：待定</font>\
+						<font style="padding-left:72px; width:100%">参加GTMC会议人员：东莞嘉华酒店-深圳蛇口码头 17日 时间：待定</font>\
 					</div>\
                     <ol>\
                     <li>\
@@ -135,6 +142,9 @@
 							{/each}\
 				    	</select><input name="departureTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.departureTrafficTool">\
 					</li>\
+					<div class="tips">\
+			            <font style="font-size:12px;"><strong>注：</strong>16日在广州**酒店参加TMCI会议的嘉宾，TMCI事务局会统一安排车辆从广州**酒店送您至东莞嘉华酒店，请您根据自身需求，选择乘坐</font>\
+			    	</div>\
                     <li class="depar" style="display:none;"><strong>出发城市：</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
 					<li class="depar" style="display:none;">\
 					<strong>抵达城市：</strong>\
@@ -158,6 +168,9 @@
 							{/each}\
 				          </select><input name="backTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.backTrafficTool">\
 					</li>\
+					<div class="tips">\
+			            <font style="font-size:12px;"><strong>注：</strong>17日从酒店前往蛇口码头去往澳门参加GTMC会议的嘉宾，事务局会统一安排车辆从东莞嘉华酒店送您至深圳蛇口码头，请您根据自身需求，选择乘坐</font>\
+			    	</div>\
                     <li class="back" style="display:none;">\
 						<strong>出发城市：</strong>\
 						<select index="traffic." id="backCity2">\
@@ -171,108 +184,111 @@
                     <li class="back" style="display:none;"><strong>返程日期：</strong><input name="backDate" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;"><strong>航班起飞时间：</strong><input name="backTime" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;"><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" />是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
-                   </ol>\
-                   <div class="tips">\
-                    <font style="font-size:12px;"><strong>备注：</strong>1、事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</font>\
-                    <font style="padding-left:36px; display:block; width:100%">2、系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</font>\
-                </div>\
-                  <div class="operate"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
-            </div>\
-        </div></form>'
+                   	</ol>\
+                   	<div class="tips">\
+	                    <font style="font-size:12px;"><strong>备注：</strong>1、事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</font>\
+	                    <font style="padding-left:36px; display:block; width:100%">2、系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</font>\
+                	</div>\
+                  	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
+            	</div>\
+			</div>\
+		</form>'
 	);
 	
 	template.compile('regist_other',
 		'<form id="regist_other"><div class="content-regist">\
 			<input type="hidden" name="other.uid" value="">\
-                <h4>游览安排</h4>\
+                <h4>商务活动</h4>\
                 <div class="content">\
+					<font>* 需特别注意，商务活动板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改商务活动信息的截止时间为12月20日18:00。</font>\
                     <ol>\
                     <li><strong style="width:230px;">* 是否参加1月16日上午大区会议：</strong><div class="left"><input name="other.meeting" type="radio" value="1" />是<input name="other.meeting" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*原则上大区会议为总经理参加 </div></li>\
-                    <li><strong style="width:230px;">* 请选择您要参加的旅游线路：</strong><select index="other." id="touristRoute">\
-			            <option value="0">--请选择--</option>\
-						{each selectArr[6] as n}\
-			            <option value="{n.value}">{n.name}</option>\
-						{/each}\
-			          </select><input name="touristRoute" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="other.touristRoute">\
+                    <li><strong style="width:230px;">* 请选择您要参加的商务活动线路：</strong>\
+						<select index="other." id="touristRoute">\
+				            <option value="0">--请选择--</option>\
+							{each selectArr[6] as n}\
+				            <option value="{n.value}">{n.name}</option>\
+							{/each}\
+			          	</select><input name="touristRoute" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="other.touristRoute">\
 					</li>\
-                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看旅游线路</a></li>\
-                     	<li class="touristRouteB"  style="display:none;"><strong style="width:230px;">您是否持有有效赴港证件：</strong>\
-	                         <input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" /><em>是</em>\
-								<select index="other." id="hasPass">\
-					            <option value="0">--请选择--</option>\
-								{each selectArr[7] as n}\
-					            <option value="{n.value}">{n.name}</option>\
-								{/each}\
-					          </select><input type="hidden" name="other.hasPass">\
+                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看商务活动线路</a></li>\
+                 	<li class="touristRouteB"  style="display:none;">\
+						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
+                    	<input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" /><em>是</em>\
+						<select index="other." id="hasPass">\
+				            <option value="0">--请选择--</option>\
+							{each selectArr[7] as n}\
+				            <option value="{n.value}">{n.name}</option>\
+							{/each}\
+				    	</select>\
+						<input type="hidden" name="other.hasPass">\
+					</li>\
+                    <li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
+                    <li class="touristRouteB" style="color:#b91414;display:none;">*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
+                    <div style="display:none"  class="showMessage">\
+	                    <li><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
+			                <input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>是</em>\
+							<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" /><em>即将办理</em>\
+	                    </li>\
+	                    <li><strong style="width:230px;">您的港澳通行证的签注类型是：</strong>\
+	                        <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G签</em>\
+							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L签</em>\
+	                    </li>\
+	                    <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注类型</a></li>\
+	                    <li>\
+							<strong style="width:230px;">您的签注有效期至：</strong>\
+							<input name="other.effectiveDate" type="text" class="input-regist" />\
+	                    </li>\
+	                    <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注有效期</a></li>\
+	                    <li>\
+							<strong style="width:230px;">请上传您的港澳通行证首页扫描件：</strong>\
+							<input name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
+	                    </li>\
+	                    <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-首页扫描件）</li>\
+	                    <li>\
+							<strong style="width:230px;">请上传您的港澳通行证签注页扫描件：</strong>\
+							<input name="file" id="visaFile" type="file" onchange="return ajaxFileUpload(this);"/>\
+	                    </li>\
+	                    <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-签证页扫描件）</li>\
+					</div>\
+					<div style="display:none"  class="showMessage">\
+						<li>游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
+							<input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" checked/><em>是</em><br />\
+							<input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" /><em>否，我自行从香港离开</em><br />\
+							<input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" /><em>否，我自行从深圳离开</em>\
 						</li>\
-                          <li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
-                          <li style="color:#b91414">*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
-                          <div style="display:none"  class="showMessage">\
-                              <li><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
-	                             <input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>是</em>\
-								 <input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" /><em>即将办理</em>\
-                             </li>\
-                              <li><strong style="width:230px;">您的港澳通行证的签注类型是：</strong>\
-	                             <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G签</em>\
-								 <input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L签</em>\
-                             </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注类型</a></li>\
-                             <li><strong style="width:230px;">您的签注有效期至：</strong><input name="other.effectiveDate" type="text" class="input-regist" />\
-                            </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注有效期</a></li>\
-                             <li><strong style="width:230px;">请上传您的港澳通行证首页扫描件：</strong><input name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
-                             </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-首页扫描件）</li>\
-                             <li><strong style="width:230px;">请上传您的港澳通行证签注页扫描件：</strong><input name="file" id="visaFile" type="file" onchange="return ajaxFileUpload(this);"/>\
-                             </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-签证页扫描件）</li>\
-                         </div>\
-                          <div style="display:none"  class="showMessage">\
-                              <li>游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
-                                  <input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" checked/><em>是</em><br />\
-                                  <input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" /><em>否，我自行从香港离开</em><br />\
-                                  <input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" /><em>否，我自行从深圳离开</em>\
-                              </li>\
-                          </div>\
-                         <div style="display:none;" class="showMessage">\
-                              <li><strong>是否打球：</strong>\
-                                  <input name="other.isPlay" type="radio" value="1" style="margin-top:8px; float:left;" /><em>是</em>\
-                                  <input name="other.isPlay" type="radio" value="2" style="margin-top:8px; float:left;" checked/><em>否</em>\
-                              </li>\
-                              <li><strong>打球差点：</strong><input name="other.playAlmost" type="text" class="input-regist" /></li>\
-                              <li style="color:#b91414"><strong>&nbsp;</strong>(*请准确提供您的差点证明, 我们将据此为您安排分组)</li>\
-                              <li><strong>身高：</strong><input name="other.stature" type="text" class="input-regist" />CM</li>\
-                              <li><strong>服装号码：</strong>\
-								<select index="other." id="playSize">\
-					            <option value="0">--请选择--</option>\
+					</div>\
+					<div style="display:none;" class="showMessage">\
+						<li><strong>打球差点：</strong><input name="other.playAlmost" type="text" class="input-regist" /></li>\
+						<li style="color:#b91414"><strong>&nbsp;</strong>*请准确提供您的差点证明, 我们将据此为您安排分组</li>\
+						<li><strong>身高：</strong><input name="other.stature" type="text" class="input-regist" />CM</li>\
+						<li><strong>服装号码：</strong>\
+							<select index="other." id="playSize">\
+								<option value="0">--请选择--</option>\
 								{each selectArr[8] as n}\
-					            <option value="{n.value}">{n.name}</option>\
+								<option value="{n.value}">{n.name}</option>\
 								{/each}\
-					          </select><input type="hidden" name="other.playSize">\
-	                          </li>\
-                          </div>\
-                   </ol>\
-                   <div class="tips-attention">\
-                    <font style="font-size:12px;"><strong>注意事项：</strong></font>\
-                    <font style="font-size:12px;">1、注册信息只可提交一次，信息提交后可通过点击“信息管理”进入账户信息管理界面进行信息修改</font>\
-                    <font style="font-size:12px;">2、报名系统分阶段关闭，系统一旦关闭，网页上将无法进行信息修改，请各位贵宾在填写时务必确保信息的准确性，如系统关闭后仍有信息变动，请主动联系大会事务局告知变动内容</font>\
-                    <font style="font-size:12px;">3、大会报名和进行期间，事务局会通过短信和邮件提示和告知大会各项安排以及统一发放温馨提示，届时请您注意查收</font>\
-                </div>\
-                  <div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
-            </div>\
-        </div></form>'
+							</select><input type="hidden" name="other.playSize">\
+						</li>\
+					</div>\
+                	</ol>\
+					<div class="tips"><font><strong>备注：</strong>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</font></div>\
+                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
+            	</div>\
+			</div>\
+		</form>'
 	);
 	
 	template.compile('manage_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4><span style="float:left">基本信息</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a></div></h4>\
+            <h4><span style="float:left">个人信息</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a></div></h4>\
             <div style="display:none;" class="content">\
                 <font>注：标“*”为必填项</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
 					<input type="hidden" class="required" name="user.id" value="{userType.users[index].id}">\
                     <li><strong>* 姓名：</strong><input name="user.name" value="{userType.users[index].name}" type="text" class="input-regist required" /></li>\
-                    <li><strong>* 姓别：</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>男<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" /> 女</li>\
+                    <li><strong>* 性别：</strong><input class="required" name="user.sex" type="radio" value="1" {if userType.users[index].sex == 1}checked{/if}/>男<input name="user.sex" type="radio" value="2"{if userType.users[index].sex == 2}checked{/if} style="margin-left:20px;" /> 女</li>\
 					{if userType.type == 1}\
 					<li>\
 						<strong>* 公司：</strong><select  index="user." id="company">\
@@ -343,10 +359,14 @@
 	);
 	
 	template.compile('manage_hotel',
-		'<form id="regist_hotel"><div class="content-regist">\
+		'<form id="regist_hotel">\
+			<div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="{userType.users[index].id}">\
             <h4><span style="float:left">酒店安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">删除</a></div></h4>\
 	            <div style="display:none;" class="content">\
+					{if userType.type == 2}\
+					<font>* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，房间预定后，原则上不允许更改，且对应的房费需在办理入住时一并支付。</font>\
+					{/if}\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong>\
 						<div class="left">\
@@ -367,32 +387,39 @@
                     </li>\
 	                <li {if userType.users[index].hotel.room != 2}style="display:none;"{/if} >\
 						<strong>是否指定同住人：</strong>\
-						<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>是\
-						<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isWith != 1}checked{/if}/>否\
+						<div class="left">\
+							<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>是\
+							<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isWith != 1}checked{/if}/>否\
+						</div>\
+						<div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div>\
 					</li>\
 	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人姓名：</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist" /></li>\
 	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人经销店：</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist" /></li>\
 	               	</ol>\
 	               	<div class="tips">\
-	                <font style="font-size:12px;"><strong>备注：</strong>1、按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</font>\
-	                <font style="padding-left:36px; width:100%">2、本次大会事务局统一订房时间为1月15日至17日</font>\
-	                <font style="padding-left:36px; width:100%">3、酒店住宿费用请您在签到处或前台自付</font>\
-	            </div>\
-	              <div class="operate"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
-	        </div>\
-	    </div></form>'
+		                <font style="font-size:12px;"><strong>备注：</strong>1、按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</font>\
+		                <font style="padding-left:36px; width:100%">2、本次大会事务局统一订房时间为1月15日至17日</font>\
+		                <font style="padding-left:36px; width:100%">3、酒店住宿费用请您在签到处或前台自付</font>\
+	            	</div>\
+	              	<div class="operate"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
+				</div>\
+			</div>\
+		</form>'
 	);
 	
 	template.compile('manage_traffic',
-		'<form id="regist_traffic"><div class="content-regist">\
-			<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
+		'<form id="regist_traffic">\
+			<div class="content-regist">\
+				<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
                 <h4><span style="float:left">交通安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">删除</a></div></h4>\
                 <div style="display:none;" class="content">\
-                    <font style="font-size:12px;">*请注意，您从居住地往返东莞的交通需要自行安排，请您提前安排行程，并于12月20日前将您确认后的交通安排信息填入下方。</font>\
+					<font style="font-size:12px;">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。<br/>* 需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
                     <div class="tips">\
                         <font style="font-size:12px;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
                         <font style="padding-left:72px; width:100%">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
                         <font style="padding-left:72px; width:100%">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
+						<font style="padding-left:72px; width:100%">参加TMCI会议人员：广州**酒店-东莞嘉华酒店 16日 时间：待定</font>\
+						<font style="padding-left:72px; width:100%">参加GTMC会议人员：东莞嘉华酒店-深圳蛇口码头 17日 时间：待定</font>\
 					</div>\
                     <ol>\
                     <li>\
@@ -406,6 +433,9 @@
 						<input name="departureTrafficTool" type="text" {selectHide userType.users[index].traffic.departureTrafficTool} class="input-eat" style="display:none;"/>\
 						<input class="required" type="hidden" value="{userType.users[index].traffic.departureTrafficTool}" name="traffic.departureTrafficTool">\
 					</li>\
+					<div class="tips">\
+			            <font style="font-size:12px;"><strong>注：</strong>16日在广州**酒店参加TMCI会议的嘉宾，TMCI事务局会统一安排车辆从广州**酒店送您至东莞嘉华酒店，请您根据自身需求，选择乘坐</font>\
+			    	</div>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>出发城市：</strong><input name="traffic.departureCity1" value="{userType.users[index].traffic.departureCity1}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
 					<li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
 						<strong>抵达城市：</strong>\
@@ -432,6 +462,9 @@
 						<input name="backTrafficTool" type="text" {selectHide userType.users[index].traffic.backTrafficTool} class="input-eat" style="display:none;"/>\
 						<input class="required" type="hidden" value="{userType.users[index].traffic.backTrafficTool}" name="traffic.backTrafficTool">\
 					</li>\
+					<div class="tips">\
+			            <font style="font-size:12px;"><strong>注：</strong>17日从酒店前往蛇口码头去往澳门参加GTMC会议的嘉宾，事务局会统一安排车辆从东莞嘉华酒店送您至深圳蛇口码头，请您根据自身需求，选择乘坐</font>\
+			    	</div>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}>\
 						<strong>出发城市：</strong>\
 						<select index="traffic." id="backCity2">\
@@ -446,21 +479,23 @@
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>返程日期：</strong><input name="backDate" value="{dateFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>航班起飞时间：</strong><input name="backTime" value="{timeFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>否</li>\
-                   </ol>\
-                   <div class="tips">\
-                    <font style="font-size:12px;"><strong>备注：</strong>1、事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</font>\
-                    <font style="padding-left:36px; display:block; width:100%">2、系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</font>\
-                </div>\
-                  <div class="operate"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
-            </div>\
-        </div></form>'
+                   	</ol>\
+                   	<div class="tips">\
+	                    <font style="font-size:12px;"><strong>备注：</strong>1、事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</font>\
+	                    <font style="padding-left:36px; display:block; width:100%">2、系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</font>\
+                	</div>\
+                  	<div class="operate"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
+            	</div>\
+			</div>\
+		</form>'
 	);
 	
 	template.compile('manage_other',
 		'<form id="regist_other"><div class="content-regist">\
 			<input type="hidden" name="other.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">游览安排</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">删除</a></div></h4>\
+                <h4><span style="float:left">商务活动</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">删除</a></div></h4>\
                 <div style="display:none;" class="content">\
+					<font>* 需特别注意，商务活动板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改商务活动信息的截止时间为12月20日18:00。</font>\
                     <ol>\
                     <li><strong style="width:230px;">* 是否参加1月16日上午大区会议：</strong>\
 						<div class="left">\
@@ -469,7 +504,7 @@
 						</div>\
 						<div style="padding-left:40px; float:left">*原则上大区会议为总经理参加 </div>\
 					</li>\
-                    <li><strong style="width:230px;">* 请选择您要参加的旅游线路：</strong>\
+                    <li><strong style="width:230px;">* 请选择您要参加的商务活动线路：</strong>\
 						<select index="other." id="touristRoute">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[6] as n}\
@@ -478,8 +513,8 @@
 				        </select>\
 						<input class="required" type="hidden" name="other.touristRoute" value="{userType.users[index].other.touristRoute}">\
 					</li>\
-                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看旅游线路</a></li>\
-                 	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
+                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看商务活动线路</a></li>\
+                 	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
 						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
                     	<input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.hasPass != 0}checked{/if}/><em>是</em>\
 						<select index="other." id="hasPass">\
@@ -489,8 +524,8 @@
 							{/each}\
 				    	</select><input type="hidden" name="other.hasPass" value="{userType.users[index].other.hasPass}">\
 					</li>\
-                   	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
-                    <li style="color:#b91414">*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
+                   	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
+                    <li class="touristRouteB" style="color:#b91414; {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}display:none;{/if}" >*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
 					<div {if userType.users[index].other.hasPass != 1}style="display:none"{/if}  class="showMessage">\
 						<li><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
 							<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa != 2}checked{/if}/><em>是</em>\
@@ -519,12 +554,8 @@
                       	</li>\
                   	</div>\
                  	<div {if userType.users[index].other.touristRoute != 4}style="display:none;"{/if} class="showMessage">\
-                      	<li><strong>是否打球：</strong>\
-                          	<input name="other.isPlay" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isPlay == 1}checked{/if}/><em>是</em>\
-                          	<input name="other.isPlay" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isPlay != 1}checked{/if}/><em>否</em>\
-                      	</li>\
                       	<li><strong>打球差点：</strong><input name="other.playAlmost" value="{userType.users[index].other.playAlmost}" type="text" class="input-regist" /></li>\
-                      	<li style="color:#b91414"><strong>&nbsp;</strong>(*请准确提供您的差点证明, 我们将据此为您安排分组)</li>\
+                      	<li style="color:#b91414"><strong>&nbsp;</strong>*请准确提供您的差点证明, 我们将据此为您安排分组</li>\
                       	<li><strong>身高：</strong><input name="other.stature" type="text" class="input-regist" value="{userType.users[index].other.stature}"/>CM</li>\
                       	<li><strong>服装号码：</strong>\
 							<select index="other." id="playSize">\
@@ -536,15 +567,27 @@
                       	</li>\
                   	</div>\
                    	</ol>\
-                   	<div class="tips-attention">\
-	                    <font style="font-size:12px;"><strong>注意事项：</strong></font>\
-	                    <font style="font-size:12px;">1、注册信息只可提交一次，信息提交后可通过点击“信息管理”进入账户信息管理界面进行信息修改</font>\
-	                    <font style="font-size:12px;">2、报名系统分阶段关闭，系统一旦关闭，网页上将无法进行信息修改，请各位贵宾在填写时务必确保信息的准确性，如系统关闭后仍有信息变动，请主动联系大会事务局告知变动内容</font>\
-	                    <font style="font-size:12px;">3、大会报名和进行期间，事务局会通过短信和邮件提示和告知大会各项安排以及统一发放温馨提示，届时请您注意查收</font>\
-                	</div>\
+					<div class="tips"><font><strong>备注：</strong>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</font></div>\
                   	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
             	</div>\
-			</div></form>'
+			</div>\
+		</form>'
+	);
+	
+	template.compile('notice',
+		'<div class="content">\
+			<div class="tips-attention">\
+	            <font style="font-size:12px;"><strong>注意事项：</strong></font>\
+	            <font style="font-size:12px;">1、注册信息只可提交一次，信息提交后可通过点击“信息管理”进入账户信息管理界面进行信息修改</font>\
+	            <font style="font-size:12px;">2、报名系统分阶段关闭，系统一旦关闭，网页上将无法进行信息修改，请各位贵宾在填写时务必确保信息的准确性，如系统关闭后仍有信息变动，请主动联系大会事务局告知变动内容</font>\
+	            <font style="font-size:12px;">3、大会报名和进行期间，事务局会通过短信和邮件提示和告知大会各项安排以及统一发放温馨提示，届时请您注意查收</font><br/>\
+				<font><strong>系统各板块关闭时间点提示：</strong></font>\
+				<font>1、个人信息和酒店信息板块的系统功能将于2013年11月28日24点关闭，系统关闭后您将无法通过网站更改您的个人信息，请提前了解，并务必在此之前完成相关信息的提交</font>\
+				<font>2、交通信息和游览信息板块的系统功能将于2013年12月10日24点关闭，系统关闭后您将无法通过网站更改您的个人信息，请提前了解，并务必在此之前完成相关信息的提交</font>\
+				<font>3、系统关闭后，如有信息变动的情况，可以通过发送邮件或拨打热线电话的形式告知事务局</font><br/>\
+				事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn\
+	    	</div>\
+		</div>'
 	);
 	
 })();

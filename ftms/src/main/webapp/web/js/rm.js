@@ -76,7 +76,7 @@ $(function(){
 		
 		//旅游线路
 		if(id == 'touristRoute'){
-			if(value == 2){
+			if(value == 1 || value == 2){
 				$('.touristRouteB').show();
 			}else{
 				$('.touristRouteB').hide();

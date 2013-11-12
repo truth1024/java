@@ -27,6 +27,12 @@ public class OtherAction extends BasicAction {
 		o.setTouristBack(other.getTouristBack());
 		switch(other.getTouristRoute()){
 			case 1:
+				o.setHasPass(other.getHasPass());
+				if(other.getHasPass() == 1){
+					o.setIsVisa(other.getIsVisa());
+					o.setSign(other.getSign());
+					o.setEffectiveDate(other.getEffectiveDate());
+				}
 				break;
 			case 2:
 				o.setHasPass(other.getHasPass());
