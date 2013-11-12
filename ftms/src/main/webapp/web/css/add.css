@@ -1,2 +1,13 @@
 @CHARSET "UTF-8";
 #changeLang{cursor: pointer;}
+.indent{
+	text-indent:24px;
+	width:800px;
+}
+.indent span{
+	font-weight: bold;
+}
+.indent font{
+	color:red;
+	font-size:12px;
+}

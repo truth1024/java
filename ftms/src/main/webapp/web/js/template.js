@@ -1,4 +1,22 @@
 (function(){
+	
+	template.compile('pass',
+		'<div class="indent">中华人民共和国往来港澳通行证，是由中华人民共和国公安部出入境管理局签发给中国内地居民因私往来香港或澳门地区旅游、探亲、从事商务、培训、就业、留学等非公务活动的旅行证件，来港澳前，必须取得内地公安部门签发有关来港澳目的签注（如团队旅游、个人旅游、商务或其他签注等）。</div>\
+			　　　<div class="indent"><span>通行证类型：</span>个人旅游、团队旅游</div>\
+			　　　<div class="indent"><span>收费：</span>往来港澳通行证每证100元；办理签注每项次20元。</div>\
+			　　　<div class="indent"><span>审批时限：</span>一般在15个工作日左右<font>（此时间只供参考，具体以当地出入境管理处通知为准）</font></div>\
+			　　　<div class="indent"><span>内地公民因私往来港澳审批程序</span></div>\
+			　　　<div class="indent">1、交验本人身份证、户口簿原件，并提交复印件；</div>\
+			　　　<div class="indent">2、提交正面白色背景彩色小二寸照片2张或者前往各地出入境管理处现场拍照，一般价格在40元左右，具体以各地出入境管理处报价为准；</div>\
+			　　　<div class="indent">3、提交填写完整的《申请审批表》；</div>\
+			　　　<div class="indent">4、往来港澳通行证遗失的，须事先进行遗报失处理。</div>\
+			　　　<div class="indent"><span>注意事项:</span></div>\
+			　　　<div class="indent">1、赴港澳个人游签发 “G”字头个人旅游签注，每次在香港或者澳门逗留不超过7天。</div>\
+			　　　<div class="indent">2、赴港澳团队游签发 “L”字头团队旅游签注，每次在香港或者澳门逗留不超过7天，且必须以团队的名义出入境。</div>\
+			　　　<div class="indent">3、签注过期或已使用，可再次申请，需要注意通行证有效期，即“照片页有效期”在6个月之内，具体需要与各城市出入境管理处核实办理签注是否需要重新换证件。</div>\
+			　　　<div class="indent">4、内地居民所持往来港澳通行证在内地遗失或者损坏，应当重新申请往来港澳通行证及签注。申请时须提交相应材料。建议遗失证件的申请人提交书面的证件遗失声明。</div>'
+	);
+	
 	template.compile('regist_basic',
 			'<form id="regist_basic"><div class="content-regist">\
             <h4>基本信息</h4>\
@@ -40,7 +58,9 @@
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate">\
                     </li>\
                     <li><strong>* 证件号码：</strong><input name="cerNum" type="text" class="input-regist required" /></li>\
-                    <li><strong>* 固定电话：</strong><input name="user.telephone" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 固定电话：</strong>\
+						<input name="telephoneZone" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" class="required" />\
+						- <input name="telephoneNum" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text" class="required"/></li>\
                     <li><strong>* 移动电话：</strong><input name="user.mobilePhone" type="text" class="input-regist required" /></li>\
                     <li><strong>* 电子邮箱：</strong><input name="user.email" type="text" class="input-regist required" /></li>\
                     <li><strong>* 饮食忌口：</strong><select index="user." id="diet">\
@@ -53,7 +73,9 @@
                 <font>如非本人填写，或者您希望事务局通过其他人联系到您, 请填写以下几项信息【可选填】</font>\
                 <ul>\
                     <li><strong>联系人姓名：</strong><input name="user.contactName" type="text" class="input-regist" /></li>\
-                    <li><strong>联系电话：</strong><input name="user.contactTelephone" type="text" class="input-regist" /></li>\
+                    <li><strong>联系电话：</strong>\
+						<input name="contactTelephoneZone" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" />\
+						- <input name="contactTelephoneNum" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text"/></li>\
                     <li><strong>手机号：</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
                     <li><strong>电子邮箱：</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
@@ -68,7 +90,7 @@
             <h4>酒店安排</h4>\
 	            <div class="content">\
 	                <ol>\
-	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="#">查看酒店地图</a></div></li>\
+	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div></li>\
 	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
 	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
 	                <li><strong>住宿类型：</strong><select index="hotel." id="room">\
@@ -173,7 +195,7 @@
 						{/each}\
 			          </select><input name="touristRoute" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="other.touristRoute">\
 					</li>\
-                     <li><strong style="width:230px;">&nbsp;</strong><a href="#">查看旅游线路</a></li>\
+                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看旅游线路</a></li>\
                      	<li class="touristRouteB"  style="display:none;"><strong style="width:230px;">您是否持有有效赴港证件：</strong>\
 	                         <input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" /><em>是</em>\
 								<select index="other." id="hasPass">\
@@ -183,7 +205,7 @@
 								{/each}\
 					          </select><input type="hidden" name="other.hasPass">\
 						</li>\
-                          <li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a href="#">港澳通行证办理提示</a></li>\
+                          <li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
                           <li style="color:#b91414">*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
                           <div style="display:none"  class="showMessage">\
                               <li><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
@@ -194,10 +216,10 @@
 	                             <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G签</em>\
 								 <input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L签</em>\
                              </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong><a href="#">如何分辨签注类型</a></li>\
+                             <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注类型</a></li>\
                              <li><strong style="width:230px;">您的签注有效期至：</strong><input name="other.effectiveDate" type="text" class="input-regist" />\
                             </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong><a href="#">如何分辨签注有效期</a></li>\
+                             <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注有效期</a></li>\
                              <li><strong style="width:230px;">请上传您的港澳通行证首页扫描件：</strong><input name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
                              </li>\
                              <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-首页扫描件）</li>\
@@ -292,7 +314,10 @@
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate" value="{cerHide0 userType.users[index].certificate}">\
                     </li>\
                     <li><strong>* 证件号码：</strong><input name="cerNum" type="text" class="input-regist required"  value="{cerHide1 userType.users[index].certificate}"/></li>\
-                    <li><strong>* 固定电话：</strong><input name="user.telephone" value="{userType.users[index].telephone}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* 固定电话：</strong>\
+						<input name="telephoneZone" value="{telephone userType.users[index].telephone 0}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" class="required" />\
+						- <input name="telephoneNum" value="{telephone userType.users[index].telephone 1}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text" class="required"/>\
+					</li>\
                     <li><strong>* 移动电话：</strong><input name="user.mobilePhone" value="{userType.users[index].mobilePhone}" type="text" class="input-regist required" /></li>\
                     <li><strong>* 电子邮箱：</strong><input name="user.email" value="{userType.users[index].email}" type="text" class="input-regist required" /></li>\
                     <li><strong>* 饮食忌口：</strong><select index="user." id="diet">\
@@ -305,7 +330,10 @@
                 <font>如非本人填写，或者您希望事务局通过其他人联系到您, 请填写以下几项信息【可选填】</font>\
                 <ul>\
                     <li><strong>联系人姓名：</strong><input name="user.contactName" value="{userType.users[index].contactName}" type="text" class="input-regist" /></li>\
-                    <li><strong>联系电话：</strong><input name="user.contactTelephone" value="{userType.users[index].contactTelephone}" type="text" class="input-regist" /></li>\
+                    <li><strong>联系电话：</strong>\
+						<input name="contactTelephoneZone" value="{telephone userType.users[index].contactTelephone 0}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" />\
+						- <input name="contactTelephoneNum" value="{telephone userType.users[index].contactTelephone 1}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text"/>\
+					</li>\
                     <li><strong>手机号：</strong><input name="user.contactPhone" value="{userType.users[index].contactPhone}" type="text" class="input-regist" /></li>\
                     <li><strong>电子邮箱：</strong><input name="user.contactEmail" value="{userType.users[index].contactEmail}" type="text" class="input-regist" /></li>\
                 </ul>\
@@ -325,7 +353,7 @@
 							<input class="required" name="hotel.isStay" type="radio" value="1" {if userType.users[index].hotel.isStay == 1}checked{/if}/>是\
 							<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isStay != 1}checked{/if}/>否\
 						</div>\
-						<div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="#">查看酒店地图</a></div>\
+						<div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div>\
 					</li>\
 	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
 	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
@@ -450,7 +478,7 @@
 				        </select>\
 						<input class="required" type="hidden" name="other.touristRoute" value="{userType.users[index].other.touristRoute}">\
 					</li>\
-                    <li><strong style="width:230px;">&nbsp;</strong><a href="#">查看旅游线路</a></li>\
+                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看旅游线路</a></li>\
                  	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
 						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
                     	<input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.hasPass != 0}checked{/if}/><em>是</em>\
@@ -461,7 +489,7 @@
 							{/each}\
 				    	</select><input type="hidden" name="other.hasPass" value="{userType.users[index].other.hasPass}">\
 					</li>\
-                   	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a href="#">港澳通行证办理提示</a></li>\
+                   	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
                     <li style="color:#b91414">*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
 					<div {if userType.users[index].other.hasPass != 1}style="display:none"{/if}  class="showMessage">\
 						<li><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
@@ -472,10 +500,10 @@
 							<input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.sign != 2}checked{/if}/><em>G签</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.sign == 2}checked{/if}/><em>L签</em>\
 						</li>\
-						<li><strong style="width:230px;">&nbsp;</strong><a href="#">如何分辨签注类型</a></li>\
+						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注类型</a></li>\
 						<li><strong style="width:230px;">您的签注有效期至：</strong><input name="other.effectiveDate" value="{dateFormat userType.users[index].other.effectiveDate}" type="text" class="input-regist" />\
 						</li>\
-						<li><strong style="width:230px;">&nbsp;</strong><a href="#">如何分辨签注有效期</a></li>\
+						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注有效期</a></li>\
 						<li><strong style="width:230px;">请上传您的港澳通行证首页扫描件：</strong><input name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-首页扫描件）</li>\

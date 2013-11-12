@@ -40,3 +40,8 @@ template.helper('cerHide0',function(value){
 template.helper('cerHide1',function(value){
 	return value.split('#')[1];
 });
+
+//拆分固定电话
+template.helper('telephone',function(value,value2){
+	return ((value == null || value == '') ? '' : value.split('-')[value2]);
+});

@@ -4,6 +4,32 @@ $(function(){
 		inputValue($(this).prev().attr('index'),$(this).prev().attr('id'));
 	});
 	
+	$('body').delegate('#map','click',function(){
+		easyDialog.open({
+			  container : 'imgBox'
+			});
+	});
+	
+	$('body').delegate('.visa','click',function(){
+		easyDialog.open({
+			  container : 'imgBox2'
+			});
+	});
+	
+	$('#imgBox,#imgBox2').click(function(){
+		easyDialog.close();
+	});
+	
+	$('body').delegate('#passCardTip','click',function(){
+		var passContent = template.render('pass',null);
+		easyDialog.open({
+			container:{
+				header:tipArr[lang].passHeader,
+				content:passContent
+			}
+		});
+	});
+	
 	$('body').delegate('select','change',function(){
 		var id = $(this).attr('id');
 		var prefix = $(this).attr('index');

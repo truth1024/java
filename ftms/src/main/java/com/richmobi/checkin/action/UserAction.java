@@ -3,6 +3,7 @@ package com.richmobi.checkin.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,6 +31,11 @@ public class UserAction extends BasicAction {
 	private String method;
 	private String lang;
 	private long id;
+	private String telephoneZone;
+	private String telephoneNum;
+	private String contactTelephoneZone;
+	private String contactTelephoneNum;
+	
 	
 	@Autowired
 	UserTypeService userTypeService;
@@ -83,6 +89,10 @@ public class UserAction extends BasicAction {
 	public String saveUser(){
 		log.debug("user : "+user);
 		user.setCertificate(user.getCertificate()+"#"+cerNum);
+		user.setTelephone(telephoneZone+"-"+telephoneNum);
+		if(StringUtils.isNotBlank(contactTelephoneZone) && StringUtils.isNotBlank(contactTelephoneNum)){
+			user.setContactTelephone(contactTelephoneZone+"-"+contactTelephoneNum);
+		}
 		if(method.equals("submit")){
 			userSevice.add(user);
 		}else{
@@ -165,5 +175,29 @@ public class UserAction extends BasicAction {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public String getTelephoneZone() {
+		return telephoneZone;
+	}
+	public void setTelephoneZone(String telephoneZone) {
+		this.telephoneZone = telephoneZone;
+	}
+	public String getTelephoneNum() {
+		return telephoneNum;
+	}
+	public void setTelephoneNum(String telephoneNum) {
+		this.telephoneNum = telephoneNum;
+	}
+	public String getContactTelephoneZone() {
+		return contactTelephoneZone;
+	}
+	public void setContactTelephoneZone(String contactTelephoneZone) {
+		this.contactTelephoneZone = contactTelephoneZone;
+	}
+	public String getContactTelephoneNum() {
+		return contactTelephoneNum;
+	}
+	public void setContactTelephoneNum(String contactTelephoneNum) {
+		this.contactTelephoneNum = contactTelephoneNum;
 	}
 }

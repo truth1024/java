@@ -55,7 +55,8 @@ var tipArr = {
 			'uploadFailure' : '上传失败',
 			'imageSuffix' : '只能上传jpg、jpeg、png、bmp或gif格式的图片！',
 			'deleteSuccess' : '删除成功',
-			'deleteFailure' : '删除失败'
+			'deleteFailure' : '删除失败',
+			'passHeader' : '港澳通行证办理提示'
 		},
 		'en' : {
 			'registered' : 'registered',
@@ -69,7 +70,8 @@ var tipArr = {
 			'uploadFailure' : 'upload failed',
 			'imageSuffix' : 'it can’t be uploaded due to the suffix doesn’t meet requirement',
 			'deleteSuccess' : 'deleted successfully',
-			'deleteFailure' : 'delete failed'
+			'deleteFailure' : 'delete failed',
+			'passHeader' : 'One-way exit permit handling tips'
 		}
 };
 

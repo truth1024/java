@@ -1,18 +1,18 @@
 #schedule li a.schedule { color:#fff; background:url(../images/bg_menu_hover.png) repeat-x; height:35px; border-radius:2px; text-align:center; line-height:35px; font-size:16px; display:block; float:left; padding:0 25px; margin:1px 14px;}
 
-.content { width:676px; margin:0 auto; padding-bottom:30px; display:block; zoom:1; overflow:hidden}
-.content-box {width:325px; margin:0 auto; border-radius:4px; border:1px solid #b3b3b3; display:block; zoom:1; overflow:hidden;}
+.content { width:676px; margin:0 auto; padding-bottom:30px; display:block; zoom:1; overflow:hidden ;}
+.content-box {width:325px;height:180px; margin:0 auto; border-radius:4px; border:1px solid #b3b3b3; display:block; zoom:1; overflow:hidden;}
 .content-box h4, .content-agenda h4 { font-size:14px; display:block; height:34px; line-height:34px; background:url(../images/bg_content_title.png) repeat-x; color:#fff; text-align:center;}
 .content-box ul { margin:0; padding:15px 30px 25px 20px;}
 .content-box ul li { list-style:none; display:block; clear:both; line-height:22px;}
-.content-box span { height:112px; text-align:center; line-height:22px; padding-top:60px; display:block;}
+.content-box span { height:96px; text-align:center; line-height:22px; padding-top:50px; display:block;}
 
 .content-agenda { clear:both; margin:20px 0; width:674px; border-radius:4px; border:1px solid #b3b3b3;  display:block; zoom:1; overflow:hidden;}
 
 .table th, .table td { font-weight:normal; font-size:12px;}
-.table td { text-align:center; background:#d6d8d8; line-height:40px;}
-.table td.grey { background:#e8eaeb}
-.table th { font-size:12px; background:#e8eaeb; font-weight:normal; line-height:32px;}
+.table td { text-align:center; background:#e8eaeb; line-height:40px;}
+.table td.grey { background:#D6D8D8}
+.table th { font-size:12px; background:#D6D8D8; font-weight:bold; line-height:32px;}
 
 .content-agenda ul { margin:0; padding:20px;}
 .content-agenda ul li { list-style:none; display:block; clear:both; line-height:22px;}

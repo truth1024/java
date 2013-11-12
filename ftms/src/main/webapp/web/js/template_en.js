@@ -1,4 +1,23 @@
 (function(){
+	
+	template.compile('pass',
+			'<div class="indent">中华人民共和国往来港澳通行证，是由中华人民共和国公安部出入境管理局签发给中国内地居民因私往来香港或澳门地区旅游、探亲、从事商务、培训、就业、留学等非公务活动的旅行证件，来港澳前，必须取得内地公安部门签发有关来港澳目的签注（如团队旅游、个人旅游、商务或其他签注等）。</div>\
+				　　　<div class="indent"><span>通行证类型：</span>个人旅游、团队旅游</div>\
+				　　　<div class="indent"><span>收费：</span>往来港澳通行证每证100元；办理签注每项次20元。</div>\
+				　　　<div class="indent"><span>审批时限：</span>一般在15个工作日左右<font>（此时间只供参考，具体以当地出入境管理处通知为准）</font></div>\
+				　　　<div class="indent"><span>内地公民因私往来港澳审批程序</span></div>\
+				　　　<div class="indent">1、交验本人身份证、户口簿原件，并提交复印件；</div>\
+				　　　<div class="indent">2、提交正面白色背景彩色小二寸照片2张或者前往各地出入境管理处现场拍照，一般价格在40元左右，具体以各地出入境管理处报价为准；</div>\
+				　　　<div class="indent">3、提交填写完整的《申请审批表》；</div>\
+				　　　<div class="indent">4、往来港澳通行证遗失的，须事先进行遗报失处理。</div>\
+				　　　<div class="indent"><span>注意事项:</span></div>\
+				　　　<div class="indent">1、赴港澳个人游签发 “G”字头个人旅游签注，每次在香港或者澳门逗留不超过7天。</div>\
+				　　　<div class="indent">2、赴港澳团队游签发 “L”字头团队旅游签注，每次在香港或者澳门逗留不超过7天，且必须以团队的名义出入境。</div>\
+				　　　<div class="indent">3、签注过期或已使用，可再次申请，需要注意通行证有效期，即“照片页有效期”在6个月之内，具体需要与各城市出入境管理处核实办理签注是否需要重新换证件。</div>\
+				　　　<div class="indent">4、内地居民所持往来港澳通行证在内地遗失或者损坏，应当重新申请往来港澳通行证及签注。申请时须提交相应材料。建议遗失证件的申请人提交书面的证件遗失声明。</div>'
+		);
+		
+	
 	template.compile('regist_basic',
 			'<form id="regist_basic"><div class="content-regist">\
             <h4>Information Registration</h4>\
@@ -41,7 +60,10 @@
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate">\
                     </li>\
                     <li><strong>* ID number:</strong><input name="cerNum" type="text" class="input-regist required" /></li>\
-                    <li><strong>* Telephone:</strong><input name="user.telephone" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Telephone:</strong>\
+						<input name="telephoneZone" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" class="required" />\
+						- <input name="telephoneNum" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text" class="required"/>\
+					</li>\
                     <li><strong>* Mobile phone:</strong><input name="user.mobilePhone" type="text" class="input-regist required" /></li>\
                     <li><strong>* E-mail:</strong><input name="user.email" type="text" class="input-regist required" /></li>\
                     <li><strong>* Diet taboos:</strong><select index="user." id="diet">\
@@ -54,7 +76,10 @@
                 <font>If it is not filled by yourself, or you wish the affairs division would contact you through others, please fill in the following information.【Optional】</font>\
                 <ul>\
                     <li><strong>Name of contact person:</strong><input name="user.contactName" type="text" class="input-regist" /></li>\
-                    <li><strong>Contact number:</strong><input name="" type="text" class="input-regist" /></li>\
+                    <li><strong>Contact number:</strong>\
+						<input name="contactTelephoneZone" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" />\
+						- <input name="contactTelephoneNum" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text"/>\
+					</li>\
                     <li><strong>Mobile phone number:</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
                     <li><strong>E-mail:</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
@@ -76,7 +101,7 @@
 						</div>\
 						<div style="clear:both;padding-left:40px; float:left">\
 							*Appointed hotel of this convention: Dongguan Jiahua Hotel\
-							<a href="#">check the map of the hotel</a>\
+							<a href="javascript:void(0);" id="map">check the map of the hotel</a>\
 						</div>\
 					</li>\
 	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
@@ -201,7 +226,7 @@
 						{/each}\
 			          </select><input name="touristRoute" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="other.touristRoute">\
 					</li>\
-                     <li><strong style="width:230px;">&nbsp;</strong><a href="#">Check tour routes</a></li>\
+                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">Check tour routes</a></li>\
                      	<li class="touristRouteB"  style="display:none;"><strong style="width:380px;">Do you hold valid documentation to go to Hong Kong:</strong>\
 	                         <input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" /><em>Yse</em>\
 								<select index="other." id="hasPass">\
@@ -211,7 +236,7 @@
 								{/each}\
 					          </select><input type="hidden" name="other.hasPass">\
 						</li>\
-						<li><strong style="width:230px;">&nbsp;</strong><a href="#">One-way exit permit handling tips</a></li>\
+						<li class="touristRouteB"  style="display:none;"><strong style="width:230px;">&nbsp;</strong><a  href="javascript:void(0);" id="passCardTip">One-way exit permit handling tips</a></li>\
 			            <li style="color:#b91414">*Please be sure to handle your one-way exit permit and endorsement in time after your applying, and feedback your permit information to affairs division in time by telephone or e-mail after you finishing handling.</li>\
                         <div style="display:none"  class="showMessage">\
                               <li><strong style="width:380px;">Does your one-way exit permit have valid endorsement:</strong>\
@@ -222,10 +247,10 @@
 	                             <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G endorsement</em>\
 								 <input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L endorsement</em>\
                              </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong><a href="#">how to distinguish endorsement type</a></li>\
+                             <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement type</a></li>\
                              <li><strong style="width:380px;">Your endorsement is valid until:</strong><input name="other.effectiveDate" type="text" class="input-regist" />\
                             </li>\
-                             <li><strong style="width:230px;">&nbsp;</strong><a href="#">how to distinguish endorsement’s period of valid</a></li>\
+                             <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement’s period of valid</a></li>\
                              <li><strong style="width:580px;">Please upload the scanning copy of the first page of your one-way exit permit:</strong>\
 								<input style="width:140px;" name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
                              </li>\
@@ -273,7 +298,7 @@
 	
 	template.compile('manage_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4><span style="float:left">Information Registration</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].id}">Remove</a></div></h4>\
+            <h4><span style="float:left">Information Registration</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">Remove</a></div></h4>\
             <div style="display:none;" class="content">\
 				<span>Distinguished sir/ madam, how are you!<br />Welcome to attend 2014 National Dealers Convention of FAW Toyota. Please successively fill in each part of information related to this activity.</span>\
 	            <font>【mandatory】</font>\
@@ -320,7 +345,10 @@
                       </select><input name="certificate" type="text" class="input-eat" /><input class="required" type="hidden" name="user.certificate" value="{cerHide0 userType.users[index].certificate}">\
                     </li>\
                     <li><strong>* ID number:</strong><input name="cerNum" type="text" class="input-regist required"  value="{cerHide1 userType.users[index].certificate}"/></li>\
-                    <li><strong>* Telephone:</strong><input name="user.telephone" value="{userType.users[index].telephone}" type="text" class="input-regist required" /></li>\
+                    <li><strong>* Telephone:</strong>\
+						<input name="telephoneZone" value="{telephone userType.users[index].telephone 0}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" class="required" />\
+						- <input name="telephoneNum" value="{telephone userType.users[index].telephone 1}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text" class="required"/>\
+					</li>\
                     <li><strong>* Mobile phone:</strong><input name="user.mobilePhone" value="{userType.users[index].mobilePhone}" type="text" class="input-regist required" /></li>\
                     <li><strong>* E-mail:</strong><input name="user.email" value="{userType.users[index].email}" type="text" class="input-regist required" /></li>\
                     <li><strong>* Diet taboos:</strong><select index="user." id="diet">\
@@ -333,7 +361,10 @@
 			<font>If it is not filled by yourself, or you wish the affairs division would contact you through others, please fill in the following information.【Optional】</font>\
                 <ul>\
                     <li><strong>Name of contact person:</strong><input name="user.contactName" value="{userType.users[index].contactName}" type="text" class="input-regist" /></li>\
-                    <li><strong>Contact number:</strong><input name="" type="text" class="input-regist" /></li>\
+                    <li><strong>Contact number:</strong>\
+						<input name="contactTelephoneZone" value="{telephone userType.users[index].contactTelephone 0}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:70px;" type="text" />\
+						- <input name="contactTelephoneNum" value="{telephone userType.users[index].contactTelephone 1}" style="border: 1px solid #CFCFCF;height: 24px;line-height: 24px;padding-left: 4px;width:180px;" type="text"/>\
+					</li>\
                     <li><strong>Mobile phone number:</strong><input name="user.contactPhone" value="{userType.users[index].contactPhone}" type="text" class="input-regist" /></li>\
                     <li><strong>E-mail:</strong><input name="user.contactEmail" value="{userType.users[index].contactEmail}" type="text" class="input-regist" /></li>\
                 </ul>\
@@ -345,7 +376,7 @@
 	template.compile('manage_hotel',
 		'<form id="regist_hotel"><div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="{userType.users[index].id}">\
-            <h4><span style="float:left">Hotel arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].hotel.id}">Remove</a></div></h4>\
+            <h4><span style="float:left">Hotel arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">Remove</a></div></h4>\
 	            <div style="display:none;" class="content">\
 	                <ol>\
 	                <li><strong style="width:350px;">* Whether check into the hotel appointed by FTMS:</strong>\
@@ -355,7 +386,7 @@
 						</div>\
 						<div style="clear:both;padding-left:40px; float:left">\
 							*Appointed hotel of this convention: Dongguan Jiahua Hotel\
-							<a href="#">check the map of the hotel</a>\
+							<a href="javascript:void(0);" id="map">check the map of the hotel</a>\
 						</div>\
 					</li>\
 	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
@@ -390,7 +421,7 @@
 	template.compile('manage_traffic',
 		'<form id="regist_traffic"><div class="content-regist">\
 			<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">Transfer arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].traffic.id}">Remove</a></div></h4>\
+                <h4><span style="float:left">Transfer arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">Remove</a></div></h4>\
                 <div style="display:none;" class="content">\
 					<font style="font-size:12px;">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.</font>\
 					<div class="tips">\
@@ -462,7 +493,7 @@
 	template.compile('manage_other',
 		'<form id="regist_other"><div class="content-regist">\
 			<input type="hidden" name="other.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">Tour arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="{userType.users[index].other.id}">Remove</a></div></h4>\
+                <h4><span style="float:left">Tour arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">Remove</a></div></h4>\
                 <div style="display:none;" class="content">\
                     <ol>\
                     <li><strong style="width:380px;">* Whether attend the regional conference on January 16th:</strong>\
@@ -481,7 +512,7 @@
 				        </select>\
 						<input class="required" type="hidden" name="other.touristRoute" value="{userType.users[index].other.touristRoute}">\
 					</li>\
-                    <li><strong style="width:230px;">&nbsp;</strong><a href="#">Check tour routes</a></li>\
+                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">Check tour routes</a></li>\
                  	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
 						<strong style="width:380px;">Do you hold valid documentation to go to Hong Kong:</strong>\
                     	<input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.hasPass != 0}checked{/if}/><em>Yes</em>\
@@ -492,7 +523,7 @@
 							{/each}\
 				    	</select><input type="hidden" name="other.hasPass" value="{userType.users[index].other.hasPass}">\
 					</li>\
-                   	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a href="#">One-way exit permit handling tips</a></li>\
+                   	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a  href="javascript:void(0);" id="passCardTip">One-way exit permit handling tips</a></li>\
 					<li style="color:#b91414">*Please be sure to handle your one-way exit permit and endorsement in time after your applying, and feedback your permit information to affairs division in time by telephone or e-mail after you finishing handling.</li>\
 					<div {if userType.users[index].other.hasPass != 1}style="display:none"{/if}  class="showMessage">\
 						<li><strong style="width:380px;">Does your one-way exit permit have valid endorsement:</strong>\
@@ -503,10 +534,10 @@
 							<input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.sign != 2}checked{/if}/><em>G endorsement</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.sign == 2}checked{/if}/><em>L endorsement</em>\
 						</li>\
-						<li><strong style="width:230px;">&nbsp;</strong><a href="#">how to distinguish endorsement type</a></li>\
+						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement type</a></li>\
 						<li><strong style="width:380px;">Your endorsement is valid until:</strong><input name="other.effectiveDate" value="{dateFormat userType.users[index].other.effectiveDate}" type="text" class="input-regist" />\
 						</li>\
-						<li><strong style="width:230px;">&nbsp;</strong><a href="#">how to distinguish endorsement’s period of valid</a></li>\
+						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement’s period of valid</a></li>\
 						<li><strong style="width:580px;">Please upload the scanning copy of the first page of your one-way exit permit:</strong>\
 							<input style="width:140px;" name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 						</li>\
