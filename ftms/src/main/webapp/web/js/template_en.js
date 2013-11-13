@@ -1,20 +1,20 @@
 (function(){
 	
 	template.compile('pass',
-			'<div class="indent">中华人民共和国往来港澳通行证，是由中华人民共和国公安部出入境管理局签发给中国内地居民因私往来香港或澳门地区旅游、探亲、从事商务、培训、就业、留学等非公务活动的旅行证件，来港澳前，必须取得内地公安部门签发有关来港澳目的签注（如团队旅游、个人旅游、商务或其他签注等）。</div>\
-				　　　<div class="indent"><span>通行证类型：</span>个人旅游、团队旅游</div>\
-				　　　<div class="indent"><span>收费：</span>往来港澳通行证每证100元；办理签注每项次20元。</div>\
-				　　　<div class="indent"><span>审批时限：</span>一般在15个工作日左右<font>（此时间只供参考，具体以当地出入境管理处通知为准）</font></div>\
-				　　　<div class="indent"><span>内地公民因私往来港澳审批程序</span></div>\
-				　　　<div class="indent">1、交验本人身份证、户口簿原件，并提交复印件；</div>\
-				　　　<div class="indent">2、提交正面白色背景彩色小二寸照片2张或者前往各地出入境管理处现场拍照，一般价格在40元左右，具体以各地出入境管理处报价为准；</div>\
-				　　　<div class="indent">3、提交填写完整的《申请审批表》；</div>\
-				　　　<div class="indent">4、往来港澳通行证遗失的，须事先进行遗报失处理。</div>\
-				　　　<div class="indent"><span>注意事项:</span></div>\
-				　　　<div class="indent">1、赴港澳个人游签发 “G”字头个人旅游签注，每次在香港或者澳门逗留不超过7天。</div>\
-				　　　<div class="indent">2、赴港澳团队游签发 “L”字头团队旅游签注，每次在香港或者澳门逗留不超过7天，且必须以团队的名义出入境。</div>\
-				　　　<div class="indent">3、签注过期或已使用，可再次申请，需要注意通行证有效期，即“照片页有效期”在6个月之内，具体需要与各城市出入境管理处核实办理签注是否需要重新换证件。</div>\
-				　　　<div class="indent">4、内地居民所持往来港澳通行证在内地遗失或者损坏，应当重新申请往来港澳通行证及签注。申请时须提交相应材料。建议遗失证件的申请人提交书面的证件遗失声明。</div>'
+			'<div style="line-height: 14px;"><div class="indent">Exit-Entry Permit for Travelling to and from Hong Kong and Macau is a travel document for private visit to the Chinese Special Administrative Regions of Hong Kong and Macau for non-government purposes such as travel, family reunion, business, training, employment and study, which is issued by Bureau of Exit and Entry Administration of the Chinese Ministry of Public Security to inland Chinese residents. Before visiting Hong Kong or Macau, an endorsement of the visiting purpose should be issued by inland public security bureau (such as group tour, personal travel, business or other endorsements).</div>\
+		　　　<div class="indent"><span>Permit type:</span>personal travel, group tour</div>\
+		　　　<div class="indent"><span>Charge: </span>100 yuan for per Exit-Entry Permit for Travelling to and from Hong Kong and Macau; 20 yuan for each endorsement per time.</div>\
+		　　　<div class="indent"><span>Approval time limit:</span>generally it will take around 15 work days<font>(this time limit is only for your information, and particulars shall be subject to inform of local Exit and Entry Administration Office.)</font></div>\
+		　　　<div class="indent"><span>Approval process of inland residents’ exiting and entering Hong Kong and Macau for private visit</span></div>\
+	　　　　　　<div class="indent">1. Hand over the original copy of your personal identification card and residence booklet for examination, and submit copies;</div>\
+		　　　<div class="indent">2. Submit two small two-inch color full face photos of white background, or go to local Exit and Entry Administration Office and take photos, which generally takes about 40 yuan, and particulars shall be subject to offer of local Exit and Entry Administration Office;</div>\
+		　　　<div class="indent">3. Submit fully-filled application form;</div>\
+			<div class="indent">4. Must report and handle the loss of Exit-Entry Permit for Travelling to and from Hong Kong and Macau in advance if it has been lost.</div>\
+		　　　<div class="indent"><span>Announcements:</span></div>\
+		　　　<div class="indent">1. Those who visit Hong Kong or Macau for personal travel will be issued “G” personal travel endorsement, with which you can stay in Hong Kong or Macau for no more than seven days.</div>\
+		　　　<div class="indent">2. Those who visit Hong Kong or Macau for group tour will be issued “L” group tour endorsement, with which you can stay in Hong Kong or Macau for no more than seven days, and have to exit and enter as teams.</div>\
+		　　　<div class="indent">3. Endorsement can be apply for again if it is out of date or has been used; need to notice the period of validity of the permit, meaning “period of validity on the photo page” is in six months; you may need to verify with local Exit and Entry Administration Office whether your need to be issued a new permit to handle endorsement.</div>\
+			<div class="indent">4. If inland resident’s Exit-Entry Permit for Travelling to and from Hong Kong and Macau is lost in inland or damaged, should apply for Exit-Entry Permit for travelling to and from Hong Kong and Macau and endorsement again. Corresponding documentation should be submitted during application. It is suggested that applicant who has lost permit submit a documentation lost statement in writing.</div></div>'
 		);
 		
 	
@@ -23,7 +23,7 @@
             <h4>Personal information</h4>\
             <div class="content">\
                 <span>Distinguished sir/ madam, how are you!<br />Welcome to attend 2014 National Dealers Convention of FAW Toyota. Please successively fill in each part of information related to this activity.</span>\
-                <font>【mandatory】</font>\
+                <font style="padding-left:250px;">【mandatory】</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
                     <li><strong>* Name:</strong><input name="user.name" type="text" class="input-regist required" /></li>\
@@ -73,7 +73,7 @@
 						{/each}\
                       </select><input name="diet" type="text" class="input-eat" /><input class="required" type="hidden" name="user.diet"></li>\
                 </ul>\
-                <font>If it is not filled by yourself, or you wish the affairs division would contact you through others, please fill in the following information.【Optional】</font>\
+                <font style="padding-left:20px;">If it is not filled by yourself, or you wish the affairs division would contact you through others, please fill in the following information.【Optional】</font>\
                 <ul>\
                     <li><strong>Name of contact person:</strong><input name="user.contactName" type="text" class="input-regist" /></li>\
                     <li><strong>Contact number:</strong>\
@@ -83,7 +83,7 @@
                     <li><strong>Mobile phone number:</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
                     <li><strong>E-mail:</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
-                <div class="operate"><a href="javascript:void(0);" class="save" index="submit">Save</a></div>\
+                <div class="operate"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
             </div>\
         </div></form>'
 	);
@@ -107,16 +107,16 @@
 							<a href="javascript:void(0);" id="map">check the map of the hotel</a>\
 						</div>\
 					</li>\
-	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
-	                <li><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
-	                <li><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
+	                <li class="stayHide" style="display:none;"><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
                       </select><input class="isStay" type="hidden" name="hotel.room">\
                     </li>\
-	                <li style="display:none;">\
+	                <li class="stayHide" style="display:none;">\
 						<strong style="width:350px;">Whether assign roommate sharing room with you:</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isWith" type="radio" value="1" />Yes\
@@ -124,8 +124,8 @@
 						</div>\
 						<div style="padding-left:40px; float:left">the convention affairs division will make unified arrangement if doesn’t assign roommate.</div>\
 					</li>\
-	                <li class="hide" style="display:none;"><strong style="width:250px;">Name of roommate:</strong><input name="hotel.withName" type="text" class="input-regist" /></li>\
-	                <li class="hide" style="display:none;"><strong style="width:250px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" type="text" class="input-regist" /></li>\
+	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">Name of roommate:</strong><input name="hotel.withName" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips">\
 		                <font style="font-size:12px;"><strong>Remarks:</strong></font>\
@@ -133,7 +133,7 @@
 			            <font style="padding-left:36px; width:100%">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
 			            <font style="padding-left:36px; width:100%">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
 	            	</div>\
-	        	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">Save</a></div>\
+	        	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
 	        </div>\
 	    </div></form>'
 	);
@@ -214,7 +214,7 @@
 			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: service@ftmsdlr.cn</font>\
                 	</div>\
-                  	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">Save</a></div>\
+                  	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
             	</div>\
 			</div></form>'
 	);
@@ -243,7 +243,7 @@
 							{/each}\
 			          	</select><input name="touristRoute" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="other.touristRoute">\
 					</li>\
-                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">Check commercial activity routes</a></li>\
+                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">Check commercial activity routes</a></li>\
                      	<li class="touristRouteB"  style="display:none;"><strong style="width:380px;">Do you hold valid documentation to go to Hong Kong:</strong>\
 	                         <input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" /><em>Yse</em>\
 								<select index="other." id="hasPass">\
@@ -299,7 +299,7 @@
                           </div>\
                    	</ol>\
 					<div class="tips"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
-                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">Save</a></div>\
+                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
             	</div>\
 			</div></form>'
 	);
@@ -309,7 +309,7 @@
             <h4><span style="float:left">Personal information</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">Remove</a></div></h4>\
             <div style="display:none;" class="content">\
 				<span>Distinguished sir/ madam, how are you!<br />Welcome to attend 2014 National Dealers Convention of FAW Toyota. Please successively fill in each part of information related to this activity.</span>\
-	            <font>【mandatory】</font>\
+	            <font style="padding-left:250px;">【mandatory】</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
 					<input type="hidden" class="required" name="user.id" value="{userType.users[index].id}">\
@@ -366,7 +366,7 @@
 						{/each}\
                       </select><input name="diet" type="text" class="input-eat" {selectHide userType.users[index].diet}/><input class="required" type="hidden" name="user.diet" value="{userType.users[index].diet}"></li>\
                 </ul>\
-				<font>If it is not filled by yourself, or you wish the affairs division would contact you through others, please fill in the following information.【Optional】</font>\
+				<font style="padding-left:20px;">If it is not filled by yourself, or you wish the affairs division would contact you through others, please fill in the following information.【Optional】</font>\
                 <ul>\
                     <li><strong>Name of contact person:</strong><input name="user.contactName" value="{userType.users[index].contactName}" type="text" class="input-regist" /></li>\
                     <li><strong>Contact number:</strong>\
@@ -376,7 +376,7 @@
                     <li><strong>Mobile phone number:</strong><input name="user.contactPhone" value="{userType.users[index].contactPhone}" type="text" class="input-regist" /></li>\
                     <li><strong>E-mail:</strong><input name="user.contactEmail" value="{userType.users[index].contactEmail}" type="text" class="input-regist" /></li>\
                 </ul>\
-                <div class="operate"><a href="javascript:void(0);" class="save" index="update">Save</a></div>\
+			{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
             </div>\
         </div></form>'
 	);
@@ -400,16 +400,16 @@
 							<a href="javascript:void(0);" id="map">check the map of the hotel</a>\
 						</div>\
 					</li>\
-	                <li><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}" {select userType.users[index].hotel.room n.value}>{n.name}</option>\
 						{/each}\
                       </select><input class=" isStay {if userType.users[index].hotel.isStay == 1}required{/if}" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
-	                <li {if userType.users[index].hotel.room != 2}style="display:none;{/if}">\
+	                <li class="stayHide" {if userType.users[index].hotel.room != 2}style="display:none;"{/if}>\
 						<strong style="width:350px;">Whether assign roommate sharing room with you:</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>Yes\
@@ -417,8 +417,8 @@
 						</div>\
 						<div style="padding-left:40px; float:left">the convention affairs division will make unified arrangement if doesn’t assign roommate.</div>\
 					</li>\
-	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:250px;">Name of roommate:</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist" /></li>\
-	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:250px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">Name of roommate:</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips">\
 						<font style="font-size:12px;"><strong>Remarks:</strong></font>\
@@ -426,7 +426,7 @@
 			            <font style="padding-left:36px; width:100%">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
 			            <font style="padding-left:36px; width:100%">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
 		            </div>\
-	              <div class="operate"><a href="javascript:void(0);" class="save" index="update">Save</a></div>\
+			{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
 	        </div>\
 	    </div></form>'
 	);
@@ -507,7 +507,7 @@
 			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: service@ftmsdlr.cn</font>\
 			    	</div>\
-                  <div class="operate"><a href="javascript:void(0);" class="save" index="update">Save</a></div>\
+			{if compare2()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
             </div>\
         </div></form>'
 	);
@@ -535,7 +535,7 @@
 				        </select>\
 						<input class="required" type="hidden" name="other.touristRoute" value="{userType.users[index].other.touristRoute}">\
 					</li>\
-                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">Check commercial activity routes</a></li>\
+                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">Check commercial activity routes</a></li>\
                  	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
 						<strong style="width:380px;">Do you hold valid documentation to go to Hong Kong:</strong>\
                     	<input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.hasPass != 0}checked{/if}/><em>Yes</em>\
@@ -592,7 +592,7 @@
                   	</div>\
                    	</ol>\
 					<div class="tips"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
-                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="update">Save</a></div>\
+					{if compare2() }<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
             	</div>\
 			</div></form>'
 	);

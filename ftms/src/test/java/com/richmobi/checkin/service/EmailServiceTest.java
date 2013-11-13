@@ -22,7 +22,7 @@ public class EmailServiceTest extends AbstractTestCase {
 	@Test
 	public void testSendEmail() {
 		try {
-			emailService.sendEmail(user);
+			emailService.sendEmail(u,"cn");
 		} catch (SendFailedException e) {
 			e.printStackTrace();
 		}

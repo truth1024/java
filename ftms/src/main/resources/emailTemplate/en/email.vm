@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>一汽丰田2014年全国经销商大会-注册成功通知</title>
+</head>
+<body style="font-family: 微软雅黑; font-size:14px;margin:0;padding:0;">
+	<table border="0" cellspacing="0" cellpadding="0" class="table" style="width:600px;margin:20px auto;">
+		<tr style="height: 40px;">
+			<td>尊敬的**先生/女士，</td>
+		</tr>
+		<tr style="height: 40px;">
+			<td>欢迎您参加一汽丰田2014年全国经销商大会，您的参会信息已经成功提交，详细如下：</td>
+		</tr>
+		<tr style="height: 40px;">
+			<td><插入显示参会嘉宾的所有注册信息></td>
+		</tr>
+		<tr style="height: 40px;">
+			<td><strong>如有信息变更，您可以通过以下几种方法进行信息更新：</strong></td>
+		</tr>
+		<tr style="height: 40px;">
+			<td>1）登录网址：www.ftmsdlr.cn，点击进入信息管理界面，通过“编辑”、“删除”按钮进行信息修改和维护</td>
+		</tr>
+		<tr style="height: 40px;">
+			<td>2）在网站系统关闭后，您可通过发送邮件或拨打热线电话的形式联系事务局线下更改您的相关信息</td>
+		</tr>
+		<tr style="height: 40px;">
+			<td>事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn</td>
+		</tr>
+		<tr style="height: 40px;">
+			<td><strong>网站及线下信息变更截止时间提示：</strong></td>
+		</tr>
+		<tr style="height: 90px;">
+			<td>您的参会信息分为个人基本信息、酒店安排、交通安排、商务活动4个板块，需请您注意，各板块按照不同时间点分别关闭，关闭后，事务局将不再受理您的信息变更需求，因此请务必在规定时间内及时、准确地提交您的信息。</td>
+		</tr>
+		<tr style="height: 110px;">
+			<td style="text-align: center;"><img src="schedule.jpg"></td>
+		</tr>
+		<tr style="height: 40px;">
+			<td>感谢您的支持！</td>
+		</tr>
+	</table>
+</body>
+</html>

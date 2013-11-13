@@ -1,5 +1,7 @@
 package com.richmobi.checkin.action;
 
+import javax.mail.SendFailedException;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -57,6 +59,11 @@ public class OtherAction extends BasicAction {
 			otherService.add(o);			
 		}else{
 			otherService.update(o);
+		}
+		try {
+			sendEmail(o.getUid());
+		} catch (SendFailedException e) {
+			e.printStackTrace();
 		}
 		status = 1;
 		return "saveOther";

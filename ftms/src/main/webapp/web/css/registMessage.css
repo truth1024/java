@@ -44,11 +44,11 @@
 
 .content ol { margin:0; padding:0; display:block; zoom:1; overflow:hidden;}
 .content ol li { list-style:none; clear:both; display:block; line-height:30px; padding:4px 0;}
-.content ol li strong { float:left; font-weight:normal; width:140px; text-align:right; padding-right:6px;}
+.content ol li strong { float:left; font-weight:normal; width:160px; text-align:right; padding-right:6px;}
 .content ol li select { float:left; margin-top:5px;}
 .content ol li a { text-decoration:underline; margin-left:15px; color:#95150b}
 
-.tips { clear:both; display:block; zoom:1; overflow:hidden; padding:15px 105px 25px; line-height:22px;}
+.tips { clear:both; display:block; zoom:1; overflow:hidden; padding:15px 15px 25px; line-height:22px;}
 .tips font { clear:both; display:block; float:left; margin:0; padding:0; color:#333;}
 
 .operate { clear:both; padding:0 140px; display:block; zoom:1; overflow:hidden}

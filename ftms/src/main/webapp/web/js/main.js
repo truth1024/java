@@ -47,8 +47,8 @@ var tipArr = {
 			'registered' : '已注册',
 			'unregistered' : '未注册',
 			'saveSuccess' : '保存成功',
-			'infoLack' : '信息填写不完整无法保存',
-			'userLack' : '请先填写用户信息并保存',
+			'infoLack' : '信息填写不完整无法提交',
+			'userLack' : '请先填写用户信息并提交',
 			'add' : '添加人员',
 			'upload' : '因命名不符合要求无法上传',
 			'uploadSuccess' : '上传成功',
@@ -56,14 +56,15 @@ var tipArr = {
 			'imageSuffix' : '只能上传jpg、jpeg、png、bmp或gif格式的图片！',
 			'deleteSuccess' : '删除成功',
 			'deleteFailure' : '删除失败',
-			'passHeader' : '港澳通行证办理提示'
+			'passHeader' : '港澳通行证办理提示',
+			'functionClose' : '功能已关闭'
 		},
 		'en' : {
 			'registered' : 'registered',
 			'unregistered' : 'unregistered',
-			'saveSuccess' : 'saved successfully',
-			'infoLack' : 'it can’t be saved due to incomplete information',
-			'userLack' : 'please fill in the user information and save',
+			'saveSuccess' : 'submit successfully',
+			'infoLack' : 'it can’t be submitted  due to incomplete information',
+			'userLack' : 'please fill in the user information and submit',
 			'add' : 'Add Dealer',
 			'upload' : 'it can’t be uploaded due to the naming doesn’t meet requirement',
 			'uploadSuccess' : 'upload successfully',
@@ -71,7 +72,8 @@ var tipArr = {
 			'imageSuffix' : 'it can’t be uploaded due to the suffix doesn’t meet requirement',
 			'deleteSuccess' : 'deleted successfully',
 			'deleteFailure' : 'delete failed',
-			'passHeader' : 'One-way exit permit handling tips'
+			'passHeader' : 'One-way exit permit handling tips',
+			'functionClose' : 'Function has been shut down'
 		}
 };
 

@@ -51,7 +51,7 @@ public class Utils {
 	}
 	
 	public static String dateFormat(Date myDate){
-		return basicFormat(myDate, "yyyy年MM月dd日");
+		return basicFormat(myDate, "yyyy-MM-dd");
 	}
 	
 	public static String timeFormat(Date myDate){
@@ -67,95 +67,101 @@ public class Utils {
 		}
 	}
 	
-	public static String nationality(String nationality){
+	public static String nationality(String nationality,String lang){
 		if(nationality.matches("\\d{1}")){
 			int cerInt = Integer.parseInt(nationality);
-			return Constant.nationArr[cerInt-1].getName();
+			return (lang == null ? Constant.nationArr[cerInt-1].getName() : Constant.nationEnArr[cerInt-1].getName());
 		}else{
 			return nationality;
 		}
 	}
 	
-	public static String title(String title){
+	public static String title(String title,String lang){
 		if(title != null && !title.equals("") && title.matches("\\d{1}")){
 			int cerInt = Integer.parseInt(title);
-			return Constant.titleArr[cerInt-1].getName();
+			return (lang == null ? Constant.titleArr[cerInt-1].getName() : Constant.titleEnArr[cerInt-1].getName());
 		}else{
 			return title;
 		}
 	}
 	
-	public static String deparTrafficTool(String trafficTool){
+	public static String deparTrafficTool(String trafficTool,String lang){
 		if(trafficTool.matches("\\d{1}")){
 			int cerInt = Integer.parseInt(trafficTool);
-			return Constant.deparTrafficArr[cerInt-1].getName();
+			return (lang == null ? Constant.deparTrafficArr[cerInt-1].getName() : Constant.deparTrafficEnArr[cerInt-1].getName());
 		}else{
 			return trafficTool;
 		}
 	}
 	
-	public static String backTrafficTool(String trafficTool){
+	public static String backTrafficTool(String trafficTool,String lang){
 		if(trafficTool.matches("\\d{1}")){
 			int cerInt = Integer.parseInt(trafficTool);
-			return Constant.backTrafficArr[cerInt-1].getName();
+			return (lang == null ? Constant.backTrafficArr[cerInt-1].getName() : Constant.backTrafficEnArr[cerInt-1].getName());
 		}else{
 			return trafficTool;
 		}
 	}
 	
-	public static String cer(String cer){
+	public static String cer(String cer,String lang){
 		if(cer.matches("\\d{1}")){
 			int cerInt = Integer.parseInt(cer);
-			return Constant.cerArr[cerInt-1].getName();
+			return (lang == null ? Constant.cerArr[cerInt-1].getName() : Constant.cerEnArr[cerInt-1].getName());
 		}else{
 			return cer;
 		}
 	}
 	
-	public static String yseOrNo(int yon){
-		return (yon == 1 ? "是" :(yon == 2 ? "否" : ""));
+	public static String yseOrNo(int yon,String lang){
+		String yes = (lang == null ? "是" : "Yes");
+		String no = (lang == null ? "否" : "No");
+		return (yon == 1 ? yes :(yon == 2 ? no : ""));
 	}
 	
-	public static String route(int route){
-		return Constant.touristArr[route-1].getName();
+	public static String route(int route,String lang){
+		return (route == 0 ? "" : (lang == null ? Constant.touristArr[route-1].getName() : Constant.touristEnArr[route-1].getName()));
 		
 	}
 	
-	public static String gol(int gol){
-		return (gol == 1 ? "G签" : (gol == 2 ? "L签" : ""));
+	public static String gol(int gol,String lang){
+		String g = (lang == null ? "G签" : "G endorsement");
+		String l = (lang == null ? "L签" : "L endorsement");
+		return (gol == 1 ? g : (gol == 2 ? l : ""));
 	}
 	
-	public static String sex(int sex){
-		return (sex == 1 ? "男" : "女");
+	public static String sex(int sex,String lang){
+		String male = (lang == null ? "男" : "male");
+		String female = (lang == null ? "女" : "female");
+		return (sex == 1 ? male : female);
 	}
 	
-	public static String playSize(int size){
-		return (size == 0 ? "" : Constant.sizeArr[size-1].getName());
+	public static String playSize(int size,String lang){
+		return (size == 0 ? "" : (lang == null ? Constant.sizeArr[size-1].getName() : Constant.sizeEnArr[size-1].getName()));
 	}
 	
-	public static String diet(String diet){
+	public static String diet(String diet,String lang){
 		if(diet != null && !diet.equals("") && diet.matches("\\d{1}")){
 			int cerInt = Integer.parseInt(diet);
-			return Constant.dietArr[cerInt-1].getName();
+			return (lang == null ? Constant.dietArr[cerInt-1].getName() : Constant.dietEnArr[cerInt-1].getName());
 		}else{
 			return diet;
 		}
 	}
 	
-	public static String stature(int stature){
-		return (stature == 0 ? "" : stature+"CM");
+	public static String stature(int stature,String lang){
+		return (stature == 0 ? "" : stature+(lang == null ? "CM" : "cm"));
 	}
 	
-	public static String room(int room){
-		return Constant.roomArr[room-1].getName();
+	public static String room(int room,String lang){
+		return (room == 0 ? "" : (lang == null ? Constant.roomArr[room-1].getName() : Constant.roomEnArr[room-1].getName()));
 	}
 	
-	public static String hasPass(int hasPass){
-		return (hasPass == 0 ? "" : Constant.passArr[hasPass-1].getName());
+	public static String hasPass(int hasPass,String lang){
+		return (hasPass == 0 ? "" : (lang == null ? Constant.passArr[hasPass-1].getName() : Constant.passEnArr[hasPass-1].getName()));
 	}
 	
-	public static String city(int city){
-		return (city == 0 ? "" : Constant.cityArr[city-1].getName());
+	public static String city(int city,String lang){
+		return (city == 0 ? "" : (lang == null ? Constant.cityArr[city-1].getName() : Constant.cityEnArr[city-1].getName()));
 	}
 	
 }

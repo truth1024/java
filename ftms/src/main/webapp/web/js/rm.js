@@ -49,7 +49,7 @@ $(function(){
 				$(this).parent().next().show();
 			}else{
 				$(this).parent().nextAll().hide();
-				$(this).parent().next().children('input[value=2]').get(0).checked = true;
+				$(this).parent().next().children('.left').children('input[value=2]').get(0).checked = true;
 				$(this).parent().nextAll().children('input').removeClass('required');
 			}
 		}
@@ -120,7 +120,7 @@ $(function(){
 		if(verify('#regist_basic')){
 			$.post(
 				'/web/user_saveUser',
-				$('#regist_basic').serialize()+'&method='+method,
+				$('#regist_basic').serialize()+'&method='+method+'&lang='+lang,
 				function(data){
 					// console.log(data);
 					if(data.status == 1){
@@ -151,7 +151,7 @@ $(function(){
 		if(verify('#regist_hotel')){
 			$.post(
 				'/web/hotel_saveHotel',
-				$('#regist_hotel').serialize()+'&method='+method,
+				$('#regist_hotel').serialize()+'&method='+method+'&lang='+lang,
 				function(data){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
@@ -181,7 +181,7 @@ $(function(){
 		if(verify('#regist_traffic')){
 			$.post(
 				'/web/traffic_saveTraffic',
-				$('#regist_traffic').serialize()+'&method='+method,
+				$('#regist_traffic').serialize()+'&method='+method+'&lang='+lang,
 				function(data){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
@@ -211,7 +211,7 @@ $(function(){
 		if(verify('#regist_other')){
 			$.post(
 				'/web/other_saveOther',
-				$('#regist_other').serialize()+'&method='+method,
+				$('#regist_other').serialize()+'&method='+method+'&lang='+lang,
 				function(data){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
@@ -258,16 +258,22 @@ $(function(){
 		}
 	});
 	
-	
+	//是否入住FTMS指定酒店
 	$('body').delegate('input[name="hotel.isStay"]','click',function(){
 		if($(this).val() == 1){
-			$('.isStay').addClass('required');
+			$('.stayHide:lt(3)').show();
+			$('.isStay:lt(3)').addClass('required');
 		}else{
+			$('.stayHide').hide();
+			$('.stayHide select option[value="0"]').get(0).selected = true;
+			$('.stayHide input[type="radio"][value="2"]').get(0).checked = true;
+			$('.stayHide input[type="text"]').val('');
 			$('.isStay').removeClass('required');
 		}
 	});
 	
 });
+
 //放入隐藏域
 function inputValue(prefix,id){
 	$('input[name="'+id+'"]').blur(function(){
@@ -384,6 +390,8 @@ function ajaxFileUpload(obj) {
 	
 	return false;
 };
+
+//校验上传图片
 function validateImage(obj) {
     var file = obj;
     var tmpFileValue = file.value;
@@ -426,4 +434,26 @@ function validateImage(obj) {
 //        alert("请选择上传的文件!");
         return false;
     }
+};
+
+//个人和酒店
+function compare1(){
+	return compDate("2013/11/28");
+};
+//交通和游览
+function compare2(){
+	return compDate("2013/12/10");
+}
+//日期比较
+function compDate(b){
+	var dateA = new Date();
+	var dateB = new Date(b);
+	if(isNaN(dateA) || isNaN(dateB)){
+		return null;
+	}
+	if(dateA >= dateB){
+		return false;
+	}else{
+		return true;
+	}
 };

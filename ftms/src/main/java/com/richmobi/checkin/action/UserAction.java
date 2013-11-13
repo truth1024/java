@@ -3,6 +3,8 @@ package com.richmobi.checkin.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.mail.SendFailedException;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,7 @@ public class UserAction extends BasicAction {
 	private String cerNum;
 	private long uid;
 	private String method;
-	private String lang;
+//	private String lang;
 	private long id;
 	private String telephoneZone;
 	private String telephoneNum;
@@ -100,6 +102,11 @@ public class UserAction extends BasicAction {
 		}
 		uid = user.getId();
 		log.debug("uid : "+uid);
+		try {
+			sendEmail(uid);
+		} catch (SendFailedException e) {
+			e.printStackTrace();
+		}
 		status = 1;
 		return "saveUser";
 	}
@@ -164,12 +171,12 @@ public class UserAction extends BasicAction {
 	public void setMethod(String method) {
 		this.method = method;
 	}
-	public String getLang() {
-		return lang;
-	}
-	public void setLang(String lang) {
-		this.lang = lang;
-	}
+//	public String getLang() {
+//		return lang;
+//	}
+//	public void setLang(String lang) {
+//		this.lang = lang;
+//	}
 	public long getId() {
 		return id;
 	}

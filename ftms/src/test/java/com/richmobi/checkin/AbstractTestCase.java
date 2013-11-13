@@ -160,7 +160,7 @@ public class AbstractTestCase {
 		u.setEmail("truth9988@163.com");
 		u.setContactName("dudu");
 		u.setContactPhone("18210825801");
-		u.setContactEmail("dudu4312@163.com");
+		u.setContactEmail("truth1024@hotmail.com");
 	}
 	
 	protected static UserType ut1 = new UserType();

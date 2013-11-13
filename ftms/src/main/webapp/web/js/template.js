@@ -1,7 +1,7 @@
 (function(){
 	
 	template.compile('pass',
-		'<div class="indent">中华人民共和国往来港澳通行证，是由中华人民共和国公安部出入境管理局签发给中国内地居民因私往来香港或澳门地区旅游、探亲、从事商务、培训、就业、留学等非公务活动的旅行证件，来港澳前，必须取得内地公安部门签发有关来港澳目的签注（如团队旅游、个人旅游、商务或其他签注等）。</div>\
+		'<div style="line-height: 14px;"><div class="indent">中华人民共和国往来港澳通行证，是由中华人民共和国公安部出入境管理局签发给中国内地居民因私往来香港或澳门地区旅游、探亲、从事商务、培训、就业、留学等非公务活动的旅行证件，来港澳前，必须取得内地公安部门签发有关来港澳目的签注（如团队旅游、个人旅游、商务或其他签注等）。</div>\
 			　　　<div class="indent"><span>通行证类型：</span>个人旅游、团队旅游</div>\
 			　　　<div class="indent"><span>收费：</span>往来港澳通行证每证100元；办理签注每项次20元。</div>\
 			　　　<div class="indent"><span>审批时限：</span>一般在15个工作日左右<font>（此时间只供参考，具体以当地出入境管理处通知为准）</font></div>\
@@ -14,14 +14,14 @@
 			　　　<div class="indent">1、赴港澳个人游签发 “G”字头个人旅游签注，每次在香港或者澳门逗留不超过7天。</div>\
 			　　　<div class="indent">2、赴港澳团队游签发 “L”字头团队旅游签注，每次在香港或者澳门逗留不超过7天，且必须以团队的名义出入境。</div>\
 			　　　<div class="indent">3、签注过期或已使用，可再次申请，需要注意通行证有效期，即“照片页有效期”在6个月之内，具体需要与各城市出入境管理处核实办理签注是否需要重新换证件。</div>\
-			　　　<div class="indent">4、内地居民所持往来港澳通行证在内地遗失或者损坏，应当重新申请往来港澳通行证及签注。申请时须提交相应材料。建议遗失证件的申请人提交书面的证件遗失声明。</div>'
+			　　　<div class="indent">4、内地居民所持往来港澳通行证在内地遗失或者损坏，应当重新申请往来港澳通行证及签注。申请时须提交相应材料。建议遗失证件的申请人提交书面的证件遗失声明。</div></div>'
 	);
 	
 	template.compile('regist_basic',
 			'<form id="regist_basic"><div class="content-regist">\
             <h4>个人信息</h4>\
             <div class="content">\
-                <font>注：标“*”为必填项</font>\
+                <font style="padding-left:100px;">注：标“*”为必填项</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
                     <li><strong>* 姓名：</strong><input name="user.name" type="text" class="input-regist required" /></li>\
@@ -70,7 +70,7 @@
 						{/each}\
                       </select><input name="diet" type="text" class="input-eat" /><input class="required" type="hidden" name="user.diet"></li>\
                 </ul>\
-                <font>如非本人填写，或者您希望事务局通过其他人联系到您, 请填写以下几项信息【可选填】</font>\
+                <font style="padding-left:100px;">如非本人填写，或者您希望事务局通过其他人联系到您, 请填写以下几项信息【可选填】</font>\
                 <ul>\
                     <li><strong>联系人姓名：</strong><input name="user.contactName" type="text" class="input-regist" /></li>\
                     <li><strong>联系电话：</strong>\
@@ -79,7 +79,7 @@
                     <li><strong>手机号：</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
                     <li><strong>电子邮箱：</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
-                <div class="operate"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
+				<div class="operate"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
             </div>\
         </div></form>'
 	);
@@ -95,25 +95,37 @@
 					{/if}\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div></li>\
-	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
-	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
-	                <li><strong>住宿类型：</strong><select index="hotel." id="room">\
+	                <li class="stayHide" style="display:none;"><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong>酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong>住宿类型：</strong><select index="hotel." id="room">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
                       </select><input class="isStay" type="hidden" name="hotel.room">\
                     </li>\
-	                <li style="display:none;"><strong>是否指定同住人：</strong><div class="left"><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div></li>\
-	                <li class="hide" style="display:none;"><strong>同住人姓名：</strong><input name="hotel.withName" type="text" class="input-regist" /></li>\
-	                <li class="hide" style="display:none;"><strong>同住人经销店：</strong><input name="hotel.withShop" type="text" class="input-regist" /></li>\
+	                <li class="stayHide" style="display:none;"><strong>是否指定同住人：</strong><div class="left"><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div></li>\
+	                <li class="hide stayHide" style="display:none;"><strong>同住人姓名：</strong><input name="hotel.withName" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" style="display:none;"><strong>同住人经销店：</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips">\
-	                <font style="font-size:12px;"><strong>备注：</strong>1、按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</font>\
-	                <font style="padding-left:36px; width:100%">2、本次大会事务局统一订房时间为1月15日至17日</font>\
-	                <font style="padding-left:36px; width:100%">3、酒店住宿费用请您在签到处或前台自付</font>\
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
+							<tr>\
+								<td rowspan="3" style="width:40px;font-weight:bold;">备注：</td>\
+								<td>1、</td>\
+								<td>按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</td>\
+							</tr>\
+							<tr>\
+								<td>2、</td>\
+								<td>本次大会事务局统一订房时间为1月15日至17日</td>\
+							</tr>\
+							<tr>\
+								<td>3、</td>\
+								<td>酒店住宿费用请您在签到处或前台自付</td>\
+							</tr>\
+						</table>\
 	            	</div>\
-	              	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
+	              	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
 	        	</div>\
 			</div>\
 		</form>'
@@ -186,10 +198,19 @@
                     <li class="back" style="display:none;"><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" />是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
                    	</ol>\
                    	<div class="tips">\
-	                    <font style="font-size:12px;"><strong>备注：</strong>1、事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</font>\
-	                    <font style="padding-left:36px; display:block; width:100%">2、系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</font>\
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
+							<tr>\
+								<td rowspan="2" style="width:40px;font-weight:bold;">备注：</td>\
+								<td>1、</td>\
+								<td>事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</td>\
+							</tr>\
+							<tr>\
+								<td>2、</td>\
+								<td>系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</td>\
+							</tr>\
+						</table>\
                 	</div>\
-                  	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
+                  	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
             	</div>\
 			</div>\
 		</form>'
@@ -211,7 +232,7 @@
 							{/each}\
 			          	</select><input name="touristRoute" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="other.touristRoute">\
 					</li>\
-                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看商务活动线路</a></li>\
+                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">查看商务活动线路</a></li>\
                  	<li class="touristRouteB"  style="display:none;">\
 						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
                     	<input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" /><em>是</em>\
@@ -272,8 +293,15 @@
 						</li>\
 					</div>\
                 	</ol>\
-					<div class="tips"><font><strong>备注：</strong>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</font></div>\
-                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">保存</a></div>\
+					<div class="tips">\
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
+							<tr>\
+								<td style="width:40px;font-weight:bold;">备注：</td>\
+								<td>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</td>\
+							</tr>\
+						</table>\
+					</div>\
+                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
             	</div>\
 			</div>\
 		</form>'
@@ -283,7 +311,7 @@
 			'<form id="regist_basic"><div class="content-regist">\
             <h4><span style="float:left">个人信息</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a></div></h4>\
             <div style="display:none;" class="content">\
-                <font>注：标“*”为必填项</font>\
+                <font style="padding-left:100px;">注：标“*”为必填项</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
 					<input type="hidden" class="required" name="user.id" value="{userType.users[index].id}">\
@@ -343,7 +371,7 @@
 						{/each}\
                       </select><input name="diet" type="text" class="input-eat" {selectHide userType.users[index].diet}/><input class="required" type="hidden" name="user.diet" value="{userType.users[index].diet}"></li>\
                 </ul>\
-                <font>如非本人填写，或者您希望事务局通过其他人联系到您, 请填写以下几项信息【可选填】</font>\
+                <font style="padding-left:100px;">如非本人填写，或者您希望事务局通过其他人联系到您, 请填写以下几项信息【可选填】</font>\
                 <ul>\
                     <li><strong>联系人姓名：</strong><input name="user.contactName" value="{userType.users[index].contactName}" type="text" class="input-regist" /></li>\
                     <li><strong>联系电话：</strong>\
@@ -353,7 +381,7 @@
                     <li><strong>手机号：</strong><input name="user.contactPhone" value="{userType.users[index].contactPhone}" type="text" class="input-regist" /></li>\
                     <li><strong>电子邮箱：</strong><input name="user.contactEmail" value="{userType.users[index].contactEmail}" type="text" class="input-regist" /></li>\
                 </ul>\
-                <div class="operate"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
+				{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
             </div>\
         </div></form>'
 	);
@@ -375,9 +403,9 @@
 						</div>\
 						<div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div>\
 					</li>\
-	                <li><strong>酒店入住日期：</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li><strong>酒店离店日期：</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li><strong>住宿类型：</strong>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>酒店入住日期：</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>酒店离店日期：</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>住宿类型：</strong>\
 						<select index="hotel." id="room">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[4] as n}\
@@ -385,7 +413,7 @@
 						{/each}\
                       	</select><input class="isStay {if userType.users[index].hotel.isStay == 1}required{/if}" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
-	                <li {if userType.users[index].hotel.room != 2}style="display:none;"{/if} >\
+	                <li class="stayHide" {if userType.users[index].hotel.room != 2}style="display:none;"{/if} >\
 						<strong>是否指定同住人：</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>是\
@@ -393,15 +421,27 @@
 						</div>\
 						<div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div>\
 					</li>\
-	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人姓名：</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist" /></li>\
-	                <li class="hide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人经销店：</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人姓名：</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人经销店：</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips">\
-		                <font style="font-size:12px;"><strong>备注：</strong>1、按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</font>\
-		                <font style="padding-left:36px; width:100%">2、本次大会事务局统一订房时间为1月15日至17日</font>\
-		                <font style="padding-left:36px; width:100%">3、酒店住宿费用请您在签到处或前台自付</font>\
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
+							<tr>\
+								<td rowspan="3" style="width:40px;font-weight:bold;">备注：</td>\
+								<td>1、</td>\
+								<td>按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</td>\
+							</tr>\
+							<tr>\
+								<td>2、</td>\
+								<td>本次大会事务局统一订房时间为1月15日至17日</td>\
+							</tr>\
+							<tr>\
+								<td>3、</td>\
+								<td>酒店住宿费用请您在签到处或前台自付</td>\
+							</tr>\
+						</table>\
 	            	</div>\
-	              	<div class="operate"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
+					{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
 				</div>\
 			</div>\
 		</form>'
@@ -481,10 +521,19 @@
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>否</li>\
                    	</ol>\
                    	<div class="tips">\
-	                    <font style="font-size:12px;"><strong>备注：</strong>1、事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</font>\
-	                    <font style="padding-left:36px; display:block; width:100%">2、系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</font>\
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
+							<tr>\
+								<td rowspan="2" style="width:40px;font-weight:bold;">备注：</td>\
+								<td>1、</td>\
+								<td>事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</td>\
+							</tr>\
+							<tr>\
+								<td>2、</td>\
+								<td>系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：service@ftmsdlr.cn</td>\
+							</tr>\
+						</table>\
                 	</div>\
-                  	<div class="operate"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
+					{if compare2()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
             	</div>\
 			</div>\
 		</form>'
@@ -513,7 +562,7 @@
 				        </select>\
 						<input class="required" type="hidden" name="other.touristRoute" value="{userType.users[index].other.touristRoute}">\
 					</li>\
-                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html" target="_blank">查看商务活动线路</a></li>\
+                    <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">查看商务活动线路</a></li>\
                  	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
 						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
                     	<input name="pass" type="checkbox" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.hasPass != 0}checked{/if}/><em>是</em>\
@@ -567,8 +616,15 @@
                       	</li>\
                   	</div>\
                    	</ol>\
-					<div class="tips"><font><strong>备注：</strong>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</font></div>\
-                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="update">保存</a></div>\
+					<div class="tips">\
+						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
+							<tr>\
+								<td style="width:40px;font-weight:bold;">备注：</td>\
+								<td>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</td>\
+							</tr>\
+						</table>\
+					</div>\
+					{if compare2()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
             	</div>\
 			</div>\
 		</form>'

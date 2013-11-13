@@ -5,5 +5,5 @@
 .content h4 { font-size:14px; display:block; height:34px; line-height:34px; background:url(../images/bg_content_title.png) repeat-x; color:#fff; text-align:center;}
 .content h5 { font-size:14px; display:block; height:34px; line-height:34px; background:url(../images/bg_content_title.png) repeat-x; color:#fff; border-radius:20px; margin:20px; padding-left:20px; zoom:1; overflow:hidden;}
 
-.content-travel { clear:both; display:block; margin:0 60px; overflow:hidden; line-height:24px; font-size:14px;}
+.content-travel { clear:both; display:block; margin:0 60px; overflow:hidden; line-height:24px; font-size:12px;}
 .content-travel span { display:block; clear:both; text-indent:24px;}

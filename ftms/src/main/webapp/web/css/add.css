@@ -17,3 +17,16 @@ font{
 .tips-attention{
 	padding:0;
 }
+
+.tips table td{
+	vertical-align:top;
+}
+
+.content ul li strong{
+	width:160px;
+}
+
+.operate a.save{
+	float:none;
+	margin:0 auto;
+}

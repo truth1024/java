@@ -12,6 +12,6 @@ public interface EmailService {
 	 * @param user
 	 * @return
 	 */
-	public boolean sendEmail(User user) throws SendFailedException;
+	public boolean sendEmail(User user,String lang) throws SendFailedException;
 	
 }

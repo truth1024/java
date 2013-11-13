@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.mail.SendFailedException;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -53,6 +55,11 @@ public class TrafficAction extends BasicAction {
 			trafficService.add(traffic);			
 		}else{
 			trafficService.update(traffic);
+		}
+		try {
+			sendEmail(traffic.getUid());
+		} catch (SendFailedException e) {
+			e.printStackTrace();
 		}
 		status = 1;
 		return "saveTraffic";

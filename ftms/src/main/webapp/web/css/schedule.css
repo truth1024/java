@@ -9,10 +9,18 @@
 
 .content-agenda { clear:both; margin:20px 0; width:674px; border-radius:4px; border:1px solid #b3b3b3;  display:block; zoom:1; overflow:hidden;}
 
-.table th, .table td { font-weight:normal; font-size:12px;}
-.table td { text-align:center; background:#e8eaeb; line-height:40px;}
+.table th, .table td { font-weight:normal; font-size:12px;border-bottom:1px solid #B3B3B3;border-right:1px solid #B3B3B3;}
+.table td { text-align:center; background:#FFF; line-height:40px;}
 .table td.grey { background:#D6D8D8}
-.table th { font-size:12px; background:#D6D8D8; font-weight:bold; line-height:32px;}
+.table th { font-size:12px; background:#FFF; font-weight:bold; line-height:32px;}
+
+.table .noborderR {
+	border-right:none;
+}
+
+.table .noborderB {
+	border-bottom:none;
+}
 
 .content-agenda ul { margin:0; padding:20px;}
 .content-agenda ul li { list-style:none; display:block; clear:both; line-height:22px;}

@@ -30,27 +30,18 @@ public class EmailServiceImpl implements EmailService{
 	MailSender mailSender;
 	
 	@Override
-	public boolean sendEmail(User user) throws SendFailedException {
+	public boolean sendEmail(User user,String lang) throws SendFailedException {
 		if(user != null && StringUtils.isNotBlank(user.getEmail())){
-//			long registerId = user.getRegisterId();
-//			List<User> users = new ArrayList<User>();
-//			if(registerId > -1){
-//				users = userMapper.getByRegisterId(registerId);
-//			}else{
-//				users.add(user);
-//			}
 			Email email = new Email();
 			email.addTo(StringUtils.trim(user.getEmail()));
 			email.setFrom(Configer.get("mail.from"));
 			email.setSubject(Configer.get("mail.default.subject"));
-//			
+			
 			Map<String, Object> model = new HashMap<String, Object>();
-//			model.put("users", users);
-//			model.put("domain", Configer.get("server.domain"));
-//			model.put("qrFolder", Configer.get("qr.folder.name"));
-//			model.put("imageName",user.getImageName());
-			model.put("name", user.getName());
-			mailSender.sendEmailWithTemplate(email, Configer.get("mail.template.default.name"), model);
+			model.put("domain", Configer.get("server.domain"));
+			model.put("u",user);
+			
+			mailSender.sendEmailWithTemplate(email, Configer.get("mail.template."+lang+".name"), model);
 			return Boolean.TRUE;
 		} else {
 			throw new IllegalArgumentException("user cannot be null or email cannot be empty!");

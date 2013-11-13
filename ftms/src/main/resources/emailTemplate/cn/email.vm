@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>一汽丰田2014年全国经销商大会-注册成功通知</title>
+	<style type="text/css">
+		body{
+			font-family: 微软雅黑; font-size:12px;margin:0;padding:0;
+		}
+		.contain{
+			width:600px;padding:10px;background:#F7F7F7;margin:20px auto;
+		}
+	</style>
+</head>
+<body style="font-family: 微软雅黑; font-size:12px;margin:0;padding:0;">
+	<table class="contain" border="0" cellspacing="0" cellpadding="0" align="center" style="width:600px;padding:10px;background:#F7F7F7;margin:20px auto;">
+		<tr style="height: 40px; font-size:12px;">
+			<td>尊敬的${u.name} #if($u.sex == 1)先生#else女士#end，</td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td>欢迎您参加一汽丰田2014年全国经销商大会，您的参会信息已经成功提交，详细如下：</td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td>
+				<table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
+					<tr style="height:30px;">
+						<td width="40%" style="text-align:right;">姓名：</td>
+						<td style="text-align:left;">${u.name}</td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;">性别：</td>
+						<td style="text-align:left;">${sex}</td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					<tr style="height:30px;">
+						<td style="text-align:right;"></td>
+						<td style="text-align:left;"></td>
+					</tr>
+					
+				</table>
+			</td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td><strong>如有信息变更，您可以通过以下几种方法进行信息更新：</strong></td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td>1）登录网址：www.ftmsdlr.cn，点击进入信息管理界面，通过“编辑”、“删除”按钮进行信息修改和维护</td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td>2）在网站系统关闭后，您可通过发送邮件或拨打热线电话的形式联系事务局线下更改您的相关信息</td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td>事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn</td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td><strong>网站及线下信息变更截止时间提示：</strong></td>
+		</tr>
+		<tr style="height: 90px; font-size:12px;">
+			<td>您的参会信息分为个人基本信息、酒店安排、交通安排、商务活动4个板块，需请您注意，各板块按照不同时间点分别关闭，关闭后，事务局将不再受理您的信息变更需求，因此请务必在规定时间内及时、准确地提交您的信息。</td>
+		</tr>
+		<tr style="height: 110px; font-size:12px;">
+			<td style="text-align: center;"><img src="${domain}/web/images/email/schedule.jpg"></td>
+		</tr>
+		<tr style="height: 40px; font-size:12px;">
+			<td>感谢您的支持！</td>
+		</tr>
+	</table>
+</body>
+</html>

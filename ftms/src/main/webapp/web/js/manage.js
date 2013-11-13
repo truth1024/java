@@ -77,7 +77,12 @@ function render(){
 	var user = window.data.userType.users[window.data.index];
 	var uid = (user == null ? "" :user.id);
 	if(user == null){
-		$('#tagContent'+window.data.index).append($(template.render('regist_basic',window.data)));
+		if(compare1()){
+			$('#tagContent'+window.data.index).append($(template.render('regist_basic',window.data)));			
+		}else{
+			$('#tagContent'+window.data.index).text(tipArr[lang].functionClose);
+			return false;
+		}
 	}else{
 		$('#tagContent'+window.data.index).append($(template.render('manage_basic',window.data)));
 	}

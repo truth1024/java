@@ -4,18 +4,14 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.richmobi.checkin.domain.Hotel;
@@ -164,9 +160,9 @@ public class ExportAction extends BasicAction {
             		cell = row.createCell(3);
             		cell.setCellValue(u.getName());
             		cell = row.createCell(4);
-            		cell.setCellValue(Utils.sex(u.getSex()));
+            		cell.setCellValue(Utils.sex(u.getSex(),null));
             		cell = row.createCell(5);
-            		cell.setCellValue(Utils.title(u.getTitle()));
+            		cell.setCellValue(Utils.title(u.getTitle(),null));
             		cell = row.createCell(6);
             		cell.setCellValue(Utils.dateFormat(u.getBirthDate()));
             		cell = row.createCell(7);
@@ -185,18 +181,18 @@ public class ExportAction extends BasicAction {
             		cell.setCellValue(u.getContactEmail());
             		cell = row.createCell(14);
             		String[] cers = u.getCertificate().split("#");
-            		cell.setCellValue(Utils.cer(cers[0]));
+            		cell.setCellValue(Utils.cer(cers[0],null));
             		cell = row.createCell(15);
             		cell.setCellValue(cers[1]);
             		cell = row.createCell(16);
-            		cell.setCellValue(Utils.nationality(u.getNationality()));
+            		cell.setCellValue(Utils.nationality(u.getNationality(),null));
             		cell = row.createCell(45);
-        			cell.setCellValue(Utils.diet(u.getDiet()));
+        			cell.setCellValue(Utils.diet(u.getDiet(),null));
             		if(h != null){
             			cell = row.createCell(17);
-            			cell.setCellValue(Utils.room(h.getRoom()));
+            			cell.setCellValue(Utils.room(h.getRoom(),null));
             			cell = row.createCell(18);
-            			cell.setCellValue(Utils.yseOrNo(h.getIsWith()));
+            			cell.setCellValue(Utils.yseOrNo(h.getIsWith(),null));
             			cell = row.createCell(19);
             			cell.setCellValue(h.getWithName());
             			cell = row.createCell(20);
@@ -208,7 +204,7 @@ public class ExportAction extends BasicAction {
             		}
             		if(t != null){            			
             			cell = row.createCell(23);
-            			cell.setCellValue(Utils.deparTrafficTool(t.getDepartureTrafficTool()));
+            			cell.setCellValue(Utils.deparTrafficTool(t.getDepartureTrafficTool(),null));
             			cell = row.createCell(24);
             			cell.setCellValue(Utils.dateFormat(t.getArrivalDate()));
             			cell = row.createCell(25);
@@ -218,41 +214,41 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(27);
             			cell.setCellValue(Utils.timeFormat(t.getArrivalDate()));
             			cell = row.createCell(28);
-            			cell.setCellValue(Utils.yseOrNo(t.getPickUp()));
+            			cell.setCellValue(Utils.yseOrNo(t.getPickUp(),null));
             			cell = row.createCell(29);
-            			cell.setCellValue(Utils.backTrafficTool(t.getBackTrafficTool()));
+            			cell.setCellValue(Utils.backTrafficTool(t.getBackTrafficTool(),null));
             			cell = row.createCell(30);
             			cell.setCellValue(Utils.dateFormat(t.getBackDate()));
             			cell = row.createCell(31);
             			cell.setCellValue(t.getBackFlight());
             			cell = row.createCell(32);
-            			cell.setCellValue(Utils.city(t.getBackCity2()));
+            			cell.setCellValue(Utils.city(t.getBackCity2(),null));
             			cell = row.createCell(33);
             			cell.setCellValue(Utils.timeFormat(t.getBackDate()));
             			cell = row.createCell(34);
-            			cell.setCellValue(Utils.yseOrNo(t.getSend()));
+            			cell.setCellValue(Utils.yseOrNo(t.getSend(),null));
             		}
             		if(o != null){            			
             			cell = row.createCell(35);
-            			cell.setCellValue(Utils.route(o.getTouristRoute()));
+            			cell.setCellValue(Utils.route(o.getTouristRoute(),null));
             			cell = row.createCell(36);
-            			cell.setCellValue(Utils.hasPass(o.getHasPass()));
+            			cell.setCellValue(Utils.hasPass(o.getHasPass(),null));
             			cell = row.createCell(37);
             			cell.setCellValue("");
             			cell = row.createCell(38);
-            			cell.setCellValue(Utils.yseOrNo(o.getIsVisa()));
+            			cell.setCellValue(Utils.yseOrNo(o.getIsVisa(),null));
             			cell = row.createCell(39);
-            			cell.setCellValue(Utils.gol(o.getSign()));
+            			cell.setCellValue(Utils.gol(o.getSign(),null));
             			cell = row.createCell(40);
             			cell.setCellValue(Utils.dateFormat(o.getEffectiveDate()));
             			cell = row.createCell(41);
-            			cell.setCellValue(Utils.yseOrNo(o.getIsPlay()));
+            			cell.setCellValue(Utils.yseOrNo(o.getIsPlay(),null));
             			cell = row.createCell(42);
             			cell.setCellValue(o.getPlayAlmost());
             			cell = row.createCell(43);
-            			cell.setCellValue(Utils.stature(o.getStature()));
+            			cell.setCellValue(Utils.stature(o.getStature(),null));
             			cell = row.createCell(44);
-            			cell.setCellValue(Utils.playSize(o.getPlaySize()));
+            			cell.setCellValue(Utils.playSize(o.getPlaySize(),null));
             			cell = row.createCell(47);
             			cell.setCellValue("");
             		}

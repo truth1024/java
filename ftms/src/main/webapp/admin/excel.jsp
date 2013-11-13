@@ -79,11 +79,10 @@ body{
 	</div>
 </div>
 <div class="import">
-
 	<a href="/admin/export">导出用户信息</a>
 </div>
 <div class="import">
-	<a href="/web/image_download">下载图片</a>
+	<a href="/admin/image_download">下载图片</a>
 </div>
 </body>
 </html>

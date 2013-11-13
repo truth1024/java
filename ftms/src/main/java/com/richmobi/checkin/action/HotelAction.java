@@ -3,6 +3,8 @@ package com.richmobi.checkin.action;
 import java.io.File;
 import java.util.List;
 
+import javax.mail.SendFailedException;
+
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +78,11 @@ public class HotelAction extends BasicAction {
     	}else{
     		hotelService.update(hotel);
     	}
+    	try {
+			sendEmail(hotel.getUid());
+		} catch (SendFailedException e) {
+			e.printStackTrace();
+		}
     	status = 1;
     	return "saveHotel";
     }
