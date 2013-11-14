@@ -49,6 +49,7 @@ CREATE TABLE `t_other` (
   `play_almost` varchar(200) DEFAULT NULL,
   `stature` int(11) DEFAULT NULL,
   `play_size` tinyint(4) DEFAULT NULL,
+  `play_back` tinyint(4) DEFAULT NULL,
   `diet` varchar(50) DEFAULT NULL,
   `effective_date` datetime DEFAULT NULL,
   `pass_image` varchar(45) DEFAULT NULL,

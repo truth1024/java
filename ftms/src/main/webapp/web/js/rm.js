@@ -80,9 +80,11 @@ $(function(){
 				$('.touristRouteB').show();
 			}else{
 				$('.touristRouteB').hide();
+				$('.passHide').hide();
 				$('#regist_other .showMessage:eq(0)').hide();
 				$('#regist_other .showMessage:eq(0) input').removeClass('required');
-				$('input[name="pass"]').get(0).checked = false;
+				$('input[name="pass"][value="3"]').get(0).checked = true;
+				$('input[name="other.hasPass"]').val(3);
 				$('#hasPass option[value="0"]').attr('selected','selected');
 			}
 			if(value == 4){
@@ -103,7 +105,7 @@ $(function(){
 		
 		//通行证选择
 		if(id == 'hasPass'){
-			if(value == 1 && $('input[name="pass"]').get(0).checked){
+			if(value == 1 && $('input[name="pass"]').val() == 1){
 				$('#regist_other .showMessage:eq(0)').show();
 				$('#regist_other .showMessage:eq(0) input[name!="file"]').addClass('required');
 			}else{
@@ -242,14 +244,18 @@ $(function(){
 	
 	//是否有签证复选框
 	$('body').delegate('input[name="pass"]','click',function(){
-		if($(this).get(0).checked){
-			$('input[name="other.hasPass"]').addClass('required');
-		}else{
-			$('input[name="other.hasPass"]').removeClass('required');
+		//单选按钮值
+		var value = $(this).val();
+		//选择“是”
+		if(value == 1){
+			$('.passHide').show();
 			$('input[name="other.hasPass"]').val(0);
+		}else{
+			$('.passHide').hide();
+			$('input[name="other.hasPass"]').val(value);
 			$('#hasPass option[value="0"]').get(0).selected = true;
 		}
-		if($('#hasPass').val() == 1 && $('input[name="pass"]').get(0).checked){
+		if($('#hasPass').val() == 1 && value == 1){
 			$('#regist_other .showMessage:eq(0)').show();
 			$('#regist_other .showMessage:eq(0) input[name!="file"]').addClass('required');
 		}else{

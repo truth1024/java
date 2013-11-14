@@ -27,21 +27,42 @@ $(function(){
 	$('body').delegate('.remove','click',function(){
 		var index = $(this).attr('index').split('#');
 		var name = $(this).attr('name');
-		$.post(
-			'/web/'+index[0]+'_delete',
-			{id:index[1]},
-			function(data){
-//				console.log(data);
-				if(data.status == 1){
-					alert(tipArr[lang].deleteSuccess);
-					getMessage(name);
-				}else{
-					alert(tipArr[lang].deleteFailure);
-				}
+		$('head').append($('<link id="easybug" href="/web/css/easybug.css" rel="stylesheet" type="text/css" />'));
+		easyDialog.open({
+			container :{
+				header:tipArr[lang].deleteTip,
+				content : tipArr[lang].deleteHeader,
+				yesFn : function dtnFn(){
+					deleteInfo(index,name);
+					return true;
+				},
+			    noFn : true,
+			    yesText : tipArr[lang].deleteConfirm,
+			    noText : tipArr[lang].deleteCancel
+			},
+			callback:function removeEasyBug(){
+				$('#easybug').remove();
 			}
-		);
+		});
 	});
 });
+//删除信息
+function deleteInfo(index,name){
+	console.log(index,name);
+	$.post(
+		'/web/'+index[0]+'_delete',
+		{id:index[1]},
+		function(data){
+//				console.log(data);
+			if(data.status == 1){
+				alert(tipArr[lang].deleteSuccess);
+				getMessage(name);
+			}else{
+				alert(tipArr[lang].deleteFailure);
+			}
+		}
+	);
+};
 
 //获取信息
 function getMessage(index){
@@ -55,7 +76,7 @@ function getMessage(index){
 			$('#tagContent'+(index != 0 ? 0 : 1)).children().remove();
 //			console.log(window.data.userType.users.length,index);
 			if(window.data.userType == null || window.data.userType.users.length == 0){
-				$('#tagContent'+index).text(tipArr[lang].unregistered);
+				$('#tagContent'+index).html(tipArr[lang].unregistered);
 				$('#tags').hide();
 			}else{
 				$('#tags').show();

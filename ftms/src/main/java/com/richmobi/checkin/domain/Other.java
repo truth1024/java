@@ -27,6 +27,7 @@ public class Other extends AbstractDomain {
 	private int stature;			//身高
 	private int playSize;			//服装尺码
 	private String diet;			//饮食
+	private int playBack;			//赛后行程
 	private Date effectiveDate;		//签注有效期
 	private String passImage;		//通行证首页图片链接地址
 	private String visaImage;		//签注页图片链接地址
@@ -127,5 +128,11 @@ public class Other extends AbstractDomain {
 	}
 	public void setVisaImage(String visaImage) {
 		this.visaImage = visaImage;
+	}
+	public int getPlayBack() {
+		return playBack;
+	}
+	public void setPlayBack(int playBack) {
+		this.playBack = playBack;
 	}
 }

@@ -22,6 +22,8 @@ public class Constant {
 	public static final Arr[] sizeArr = {new Arr(1,"S"),new Arr(2,"M"),new Arr(3,"L"),new Arr(4,"XL"),new Arr(5,"XXL"),new Arr(6,"XXXL")};
 	public static final Arr[] backTrafficArr = {new Arr(1,"飞机"),new Arr(2,"自驾"),new Arr(3,"17日从酒店去往蛇口码头"),new Arr(20,"其他")};
 	public static final Arr[] cityArr = {new Arr(1,"深圳"),new Arr(2,"广州")};
+	public static final Arr[] playBackArr = {new Arr(1,"自驾离开"),new Arr(2,"乘坐事务局统一安排大巴返回东莞酒店"),new Arr(3,"乘坐事务局统一安排大巴前往深圳机场"),new Arr(4,"乘坐事务局统一安排大巴前往广州机场")};
+	public static final Arr[] isVisaArr = {new Arr(1,"是"),new Arr(2,"即将办理")};
 	
 	//英文
 	public static final Arr[] titleEnArr = {new Arr(1,"president"),new Arr(2,"general manager"),new Arr(20,"others")};
@@ -39,4 +41,6 @@ public class Constant {
 	public static final Arr[] sizeEnArr = {new Arr(1,"S"),new Arr(2,"M"),new Arr(3,"L"),new Arr(4,"XL"),new Arr(5,"XXL"),new Arr(6,"XXXL")};
 	public static final Arr[] backTrafficEnArr = {new Arr(1,"airplane"),new Arr(2,"self-driving"),new Arr(3,"go to Shekou Ferry Ternimal from hotel on 17th"),new Arr(20,"others")};
 	public static final Arr[] cityEnArr = {new Arr(1,"Shenzhen"),new Arr(2,"Guangzhou")};
+	public static final Arr[] playBackEnArr = {new Arr(1,""),new Arr(2,""),new Arr(3,""),new Arr(4,"")};
+	public static final Arr[] isVisaEnArr = {new Arr(1,"Yes"),new Arr(2,"to be handled")};
 }

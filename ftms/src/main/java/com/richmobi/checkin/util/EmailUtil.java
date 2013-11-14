@@ -35,6 +35,7 @@ public class EmailUtil extends Thread {
 		log.debug(user);
 		if(user != null && user.getHotel() != null && user.getTraffic() != null && user.getOther() != null){
 			try {
+				lang = (lang == "en" ? lang : null);
 				emailService.sendEmail(user,lang);
 				System.out.println(user.getEmail()+" send successfully!");
 			} catch (SendFailedException e) {

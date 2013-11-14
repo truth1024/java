@@ -11,7 +11,7 @@
 	color:red;
 }
 
-font{	
+font{
 	font-size:12px;
 }
 .tips-attention{
@@ -29,4 +29,11 @@ font{
 .operate a.save{
 	float:none;
 	margin:0 auto;
+}
+
+.tips{
+	padding: 10px 15px 5px;
+}
+.showMessage{
+	padding-left:0px;
 }

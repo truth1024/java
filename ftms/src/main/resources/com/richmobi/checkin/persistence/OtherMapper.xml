@@ -10,7 +10,7 @@
 	<sql id="select_other_sql_segment">
 		SELECT
 			id, u_id as uid, meeting, tourist_route as touristRoute, has_pass as hasPass, is_visa as isVisa,
-			sign, tourist_back as touristBack, is_play as isPlay, play_almost as playAlmost, stature,
+			sign, tourist_back as touristBack, is_play as isPlay, play_almost as playAlmost, stature,play_back as playBack,
 			play_size as playSize, diet, effective_date as effectiveDate, pass_image as passImage, visa_image as visaImage
 		FROM
 			t_other
@@ -24,13 +24,13 @@
 			t_other
 			(
 				u_id, meeting, tourist_route , has_pass, is_visa,
-				sign, tourist_back, is_play, play_almost, stature,
+				sign, tourist_back, is_play, play_almost, stature, play_back,
 				play_size, diet, effective_date, pass_image, visa_image
 			)
 		VALUES
 			(
 				#{uid},#{meeting},#{touristRoute},#{hasPass},#{isVisa},
-				#{sign},#{touristBack},#{isPlay},#{playAlmost},#{stature},
+				#{sign},#{touristBack},#{isPlay},#{playAlmost},#{stature},#{playBack},
 				#{playSize},#{diet},#{effectiveDate},#{passImage},#{visaImage}
 			)
 	</insert>
@@ -47,7 +47,7 @@
 		SET
 			meeting = #{meeting}, tourist_route = #{touristRoute}, has_pass = #{hasPass}, 
 			is_visa = #{isVisa},sign = #{sign}, tourist_back = #{touristBack}, is_play = #{isPlay}, 
-			play_almost = #{playAlmost}, stature = #{stature},play_size = #{playSize}, 
+			play_almost = #{playAlmost}, stature = #{stature},play_size = #{playSize}, play_back = #{playBack},
 			diet = #{diet}, effective_date = #{effectiveDate}, pass_image = #{passImage}, visa_image = #{visaImage}
 		WHERE 
 			u_id = #{uid}

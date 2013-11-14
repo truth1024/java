@@ -52,6 +52,7 @@ public class OtherAction extends BasicAction {
 				o.setStature(other.getStature());
 				o.setPlaySize(other.getPlaySize());
 				o.setTouristBack(0);
+				o.setPlayBack(other.getPlayBack());
 				break;
 		}
 		log.debug(o);

@@ -44,10 +44,10 @@ var userTypeArr = {
 
 var tipArr = {
 		'cn' : {
-			'registered' : '已注册',
-			'unregistered' : '未注册',
-			'saveSuccess' : '保存成功',
-			'infoLack' : '信息填写不完整无法提交',
+			'registered' : '您已注册，如需查看或修改信息，请点击进入<a style="color:blue;" href="messageManage.html">信息管理</a>界面完成相应操作',
+			'unregistered' : '尚未注册，现在马上前往<a style="color:blue;" href="registMessage.html">注册</a>',
+			'saveSuccess' : '提交成功',
+			'infoLack' : '您尚有信息未填写，请补充完整',
 			'userLack' : '请先填写用户信息并提交',
 			'add' : '添加人员',
 			'upload' : '因命名不符合要求无法上传',
@@ -57,13 +57,17 @@ var tipArr = {
 			'deleteSuccess' : '删除成功',
 			'deleteFailure' : '删除失败',
 			'passHeader' : '港澳通行证办理提示',
-			'functionClose' : '功能已关闭'
+			'functionClose' : '功能已关闭',
+			'deleteHeader' : '您确认要删除此信息吗？',
+			'deleteConfirm' : '确认',
+			'deleteCancel' : '取消',
+			'deleteTip' : '删除提示'
 		},
 		'en' : {
-			'registered' : 'registered',
-			'unregistered' : 'unregistered',
+			'registered' : 'Registered already, for any review and modification, please click into <a style="color:blue;" href="messageManage.html">Information Management</a>  interface to operate.',
+			'unregistered' : 'Not yet registered, <a style="color:blue;" href="registMessage.html">register now</a>',
 			'saveSuccess' : 'submit successfully',
-			'infoLack' : 'it can’t be submitted  due to incomplete information',
+			'infoLack' : 'There is vacancy of information, please complete',
 			'userLack' : 'please fill in the user information and submit',
 			'add' : 'Add Dealer',
 			'upload' : 'it can’t be uploaded due to the naming doesn’t meet requirement',
@@ -73,7 +77,11 @@ var tipArr = {
 			'deleteSuccess' : 'deleted successfully',
 			'deleteFailure' : 'delete failed',
 			'passHeader' : 'One-way exit permit handling tips',
-			'functionClose' : 'Function has been shut down'
+			'functionClose' : 'Function has been shut down',
+			'deleteHeader' : 'Are you sure you want to delete it ?',
+			'deleteConfirm' : 'Confirm',
+			'deleteCancel' : 'Cancel',
+			'deleteTip' : 'Delete tip'
 		}
 };
 

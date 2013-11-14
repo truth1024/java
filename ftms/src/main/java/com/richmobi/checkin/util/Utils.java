@@ -164,4 +164,15 @@ public class Utils {
 		return (city == 0 ? "" : (lang == null ? Constant.cityArr[city-1].getName() : Constant.cityEnArr[city-1].getName()));
 	}
 	
+	public static String playBack(int playBack,String lang){
+		return (playBack == 0 ? "" : (lang == null ? Constant.playBackArr[playBack-1].getName() : Constant.playBackEnArr[playBack-1].getName()));
+	}
+	
+	public static String company(int company,String lang){
+		return (company == 0 ? "" : (lang == null ? Constant.companyArr[company-1].getName() : Constant.companyEnArr[company-1].getName()));
+	}
+	
+	public static String visa(int isVisa,String lang){
+		return (isVisa == 0 ? "" : (lang == null ? Constant.isVisaArr[isVisa-1].getName() : Constant.isVisaEnArr[isVisa-1].getName()));
+	}
 }

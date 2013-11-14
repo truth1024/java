@@ -142,6 +142,8 @@ public class ExportAction extends BasicAction {
             cell.setCellValue("大区");
             cell = row.createCell(49);
             cell.setCellValue("经销商简称");
+            cell = row.createCell(50);
+            cell.setCellValue("球赛后去向");
             int j = 1;
             List<UserType> userTypes = userTypeService.getAll();
             for(UserType ut : userTypes){
@@ -236,7 +238,7 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(37);
             			cell.setCellValue("");
             			cell = row.createCell(38);
-            			cell.setCellValue(Utils.yseOrNo(o.getIsVisa(),null));
+            			cell.setCellValue(Utils.visa(o.getIsVisa(),null));
             			cell = row.createCell(39);
             			cell.setCellValue(Utils.gol(o.getSign(),null));
             			cell = row.createCell(40);
@@ -251,6 +253,8 @@ public class ExportAction extends BasicAction {
             			cell.setCellValue(Utils.playSize(o.getPlaySize(),null));
             			cell = row.createCell(47);
             			cell.setCellValue("");
+            			cell = row.createCell(50);
+            			cell.setCellValue(Utils.playBack(o.getPlayBack(),null));
             		}
             		cell = row.createCell(46);
             		cell.setCellValue(Utils.dateFormat(ut.getLoginDate()));

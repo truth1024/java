@@ -22,7 +22,7 @@ function getRegist(){
 					//日期时间初始化
 					dateInit(type);
 				}else{
-					$('#tagContent1').text(tipArr[lang].registered);
+					$('#tagContent1').html(tipArr[lang].registered);
 				}
 			}
 		);

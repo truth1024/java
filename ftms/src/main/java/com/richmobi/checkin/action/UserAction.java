@@ -51,6 +51,22 @@ public class UserAction extends BasicAction {
 		userType = userTypeService.getById(id);
 		if(page != null && !page.equals("")){
 			selectArr = new ArrayList<Arr[]>();
+			
+			List<Arr> passList = new ArrayList<Arr>();
+			List<Arr> passEnList = new ArrayList<Arr>();
+			for(int i= 0;i<Constant.passArr.length;i++){
+				passList.add(Constant.passArr[i]);
+				passEnList.add(Constant.passEnArr[i]);
+			}
+			passList.remove(2);
+			passEnList.remove(2);
+			Arr[] newPassArr = new Arr[2];
+			Arr[] newPassEnArr = new Arr[2];
+			for(int i = 0;i< newPassArr.length;i++){
+				newPassArr[i] = passList.get(i);
+				newPassEnArr[i] = passEnList.get(i);
+			}
+			
 			if(lang != null && lang.equals("cn")){
 				if(userType.getType() == 1){
 					selectArr.add(Constant.companyArr);
@@ -63,10 +79,11 @@ public class UserAction extends BasicAction {
 				selectArr.add(Constant.roomArr);
 				selectArr.add(Constant.deparTrafficArr);
 				selectArr.add(Constant.touristArr);
-				selectArr.add(Constant.passArr);
+				selectArr.add(newPassArr);
 				selectArr.add(Constant.sizeArr);
 				selectArr.add(Constant.backTrafficArr);
 				selectArr.add(Constant.cityArr);
+				selectArr.add(Constant.playBackArr);
 			}else{
 				if(userType.getType() == 1){
 					selectArr.add(Constant.companyEnArr);
@@ -79,10 +96,11 @@ public class UserAction extends BasicAction {
 				selectArr.add(Constant.roomEnArr);
 				selectArr.add(Constant.deparTrafficEnArr);
 				selectArr.add(Constant.touristEnArr);
-				selectArr.add(Constant.passEnArr);
+				selectArr.add(newPassEnArr);
 				selectArr.add(Constant.sizeEnArr);
 				selectArr.add(Constant.backTrafficEnArr);
 				selectArr.add(Constant.cityEnArr);
+				selectArr.add(Constant.playBackEnArr);
 			}
 		}
 		return "userType";

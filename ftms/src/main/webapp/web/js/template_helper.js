@@ -61,3 +61,7 @@ template.helper('cerHide1',function(value){
 template.helper('telephone',function(value,value2){
 	return ((value == null || value == '') ? '' : value.split('-')[value2]);
 });
+
+template.helper('passValue',function(value){
+	return (value == 0 ? 3 : value);
+});
