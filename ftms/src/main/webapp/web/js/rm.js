@@ -7,12 +7,10 @@ $(function(){
 			    content : ''
 			  },
 			  autoClose : 1,
-			  overlay : false,
-			  callBack:function(){
-				  $('#easybug').remove();
-			  }
+			  overlay : false
 		});
-	},10);
+		$('#easybug').remove();
+	},1000);
 	
 	$('body').delegate('.confirm','click',function(){
 		var uid = $(this).attr('index');
@@ -562,7 +560,7 @@ function dateInit(type){
 		$('[name="arrivalDate"]').datepicker(startDate);
 		$('[name="arrivalTime"]').timepicker();
 		$('[name="backDate"]').datepicker(endDate);
-		$('[name="backTime"]').timepicker();
+		$('[name="backTime"]').datetimepicker();
 	}
 };
 

@@ -138,11 +138,11 @@
                 <div class="content">\
                     <font style="font-size:12px;">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。<br/>* 需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
                     <div class="tips">\
-                        <font style="font-size:12px;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
-                        <font style="padding-left:72px; width:100%">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
-                        <font style="padding-left:72px; width:100%">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
-						<font style="padding-left:72px; width:100%">参加TMCI会议人员：广州南峰朗豪酒店-东莞嘉华酒店 16日 时间：待定</font>\
-						<font style="padding-left:72px; width:100%">参加GTMC会议人员：东莞嘉华酒店-深圳蛇口码头 17日 时间：待定</font>\
+                        <font style="font-size:12px;float:none;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
+                        <font style="padding-left:72px;float:none;">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
+                        <font style="padding-left:72px;float:none;">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
+						<font style="padding-left:72px;float:none;">参加TMCI会议人员：广州南峰朗豪酒店-东莞嘉华酒店 16日 时间：待定</font>\
+						<font style="padding-left:72px;float:none;">参加GTMC会议人员：东莞嘉华酒店-深圳蛇口码头 17日 时间：待定</font>\
 					</div>\
                     <ol>\
                     <li>\
@@ -471,11 +471,11 @@
                 <div style="display:none;" class="content">\
 					<font style="font-size:12px;">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。<br/>* 需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
                     <div class="tips">\
-                        <font style="font-size:12px;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
-                        <font style="padding-left:72px; width:100%">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
-                        <font style="padding-left:72px; width:100%">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
-						<font style="padding-left:72px; width:100%">参加TMCI会议人员：广州南峰朗豪酒店-东莞嘉华酒店 16日 时间：待定</font>\
-						<font style="padding-left:72px; width:100%">参加GTMC会议人员：东莞嘉华酒店-深圳蛇口码头 17日 时间：待定</font>\
+                        <font style="font-size:12px;float:none;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
+                        <font style="padding-left:72px;float:none;">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
+                        <font style="padding-left:72px;float:none;">送机时间：17日 07:00-18:00 18日 07:00-18:00</font>\
+						<font style="padding-left:72px;float:none;">参加TMCI会议人员：广州南峰朗豪酒店-东莞嘉华酒店 16日 时间：待定</font>\
+						<font style="padding-left:72px;float:none;">参加GTMC会议人员：东莞嘉华酒店-深圳蛇口码头 17日 时间：待定</font>\
 					</div>\
                     <ol>\
                     <li>\

@@ -59,3 +59,15 @@ line-height: 28px;
 background: url(../images/button_save.png) no-repeat;
 color: #fff;
 }
+
+#iframe{
+	display:none;
+	_display:block;
+	position:absolute;
+	top:0;
+	left:0px;
+	z-index:-1;
+	filter:mask();
+	width:220px;
+	height:186px;
+}

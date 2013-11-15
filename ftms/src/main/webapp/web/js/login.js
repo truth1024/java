@@ -2,16 +2,19 @@ $(function(){
 	document.onkeydown = function(e){
 	    var ev = document.all ? window.event : e;
 	    if(ev.keyCode==13) {
-	    	login();
+	    	login($('#login'));
 	    }
 	};
 	
-	$('#login').click(function(){
-		login();
+	$('#login').bind('click',function(){
+		login($(this));
 	});
+	
 });
 
-function login(){
+function login($obj){
+	$obj.unbind();
+	$obj.text(tipArr[lang].logining);
 	$.post(
 			'/web/login_login',
 			$('#login_form').serialize(),
@@ -21,6 +24,10 @@ function login(){
 				}else{
 					alert(data.tip);
 					$('input[type="text"]').val('');
+					$obj.text(tipArr[lang].login);
+					$obj.bind('click',function(){
+						login($obj);
+					});
 				}
 			}
 		);

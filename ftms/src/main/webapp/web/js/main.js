@@ -1,5 +1,8 @@
 var lang = (location.pathname.indexOf('/en/') > -1 ? 'en' : 'cn');
 var pageName = (location.pathname.indexOf('registMessage') > -1 ? 'regist' : 'manage');
+var typeCode = 0;
+
+
 $.ajaxSetup({
 	dataType:'json',
 	statusCode:{
@@ -61,7 +64,9 @@ var tipArr = {
 			'deleteHeader' : '您确认要删除此信息吗？',
 			'deleteConfirm' : '确认',
 			'deleteCancel' : '取消',
-			'deleteTip' : '删除提示'
+			'deleteTip' : '删除提示',
+			'login' : '登录',
+			'logining' : '登录中...'
 		},
 		'en' : {
 			'registered' : 'Registered already, for any review and modification, please click into <a style="color:blue;" href="messageManage.html">Information Management</a>  interface to operate.',
@@ -81,7 +86,9 @@ var tipArr = {
 			'deleteHeader' : 'Are you sure you want to delete it ?',
 			'deleteConfirm' : 'Confirm',
 			'deleteCancel' : 'Cancel',
-			'deleteTip' : 'Delete tip'
+			'deleteTip' : 'Delete tip',
+			'login' : 'Login',
+			'logining' : 'Login...'
 		}
 };
 

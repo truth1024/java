@@ -145,12 +145,12 @@
                 <div class="content">\
                     <font style="font-size:12px;">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.<br/>* It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
                     <div class="tips">\
-						<font style="font-size:12px;"><strong>Airport pick-up and drop-off service:</strong></font>\
-						<font style="padding-left:72px; width:100%">Shenzhen Bao’an International Airport/Guangzhou New Baiyun International Airport</font>\
-			            <font style="padding-left:72px; width:100%">Airport pick-up time: January 15th 09:00-22:00, 16th 09:00-12:00</font>\
-			            <font style="padding-left:72px; width:100%">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
-						<font style="padding-left:72px; width:100%">those who participate TMCI conference: Guangzhou ** Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
-						<font style="padding-left:72px; width:100%">those who participate GTMC conference: Guangzhou ** Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
+						<font style="font-size:12px;float:none;"><strong>Airport pick-up and drop-off service:</strong></font>\
+						<font style="padding-left:72px;float:none;">Shenzhen Bao’an International Airport/Guangzhou New Baiyun International Airport</font>\
+			            <font style="padding-left:72px;float:none;">Airport pick-up time: January 15th 09:00-22:00, 16th 09:00-12:00</font>\
+			            <font style="padding-left:72px;float:none;">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
+						<font style="padding-left:72px;float:none;">those who participate TMCI conference: Guangzhou ** Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
+						<font style="padding-left:72px;float:none;">those who participate GTMC conference: Guangzhou ** Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
 					</div>\
                     <ol>\
                     <li><strong style="width:380px;">* Means of transportation to come:</strong><select index="traffic." id="departureTrafficTool">\
@@ -456,12 +456,12 @@
                 <div style="display:none;" class="content">\
 					<font style="font-size:12px;">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.<br/>* It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
 					<div class="tips">\
-						<font style="font-size:12px;"><strong>Airport pick-up and drop-off service:</strong></font>\
-						<font style="padding-left:72px; width:100%">Shenzhen Bao’an International Airport/Guangzhou New Baiyun International Airport</font>\
-			            <font style="padding-left:72px; width:100%">Airport pick-up time: January 15th 09:00-22:00, 16th 09:00-12:00</font>\
-			            <font style="padding-left:72px; width:100%">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
-						<font style="padding-left:72px; width:100%">those who participate TMCI conference: Guangzhou ** Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
-						<font style="padding-left:72px; width:100%">those who participate GTMC conference: Guangzhou ** Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
+						<font style="font-size:12px;float:none;"><strong>Airport pick-up and drop-off service:</strong></font>\
+						<font style="padding-left:72px; float:none;">Shenzhen Bao’an International Airport/Guangzhou New Baiyun International Airport</font>\
+			            <font style="padding-left:72px; float:none;">Airport pick-up time: January 15th 09:00-22:00, 16th 09:00-12:00</font>\
+			            <font style="padding-left:72px; float:none;">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
+						<font style="padding-left:72px; float:none;">those who participate TMCI conference: Guangzhou ** Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
+						<font style="padding-left:72px; float:none;">those who participate GTMC conference: Guangzhou ** Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
 					</div>\
                     <ol>\
                     <li><strong style="width:380px;">* Means of transportation to come:</strong>\
