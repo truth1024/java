@@ -31,7 +31,6 @@ public class UserAction extends BasicAction {
 	private String cerNum;
 	private long uid;
 	private String method;
-//	private String lang;
 	private long id;
 	private String telephoneZone;
 	private String telephoneNum;
@@ -117,16 +116,29 @@ public class UserAction extends BasicAction {
 			userSevice.add(user);
 		}else{
 			userSevice.update(user);
-		}
-		uid = user.getId();
-		log.debug("uid : "+uid);
-		try {
-			sendEmail(uid);
-		} catch (SendFailedException e) {
-			e.printStackTrace();
+			uid = user.getId();
+			log.debug("uid : "+uid);
+			try {
+				sendEmail(uid);
+			} catch (SendFailedException e) {
+				e.printStackTrace();
+			}
 		}
 		status = 1;
 		return "saveUser";
+	}
+	
+	public String confirmSubmit(){
+		String id = ActionContext.getContext().getSession().get("token").toString();
+		try {
+			if(sendEmail(uid)){
+				userTypeService.regist(id);
+				status = 1;
+			}
+		} catch (SendFailedException e) {
+			e.printStackTrace();
+		}
+		return "confirmSubmit";
 	}
 	
 	public String delete(){
@@ -189,12 +201,6 @@ public class UserAction extends BasicAction {
 	public void setMethod(String method) {
 		this.method = method;
 	}
-//	public String getLang() {
-//		return lang;
-//	}
-//	public void setLang(String lang) {
-//		this.lang = lang;
-//	}
 	public long getId() {
 		return id;
 	}

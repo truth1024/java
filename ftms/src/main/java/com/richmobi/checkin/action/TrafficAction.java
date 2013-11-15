@@ -55,11 +55,11 @@ public class TrafficAction extends BasicAction {
 			trafficService.add(traffic);			
 		}else{
 			trafficService.update(traffic);
-		}
-		try {
-			sendEmail(traffic.getUid());
-		} catch (SendFailedException e) {
-			e.printStackTrace();
+			try {
+				sendEmail(traffic.getUid());
+			} catch (SendFailedException e) {
+				e.printStackTrace();
+			}
 		}
 		status = 1;
 		return "saveTraffic";

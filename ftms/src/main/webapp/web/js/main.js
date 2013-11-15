@@ -1,5 +1,5 @@
 var lang = (location.pathname.indexOf('/en/') > -1 ? 'en' : 'cn');
-
+var pageName = (location.pathname.indexOf('registMessage') > -1 ? 'regist' : 'manage');
 $.ajaxSetup({
 	dataType:'json',
 	statusCode:{

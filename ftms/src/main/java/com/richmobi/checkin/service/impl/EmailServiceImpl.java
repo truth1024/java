@@ -39,11 +39,6 @@ public class EmailServiceImpl implements EmailService{
 	public boolean sendEmail(User user,String lang) throws SendFailedException {
 		log.debug("lang : "+lang);
 		if(user != null && StringUtils.isNotBlank(user.getEmail())){
-			Email email = new Email();
-			email.addTo(StringUtils.trim(user.getEmail()));
-			email.setFrom(Configer.get("mail.from"));
-			email.setSubject(Configer.get("mail.default.subject"));
-			
 			Map<String, Object> model = new HashMap<String, Object>();
 			Hotel h = user.getHotel();
 			Traffic t = user.getTraffic();
@@ -60,6 +55,7 @@ public class EmailServiceImpl implements EmailService{
 			model.put("cerType",Utils.cer(cers[0], lang));
 			model.put("cerNum",cers[1]);
 			model.put("diet",Utils.diet(user.getDiet(), lang));
+			model.put("contactTelephone",((user.getContactTelephone() == null || user.getContactTelephone().equals("")) ? " " : user.getContactTelephone()));
 			//酒店安排
 			model.put("isStay",Utils.yseOrNo(h.getIsStay(), lang));
 			model.put("inDate",Utils.dateFormat(h.getInDate()));
@@ -84,12 +80,18 @@ public class EmailServiceImpl implements EmailService{
 			model.put("visa",Utils.visa(o.getIsVisa(), lang));
 			model.put("sign",Utils.gol(o.getSign(), lang));
 			model.put("eDate",Utils.dateFormat(o.getEffectiveDate()));
-			model.put("back", o.getTouristBack());
+			model.put("back", Utils.touristBack(o.getTouristBack(), lang));
 			model.put("stature", Utils.stature(o.getStature(), lang));
 			model.put("size",Utils.playSize(o.getPlaySize(), lang));
-			model.put("palyBack",Utils.playBack(o.getPlayBack(), lang));
+			model.put("playBack",Utils.playBack(o.getPlayBack(), lang));
+			model.put("playAlmost",(o.getPlayAlmost() == null || o.getPlayAlmost().equals("") ? "" : o.getPlayAlmost()));
 			log.debug(o.getPlayAlmost());
+			//发送邮件
 			lang = (lang == null ? "cn" : lang);
+			Email email = new Email();
+			email.addTo(StringUtils.trim(user.getEmail()));
+			email.setFrom(Configer.get("mail.from"));
+			email.setSubject(Configer.get("mail."+lang+".subject"));
 			mailSender.sendEmailWithTemplate(email, Configer.get("mail.template."+lang+".name"), model);
 			return Boolean.TRUE;
 		} else {

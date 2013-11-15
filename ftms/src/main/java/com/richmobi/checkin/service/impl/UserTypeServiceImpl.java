@@ -36,4 +36,9 @@ public class UserTypeServiceImpl implements UserTypeService {
 		return userTypeMapper.getAll();
 	}
 
+	@Override
+	public void regist(String id) {
+		userTypeMapper.regist(id);
+	}
+
 }

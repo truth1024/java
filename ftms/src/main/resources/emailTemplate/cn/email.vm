@@ -23,207 +23,207 @@
 		<tr style="height: 40px; font-size:12px;">
 			<td>
 				<table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
-					<tr style="height:30px;">
-						<th colspan="2" style="text-align:center;">个人信息：</th>
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">个人信息</th>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td width="50%" style="text-align:right;">姓名：</td>
 						<td style="text-align:left;">${u.name}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">性别：</td>
 						<td style="text-align:left;">${sex}</td>
 					</tr>
 					#if($company != "")
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">公司：</td>
 						<td style="text-align:left;">${company}</td>
 					</tr>
 					#end
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">职位：</td>
 						<td style="text-align:left;">${title}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">出生日期：</td>
 						<td style="text-align:left;">${birthDate}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">国籍：</td>
 						<td style="text-align:left;">${nation}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">证件类型：</td>
 						<td style="text-align:left;">${cerType}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">证件号码：</td>
 						<td style="text-align:left;">${cerNum}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">固定电话：</td>
 						<td style="text-align:left;">${u.telephone}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">移动电话：</td>
 						<td style="text-align:left;">${u.mobilePhone}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">电子邮箱：</td>
 						<td style="text-align:left;">${u.email}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">饮食忌口：</td>
 						<td style="text-align:left;">${diet}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">联系人姓名：</td>
 						<td style="text-align:left;">${u.contactName}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">联系电话：</td>
-						<td style="text-align:left;">${u.contactTelephone}</td>
+						<td style="text-align:left;">${contactTelephone}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">手机号：</td>
 						<td style="text-align:left;">${u.contactPhone}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">电子邮箱：</td>
 						<td style="text-align:left;">${u.contactEmail}</td>
 					</tr>
-					<tr style="height:30px;">
-						<th colspan="2" style="text-align:center;">酒店安排：</th>
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">酒店安排</th>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">是否入住FTMS指定酒店：</td>
 						<td style="text-align:left;">${isStay}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">酒店入住日期：</td>
 						<td style="text-align:left;">${inDate}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">酒店离店日期：</td>
 						<td style="text-align:left;">${outDate}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">住宿类型：</td>
 						<td style="text-align:left;">${room}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">是否指定同住人：</td>
 						<td style="text-align:left;">${isWith}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">同住人姓名：</td>
 						<td style="text-align:left;">${u.hotel.withName}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">同住人经销店：</td>
 						<td style="text-align:left;">${u.hotel.withShop}</td>
 					</tr>
-					<tr style="height:30px;">
-						<th colspan="2" style="text-align:center;">交通安排：</th>
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">交通安排</th>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">来程交通方式：</td>
 						<td style="text-align:left;">${deparTool}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">出发城市：</td>
 						<td style="text-align:left;">${u.traffic.departureCity1}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">抵达城市：</td>
 						<td style="text-align:left;">${deparCity2}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">航班号：</td>
 						<td style="text-align:left;">${u.traffic.departureFlight}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">抵达日期：</td>
 						<td style="text-align:left;">${arrivalDate}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">抵达时间：</td>
 						<td style="text-align:left;">${arrivalTime}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">是否需要接机：</td>
 						<td style="text-align:left;">${pickup}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">返程交通方式：</td>
 						<td style="text-align:left;">${backTool}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">出发城市：</td>
 						<td style="text-align:left;">${backCity2}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">航班号：</td>
 						<td style="text-align:left;">${u.traffic.backFlight}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">返程日期：</td>
 						<td style="text-align:left;">${backDate}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">航班起飞时间：</td>
 						<td style="text-align:left;">${backTime}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">是否需要送机：</td>
 						<td style="text-align:left;">${send}</td>
 					</tr>
-					<tr style="height:30px;">
-						<th colspan="2" style="text-align:center;">商务活动：</th>
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">商务活动</th>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">是否参加1月16日上午大区会议：</td>
 						<td style="text-align:left;">${meeting}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">请选择您要参加的商务活动线路：</td>
 						<td style="text-align:left;">${route}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">您是否持有有效赴港证件：</td>
 						<td style="text-align:left;">${hasPass}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">您的港澳通行证是否具有有效签注：</td>
 						<td style="text-align:left;">${visa}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">您的港澳通行证的签注类型是：</td>
 						<td style="text-align:left;">${sign}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">您的签注有效期至：</td>
 						<td style="text-align:left;">${eDate}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">游览完毕后您是否随统一大巴返回东莞住宿酒店：</td>
 						<td style="text-align:left;">${back}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">打球差点：</td>
-						<td style="text-align:left;">${u.other.playAlmost}</td>
+						<td style="text-align:left;">${playAlmost}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">身高：</td>
 						<td style="text-align:left;">${stature}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">服装号码：</td>
 						<td style="text-align:left;">${size}</td>
 					</tr>
-					<tr style="height:30px;">
+					<tr style="height:20px;font-size:12px;">
 						<td style="text-align:right;">赛后您的行程如何安排：</td>
-						<td style="text-align:left;">${palyBack}</td>
+						<td style="text-align:left;">${playBack}</td>
 					</tr>
 				</table>
 			</td>
@@ -232,18 +232,16 @@
 			<td><strong>如有信息变更，您可以通过以下几种方法进行信息更新：</strong></td>
 		</tr>
 		<tr style="height: 40px; font-size:12px;">
-			<td>1）登录网址：www.ftmsdlr.cn，点击进入信息管理界面，通过“编辑”、“删除”按钮进行信息修改和维护</td>
-		</tr>
-		<tr style="height: 40px; font-size:12px;">
-			<td>2）在网站系统关闭后，您可通过发送邮件或拨打热线电话的形式联系事务局线下更改您的相关信息</td>
-		</tr>
-		<tr style="height: 40px; font-size:12px;">
-			<td>事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn</td>
+			<td>
+				1）登录网址：<a href="http://www.ftmsdlr.cn">www.ftmsdlr.cn</a>，点击进入信息管理界面，通过“编辑”、“删除”按钮进行信息修改和维护<br>
+				2）在网站系统关闭后，您可通过发送邮件或拨打热线电话的形式联系事务局线下更改您的相关信息<br>
+				事务局联系方式  活动热线：440-110-3271  活动邮箱：<a href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a>
+			</td>
 		</tr>
 		<tr style="height: 40px; font-size:12px;">
 			<td><strong>网站及线下信息变更截止时间提示：</strong></td>
 		</tr>
-		<tr style="height: 90px; font-size:12px;">
+		<tr style="font-size:12px;">
 			<td>您的参会信息分为个人基本信息、酒店安排、交通安排、商务活动4个板块，需请您注意，各板块按照不同时间点分别关闭，关闭后，事务局将不再受理您的信息变更需求，因此请务必在规定时间内及时、准确地提交您的信息。</td>
 		</tr>
 		<tr style="height: 110px; font-size:12px;">

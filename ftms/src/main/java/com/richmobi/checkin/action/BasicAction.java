@@ -35,10 +35,14 @@ public class BasicAction extends ActionSupport implements Runnable{
 	
 	protected boolean sendEmail(long uid) throws SendFailedException{
 		log.debug(lang);
-		EmailUtil eu = new EmailUtil(uid, lang, userSevice, emailService);
-		eu.start();
-
-		return false;
+		User user = userSevice.getById(uid);
+		if(user != null && user.getHotel() != null && user.getTraffic() != null && user.getOther() != null){
+			EmailUtil eu = new EmailUtil(lang, user, emailService);
+			eu.start();
+			return true;
+		}else{
+			return false;			
+		}
 	}
 
 	public String getLang() {

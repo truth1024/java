@@ -175,4 +175,8 @@ public class Utils {
 	public static String visa(int isVisa,String lang){
 		return (isVisa == 0 ? "" : (lang == null ? Constant.isVisaArr[isVisa-1].getName() : Constant.isVisaEnArr[isVisa-1].getName()));
 	}
+	
+	public static String touristBack(int touristBack,String lang){
+		return (touristBack == 0 ? "" : (lang == null ? Constant.touristBackArr[touristBack-1].getName() : Constant.touristBackEnArr[touristBack-1].getName()));
+	}
 }

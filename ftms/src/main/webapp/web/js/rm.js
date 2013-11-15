@@ -1,5 +1,73 @@
 $(function(){
 	
+	setTimeout(function(){
+		$('head').append($('<link id="easybug" href="/web/css/easybug.css" rel="stylesheet" type="text/css" />'));
+		easyDialog.open({
+			container : {
+			    content : ''
+			  },
+			  autoClose : 1,
+			  overlay : false,
+			  callBack:function(){
+				  $('#easybug').remove();
+			  }
+		});
+	},10);
+	
+	$('body').delegate('.confirm','click',function(){
+		var uid = $(this).attr('index');
+		if(uid == null || uid == ''){
+			alert(tipArr[lang].infoLack);
+		}else{
+			$.post(
+				'/web/user_confirmSubmit',
+				{uid:uid,lang:lang},
+				function(data){
+					if(data.status == 0){
+						alert(tipArr[lang].infoLack);
+					}else{
+						location.href = 'messageManage.html';
+					}
+				}
+			);
+		}
+	});
+	
+	//展开收起功能
+	$('body').delegate('.reviwe','click',function(){
+		var text = $(this).text();
+		if(text == reviewArr[lang].review){
+			$(this).parent().parent().next().show();
+			$(this).text(reviewArr[lang].packup);
+		}else{
+			$(this).parent().parent().next().hide();
+			$(this).text(reviewArr[lang].review);
+		}
+	});
+	
+	//删除功能
+	$('body').delegate('.remove','click',function(){
+		var index = $(this).attr('index').split('#');
+		var name = $(this).attr('name');
+		$('head').append($('<link id="easybug" href="/web/css/easybug.css" rel="stylesheet" type="text/css" />'));
+		easyDialog.open({
+			container :{
+				header:tipArr[lang].deleteTip,
+				content : tipArr[lang].deleteHeader,
+				yesFn : function dtnFn(){
+					deleteInfo(index,name);
+					return true;
+				},
+			    noFn : true,
+			    yesText : tipArr[lang].deleteConfirm,
+			    noText : tipArr[lang].deleteCancel
+			},
+			callback:function removeEasyBug(){
+				$('#easybug').remove();
+			}
+		});
+	});
+	
 	$('body').delegate('.input-eat','focus',function(){
 		inputValue($(this).prev().attr('index'),$(this).prev().attr('id'));
 	});
@@ -81,6 +149,8 @@ $(function(){
 			}else{
 				$('.touristRouteB').hide();
 				$('.passHide').hide();
+				$('.hasPassHide').hide();
+				$('input[name="other.isVisa"][value="2"]').get(0).checked = true;
 				$('#regist_other .showMessage:eq(0)').hide();
 				$('#regist_other .showMessage:eq(0) input').removeClass('required');
 				$('input[name="pass"][value="3"]').get(0).checked = true;
@@ -106,12 +176,24 @@ $(function(){
 		//通行证选择
 		if(id == 'hasPass'){
 			if(value == 1 && $('input[name="pass"]').val() == 1){
-				$('#regist_other .showMessage:eq(0)').show();
-				$('#regist_other .showMessage:eq(0) input[name!="file"]').addClass('required');
+				$('.hasPassHide').show();
 			}else{
+				$('.hasPassHide').hide();
+				$('input[name="other.isVisa"][value="2"]').get(0).checked = true;
 				$('#regist_other .showMessage:eq(0)').hide();
 				$('#regist_other .showMessage:eq(0) input').removeClass('required');
 			}
+		}
+	});
+	
+	//是否持有效签注
+	$('body').delegate('input[name="other.isVisa"]','click',function(){
+		if($(this).val() == 1){
+			$('#regist_other .showMessage:eq(0)').show();
+			$('#regist_other .showMessage:eq(0) input[name!="file"]').addClass('required');
+		}else{
+			$('#regist_other .showMessage:eq(0)').hide();
+			$('#regist_other .showMessage:eq(0) input[name!="file"]').removeClass('required');
 		}
 	});
 	
@@ -128,9 +210,7 @@ $(function(){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
 						if(method == 'submit' && name == null){
-							$('#regist_basic').remove();
-							$('[name$=".uid"]').val(data.uid);
-							location.href = '#top';
+							getMessage(0);
 						}else{
 							getMessage(name);
 						}
@@ -158,8 +238,7 @@ $(function(){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
 						if(method == 'submit' && name == null){
-							$('#regist_hotel').remove();
-							location.href = '#top';
+							getMessage(0);
 						}else{
 							getMessage(name);
 						}
@@ -188,8 +267,7 @@ $(function(){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
 						if(method == 'submit' && name == null){
-							$('#regist_traffic').remove();
-							location.href = '#top';
+							getMessage(0);
 						}else{
 							getMessage(name);
 						}
@@ -218,8 +296,7 @@ $(function(){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
 						if(method == 'submit' && name == null){
-							$('#regist_other').remove();
-							location.href = '#top';
+							getMessage(0);
 						}else{
 							getMessage(name);
 						}
@@ -254,11 +331,14 @@ $(function(){
 			$('.passHide').hide();
 			$('input[name="other.hasPass"]').val(value);
 			$('#hasPass option[value="0"]').get(0).selected = true;
+			$('.hasPassHide').hide();
+			$('input[name="other.isVisa"][value="2"]').get(0).checked = true;
 		}
 		if($('#hasPass').val() == 1 && value == 1){
-			$('#regist_other .showMessage:eq(0)').show();
-			$('#regist_other .showMessage:eq(0) input[name!="file"]').addClass('required');
+			$('.hasPassHide').show();
 		}else{
+			$('.hasPassHide').hide();
+			$('input[name="other.isVisa"][value="2"]').get(0).checked = true;
 			$('#regist_other .showMessage:eq(0)').hide();
 			$('#regist_other .showMessage:eq(0) input').removeClass('required');
 		}
@@ -299,6 +379,123 @@ function verify(str){
 		}
 	});
 	return flag;
+};
+
+//删除信息
+function deleteInfo(index,name){
+	$.post(
+		'/web/'+index[0]+'_delete',
+		{id:index[1]},
+		function(data){
+//				console.log(data);
+			if(data.status == 1){
+				alert(tipArr[lang].deleteSuccess);
+				getMessage(name);
+			}else{
+				alert(tipArr[lang].deleteFailure);
+			}
+		}
+	);
+};
+
+//获取信息
+function getMessage(index){
+	$.post(
+		'/web/user_gainUserType',
+		{page:pageName,lang:lang},
+		function(data){
+			setTypeName(data);
+			window.data = data;
+			window.data.index = index;
+			$('#tagContent'+(index != 0 ? 0 : 1)).children().remove();
+//			console.log(window.data.userType.users.length,index);
+			if(pageName == 'regist'){
+				if(window.data.userType.registered == 1){
+					$('#tagContent'+index).html(tipArr[lang].registered);
+				}else{
+					render();
+					dateInit(window.data.userType.type);
+				}
+			}else{
+				if(window.data.userType.registered == 0){
+					$('#tagContent'+index).html(tipArr[lang].unregistered);
+					$('#tags').hide();
+				}else{
+					$('#tags').show();
+					//标签渲染
+					tags();
+					render();
+					$('.tagContent').removeClass('selectTag');
+					$('#tagContent'+index).addClass('selectTag');
+					//日期时间初始化
+					dateInit(window.data.userType.type);
+				}
+			}
+		}
+	);
+};
+
+//页面渲染
+function render(){
+	var user = window.data.userType.users[window.data.index];
+	var uid = (user == null ? "" :user.id);
+	$('#tagContent'+window.data.index).children().remove();
+	if(user == null){
+		if(compare1()){
+			$('#tagContent'+window.data.index).append($(template.render('regist_basic',window.data)));			
+		}else{
+			$('#tagContent'+window.data.index).text(tipArr[lang].functionClose);
+			return false;
+		}
+	}else{
+		$('#tagContent'+window.data.index).append($(template.render('manage_basic',window.data)));
+	}
+	if(user == null || user.hotel == null){
+		$('#tagContent'+window.data.index).append($(template.render('regist_hotel',window.data)));
+		$('[name="hotel.uid"]').val(uid);
+	}else{
+		$('#tagContent'+window.data.index).append($(template.render('manage_hotel',window.data)));
+	}
+	if(user == null || user.traffic == null){
+		$('#tagContent'+window.data.index).append($(template.render('regist_traffic',window.data)));
+		$('[name="traffic.uid"]').val(uid);
+	}else{
+		$('#tagContent'+window.data.index).append($(template.render('manage_traffic',window.data)));
+	}
+	if(user == null || user.other == null){
+		$('#tagContent'+window.data.index).append($(template.render('regist_other',window.data)));
+		$('[name="other.uid"]').val(uid);
+	}else{
+		$('#tagContent'+window.data.index).append($(template.render('manage_other',window.data)));
+	}
+	var info = {
+		pageName : pageName,
+		user : user
+	};
+	$('#tagContent'+window.data.index).append($(template.render('notice',info)));
+	$('.save').attr('name',window.data.index);
+	$('.remove').attr('name',window.data.index);
+};
+
+//标签渲染
+function tags(){
+	$('#tags li:gt(0)').remove();
+	var tagContent1 = '<li index="1"><a href="javascript:void(0)"></a></li>';
+	var addContent = '<li index="1"><a href="javascript:void(0)">'+tipArr[lang].add+'</a></li>';
+	if(window.data.userType.users.length == 1){
+		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]+"1");
+		if(window.data.userType.type == 2){
+			$('#tags').append($(addContent));
+		}
+	}else if(window.data.userType.users.length == 2){
+		$('#tags').append($(tagContent1));
+		$('#tags li').each(function(index,el){
+			$(this).children('a:eq(0)').text(userTypeArr[lang][window.data.userType.type-1]+(index+1));
+		});
+	}
+	$('#tags li').removeClass('selectTag');
+	$('#tags li').eq(window.data.index).addClass('selectTag');
+	$('#tags li').show();
 };
 
 //时期时间控件初始化

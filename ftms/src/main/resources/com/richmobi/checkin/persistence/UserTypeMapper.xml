@@ -10,7 +10,7 @@
 	</resultMap>
 	<sql id="select_user_type_sql_segment">
 		SELECT
-			id, type , region, short_name as shortName, login_date as loginDate 
+			id, type , region, short_name as shortName, login_date as loginDate ,registered
 		FROM
 			t_user_type
 	</sql>
@@ -39,6 +39,15 @@
 			t_user_type
 		SET
 			login_date = now()
+		WHERE
+			id = #{id}
+	</update>
+	
+	<update id="regist" parameterType="string">
+		UPDATE 
+			t_user_type
+		SET
+			registered = 1
 		WHERE
 			id = #{id}
 	</update>

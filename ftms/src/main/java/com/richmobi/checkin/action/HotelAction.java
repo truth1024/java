@@ -77,12 +77,12 @@ public class HotelAction extends BasicAction {
     		hotelService.add(hotel);
     	}else{
     		hotelService.update(hotel);
+    		try {
+    			sendEmail(hotel.getUid());
+    		} catch (SendFailedException e) {
+    			e.printStackTrace();
+    		}
     	}
-    	try {
-			sendEmail(hotel.getUid());
-		} catch (SendFailedException e) {
-			e.printStackTrace();
-		}
     	status = 1;
     	return "saveHotel";
     }

@@ -32,16 +32,20 @@ public class OtherAction extends BasicAction {
 				o.setHasPass(other.getHasPass());
 				if(other.getHasPass() == 1){
 					o.setIsVisa(other.getIsVisa());
-					o.setSign(other.getSign());
-					o.setEffectiveDate(other.getEffectiveDate());
+					if(other.getIsVisa() == 1){						
+						o.setSign(other.getSign());
+						o.setEffectiveDate(other.getEffectiveDate());
+					}
 				}
 				break;
 			case 2:
 				o.setHasPass(other.getHasPass());
 				if(other.getHasPass() == 1){
 					o.setIsVisa(other.getIsVisa());
-					o.setSign(other.getSign());
-					o.setEffectiveDate(other.getEffectiveDate());
+					if(other.getIsVisa() == 1){
+						o.setSign(other.getSign());
+						o.setEffectiveDate(other.getEffectiveDate());
+					}
 				}
 				break;
 			case 3:
@@ -57,14 +61,14 @@ public class OtherAction extends BasicAction {
 		}
 		log.debug(o);
 		if(method == null || method.equals("") || method.equals("submit")){
-			otherService.add(o);			
+			otherService.add(o);
 		}else{
 			otherService.update(o);
-		}
-		try {
-			sendEmail(o.getUid());
-		} catch (SendFailedException e) {
-			e.printStackTrace();
+			try {
+				sendEmail(o.getUid());
+			} catch (SendFailedException e) {
+				e.printStackTrace();
+			}
 		}
 		status = 1;
 		return "saveOther";

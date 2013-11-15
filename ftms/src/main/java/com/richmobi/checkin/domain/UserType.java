@@ -20,6 +20,7 @@ public class UserType extends AbstractDomain {
 	private String region;		//大区
 	private String shortName;	//经销商简称
 	private Date loginDate;		//登录时间
+	private int registered;		//是否注册成功
 	private List<User> users;	//用户信息列表
 	
 	
@@ -58,5 +59,11 @@ public class UserType extends AbstractDomain {
 	}
 	public void setShortName(String shortName) {
 		this.shortName = shortName;
+	}
+	public int getRegistered() {
+		return registered;
+	}
+	public void setRegistered(int registered) {
+		this.registered = registered;
 	}
 }

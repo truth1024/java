@@ -233,7 +233,7 @@
 			          	</select><input name="touristRoute" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="other.touristRoute">\
 					</li>\
                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">查看商务活动线路</a></li>\
-                 	<li class="touristRouteB"  style="display:none;">\
+                 	<li class="touristRouteB" style="display:none;">\
 						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
 						<input name="pass" type="radio" value="1" />是\
 						<input name="pass" type="radio" value="3" style="margin-left:20px;" checked/>正在办理中\
@@ -250,11 +250,12 @@
 					</li>\
                     <li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
                     <li class="touristRouteB" style="color:#b91414;display:none;">*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
+					<li class="hasPassHide" style="display:none;">\
+						<strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
+						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;"/><em>是</em>\
+						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" checked/><em>即将办理</em>\
+					</li>\
                     <div style="display:none"  class="showMessage">\
-	                    <li><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
-			                <input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>是</em>\
-							<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" /><em>即将办理</em>\
-	                    </li>\
 	                    <li><strong style="width:230px;">您的港澳通行证的签注类型是：</strong>\
 	                        <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G签</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L签</em>\
@@ -580,8 +581,8 @@
                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">查看商务活动线路</a></li>\
 					<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
 						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
-						<input name="pass" type="radio" value="1" {if userType.users[index].other.hasPass != 3}checked{/if}/>是\
-						<input name="pass" type="radio" value="3" style="margin-left:20px;" {if userType.users[index].other.hasPass == 3}checked{/if}/>正在办理中\
+						<input name="pass" type="radio" value="1" {if userType.users[index].other.hasPass == 1 || userType.users[index].other.hasPass == 2}checked{/if}/>是\
+						<input name="pass" type="radio" value="3" style="margin-left:20px;" {if userType.users[index].other.hasPass == 3 || userType.users[index].other.hasPass == 0}checked{/if}/>正在办理中\
 					</li>\
 					<li class="passHide" {if userType.users[index].other.hasPass == 3 || userType.users[index].other.hasPass == 0}style="display:none;"{/if}>\
 						<strong style="width:230px;">&nbsp;</strong>\
@@ -595,11 +596,11 @@
 					</li>\
                    	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
                     <li class="touristRouteB" style="color:#b91414; {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}display:none;{/if}" >*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
-					<div {if userType.users[index].other.hasPass != 1}style="display:none"{/if}  class="showMessage">\
-						<li><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
-							<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa != 2}checked{/if}/><em>是</em>\
-							<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa == 2}checked{/if}/><em>即将办理</em>\
-						</li>\
+					<li class="hasPassHide" {if userType.users[index].other.hasPass != 1}style="display:none;"{/if}><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
+						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa == 1}checked{/if}/><em>是</em>\
+						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa != 1}checked{/if}/><em>即将办理</em>\
+					</li>\
+					<div {if userType.users[index].other.isVisa != 1}style="display:none"{/if}  class="showMessage">\
 						<li><strong style="width:230px;">您的港澳通行证的签注类型是：</strong>\
 							<input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.sign != 2}checked{/if}/><em>G签</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.sign == 2}checked{/if}/><em>L签</em>\
@@ -674,6 +675,7 @@
 				<font>3、系统关闭后，如有信息变动的情况，可以通过发送邮件或拨打热线电话的形式告知事务局</font><br/>\
 				事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn\
 	    	</div>\
+			{if pageName == "regist"}<div style="margin-top:40px;" class="operate"><a href="javascript:void(0);" class="confirm" index="{if user != null}{user.id}{/if}">确认提交</a></div>{/if}\
 		</div>'
 	);
 	

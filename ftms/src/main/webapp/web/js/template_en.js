@@ -261,11 +261,11 @@
 					</li>\
 					<li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a  href="javascript:void(0);" id="passCardTip">Exit－Entry Permit for Travelling to and from Hong Kong and Macau handling tips</a></li>\
 		            <li class="touristRouteB" style="color:#b91414;display:none;">*Please be sure to handle your Exit－Entry Permit for Travelling to and from Hong Kong and Macau and endorsement in time after your applying, and feedback your permit information to affairs division in time by telephone or e-mail after you finishing handling.</li>\
+					<li class="hasPassHide" style="display:none;"><strong style="width:380px;">Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
+						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;"/><em>Yes</em>\
+						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" checked/><em>to be handled</em>\
+					</li>\
                     <div style="display:none"  class="showMessage">\
-                    	<li><strong style="width:380px;">Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
-	                        <input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>Yes</em>\
-							<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" /><em>to be handled</em>\
-                        </li>\
                         <li><strong style="width:380px;">The endorsement type of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau is:</strong>\
                             <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G endorsement</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L endorsement</em>\
@@ -302,9 +302,9 @@
 								{/each}\
 			          		</select><input type="hidden" name="other.playSize">\
                       	</li>\
-						<li><strong style="width:380px;">赛后您的行程如何安排：</strong>\
+						<li><strong style="width:380px;">Means of transportation after match:</strong>\
 							<select index="other." id="playBack">\
-								<option value="0">--请选择--</option>\
+								<option value="0">--Please choose--</option>\
 								{each selectArr[11] as n}\
 								<option value="{n.value}">{n.name}</option>\
 								{/each}\
@@ -557,8 +557,8 @@
                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">Check commercial activity routes</a></li>\
 					<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
 						<strong style="width:380px;">Do you hold valid documentation to go to Hong Kong:</strong>\
-						<input name="pass" type="radio" value="1" {if userType.users[index].other.hasPass != 3}checked{/if}/>Yes\
-						<input name="pass" type="radio" value="3" style="margin-left:20px;" {if userType.users[index].other.hasPass == 3}checked{/if}/>In progress\
+						<input name="pass" type="radio" value="1" {if userType.users[index].other.hasPass == 1 || userType.users[index].other.hasPass == 2}checked{/if}/>Yes\
+						<input name="pass" type="radio" value="3" style="margin-left:20px;" {if userType.users[index].other.hasPass == 3 || userType.users[index].other.hasPass == 0}checked{/if}/>In progress\
 					</li>\
 					<li class="passHide" {if userType.users[index].other.hasPass == 3 || userType.users[index].other.hasPass == 0}style="display:none;"{/if}>\
 						<strong style="width:380px;">&nbsp;</strong>\
@@ -572,11 +572,12 @@
 					</li>\
                    	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a  href="javascript:void(0);" id="passCardTip">Exit－Entry Permit for Travelling to and from Hong Kong and Macau handling tips</a></li>\
 					<li class="touristRouteB" style="color:#b91414;{if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}display:none;{/if}">*Please be sure to handle your Exit－Entry Permit for Travelling to and from Hong Kong and Macau and endorsement in time after your applying, and feedback your permit information to affairs division in time by telephone or e-mail after you finishing handling.</li>\
-					<div {if userType.users[index].other.hasPass != 1}style="display:none"{/if}  class="showMessage">\
-						<li><strong style="width:380px;">Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
-							<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa != 2}checked{/if}/><em>Yes</em>\
-							<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa == 2}checked{/if}/><em>to be handled</em>\
-						</li>\
+					<li class="hasPassHide" {if userType.users[index].other.hasPass != 1}style="display:none;"{/if}>\
+						<strong style="width:380px;">Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
+						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa == 1}checked{/if}/><em>Yes</em>\
+						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa != 1}checked{/if}/><em>to be handled</em>\
+					</li>\
+					<div {if userType.users[index].other.isVisa != 1}style="display:none"{/if}  class="showMessage">\
 						<li><strong style="width:380px;">The endorsement type of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau is:</strong>\
 							<input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.sign != 2}checked{/if}/><em>G endorsement</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.sign == 2}checked{/if}/><em>L endorsement</em>\
@@ -645,6 +646,7 @@
 				<font>3. Please inform the affairs division for the changes of information through phone call or e-mail if there is any information changes after the close of system.</font><br/>\
 				Contact information of the affairs division hotline: 440-110-3271 e-mail: service@ftmsdlr.cn\
 	    	</div>\
+			{if pageName == "regist"}<div style="margin-top:40px;" class="operate"><a href="javascript:void(0);" class="confirm" index="{if user != null}{user.id}{/if}">Confirm</a></div>{/if}\
 		</div>'
 	);
 })();

@@ -37,3 +37,25 @@ font{
 .showMessage{
 	padding-left:0px;
 }
+
+.operate-message {
+float: right;
+padding-right: 10px;
+}
+.operate-message a {
+float: left;
+color: #fff;
+text-decoration: underline;
+margin: 0 10px;
+}
+
+.operate a.confirm {
+display: block;
+float:none;
+margin: 0 auto;
+width: 75px;
+height: 28px;
+line-height: 28px;
+background: url(../images/button_save.png) no-repeat;
+color: #fff;
+}

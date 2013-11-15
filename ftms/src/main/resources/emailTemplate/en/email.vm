@@ -2,42 +2,253 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>一汽丰田2014年全国经销商大会-注册成功通知</title>
+	<title>FTMS-2014 FTMS Dealer Meeting Affairs Department-Your Registration has been Approved</title>
+	<style type="text/css">
+		body{
+			font-family: 微软雅黑; font-size:12px;margin:0;padding:0;
+		}
+		.contain{
+			width:600px;padding:10px;background:#F7F7F7;margin:20px auto;
+		}
+	</style>
 </head>
-<body style="font-family: 微软雅黑; font-size:14px;margin:0;padding:0;">
-	<table border="0" cellspacing="0" cellpadding="0" class="table" style="width:600px;margin:20px auto;">
-		<tr style="height: 40px;">
-			<td>尊敬的**先生/女士，</td>
+<body style="font-family: 微软雅黑; font-size:12px;margin:0;padding:0;">
+	<table class="contain" border="0" cellspacing="0" cellpadding="0" align="center" style="width:700px;padding:10px;background:#F7F7F7;margin:20px auto;">
+		<tr style="height: 40px; font-size:12px;">
+			<td>Dear #if($u.sex == 1)Mr.#else Ms. #end ${u.name}</td>
 		</tr>
-		<tr style="height: 40px;">
-			<td>欢迎您参加一汽丰田2014年全国经销商大会，您的参会信息已经成功提交，详细如下：</td>
+		<tr style="height: 40px; font-size:12px;">
+			<td>Welcome to 201 National Dealers Convention of FAW Toyota. Your registration has been approved, the details are as follows:</td>
 		</tr>
-		<tr style="height: 40px;">
-			<td><插入显示参会嘉宾的所有注册信息></td>
+		<tr style="height: 40px; font-size:12px;">
+			<td>
+				<table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">Personal information</th>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td width="50%" style="text-align:right;">Name:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.name}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Gender:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${sex}</td>
+					</tr>
+					#if($company != "")
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Company:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${company}</td>
+					</tr>
+					#end
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Position:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${title}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Date of birth:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${birthDate}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Nationality:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${nation}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">ID type:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${cerType}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">ID number:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${cerNum}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Telephone:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.telephone}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Mobile phone:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.mobilePhone}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">E-mail:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.email}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Diet taboos:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${diet}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Name of contact person:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.contactName}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Contact number:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${contactTelephone}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Mobile phone number:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.contactPhone}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">E-mail:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.contactEmail}</td>
+					</tr>
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">Hotel arrangement</th>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Whether check into the hotel appointed by FTMS:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${isStay}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Check in date:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${inDate}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Check out date:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${outDate}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Accommodation type:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${room}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Whether assign roommate sharing room with you:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${isWith}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Name of roommate:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.hotel.withName}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">The outlet your roommate belongs to:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.hotel.withShop}</td>
+					</tr>
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">Transfer arrangement</th>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Means of transportation to come:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${deparTool}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Departure city:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.traffic.departureCity1}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Destination city:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${deparCity2}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Flight number:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.traffic.departureFlight}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Date of arrival:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${arrivalDate}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Time of arrival:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${arrivalTime}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Whether need airport pick-up service:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${pickup}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Means of transportation to return:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${backTool}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Departure city:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${backCity2}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Flight number:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${u.traffic.backFlight}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Date of arrival:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${backDate}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Take off time:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${backTime}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Whether need airport drop-off service:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${send}</td>
+					</tr>
+					<tr style="height:30px;background: none repeat scroll 0 0 #B42115;color: #FFFFFF;">
+						<th colspan="2" style="text-align:center;font-size: 14px;">Commercial activities</th>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Whether attend the regional conference on January 16th:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${meeting}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Please choose a commercial activity route you want to participate:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${route}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Do you hold valid documentation to go to Hong Kong:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${hasPass}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Does your Exit－Entry Permit for Travelling to and from HongKong and Macau have valid endorsement:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${visa}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">The endorsement type of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau is:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${sign}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Your endorsement is valid until:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${eDate}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Will you return to Dongguan and stay in hotel by unified bus after finishing visit:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${back}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Playing handicap:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${playAlmost}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Height:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${stature}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Clothing size:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${size}</td>
+					</tr>
+					<tr style="height:20px;font-size:12px;">
+						<td style="text-align:right;">Means of transportation after match:</td>
+						<td style="text-align:left;vertical-align: bottom;margin-left:10px;">${playBack}</td>
+					</tr>
+				</table>
+			</td>
 		</tr>
-		<tr style="height: 40px;">
-			<td><strong>如有信息变更，您可以通过以下几种方法进行信息更新：</strong></td>
+		<tr style="height: 40px; font-size:12px;">
+			<td><strong>You can submit your updated information in the ways as below:</strong></td>
 		</tr>
-		<tr style="height: 40px;">
-			<td>1）登录网址：www.ftmsdlr.cn，点击进入信息管理界面，通过“编辑”、“删除”按钮进行信息修改和维护</td>
+		<tr style="height: 40px; font-size:12px;">
+			<td>
+				1) Login website：<a href="http://www.ftmsdlr.cn">www.ftmsdlr.cn</a>, click into "Information Management" interface and click the buttons of "Edit", "Delete": button to modify your information<br>
+				2) You can e-mail or call the affairs department to modify your information offline after the website system closed<br>
+				Contact information  Hotline: 440-110-3271  E-mail: <a href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a>
+			</td>
 		</tr>
-		<tr style="height: 40px;">
-			<td>2）在网站系统关闭后，您可通过发送邮件或拨打热线电话的形式联系事务局线下更改您的相关信息</td>
+		<tr style="height: 40px; font-size:12px;">
+			<td><strong>Tips of deadline for update information online & offline:</strong></td>
 		</tr>
-		<tr style="height: 40px;">
-			<td>事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn</td>
+		<tr style="font-size:12px;">
+			<td>Your registered information is divided into 4 parts including personal basic information, hotel arrangement, traffic arrangement and commercial activities, please note that the registration system will be switched off step by step, and you can’t submit your updated information when the system is closed, so please make sure to the timeliness and accuracy of your information.</td>
 		</tr>
-		<tr style="height: 40px;">
-			<td><strong>网站及线下信息变更截止时间提示：</strong></td>
+		<tr style="height: 110px; font-size:12px;">
+			<td style="text-align: center;"><img src="${domain}/web/images/email/schedule_en.jpg"></td>
 		</tr>
-		<tr style="height: 90px;">
-			<td>您的参会信息分为个人基本信息、酒店安排、交通安排、商务活动4个板块，需请您注意，各板块按照不同时间点分别关闭，关闭后，事务局将不再受理您的信息变更需求，因此请务必在规定时间内及时、准确地提交您的信息。</td>
-		</tr>
-		<tr style="height: 110px;">
-			<td style="text-align: center;"><img src="schedule.jpg"></td>
-		</tr>
-		<tr style="height: 40px;">
-			<td>感谢您的支持！</td>
+		<tr style="height: 40px; font-size:12px;">
+			<td>Thanks for your support !</td>
 		</tr>
 	</table>
 </body>

@@ -47,4 +47,14 @@ public interface UserTypeService {
 	* @throws
 	 */
 	void updateById(String id);
+	
+	/**
+	 * 
+	* @Title: regist
+	* @Description: 更改注册信息
+	* @param @param id
+	* @return void
+	* @throws
+	 */
+	void regist(String id);
 }

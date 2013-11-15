@@ -14,47 +14,44 @@ public class EmailUtil extends Thread {
 	
 	private static final Logger log = Logger.getLogger(EmailUtil.class);
 	
-	private long uid;
 	private String lang;
-	private UserSevice userSevice;
+	private User user;
 	private EmailService emailService;
 	
 	public EmailUtil(){};
 	
-	public EmailUtil(long uid,String lang, UserSevice userSevice,EmailService emailService){
-		this.uid = uid;
+	public EmailUtil(String lang, User user,EmailService emailService){
 		this.lang = lang;
-		this.userSevice = userSevice;
+		this.user = user;
 		this.emailService = emailService;
 	}
 	
 	public void run(){
-		System.out.println(uid);
-		System.out.println(userSevice);
-		User user = userSevice.getById(uid);
-		log.debug(user);
-		if(user != null && user.getHotel() != null && user.getTraffic() != null && user.getOther() != null){
+		lang = ((lang != null && lang.equals("en")) ? lang : null);
+		try {
+			emailService.sendEmail(user,lang);
+			System.out.println("###################################################################################");
+			System.out.println(user.getEmail()+" send successfully!");
+			System.out.println("###################################################################################");
+		} catch (SendFailedException e) {
 			try {
-				lang = (lang == "en" ? lang : null);
 				emailService.sendEmail(user,lang);
+				System.out.println("###################################################################################");
 				System.out.println(user.getEmail()+" send successfully!");
-			} catch (SendFailedException e) {
-				e.printStackTrace();
+				System.out.println("###################################################################################");
+			} catch (SendFailedException e1) {
+				e1.printStackTrace();
 			}
+			e.printStackTrace();
 		}
 	}
 
-	public long getUid() {
-		return uid;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUid(long uid) {
-		this.uid = uid;
-	}
-	public UserSevice getUserSevice() {
-		return userSevice;
-	}
-	public void setUserSevice(UserSevice userSevice) {
-		this.userSevice = userSevice;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public EmailService getEmailService() {
 		return emailService;
