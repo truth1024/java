@@ -10,8 +10,11 @@ import javax.mail.SendFailedException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.richmobi.checkin.domain.Other;
 import com.richmobi.checkin.domain.Traffic;
+import com.richmobi.checkin.service.OtherService;
 import com.richmobi.checkin.service.TrafficService;
+import com.richmobi.checkin.service.UserTypeService;
 
 public class TrafficAction extends BasicAction {
 
@@ -26,12 +29,19 @@ public class TrafficAction extends BasicAction {
 	private int status;
 	private String method;
 	private long id;
+	private Other other;
+	private String bigId;
 	
 	@Autowired
 	TrafficService trafficService;
+	@Autowired
+	OtherService otherService;
+	@Autowired
+	UserTypeService userTypeService;
 	
 	public String saveTraffic() throws Exception{
 		log.debug(traffic);
+		//交通安排
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-ddHH:mm");
 		if(traffic.getDepartureTrafficTool().equals("1")){
 			traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));
@@ -51,15 +61,64 @@ public class TrafficAction extends BasicAction {
 			traffic.setBackDate(null);
 			traffic.setBackFlight("");
 		}
-		if(method == null || method.equals("") || method.equals("submit")){
-			trafficService.add(traffic);			
+		//商务活动
+		Other o = new Other();
+		o.setUid(other.getUid());
+		o.setMeeting(other.getMeeting());
+		o.setTouristRoute(other.getTouristRoute());
+		o.setTouristBack(other.getTouristBack());
+		switch(other.getTouristRoute()){
+			case 1:
+				o.setHasPass(other.getHasPass());
+				if(other.getHasPass() == 1){
+					o.setIsVisa(other.getIsVisa());
+					if(other.getIsVisa() == 1){						
+						o.setSign(other.getSign());
+						o.setEffectiveDate(other.getEffectiveDate());
+					}
+				}
+				break;
+			case 2:
+				o.setHasPass(other.getHasPass());
+				if(other.getHasPass() == 1){
+					o.setIsVisa(other.getIsVisa());
+					if(other.getIsVisa() == 1){
+						o.setSign(other.getSign());
+						o.setEffectiveDate(other.getEffectiveDate());
+					}
+				}
+				break;
+			case 3:
+				break;
+			case 4:
+				o.setIsPlay(other.getIsPlay());
+				o.setPlayAlmost(other.getPlayAlmost());
+				o.setStature(other.getStature());
+				o.setPlaySize(other.getPlaySize());
+				o.setTouristBack(0);
+				o.setPlayBack(other.getPlayBack());
+				break;
+		}
+		log.debug(o);
+		log.debug("bigId"+bigId);
+		if(trafficService.getByUid(traffic.getUid()) == null){
+			trafficService.add(traffic);
 		}else{
 			trafficService.update(traffic);
-			try {
-				sendEmail(traffic.getUid());
-			} catch (SendFailedException e) {
-				e.printStackTrace();
-			}
+		}
+		if(otherService.getByUid(other.getUid()) == null){
+			otherService.add(o);
+		}else{
+			otherService.update(o);
+		}
+		if(bigId != null && !bigId.equals("")){
+			userTypeService.regist(bigId,1);
+		}
+		//发送邮件
+		try {
+			sendEmail(o.getUid());
+		} catch (SendFailedException e) {
+			e.printStackTrace();
 		}
 		status = 1;
 		return "saveTraffic";
@@ -120,4 +179,17 @@ public class TrafficAction extends BasicAction {
 	public void setId(long id) {
 		this.id = id;
 	}
+	public Other getOther() {
+		return other;
+	}
+	public void setOther(Other other) {
+		this.other = other;
+	}
+	public String getBigId() {
+		return bigId;
+	}
+	public void setBigId(String bigId) {
+		this.bigId = bigId;
+	}
+	
 }

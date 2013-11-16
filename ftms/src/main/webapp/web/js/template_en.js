@@ -20,7 +20,7 @@
 	
 	template.compile('regist_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4>Personal information</h4>\
+            <h4>Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</h4>\
             <div class="content">\
                 <span>Distinguished sir/ madam, how are you!<br />Welcome to attend 2014 National Dealers Convention of FAW Toyota. Please successively fill in each part of information related to this activity.</span>\
                 <font style="padding-left:250px;">【mandatory】</font>\
@@ -83,7 +83,6 @@
                     <li><strong>Mobile phone number:</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
                     <li><strong>E-mail:</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
-                <div class="operate"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
             </div>\
         </div></form>'
 	);
@@ -91,7 +90,7 @@
 	template.compile('regist_hotel',
 		'<form id="regist_hotel"><div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="">\
-            <h4>Hotel arrangement</h4>\
+            <h4>Hotel arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</h4>\
 	            <div class="content">\
 					{if userType.type == 2}\
 					<font>* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
@@ -133,15 +132,16 @@
 			            <font style="padding-left:36px; width:100%">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
 			            <font style="padding-left:36px; width:100%">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
 	            	</div>\
-	        	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
-	        </div>\
-	    </div></form>'
+		        </div>\
+		    </div>\
+		</form>\
+			<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="user_hotel" class="save" index="submit">Submit</a></div>'
 	);
 	
 	template.compile('regist_traffic',
 		'<form id="regist_traffic"><div class="content-regist">\
 			<input type="hidden" name="traffic.uid" value="">\
-                <h4>Transfer arrangement</h4>\
+                <h4>Transfer arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</h4>\
                 <div class="content">\
                     <font style="font-size:12px;">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.<br/>* It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
                     <div class="tips">\
@@ -175,7 +175,23 @@
 					</li>\
                     <li class="depar" style="display:none;"><strong style="width:380px;">Flight number:</strong><input name="traffic.departureFlight" type="text" class="input-regist" /></li>\
                     <li class="depar" style="display:none;"><strong style="width:380px;">Date of arrival:</strong><input name="arrivalDate" type="text" class="input-regist" /></li>\
-                    <li class="depar" style="display:none;"><strong style="width:380px;">Time of arrival:</strong><input name="arrivalTime" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;">\
+						<strong style="width:380px;">Time of arrival:</strong>\
+						<select id="arrivalHour">\
+							<option value="0">--Please choose--</option>\
+							{each hourArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="arrivalMinute">\
+							<option value="0">--Please choose--</option>\
+							{each minuteArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="arrivalTime" type="hidden" class="input-regist" />\
+					</li>\
                     <li class="depar" style="display:none;">\
 						<strong style="width:380px;">Whether need airport pick-up service:</strong>\
 						<input name="traffic.pickUp" type="radio" value="1" />Yes\
@@ -202,7 +218,23 @@
 					</li>\
                     <li class="back" style="display:none;"><strong style="width:380px;">Flight number:</strong><input name="traffic.backFlight" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;"><strong style="width:380px;">Date of arrival:</strong><input name="backDate" type="text" class="input-regist" /></li>\
-                    <li class="back" style="display:none;"><strong style="width:380px;">Take off time:</strong><input name="backTime" type="text" class="input-regist" /></li>\
+                    <li class="back" style="display:none;">\
+						<strong style="width:380px;">Take off time:</strong>\
+						<select id="backHour">\
+							<option value="0">--Please choose--</option>\
+							{each hourArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="backMinute">\
+							<option value="0">--Please choose--</option>\
+							{each minuteArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="backTime" type="hidden" class="input-regist" />\
+					</li>\
                     <li class="back" style="display:none;">\
 						<strong style="width:380px;">Whether need airport drop-off service:</strong>\
 						<input name="traffic.send" type="radio" value="1" />Yes\
@@ -214,7 +246,6 @@
 			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: <a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></font>\
                 	</div>\
-                  	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
             	</div>\
 			</div></form>'
 	);
@@ -222,7 +253,7 @@
 	template.compile('regist_other',
 		'<form id="regist_other"><div class="content-regist">\
 			<input type="hidden" name="other.uid" value="">\
-                <h4>Commercial activities</h4>\
+                <h4>Commercial activities &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</h4>\
                 <div class="content">\
 					<font>* It should be paid special attention to that the closing time point of commercial activities module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your commercial activities information offline after the system being closed. The deadline of modifying commercial activities information offline is 18:00, December 20th.</font>\
                     <ol>\
@@ -311,20 +342,20 @@
 							</select><input type="hidden" name="other.playBack">\
 						</li>\
 						<div class="tips">\
-							*17日高尔夫比赛结束后，事务局会各安排一辆车辆分别前往东莞嘉华酒店、深圳宝安机场和广州白云机场，请您根据自身需求，选择乘坐\
+							*After the match, affairs division will arrange vehicles to transfer you from Guanlan Lake Club Olazabal Course to Dongguan Jiahua Hotel, Shenzhen Bao’an International airport, Guangzhou Baiyun International airport, and you can choose to use according to your own requirements\
 						</div>\
                   	</div>\
                		</ol>\
 					<div class="tips"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
-                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">Submit</a></div>\
         		</div>\
 			</div>\
-		</form>'
+		</form>\
+		<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="traffic_other" class="save" index="submit">Submit</a></div>'
 	);
 	
 	template.compile('manage_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4><span style="float:left">Personal information</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">Delete</a></div></h4>\
+            <h4><span style="float:left">Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
             <div style="display:none;" class="content">\
 				<span>Distinguished sir/ madam, how are you!<br />Welcome to attend 2014 National Dealers Convention of FAW Toyota. Please successively fill in each part of information related to this activity.</span>\
 	            <font style="padding-left:250px;">【mandatory】</font>\
@@ -394,7 +425,6 @@
                     <li><strong>Mobile phone number:</strong><input name="user.contactPhone" value="{userType.users[index].contactPhone}" type="text" class="input-regist" /></li>\
                     <li><strong>E-mail:</strong><input name="user.contactEmail" value="{userType.users[index].contactEmail}" type="text" class="input-regist" /></li>\
                 </ul>\
-			{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
             </div>\
         </div></form>'
 	);
@@ -402,7 +432,10 @@
 	template.compile('manage_hotel',
 		'<form id="regist_hotel"><div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="{userType.users[index].id}">\
-            <h4><span style="float:left">Hotel arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">Delete</a></div></h4>\
+            <h4>\
+				<span style="float:left">Hotel arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</span>\
+				<div class="operate-message"><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div>\
+			</h4>\
 	            <div style="display:none;" class="content">\
 					{if userType.type == 2}\
 					<font>* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
@@ -444,15 +477,16 @@
 			            <font style="padding-left:36px; width:100%">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
 			            <font style="padding-left:36px; width:100%">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
 		            </div>\
-			{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
-	        </div>\
-	    </div></form>'
+		        </div>\
+		    </div>\
+		</form>\
+		{if compare1()}<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="user_hotel" class="save" index="update">Submit</a></div>{/if}'
 	);
 	
 	template.compile('manage_traffic',
 		'<form id="regist_traffic"><div class="content-regist">\
 			<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">Transfer arrangement</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">Delete</a></div></h4>\
+                <h4><span style="float:left">Transfer arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
                 <div style="display:none;" class="content">\
 					<font style="font-size:12px;">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.<br/>* It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
 					<div class="tips">\
@@ -490,7 +524,23 @@
 					</li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Flight number:</strong><input name="traffic.departureFlight" value="{userType.users[index].traffic.departureFlight}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Date of arrival:</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Time of arrival:</strong><input name="arrivalTime" type="text" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
+						<strong style="width:380px;">Time of arrival:</strong>\
+						<select id="arrivalHour">\
+							<option value="0">--Please choose--</option>\
+							{each hourArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.arrivalDate $value 0}>{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="arrivalMinute">\
+							<option value="0">--Please choose--</option>\
+							{each minuteArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.arrivalDate $value 1}>{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="arrivalTime" type="hidden" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" />\
+					</li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Whether need airport pick-up service:</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>Yes<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>No</li>\
                     <li style="margin-top:20px;"><strong style="width:380px;">* Means of transportation to return:</strong>\
 						<select index="traffic." id="backTrafficTool">\
@@ -517,7 +567,23 @@
 					</li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Flight number:</strong><input name="traffic.backFlight" value="{userType.users[index].traffic.backFlight}" type="text" class="input-regist  {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Date of arrival:</strong><input name="backDate" value="{dateFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Take off time:</strong><input name="backTime" value="{timeFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}>\
+						<strong style="width:380px;">Take off time:</strong>\
+						<select id="backHour">\
+							<option value="0">--Please choose--</option>\
+							{each hourArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.backDate $value 0}>{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="backMinute">\
+							<option value="0">--Please choose--</option>\
+							{each minuteArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.backDate $value 1}>{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="backTime" value="{timeFormat userType.users[index].traffic.backDate}" type="hidden" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" />\
+					</li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Whether need airport drop-off service:</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>Yes<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>No</li>\
                    	</ol>\
 					<div class="tips">\
@@ -525,15 +591,15 @@
 			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: <a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></font>\
 			    	</div>\
-			{if compare2()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
-            </div>\
-        </div></form>'
+	            </div>\
+	        </div>\
+		</form>'
 	);
 	
 	template.compile('manage_other',
 		'<form id="regist_other"><div class="content-regist">\
 			<input type="hidden" name="other.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">Commercial activities</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">Unfold</a><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">Delete</a></div></h4>\
+                <h4><span style="float:left">Commercial activities &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
                 <div style="display:none;" class="content">\
 					<font>* It should be paid special attention to that the closing time point of commercial activities module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your commercial activities information offline after the system being closed. The deadline of modifying commercial activities information offline is 18:00, December 20th.</font>\
                     <ol>\
@@ -623,7 +689,7 @@
 				      		</select><input type="hidden" name="other.playBack" value="{userType.users[index].other.playBack}">\
 				      	</li>\
 						<div class="tips">\
-							*17日高尔夫比赛结束后，事务局会各安排一辆车辆分别前往东莞嘉华酒店、深圳宝安机场和广州白云机场，请您根据自身需求，选择乘坐\
+							*After the match, affairs division will arrange vehicles to transfer you from Guanlan Lake Club Olazabal Course to Dongguan Jiahua Hotel, Shenzhen Bao’an International airport, Guangzhou Baiyun International airport, and you can choose to use according to your own requirements\
 						</div>\
                   	</div>\
                    	</ol>\
@@ -631,7 +697,8 @@
 					{if compare2() }<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
             	</div>\
 			</div>\
-		</form>'
+		</form>\
+		{if compare2()}<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="traffic_other" class="save" index="update">Submit</a></div>{/if}'
 	);
 	template.compile('notice',
 		'<div class="content">\

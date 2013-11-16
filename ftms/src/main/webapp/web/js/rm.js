@@ -1,5 +1,4 @@
-$(function(){
-	
+window.onload = function(){
 	setTimeout(function(){
 		$('head').append($('<link id="easybug" href="/web/css/easybug.css" rel="stylesheet" type="text/css" />'));
 		easyDialog.open({
@@ -11,25 +10,48 @@ $(function(){
 		});
 		$('#easybug').remove();
 	},1000);
+};
+
+$(function(){
 	
-	$('body').delegate('.confirm','click',function(){
-		var uid = $(this).attr('index');
-		if(uid == null || uid == ''){
-			alert(tipArr[lang].infoLack);
+	$('body').delegate('#arrivalHour,#arrivalMinute','change',function(){
+		var ah = $('#arrivalHour').val();
+		var am = $('#arrivalMinute').val();
+		if(ah != '0' && am != '0'){
+			$('input[name="arrivalTime"]').val(ah+':'+am);
 		}else{
-			$.post(
-				'/web/user_confirmSubmit',
-				{uid:uid,lang:lang},
-				function(data){
-					if(data.status == 0){
-						alert(tipArr[lang].infoLack);
-					}else{
-						location.href = 'messageManage.html';
-					}
-				}
-			);
+			$('input[name="arrivalTime"]').val(0);
 		}
 	});
+	
+	$('body').delegate('#backHour,#backMinute','change',function(){
+		var bh = $('#backHour').val();
+		var bm = $('#backMinute').val();
+		if(bh != '0' && bm != '0'){
+			$('input[name="backTime"]').val(bh+':'+bm);
+		}else{
+			$('input[name="backTime"]').val(0);
+		}
+	});
+	
+//	$('body').delegate('.confirm','click',function(){
+//		var uid = $(this).attr('index');
+//		if(uid == null || uid == ''){
+//			alert(tipArr[lang].infoLack);
+//		}else{
+//			$.post(
+//				'/web/user_confirmSubmit',
+//				{uid:uid,lang:lang},
+//				function(data){
+//					if(data.status == 0){
+//						alert(tipArr[lang].infoLack);
+//					}else{
+//						location.href = 'messageManage.html';
+//					}
+//				}
+//			);
+//		}
+//	});
 	
 	//展开收起功能
 	$('body').delegate('.reviwe','click',function(){
@@ -196,18 +218,18 @@ $(function(){
 	});
 	
 	//基本信息保存功能
-	$('body').delegate('#regist_basic .save','click',function(){
+	$('body').delegate('#user_hotel','click',function(){
 		var method = $(this).attr('index');
 		var name = $(this).attr('name');
-		if(verify('#regist_basic')){
+		if(verify('#regist_basic') && verify('#regist_hotel')){
 			$.post(
 				'/web/user_saveUser',
-				$('#regist_basic').serialize()+'&method='+method+'&lang='+lang,
+				$('#regist_basic').serialize()+'&'+$('#regist_hotel').serialize()+'&method='+method+'&lang='+lang+'&page='+pageName,
 				function(data){
 					// console.log(data);
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
-						if(method == 'submit' && name == null){
+						if(method == 'submit' && pageName == 'regist'){
 							getMessage(0);
 						}else{
 							getMessage(name);
@@ -220,52 +242,55 @@ $(function(){
 		}
 	});
 	
-	//酒店信息保存功能
-	$('body').delegate('#regist_hotel .save','click',function(){
-		if($('input[name="hotel.uid"]').val() == '' || $('input[name="hotel.uid"]').val() == 0){
-			alert(tipArr[lang].userLack);
-			return false;
-		}
-		var method = $(this).attr('index');
-		var name = $(this).attr('name');
-		if(verify('#regist_hotel')){
-			$.post(
-				'/web/hotel_saveHotel',
-				$('#regist_hotel').serialize()+'&method='+method+'&lang='+lang,
-				function(data){
-					if(data.status == 1){
-						alert(tipArr[lang].saveSuccess);
-						if(method == 'submit' && name == null){
-							getMessage(0);
-						}else{
-							getMessage(name);
-						}
-					}
-				}
-			);
-		}else{
-			alert(tipArr[lang].infoLack);
-		}
-	});
+//	//酒店信息保存功能
+//	$('body').delegate('#regist_hotel .save','click',function(){
+//		if($('input[name="hotel.uid"]').val() == '' || $('input[name="hotel.uid"]').val() == 0){
+//			alert(tipArr[lang].userLack);
+//			return false;
+//		}
+//		var method = $(this).attr('index');
+//		var name = $(this).attr('name');
+//		if(verify('#regist_hotel')){
+//			$.post(
+//				'/web/hotel_saveHotel',
+//				$('#regist_hotel').serialize()+'&method='+method+'&lang='+lang,
+//				function(data){
+//					if(data.status == 1){
+//						alert(tipArr[lang].saveSuccess);
+//						if(method == 'submit' && name == null){
+//							getMessage(0);
+//						}else{
+//							getMessage(name);
+//						}
+//					}
+//				}
+//			);
+//		}else{
+//			alert(tipArr[lang].infoLack);
+//		}
+//	});
 	
 	//交通信息保存功能
-	$('body').delegate('#regist_traffic .save','click',function(){
+	$('body').delegate('#traffic_other','click',function(){
 		if($('input[name="traffic.uid"]').val() == '' || $('input[name="traffic.uid"]').val() == 0){
 			alert(tipArr[lang].userLack);
 			return false;
 		}
 		var method = $(this).attr('index');
 		var name = $(this).attr('name');
-		// console.log(verify('#regist_traffic'));
-		if(verify('#regist_traffic')){
+		var bigId = '';
+		if(pageName == 'regist'){
+			bigId = $('input[name="user.uid"]').val();
+		}
+		if(verify('#regist_traffic') && verify('#regist_other')){
 			$.post(
 				'/web/traffic_saveTraffic',
-				$('#regist_traffic').serialize()+'&method='+method+'&lang='+lang,
+				$('#regist_traffic').serialize()+'&'+$('#regist_other').serialize()+'&method='+method+'&lang='+lang+'&bigId='+bigId,
 				function(data){
 					if(data.status == 1){
 						alert(tipArr[lang].saveSuccess);
-						if(method == 'submit' && name == null){
-							getMessage(0);
+						if(method == 'submit' && pageName == 'regist'){
+							location.href = 'messageManage.html';
 						}else{
 							getMessage(name);
 						}
@@ -277,34 +302,34 @@ $(function(){
 		}
 	});
 	
-	//其他信息保存功能
-	$('body').delegate('#regist_other .save','click',function(){
-		if($('input[name="other.uid"]').val() == '' || $('input[name="other.uid"]').val() == 0){
-			alert(tipArr[lang].userLack);
-			return false;
-		}
-		var method = $(this).attr('index');
-		var name = $(this).attr('name');
-		// console.log(verify('#regist_other'));
-		if(verify('#regist_other')){
-			$.post(
-				'/web/other_saveOther',
-				$('#regist_other').serialize()+'&method='+method+'&lang='+lang,
-				function(data){
-					if(data.status == 1){
-						alert(tipArr[lang].saveSuccess);
-						if(method == 'submit' && name == null){
-							getMessage(0);
-						}else{
-							getMessage(name);
-						}
-					}
-				}
-			);
-		}else{
-			alert(tipArr[lang].infoLack);
-		}
-	});
+//	//其他信息保存功能
+//	$('body').delegate('#regist_other .save','click',function(){
+//		if($('input[name="other.uid"]').val() == '' || $('input[name="other.uid"]').val() == 0){
+//			alert(tipArr[lang].userLack);
+//			return false;
+//		}
+//		var method = $(this).attr('index');
+//		var name = $(this).attr('name');
+//		// console.log(verify('#regist_other'));
+//		if(verify('#regist_other')){
+//			$.post(
+//				'/web/other_saveOther',
+//				$('#regist_other').serialize()+'&method='+method+'&lang='+lang,
+//				function(data){
+//					if(data.status == 1){
+//						alert(tipArr[lang].saveSuccess);
+//						if(method == 'submit' && name == null){
+//							getMessage(0);
+//						}else{
+//							getMessage(name);
+//						}
+//					}
+//				}
+//			);
+//		}else{
+//			alert(tipArr[lang].infoLack);
+//		}
+//	});
 	
 	//是否指定同住
 	$('body').delegate('input[name="hotel.isWith"]','click',function(){
@@ -381,9 +406,10 @@ function verify(str){
 
 //删除信息
 function deleteInfo(index,name){
+	var bigId = $('input[name="user.uid"]').val();
 	$.post(
 		'/web/'+index[0]+'_delete',
-		{id:index[1]},
+		{id:index[1],bigId:bigId},
 		function(data){
 //				console.log(data);
 			if(data.status == 1){
@@ -402,11 +428,15 @@ function getMessage(index){
 		'/web/user_gainUserType',
 		{page:pageName,lang:lang},
 		function(data){
+//			console.log(data);
 			setTypeName(data);
 			window.data = data;
 			window.data.index = index;
 			$('#tagContent'+(index != 0 ? 0 : 1)).children().remove();
 //			console.log(window.data.userType.users.length,index);
+//			if(){
+//				
+//			}
 			if(pageName == 'regist'){
 				if(window.data.userType.registered == 1){
 					$('#tagContent'+index).html(tipArr[lang].registered);
@@ -419,7 +449,6 @@ function getMessage(index){
 					$('#tagContent'+index).html(tipArr[lang].unregistered);
 					$('#tags').hide();
 				}else{
-					$('#tags').show();
 					//标签渲染
 					tags();
 					render();
@@ -438,8 +467,10 @@ function render(){
 	var user = window.data.userType.users[window.data.index];
 	var uid = (user == null ? "" :user.id);
 	$('#tagContent'+window.data.index).children().remove();
+	window.data.hourArr = hourArr;
+	window.data.minuteArr = minuteArr;
 	if(user == null){
-		if(compare1()){
+		if(compare1(window.data.systemDate)){
 			$('#tagContent'+window.data.index).append($(template.render('regist_basic',window.data)));			
 		}else{
 			$('#tagContent'+window.data.index).text(tipArr[lang].functionClose);
@@ -473,6 +504,16 @@ function render(){
 	$('#tagContent'+window.data.index).append($(template.render('notice',info)));
 	$('.save').attr('name',window.data.index);
 	$('.remove').attr('name',window.data.index);
+	if(!compare1(window.data.systemDate)){
+		$('#regist_basic input,#regist_hotel input').attr('disabled','disabled');
+		$('#regist_basic select,#regist_hotel select').attr('disabled','disabled');
+		$('#regist_basic .remove,#regist_hotel .remove').remove();
+	}
+	if(!compare2(window.data.systemDate)){
+		$('#regist_traffic input,#regist_other input').attr('disabled','disabled');
+		$('#regist_traffic select,#regist_other select').attr('disabled','disabled');
+		$('#regist_traffic .remove,#regist_other .remove').remove();
+	}
 };
 
 //标签渲染
@@ -480,12 +521,12 @@ function tags(){
 	$('#tags li:gt(0)').remove();
 	var tagContent1 = '<li index="1"><a href="javascript:void(0)"></a></li>';
 	var addContent = '<li index="1"><a href="javascript:void(0)">'+tipArr[lang].add+'</a></li>';
-	if(window.data.userType.users.length == 1){
+	if(window.data.userType.registered == 1 && window.data.userType.users.length != 2){
 		$('#tags a').text(userTypeArr[lang][window.data.userType.type-1]+"1");
 		if(window.data.userType.type == 2){
 			$('#tags').append($(addContent));
 		}
-	}else if(window.data.userType.users.length == 2){
+	}else if(window.data.userType.users.length == 2 && window.data.userType.registered == 1){
 		$('#tags').append($(tagContent1));
 		$('#tags li').each(function(index,el){
 			$(this).children('a:eq(0)').text(userTypeArr[lang][window.data.userType.type-1]+(index+1));
@@ -494,6 +535,7 @@ function tags(){
 	$('#tags li').removeClass('selectTag');
 	$('#tags li').eq(window.data.index).addClass('selectTag');
 	$('#tags li').show();
+	$('#tags').show();
 };
 
 //时期时间控件初始化
@@ -546,21 +588,16 @@ function dateInit(type){
 			       $('[name="backDate"]').datepicker("option","minDate",dateText);
 			    }
 		});
-		$('[name="arrivalTime"]').timepicker();
 		$('[name="backDate"]').datepicker({
 			onSelect:function(dateText,inst){
 		        $('[name="arrivalDate"]').datepicker("option","maxDate",dateText);
 		    }
 		});
-		$('[name="backTime"]').timepicker();
-		
 	}else{
 		$('[name="hotel.inDate"]').datepicker(startDate);
 		$('[name="hotel.outDate"]').datepicker(endDate);
 		$('[name="arrivalDate"]').datepicker(startDate);
-		$('[name="arrivalTime"]').timepicker();
 		$('[name="backDate"]').datepicker(endDate);
-		$('[name="backTime"]').datetimepicker();
 	}
 };
 
@@ -638,16 +675,17 @@ function validateImage(obj) {
 };
 
 //个人和酒店
-function compare1(){
-	return compDate("2013/11/28");
+function compare1(currentDate){
+	return compDate("2013/11/29",currentDate);
 };
 //交通和游览
-function compare2(){
-	return compDate("2013/12/10");
+function compare2(currentDate){
+	return compDate("2013/12/11",currentDate);
 }
 //日期比较
-function compDate(b){
-	var dateA = new Date();
+function compDate(b,currentDate){
+	var a = currentDate.replace('T' ,' ').replace(/-/g,"/");
+	var dateA = new Date(a);
 	var dateB = new Date(b);
 	if(isNaN(dateA) || isNaN(dateB)){
 		return null;

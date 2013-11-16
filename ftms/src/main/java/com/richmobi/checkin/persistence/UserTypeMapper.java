@@ -55,5 +55,5 @@ public interface UserTypeMapper {
 	* @return void
 	* @throws
 	 */
-	void regist(String id);
+	void regist(UserType userType);
 }

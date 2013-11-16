@@ -37,8 +37,11 @@ public class UserTypeServiceImpl implements UserTypeService {
 	}
 
 	@Override
-	public void regist(String id) {
-		userTypeMapper.regist(id);
+	public void regist(String id,int registered) {
+		UserType ut = new UserType();
+		ut.setId(id);
+		ut.setRegistered(registered);
+		userTypeMapper.regist(ut);
 	}
 
 }

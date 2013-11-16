@@ -3,7 +3,7 @@ $(function(){
 });
 
 function getRegist(){
-	if(compare1()){
+//	if(compare1()){
 //		//初始化
 //		$.post(
 //			'/web/user_gainUserType',
@@ -27,7 +27,7 @@ function getRegist(){
 //			}
 //		);
 		getMessage(0);
-	}else{
-		$('#tagContent0').text(tipArr[lang].functionClose);
-	}
+//	}else{
+//		$('#tagContent0').text(tipArr[lang].functionClose);
+//	}
 }

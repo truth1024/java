@@ -79,7 +79,6 @@
                     <li><strong>手机号：</strong><input name="user.contactPhone" type="text" class="input-regist" /></li>\
                     <li><strong>电子邮箱：</strong><input name="user.contactEmail" type="text" class="input-regist" /></li>\
                 </ul>\
-				<div class="operate"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
             </div>\
         </div></form>'
 	);
@@ -125,10 +124,10 @@
 							</tr>\
 						</table>\
 	            	</div>\
-	              	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
 	        	</div>\
 			</div>\
-		</form>'
+		</form>\
+		<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="user_hotel" class="save" index="submit">提交</a></div>'
 	);
 	
 	template.compile('regist_traffic',
@@ -169,7 +168,23 @@
 					</li>\
                     <li class="depar" style="display:none;"><strong>航班号：</strong><input name="traffic.departureFlight" type="text" class="input-regist" /></li>\
                     <li class="depar" style="display:none;"><strong>抵达日期：</strong><input name="arrivalDate" type="text" class="input-regist" /></li>\
-                    <li class="depar" style="display:none;"><strong>抵达时间：</strong><input name="arrivalTime" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;">\
+						<strong>抵达时间：</strong>\
+						<select id="arrivalHour">\
+							<option value="0">--请选择--</option>\
+							{each hourArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="arrivalMinute">\
+							<option value="0">--请选择--</option>\
+							{each minuteArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="arrivalTime" type="hidden" class="input-regist" />\
+					</li>\
                     <li class="depar" style="display:none;"><strong>是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" />是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
                     <li>\
 						<strong>* 返程交通方式：</strong>\
@@ -194,7 +209,23 @@
 					</li>\
                     <li class="back" style="display:none;"><strong>航班号：</strong><input name="traffic.backFlight" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;"><strong>返程日期：</strong><input name="backDate" type="text" class="input-regist" /></li>\
-                    <li class="back" style="display:none;"><strong>航班起飞时间：</strong><input name="backTime" type="text" class="input-regist" /></li>\
+                    <li class="back" style="display:none;">\
+						<strong>航班起飞时间：</strong>\
+						<select id="backHour">\
+							<option value="0">--请选择--</option>\
+							{each hourArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="backMinute">\
+							<option value="0">--请选择--</option>\
+							{each minuteArr}\
+								<option value="{$value}">{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="backTime" type="hidden" class="input-regist" />\
+					</li>\
                     <li class="back" style="display:none;"><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" />是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
                    	</ol>\
                    	<div class="tips">\
@@ -210,7 +241,6 @@
 							</tr>\
 						</table>\
                 	</div>\
-                  	<div class="operate"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
             	</div>\
 			</div>\
 		</form>'
@@ -317,15 +347,15 @@
 							</tr>\
 						</table>\
 					</div>\
-                  	<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="submit">提交</a></div>\
             	</div>\
 			</div>\
-		</form>'
+		</form>\
+		<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="traffic_other" class="save" index="submit">提交</a></div>'
 	);
 	
 	template.compile('manage_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4><span style="float:left">个人信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a></div></h4>\
+            <h4><span style="float:left">个人信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
             <div style="display:none;" class="content">\
                 <font style="padding-left:100px;">注：标“*”为必填项</font>\
                 <ul>\
@@ -397,7 +427,6 @@
                     <li><strong>手机号：</strong><input name="user.contactPhone" value="{userType.users[index].contactPhone}" type="text" class="input-regist" /></li>\
                     <li><strong>电子邮箱：</strong><input name="user.contactEmail" value="{userType.users[index].contactEmail}" type="text" class="input-regist" /></li>\
                 </ul>\
-				{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
             </div>\
         </div></form>'
 	);
@@ -406,7 +435,7 @@
 		'<form id="regist_hotel">\
 			<div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="{userType.users[index].id}">\
-            <h4><span style="float:left">酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">删除</a></div></h4>\
+            <h4><span style="float:left">酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
 	            <div style="display:none;" class="content">\
 					{if userType.type == 2}\
 					<font>* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
@@ -457,17 +486,17 @@
 							</tr>\
 						</table>\
 	            	</div>\
-					{if compare1()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
 				</div>\
 			</div>\
-		</form>'
+		</form>\
+		{if compare1()}<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="user_hotel" class="save" index="update">提交</a></div>{/if}'
 	);
 	
 	template.compile('manage_traffic',
 		'<form id="regist_traffic">\
 			<div class="content-regist">\
 				<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">交通安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">删除</a></div></h4>\
+                <h4><span style="float:left">交通安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
                 <div style="display:none;" class="content">\
 					<font style="font-size:12px;">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。<br/>* 需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
                     <div class="tips">\
@@ -505,7 +534,23 @@
 					</li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>航班号：</strong><input name="traffic.departureFlight" value="{userType.users[index].traffic.departureFlight}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>抵达日期：</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>抵达时间：</strong><input name="arrivalTime" type="text" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
+						<strong>抵达时间：</strong>\
+						<select id="arrivalHour">\
+							<option value="0">--请选择--</option>\
+							{each hourArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.arrivalDate $value 0}>{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="arrivalMinute">\
+							<option value="0">--请选择--</option>\
+							{each minuteArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.arrivalDate $value 1}>{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="arrivalTime" type="hidden" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" />\
+					</li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>否</li>\
                     <li>\
 						<strong>* 返程交通方式：</strong>\
@@ -533,7 +578,23 @@
 					</li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>航班号：</strong><input name="traffic.backFlight" value="{userType.users[index].traffic.backFlight}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>返程日期：</strong><input name="backDate" value="{dateFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>航班起飞时间：</strong><input name="backTime" value="{timeFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}>\
+						<strong>航班起飞时间：</strong>\
+						<select id="backHour">\
+							<option value="0">--请选择--</option>\
+							{each hourArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.backDate $value 0}>{$value}</option>\
+							{/each}\
+						</select>\
+						<em>:</em>\
+						<select class="float:left;" id="backMinute">\
+							<option value="0">--请选择--</option>\
+							{each minuteArr}\
+								<option value="{$value}" {timeFormat userType.users[index].traffic.backDate $value 1}>{$value}</option>\
+							{/each}\
+						</select>\
+						<input name="backTime" value="{timeFormat userType.users[index].traffic.backDate}" type="hidden" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" />\
+					</li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>否</li>\
                    	</ol>\
                    	<div class="tips">\
@@ -549,7 +610,6 @@
 							</tr>\
 						</table>\
                 	</div>\
-					{if compare2()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
             	</div>\
 			</div>\
 		</form>'
@@ -558,7 +618,7 @@
 	template.compile('manage_other',
 		'<form id="regist_other"><div class="content-regist">\
 			<input type="hidden" name="other.uid" value="{userType.users[index].id}">\
-                <h4><span style="float:left">商务活动&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</span><div class="operate-message"><a class="reviwe" href="javascript:void(0);">展开</a><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">删除</a></div></h4>\
+                <h4><span style="float:left">商务活动&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
                 <div style="display:none;" class="content">\
 					<font>* 需特别注意，商务活动板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改商务活动信息的截止时间为12月20日18:00。</font>\
                     <ol>\
@@ -656,10 +716,10 @@
 							</tr>\
 						</table>\
 					</div>\
-					{if compare2()}<div class="operate"><a href="javascript:void(0);" class="save" index="update">提交</a></div>{/if}\
             	</div>\
 			</div>\
-		</form>'
+		</form>\
+		{if compare2()}<div style="margin:20px 0;" class="operate"><a href="javascript:void(0);" id="traffic_other" class="save" index="update">提交</a></div>{/if}'
 	);
 	
 	template.compile('notice',
@@ -675,7 +735,6 @@
 				<font>3、系统关闭后，如有信息变动的情况，可以通过发送邮件或拨打热线电话的形式告知事务局</font><br/>\
 				事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn\
 	    	</div>\
-			{if pageName == "regist"}<div style="margin-top:40px;" class="operate"><a href="javascript:void(0);" class="confirm" index="{if user != null}{user.id}{/if}">确认提交</a></div>{/if}\
 		</div>'
 	);
 	

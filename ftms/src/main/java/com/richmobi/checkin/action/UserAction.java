@@ -1,6 +1,7 @@
 package com.richmobi.checkin.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.mail.SendFailedException;
@@ -12,8 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionContext;
 import com.richmobi.checkin.constant.Constant;
 import com.richmobi.checkin.domain.Arr;
+import com.richmobi.checkin.domain.Hotel;
 import com.richmobi.checkin.domain.User;
 import com.richmobi.checkin.domain.UserType;
+import com.richmobi.checkin.service.HotelService;
+import com.richmobi.checkin.service.OtherService;
 import com.richmobi.checkin.service.UserSevice;
 import com.richmobi.checkin.service.UserTypeService;
 
@@ -36,12 +40,17 @@ public class UserAction extends BasicAction {
 	private String telephoneNum;
 	private String contactTelephoneZone;
 	private String contactTelephoneNum;
+	private Hotel hotel;
+	private String bigId;
+	private Date systemDate;
 	
 	
 	@Autowired
 	UserTypeService userTypeService;
 	@Autowired
 	UserSevice userSevice;
+	@Autowired
+	HotelService hotelService;
 	
 	public String gainUserType(){
 		String id = ActionContext.getContext().getSession().get("token").toString();
@@ -102,28 +111,52 @@ public class UserAction extends BasicAction {
 				selectArr.add(Constant.playBackEnArr);
 			}
 		}
+		systemDate = new Date();
 		return "userType";
 	}
 
 	public String saveUser(){
 		log.debug("user : "+user);
+		log.debug(hotel);
+		//个人信息
 		user.setCertificate(user.getCertificate()+"#"+cerNum);
 		user.setTelephone(telephoneZone+"-"+telephoneNum);
 		if(StringUtils.isNotBlank(contactTelephoneZone) && StringUtils.isNotBlank(contactTelephoneNum)){
 			user.setContactTelephone(contactTelephoneZone+"-"+contactTelephoneNum);
 		}
-		if(method.equals("submit")){
-			userSevice.add(user);
-		}else{
-			userSevice.update(user);
-			uid = user.getId();
-			log.debug("uid : "+uid);
-			try {
-				sendEmail(uid);
-			} catch (SendFailedException e) {
-				e.printStackTrace();
-			}
-		}
+		//酒店信息
+		if(hotel.getIsStay() == 2){
+    		hotel.setInDate(null);
+    		hotel.setOutDate(null);
+    		hotel.setRoom(0);
+    	}
+    	if(hotel.getRoom() == 1 || hotel.getRoom() == 0){
+    		hotel.setIsWith(0);
+    	}
+    	if(hotel.getIsWith() == 2 || hotel.getIsWith() == 0){
+    		hotel.setWithName("");
+    		hotel.setWithShop("");
+    	}
+    	if(user.getId() <= 0){
+    		userSevice.add(user);
+    		log.debug("userID : "+user.getId());
+    		hotel.setUid(user.getId());
+    		hotelService.add(hotel);
+    	}else{
+    		userSevice.update(user);
+    		if(hotelService.getByUid(hotel.getUid()) == null){
+    			hotelService.add(hotel);
+    		}else{
+    			hotelService.update(hotel);
+    		}
+    	}
+    	try {
+    		if(page.equals("manage")){
+    			sendEmail(hotel.getUid());
+    		}
+    	} catch (SendFailedException e) {
+    		e.printStackTrace();
+    	}
 		status = 1;
 		return "saveUser";
 	}
@@ -132,7 +165,7 @@ public class UserAction extends BasicAction {
 		String id = ActionContext.getContext().getSession().get("token").toString();
 		try {
 			if(sendEmail(uid)){
-				userTypeService.regist(id);
+//				userTypeService.regist(id);
 				status = 1;
 			}
 		} catch (SendFailedException e) {
@@ -142,7 +175,11 @@ public class UserAction extends BasicAction {
 	}
 	
 	public String delete(){
+		log.debug("bigId : "+bigId);
 		userSevice.delete(id);
+		if(userTypeService.getById(bigId).getUsers().size() == 0){
+			userTypeService.regist(bigId, 0);
+		}
 		status = 1;
 		return "delete";
 	}
@@ -230,5 +267,23 @@ public class UserAction extends BasicAction {
 	}
 	public void setContactTelephoneNum(String contactTelephoneNum) {
 		this.contactTelephoneNum = contactTelephoneNum;
+	}
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+	public String getBigId() {
+		return bigId;
+	}
+	public void setBigId(String bigId) {
+		this.bigId = bigId;
+	}
+	public Date getSystemDate() {
+		return systemDate;
+	}
+	public void setSystemDate(Date systemDate) {
+		this.systemDate = systemDate;
 	}
 }

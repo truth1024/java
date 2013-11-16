@@ -56,5 +56,5 @@ public interface UserTypeService {
 	* @return void
 	* @throws
 	 */
-	void regist(String id);
+	void regist(String id,int registered);
 }

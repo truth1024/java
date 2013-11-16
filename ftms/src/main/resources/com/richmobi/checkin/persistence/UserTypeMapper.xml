@@ -43,11 +43,11 @@
 			id = #{id}
 	</update>
 	
-	<update id="regist" parameterType="string">
+	<update id="regist" parameterType="userType">
 		UPDATE 
 			t_user_type
 		SET
-			registered = 1
+			registered = #{registered}
 		WHERE
 			id = #{id}
 	</update>
