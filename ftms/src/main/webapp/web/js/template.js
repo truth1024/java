@@ -90,7 +90,7 @@
             <h4>酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</h4>\
 	            <div class="content">\
 					{if userType.type == 2}\
-					<font>* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
+					<font class="remark">* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
 					{/if}\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div></li>\
@@ -135,7 +135,7 @@
 			<input type="hidden" name="traffic.uid" value="">\
                 <h4>交通安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</h4>\
                 <div class="content">\
-                    <font style="font-size:12px;">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。<br/>* 需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
+                    <font class="remark">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
                     <div class="tips">\
                         <font style="font-size:12px;float:none;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
                         <font style="padding-left:72px;float:none;">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
@@ -251,7 +251,7 @@
 			<input type="hidden" name="other.uid" value="">\
                 <h4>商务活动&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</h4>\
                 <div class="content">\
-					<font>* 需特别注意，商务活动板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改商务活动信息的截止时间为12月20日18:00。</font>\
+					<font class="remark">* 需特别注意，商务活动板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改商务活动信息的截止时间为12月20日18:00。</font>\
                     <ol>\
                     <li><strong style="width:230px;">* 是否参加1月16日上午大区会议：</strong><div class="left"><input name="other.meeting" type="radio" value="1" />是<input name="other.meeting" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*原则上大区会议为总经理参加 </div></li>\
                     <li><strong style="width:230px;">* 请选择您要参加的商务活动线路：</strong>\
@@ -438,7 +438,7 @@
             <h4><span style="float:left">酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
 	            <div style="display:none;" class="content">\
 					{if userType.type == 2}\
-					<font>* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
+					<font class="remark">* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
 					{/if}\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong>\
@@ -498,7 +498,7 @@
 				<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
                 <h4><span style="float:left">交通安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
                 <div style="display:none;" class="content">\
-					<font style="font-size:12px;">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。<br/>* 需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
+					<font class="remark">* 您从居住地往返广州/深圳的交通需要自行安排，请您提前安排行程，并于12月10日前将您确认后的交通安排信息填入下方。需特别注意，交通板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改交通信息的截止时间为12月20日18:00。</font>\
                     <div class="tips">\
                         <font style="font-size:12px;float:none;"><strong>接送机服务：</strong>深圳宝安国际机场/广州新白云国际机场</font>\
                         <font style="padding-left:72px;float:none;">接机时间：15日 09:00-22:00 16日 09:00-12:00</font>\
@@ -620,7 +620,7 @@
 			<input type="hidden" name="other.uid" value="{userType.users[index].id}">\
                 <h4><span style="float:left">商务活动&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：12月10日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
                 <div style="display:none;" class="content">\
-					<font>* 需特别注意，商务活动板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改商务活动信息的截止时间为12月20日18:00。</font>\
+					<font class="remark">* 需特别注意，商务活动板块网站系统的关闭时间是12月10日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的交通信息，线下更改商务活动信息的截止时间为12月20日18:00。</font>\
                     <ol>\
                     <li><strong style="width:230px;">* 是否参加1月16日上午大区会议：</strong>\
 						<div class="left">\

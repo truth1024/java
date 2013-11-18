@@ -1,5 +1,5 @@
 /* CSS Document */
-#travel li a.travel { color:#fff; background:url(../images/bg_menu_hover.png) repeat-x; height:35px; border-radius:2px; text-align:center; line-height:35px; font-size:16px; display:block; float:left; padding:0 25px; margin:1px 14px;}
+#travel li a.travel {background:url(../images/bg_menu_hover.png) repeat-x; border-radius:2px;}
 
 .content { width:860px; margin:20px auto; padding-bottom:30px; display:block; zoom:1; overflow:hidden; border-radius:4px; display:block; border:1px solid #b3b3b3}
 .content h4 { font-size:14px; display:block; height:34px; line-height:34px; background:url(../images/bg_content_title.png) repeat-x; color:#fff; text-align:center;}

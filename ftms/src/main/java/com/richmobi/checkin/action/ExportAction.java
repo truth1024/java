@@ -144,6 +144,8 @@ public class ExportAction extends BasicAction {
             cell.setCellValue("经销商简称");
             cell = row.createCell(50);
             cell.setCellValue("球赛后去向");
+            cell = row.createCell(51);
+            cell.setCellValue("唯一识别码");
             List<UserType> userTypes = userTypeService.getAll();
             for(UserType ut : userTypes){
             	for(int i=0;i<ut.getUsers().size();i++){
@@ -152,6 +154,8 @@ public class ExportAction extends BasicAction {
             		Hotel h = u.getHotel();
             		Other o = u.getOther();
             		row = sheet.createRow((int) u.getId());
+            		cell = row.createCell(51);
+            		cell.setCellValue(Utils.idToString(u.getId()));
             		cell = row.createCell(0);
             		cell.setCellValue((ut.getType() == 1 ? "内部人员" : "经销商"));
             		cell = row.createCell(1);

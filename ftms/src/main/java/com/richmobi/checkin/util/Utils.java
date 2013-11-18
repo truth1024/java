@@ -179,4 +179,14 @@ public class Utils {
 	public static String touristBack(int touristBack,String lang){
 		return (touristBack == 0 ? "" : (lang == null ? Constant.touristBackArr[touristBack-1].getName() : Constant.touristBackEnArr[touristBack-1].getName()));
 	}
+	public static String idToString(long id){
+		StringBuilder prefix = new StringBuilder("FTMS");
+		String idStr = String.valueOf(id);
+		int idLen = idStr.length();
+		for(int i = 0;i<(4-idLen);i++){
+			prefix.append("0");
+		}
+		prefix.append(idStr);
+		return prefix.toString();
+	}
 }

@@ -7,6 +7,7 @@
 </style>
 <link href="css/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
 <link href="css/jquery-ui-timepicker-addon.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/web/js/iepngfix_tilebg.js"></script>
 <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="js/jquery.ui.datepicker-zh-CN.js"></script>
@@ -45,11 +46,43 @@ $(document).ready(function(){
 //     	maxDate:'2014-01-18'
     });
 });
-</script>
-</head>
-<body>
-	开始日期：<input type="text" id="start">
 
-结束日期：<input type="text" id="end">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+    var arVersion = navigator.appVersion.split("MSIE")
+    var version = parseFloat(arVersion[1])
+    if ((version >= 5.5) && (document.body.filters))
+    {
+       for(var j=0; j<document.images.length; j++)
+       {
+          var img = document.images[j]
+          var imgName = img.src.toUpperCase()
+          if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+          {
+             var imgID = (img.id) ? "id='" + img.id + "' " : ""
+             var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+             var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+             var imgStyle = "display:inline-block;" + img.style.cssText
+             if (img.align == "left") imgStyle = "float:left;" + imgStyle
+             if (img.align == "right") imgStyle = "float:right;" + imgStyle
+             if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+             var strNewHTML = "<span " + imgID + imgClass + imgTitle
+             + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+             + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+             + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>"
+             img.outerHTML = strNewHTML
+             j = j-1
+          }
+       }
+    }    
+}
+window.attachEvent("onload", correctPNG); 
+</script>
+<style type="text/css">
+/*  img, div, input { behavior: url("/web/cn/iepngfix.htc") } */
+ </style>
+</head>
+<body style="background:red;">
+	<img class="png" src="/web/images/icon_schedule.png" align="absmiddle" />
 </body>
 </html>

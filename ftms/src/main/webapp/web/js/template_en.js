@@ -22,8 +22,7 @@
 			'<form id="regist_basic"><div class="content-regist">\
             <h4>Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</h4>\
             <div class="content">\
-                <span>Distinguished sir/ madam, how are you!<br />Welcome to attend 2014 National Dealers Convention of FAW Toyota. Please successively fill in each part of information related to this activity.</span>\
-                <font style="padding-left:250px;">【mandatory】</font>\
+                <font style="padding-left:250px;">Item maked with "*" are mandatory.</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
                     <li><strong>* Name:</strong><input name="user.name" type="text" class="input-regist required" /></li>\
@@ -93,7 +92,7 @@
             <h4>Hotel arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</h4>\
 	            <div class="content">\
 					{if userType.type == 2}\
-					<font>* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
+					<font class="remark">* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
 					{/if}\
 	                <ol>\
 	                <li><strong style="width:350px;">* Whether check into the hotel appointed by FTMS:</strong>\
@@ -126,11 +125,11 @@
 	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">Name of roommate:</strong><input name="hotel.withName" type="text" class="input-regist isStay" /></li>\
 	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
-	               	<div class="tips">\
+	               	<div class="tips remark_en">\
 		                <font style="font-size:12px;"><strong>Remarks:</strong></font>\
-						<font style="padding-left:36px; width:100%">1. According to the requirements of the hotel, normal check in time is after 14:00 of the day; if you arrive in advance you can have a rest in the resting area in the hall and the affairs division will help you checking in as soon as possible.</font>\
-			            <font style="padding-left:36px; width:100%">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
-			            <font style="padding-left:36px; width:100%">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
+						<font style="padding-left:36px;float:none;">1. According to the requirements of the hotel, normal check in time is after 14:00 of the day; if you arrive in advance you can have a rest in the resting area in the hall and the affairs division will help you checking in as soon as possible.</font>\
+			            <font style="padding-left:36px;float:none;">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
+			            <font style="padding-left:36px;float:none;">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
 	            	</div>\
 		        </div>\
 		    </div>\
@@ -143,14 +142,14 @@
 			<input type="hidden" name="traffic.uid" value="">\
                 <h4>Transfer arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</h4>\
                 <div class="content">\
-                    <font style="font-size:12px;">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.<br/>* It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
+                    <font class="remark">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
                     <div class="tips">\
 						<font style="font-size:12px;float:none;"><strong>Airport pick-up and drop-off service:</strong></font>\
 						<font style="padding-left:72px;float:none;">Shenzhen Bao’an International Airport/Guangzhou New Baiyun International Airport</font>\
 			            <font style="padding-left:72px;float:none;">Airport pick-up time: January 15th 09:00-22:00, 16th 09:00-12:00</font>\
 			            <font style="padding-left:72px;float:none;">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
-						<font style="padding-left:72px;float:none;">those who participate TMCI conference: Guangzhou ** Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
-						<font style="padding-left:72px;float:none;">those who participate GTMC conference: Guangzhou ** Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
+						<font style="padding-left:72px;float:none;">those who participate TMCI conference: Guangzhou Nanfeng Langhao Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
+						<font style="padding-left:72px;float:none;">those who participate GTMC conference: Guangzhou Nanfeng Langhao Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
 					</div>\
                     <ol>\
                     <li><strong style="width:380px;">* Means of transportation to come:</strong><select index="traffic." id="departureTrafficTool">\
@@ -161,7 +160,7 @@
 				          </select><input name="departureTrafficTool" type="text" class="input-eat" style="display:none;"/><input class="required" type="hidden" name="traffic.departureTrafficTool">\
 					</li>\
 					<div class="tips">\
-			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests participating TMCI conference at Guangzhou ** Hotel, TMCI affairs division will arrange vehicles to transfer you from Guangzhou ** Hotel to Dongguan Jiahua Hotel, and you can choose to use according to your own requirements.</font>\
+			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests participating TMCI conference at Guangzhou Nanfeng Langhao Hotel, TMCI affairs division will arrange vehicles to transfer you from Guangzhou Nanfeng Langhao Hotel to Dongguan Jiahua Hotel, and you can choose to use according to your own requirements.</font>\
 			    	</div>\
                     <li class="depar" style="display:none;"><strong style="width:380px;">Departure city:</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
 					<li class="depar" style="display:none;">\
@@ -241,7 +240,7 @@
 						<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>No\
 					</li>\
                    	</ol>\
-                   	<div class="tips">\
+                   	<div class="tips remark_en">\
 						<font style="font-size:12px;"><strong>Remarks:</strong></font>\
 			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: <a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></font>\
@@ -255,7 +254,7 @@
 			<input type="hidden" name="other.uid" value="">\
                 <h4>Commercial activities &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</h4>\
                 <div class="content">\
-					<font>* It should be paid special attention to that the closing time point of commercial activities module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your commercial activities information offline after the system being closed. The deadline of modifying commercial activities information offline is 18:00, December 20th.</font>\
+					<font class="remark">* It should be paid special attention to that the closing time point of commercial activities module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your commercial activities information offline after the system being closed. The deadline of modifying commercial activities information offline is 18:00, December 20th.</font>\
                     <ol>\
                     <li>\
 						<strong style="width:380px;">* Whether attend the regional conference on January 16th:</strong>\
@@ -346,7 +345,7 @@
 						</div>\
                   	</div>\
                		</ol>\
-					<div class="tips"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
+					<div class="tips remark_en"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
         		</div>\
 			</div>\
 		</form>\
@@ -357,8 +356,7 @@
 			'<form id="regist_basic"><div class="content-regist">\
             <h4><span style="float:left">Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
             <div style="display:none;" class="content">\
-				<span>Distinguished sir/ madam, how are you!<br />Welcome to attend 2014 National Dealers Convention of FAW Toyota. Please successively fill in each part of information related to this activity.</span>\
-	            <font style="padding-left:250px;">【mandatory】</font>\
+	            <font style="padding-left:250px;">Item maked with "*" are mandatory.</font>\
                 <ul>\
 					<input type="hidden" class="required" name="user.uid" value="{userType.id}">\
 					<input type="hidden" class="required" name="user.id" value="{userType.users[index].id}">\
@@ -438,7 +436,7 @@
 			</h4>\
 	            <div style="display:none;" class="content">\
 					{if userType.type == 2}\
-					<font>* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
+					<font class="remark">* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
 					{/if}\
 	                <ol>\
 	                <li><strong style="width:350px;">* Whether check into the hotel appointed by FTMS:</strong>\
@@ -471,11 +469,11 @@
 	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">Name of roommate:</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist isStay" /></li>\
 	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
-	               	<div class="tips">\
+	               	<div class="tips remark_en">\
 						<font style="font-size:12px;"><strong>Remarks:</strong></font>\
-						<font style="padding-left:36px; width:100%">1. According to the requirements of the hotel, normal check in time is after 14:00 of the day; if you arrive in advance you can have a rest in the resting area in the hall and the affairs division will help you checking in as soon as possible.</font>\
-			            <font style="padding-left:36px; width:100%">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
-			            <font style="padding-left:36px; width:100%">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
+						<font style="padding-left:36px;float:none;">1. According to the requirements of the hotel, normal check in time is after 14:00 of the day; if you arrive in advance you can have a rest in the resting area in the hall and the affairs division will help you checking in as soon as possible.</font>\
+			            <font style="padding-left:36px;float:none;">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
+			            <font style="padding-left:36px;float:none;">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
 		            </div>\
 		        </div>\
 		    </div>\
@@ -488,14 +486,14 @@
 			<input type="hidden" name="traffic.uid" value="{userType.users[index].id}">\
                 <h4><span style="float:left">Transfer arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="traffic#{userType.users[index].traffic.id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
                 <div style="display:none;" class="content">\
-					<font style="font-size:12px;">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.<br/>* It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
+					<font class="remark">*Please note that the round-trip traffic from your residence place to Guangzhou/Shenzhen needs to be arranged by yourself, so please arrange your journey in advance, and fill your affirmed traffic arrangement information into below before December 20th.It should be paid special attention to that the closing time point of traffci module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your traffic information offline after the system being closed; the deadline of modifying traffic information offline is 18:00, December 20th.</font>\
 					<div class="tips">\
 						<font style="font-size:12px;float:none;"><strong>Airport pick-up and drop-off service:</strong></font>\
 						<font style="padding-left:72px; float:none;">Shenzhen Bao’an International Airport/Guangzhou New Baiyun International Airport</font>\
 			            <font style="padding-left:72px; float:none;">Airport pick-up time: January 15th 09:00-22:00, 16th 09:00-12:00</font>\
 			            <font style="padding-left:72px; float:none;">Airport drop-off time: January 17th 07:00-18:00, 18th 07:00-18:00</font>\
-						<font style="padding-left:72px; float:none;">those who participate TMCI conference: Guangzhou ** Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
-						<font style="padding-left:72px; float:none;">those who participate GTMC conference: Guangzhou ** Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
+						<font style="padding-left:72px; float:none;">those who participate TMCI conference: Guangzhou Nanfeng Langhao Hotel to Dongguan Jiahua Hotel, 16th , time: to be confirmed</font>\
+						<font style="padding-left:72px; float:none;">those who participate GTMC conference: Guangzhou Nanfeng Langhao Hotel to Shenzhen Shekou Ferry Teminal, 17th , time: to be confirmed</font>\
 					</div>\
                     <ol>\
                     <li><strong style="width:380px;">* Means of transportation to come:</strong>\
@@ -509,7 +507,7 @@
 						<input class="required" type="hidden" value="{userType.users[index].traffic.departureTrafficTool}" name="traffic.departureTrafficTool">\
 					</li>\
 					<div class="tips">\
-			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests participating TMCI conference at Guangzhou ** Hotel, TMCI affairs division will arrange vehicles to transfer you from Guangzhou ** Hotel to Dongguan Jiahua Hotel, and you can choose to use according to your own requirements.</font>\
+			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests participating TMCI conference at Guangzhou Nanfeng Langhao Hotel, TMCI affairs division will arrange vehicles to transfer you from Guangzhou Nanfeng Langhao Hotel to Dongguan Jiahua Hotel, and you can choose to use according to your own requirements.</font>\
 			    	</div>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Departure city:</strong><input name="traffic.departureCity1" value="{userType.users[index].traffic.departureCity1}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
 					<li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
@@ -586,7 +584,7 @@
 					</li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Whether need airport drop-off service:</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>Yes<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>No</li>\
                    	</ol>\
-					<div class="tips">\
+					<div class="tips remark_en">\
 						<font style="font-size:12px;"><strong>Remarks:</strong></font>\
 			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: <a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></font>\
@@ -601,7 +599,7 @@
 			<input type="hidden" name="other.uid" value="{userType.users[index].id}">\
                 <h4><span style="float:left">Commercial activities &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, December 10th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="other#{userType.users[index].other.id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
                 <div style="display:none;" class="content">\
-					<font>* It should be paid special attention to that the closing time point of commercial activities module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your commercial activities information offline after the system being closed. The deadline of modifying commercial activities information offline is 18:00, December 20th.</font>\
+					<font class="remark">* It should be paid special attention to that the closing time point of commercial activities module website system is 24:00, December 10th, and you can e-mail or call the affairs division to modify your commercial activities information offline after the system being closed. The deadline of modifying commercial activities information offline is 18:00, December 20th.</font>\
                     <ol>\
                     <li><strong style="width:380px;">* Whether attend the regional conference on January 16th:</strong>\
 						<div class="left">\
@@ -680,7 +678,7 @@
 								{/each}\
 			          		</select><input type="hidden" name="other.playSize" value="{userType.users[index].other.playSize}">\
                       	</li>\
-						<li><strong style="width:380px;">赛后您的行程如何安排：</strong>\
+						<li><strong style="width:380px;">Means of transportation after match:</strong>\
 							<select index="other." id="playBack">\
 				        		<option value="0">--请选择--</option>\
 								{each selectArr[11] as n}\
@@ -693,7 +691,7 @@
 						</div>\
                   	</div>\
                    	</ol>\
-					<div class="tips"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
+					<div class="tips remark_en"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
 					{if compare2() }<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
             	</div>\
 			</div>\

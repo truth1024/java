@@ -22,7 +22,7 @@ A:link {
 	COLOR: #333; TEXT-DECORATION: none;
 }
 A:visited {
-	COLOR: #333; TEXT-DECORATION: none;
+ TEXT-DECORATION: none;
 }
 A:hover {
 	COLOR: #333; TEXT-DECORATION: none
@@ -46,10 +46,10 @@ li { list-style:none}
 .copyright { clear:both; display:block; line-height:20px; font-size:12px; text-align:center; padding-bottom:20px;}
 
 .menu { width:960px; margin:0 auto; background:url(../images/bg_menu.png) repeat-x; height:38px; border-radius:4px;}
-.menu ul { margin:0; padding:0 0 0 40px;}
+.menu ul { margin:0; padding:0 0 0 20px;}
 .menu ul li { list-style:none; float:left; display:block;}
-.menu ul li a { color:#fff; height:35px; text-align:center; line-height:35px; font-size:16px; display:block; float:left; padding:0 25px; margin:1px 14px;}
-.menu ul li a:hover { color:#fff; background:url(../images/bg_menu_hover.png) repeat-x; height:35px; border-radius:2px; text-align:center; line-height:35px; font-size:16px; display:block; float:left; padding:0 25px; margin:1px 14px;}
+.menu ul li a { color:#fff; height:35px; text-align:center; line-height:35px; font-size:16px; display：inline; float:left; padding:0 25px; margin:1px 14px;}
+.menu ul li a:hover {color:#fff; background:url(../images/bg_menu_hover.png) repeat-x; height:35px; border-radius:2px; text-align:center; line-height:35px; font-size:16px; float:left; padding:0 25px; margin:1px 14px;}
 .menu ul li a img { margin:8px 8px 8px 0px;}
 
 .userMessage { clear:both; display:block; zoom:1; overflow:hidden; width:900px; margin:0 auto; padding:10px 0 20px;}

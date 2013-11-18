@@ -1,19 +1,59 @@
-window.onload = function(){
-	setTimeout(function(){
-		$('head').append($('<link id="easybug" href="/web/css/easybug.css" rel="stylesheet" type="text/css" />'));
-		easyDialog.open({
-			container : {
-			    content : ''
-			  },
-			  autoClose : 1,
-			  overlay : false
-		});
-		$('#easybug').remove();
-	},1000);
+//window.onload = function(){
+//	setTimeout(function(){
+//		$('head').append($('<link id="easybug" href="/web/css/easybug.css" rel="stylesheet" type="text/css" />'));
+//		easyDialog.open({
+//			container : {
+//			    content : ''
+//			  },
+//			  autoClose : 1,
+//			  overlay : false
+//		});
+//		$('#easybug').remove();
+//	},1000);
+//};
+
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+    var arVersion = navigator.appVersion.split("MSIE")
+    var version = parseFloat(arVersion[1])
+    if ((version >= 5.5) && (document.body.filters))
+    {
+       for(var j=0; j<document.images.length; j++)
+       {
+          var img = document.images[j]
+          var imgName = img.src.toUpperCase();
+          if (img.src.indexOf('icon') > -1)
+          {
+             var imgID = (img.id) ? "id='" + img.id + "' " : ""
+             var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+             var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+             var imgStyle = "display:inline-block;margin:8px 8px 8px 0;float:left;" + img.style.cssText
+             if (img.align == "left") imgStyle = "float:left;" + imgStyle
+             if (img.align == "right") imgStyle = "float:right;" + imgStyle
+             if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+             var strNewHTML = "<span " + imgID + imgClass + imgTitle
+             + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+             + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+             + "(src=\'" + img.src + "\', sizingMethod='image');\"></span>"
+             img.outerHTML = strNewHTML
+             j = j-1
+          }
+       }
+    }    
 };
 
+//if(window.ActiveXObject){
+//	if($.browser.version == '6.0'){
+//		window.attachEvent("onload", correctPNG);
+//	}
+//}
+
 $(function(){
-	
+	if(window.ActiveXObject){
+		if($.browser.version == '6.0'){
+			correctPNG();
+		}
+	}
 	$('body').delegate('#arrivalHour,#arrivalMinute','change',function(){
 		var ah = $('#arrivalHour').val();
 		var am = $('#arrivalMinute').val();
@@ -550,7 +590,6 @@ function dateInit(type){
 		yearRange: "1900:2014"
 	});
 	
-	
 	//其他信息日期初始化
 	$('input[name="other.effectiveDate"]').datepicker({
 		changeYear:true,
@@ -586,12 +625,16 @@ function dateInit(type){
 		$('[name="arrivalDate"]').datepicker({
 			onSelect:function(dateText,inst){
 			       $('[name="backDate"]').datepicker("option","minDate",dateText);
-			    }
+			    },
+			minDate:'2014-01-01',
+			maxDate:'2014-01-31'
 		});
 		$('[name="backDate"]').datepicker({
 			onSelect:function(dateText,inst){
 		        $('[name="arrivalDate"]').datepicker("option","maxDate",dateText);
-		    }
+		    },
+		    minDate:'2014-01-01',
+			maxDate:'2014-01-31'
 		});
 	}else{
 		$('[name="hotel.inDate"]').datepicker(startDate);
