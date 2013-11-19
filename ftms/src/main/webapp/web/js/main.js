@@ -21,6 +21,10 @@ $.ajaxSetup({
 
 $(function(){
 	$('#changeLang').click(function(){
+		if(location.pathname == '/'){
+			location.href = '/web/en/login.html';
+			return false;
+		}
 		if(lang == 'cn'){
 			location.href = location.pathname.replace('/cn/','/en/');
 		}else{
@@ -73,7 +77,8 @@ var tipArr = {
 			'deleteCancel' : '取消',
 			'deleteTip' : '删除提示',
 			'login' : '登录',
-			'logining' : '登录中...'
+			'logining' : '登录中...',
+			'notice' : '注意事项'
 		},
 		'en' : {
 			'registered' : 'Registered already, for any review and modification, please click into <a style="color:blue;" href="messageManage.html">Information Management</a>  interface to operate.',
@@ -95,7 +100,8 @@ var tipArr = {
 			'deleteCancel' : 'Cancel',
 			'deleteTip' : 'Delete tip',
 			'login' : 'Login',
-			'logining' : 'Login...'
+			'logining' : 'Login...',
+			'notice' : 'Announcements'
 		}
 };
 

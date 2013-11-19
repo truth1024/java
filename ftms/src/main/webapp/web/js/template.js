@@ -19,7 +19,7 @@
 	
 	template.compile('regist_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4>个人信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*板块关闭时间：11月28日24:00</h4>\
+            <h4>个人信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*板块关闭时间：11月30日24:00</h4>\
             <div class="content">\
                 <font style="padding-left:100px;">注：标“*”为必填项</font>\
                 <ul>\
@@ -87,11 +87,9 @@
 		'<form id="regist_hotel">\
 			<div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="">\
-            <h4>酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</h4>\
+            <h4>酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月30日24:00</h4>\
 	            <div class="content">\
-					{if userType.type == 2}\
-					<font class="remark">* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
-					{/if}\
+					<font class="remark">* 酒店板块网站系统的关闭时间是11月30日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div></li>\
 	                <li class="stayHide" style="display:none;"><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
@@ -110,7 +108,7 @@
 	               	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
 							<tr>\
-								<td rowspan="3" style="width:40px;font-weight:bold;">备注：</td>\
+								<td rowspan="3" style="width:50px;font-weight:bold;">备注：</td>\
 								<td>1、</td>\
 								<td>按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</td>\
 							</tr>\
@@ -231,13 +229,13 @@
                    	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
 							<tr>\
-								<td rowspan="2" style="width:40px;font-weight:bold;">备注：</td>\
+								<td rowspan="2" style="width:50px;font-weight:bold;">备注：</td>\
 								<td>1、</td>\
 								<td>事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</td>\
 							</tr>\
 							<tr>\
 								<td>2、</td>\
-								<td>系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：<a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></td>\
+								<td>系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，事务局联系方式：电话：400-110-3271；邮箱：<a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></td>\
 							</tr>\
 						</table>\
                 	</div>\
@@ -342,7 +340,7 @@
 					<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
 							<tr>\
-								<td style="width:40px;font-weight:bold;">备注：</td>\
+								<td style="width:50px;font-weight:bold;">备注：</td>\
 								<td>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</td>\
 							</tr>\
 						</table>\
@@ -355,7 +353,7 @@
 	
 	template.compile('manage_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4><span style="float:left">个人信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
+            <h4><span style="float:left">个人信息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月30日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
             <div style="display:none;" class="content">\
                 <font style="padding-left:100px;">注：标“*”为必填项</font>\
                 <ul>\
@@ -435,11 +433,9 @@
 		'<form id="regist_hotel">\
 			<div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="{userType.users[index].id}">\
-            <h4><span style="float:left">酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月28日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
+            <h4><span style="float:left">酒店安排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *板块关闭时间：11月30日24:00</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">删除</a><a class="reviwe" href="javascript:void(0);">展开</a></div></h4>\
 	            <div style="display:none;" class="content">\
-					{if userType.type == 2}\
-					<font class="remark">* 酒店板块网站系统的关闭时间是11月28日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
-					{/if}\
+					<font class="remark">* 酒店板块网站系统的关闭时间是11月30日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong>\
 						<div class="left">\
@@ -472,7 +468,7 @@
 	               	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
 							<tr>\
-								<td rowspan="3" style="width:40px;font-weight:bold;">备注：</td>\
+								<td rowspan="3" style="width:50px;font-weight:bold;">备注：</td>\
 								<td>1、</td>\
 								<td>按照酒店要求正常入住时间为当日14:00之后，如您提前到达，可在大堂休息区先行休息，事务局会尽快协助您办理入住</td>\
 							</tr>\
@@ -600,13 +596,13 @@
                    	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
 							<tr>\
-								<td rowspan="2" style="width:40px;font-weight:bold;">备注：</td>\
+								<td rowspan="2" style="width:50px;font-weight:bold;">备注：</td>\
 								<td>1、</td>\
 								<td>事务局会负责安排深圳、广州机场的接送机服务，选择其它交通方式的贵宾（如火车、汽车等），需自行安排前往酒店的交通</td>\
 							</tr>\
 							<tr>\
 								<td>2、</td>\
-								<td>系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，会务组联系方式：电话：400-110-3271；邮箱：<a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></td>\
+								<td>系统关闭后，如有信息更改，请主动联系活动事务局进行信息更新，事务局联系方式：电话：400-110-3271；邮箱：<a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></td>\
 							</tr>\
 						</table>\
                 	</div>\
@@ -711,7 +707,7 @@
 					<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
 							<tr>\
-								<td style="width:40px;font-weight:bold;">备注：</td>\
+								<td style="width:50px;font-weight:bold;">备注：</td>\
 								<td>商务活动每条线路的成行人数至少为35人，若实际报名人数低于35人，则事务局保留根据实际情况调整您的商务活动线路的权利</td>\
 							</tr>\
 						</table>\
@@ -725,15 +721,29 @@
 	template.compile('notice',
 		'<div class="content">\
 			<div class="tips-attention">\
-	            <font style="font-size:12px;"><strong>注意事项：</strong></font>\
-	            <font style="font-size:12px;">1、注册信息只可提交一次，信息提交后可通过点击“信息管理”进入账户信息管理界面进行信息修改</font>\
-	            <font style="font-size:12px;">2、报名系统分阶段关闭，系统一旦关闭，网页上将无法进行信息修改，请各位贵宾在填写时务必确保信息的准确性，如系统关闭后仍有信息变动，请主动联系大会事务局告知变动内容</font>\
-	            <font style="font-size:12px;">3、大会报名和进行期间，事务局会通过短信和邮件提示和告知大会各项安排以及统一发放温馨提示，届时请您注意查收</font><br/>\
-				<font><strong>系统各板块关闭时间点提示：</strong></font>\
-				<font>1、个人信息和酒店信息板块的系统功能将于2013年11月28日24点关闭，系统关闭后您将无法通过网站更改您的个人信息，请提前了解，并务必在此之前完成相关信息的提交</font>\
-				<font>2、交通信息和游览信息板块的系统功能将于2013年12月10日24点关闭，系统关闭后您将无法通过网站更改您的个人信息，请提前了解，并务必在此之前完成相关信息的提交</font>\
-				<font>3、系统关闭后，如有信息变动的情况，可以通过发送邮件或拨打热线电话的形式告知事务局</font><br/>\
-				事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn\
+				<table border="0" cellspacing="0" cellpadding="0" width="100%" style="font-weight:bold;">\
+					<tr style="height:30px;">\
+						<td colspan="3"><strong>注意事项：</strong></td>\
+					</tr>\
+					<tr>\
+						<td>1</td><td>、</td><td>DLR大会会议现场不允许使用任何摄影摄像设备</td>\
+					</tr>\
+					<tr>\
+						<td>2</td><td>、</td><td style="height:45px;">大会报名和进行期间，事务局会通过短信和邮件提示和告知大会各项安排以及统一发放温馨提示，届时请您注意查收</td>\
+					</tr>\
+					<tr>\
+						<td>3</td><td>、</td><td>请勿携带家属</td>\
+					</tr>\
+					<tr>\
+						<td>4</td><td>、</td><td>参加香港线路的嘉宾请自行办理港澳通行证并确保持有在有效期内的赴香港签注</td>\
+					</tr>\
+					<tr>\
+						<td>5</td><td>、</td><td>网站报名系统分阶段关闭，个人信息和酒店安排版块系统关闭时间为11月30日24:00，交通安排和商务活动版块系统关闭时间为12月10日24:00。系统关闭后，如您仍有信息变动，可通过拨打热线电话或发送邮件的方式联系事务局线下更改您的信息，需注意，线下更新信息的截止时间为12月20日18:00，之后事务局将不再受理您的任何信息变更需求，因此请务必在规定时间内及时、准确地提交您的信息。</td>\
+					</tr>\
+					<tr style="height:50px;">\
+						<td colspan="3" style="vertical-align:bottom;">事务局联系方式  活动热线：440-110-3271  活动邮箱：service@ftmsdlr.cn</td>\
+					</tr>\
+				</table>\
 	    	</div>\
 		</div>'
 	);

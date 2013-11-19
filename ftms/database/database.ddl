@@ -85,7 +85,7 @@ CREATE TABLE `t_traffic` (
   PRIMARY KEY (`id`),
   KEY `traffic_fk_u_id` (`u_id`),
   CONSTRAINT `traffic_fk_u_id` FOREIGN KEY (`u_id`) REFERENCES `t_user_info` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_traffic

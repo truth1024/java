@@ -20,7 +20,7 @@
 	
 	template.compile('regist_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4>Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</h4>\
+            <h4>Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 30th</h4>\
             <div class="content">\
                 <font style="padding-left:250px;">Item maked with "*" are mandatory.</font>\
                 <ul>\
@@ -89,11 +89,9 @@
 	template.compile('regist_hotel',
 		'<form id="regist_hotel"><div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="">\
-            <h4>Hotel arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</h4>\
+            <h4>Hotel arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 30th</h4>\
 	            <div class="content">\
-					{if userType.type == 2}\
-					<font class="remark">* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
-					{/if}\
+					<font class="remark">* The closing time point of hotel module website system is 24:00, November 30th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
 	                <ol>\
 	                <li><strong style="width:350px;">* Whether check into the hotel appointed by FTMS:</strong>\
 						<div class="left">\
@@ -126,7 +124,7 @@
 	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips remark_en">\
-		                <font style="font-size:12px;"><strong>Remarks:</strong></font>\
+		                <font><strong>Remarks:</strong></font>\
 						<font style="padding-left:36px;float:none;">1. According to the requirements of the hotel, normal check in time is after 14:00 of the day; if you arrive in advance you can have a rest in the resting area in the hall and the affairs division will help you checking in as soon as possible.</font>\
 			            <font style="padding-left:36px;float:none;">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
 			            <font style="padding-left:36px;float:none;">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
@@ -241,8 +239,8 @@
 					</li>\
                    	</ol>\
                    	<div class="tips remark_en">\
-						<font style="font-size:12px;"><strong>Remarks:</strong></font>\
-			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
+						<font><strong>Remarks:</strong></font>\
+			            <font>1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: <a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></font>\
                 	</div>\
             	</div>\
@@ -354,7 +352,7 @@
 	
 	template.compile('manage_basic',
 			'<form id="regist_basic"><div class="content-regist">\
-            <h4><span style="float:left">Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
+            <h4><span style="float:left">Personal information &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 30th</span><div class="operate-message"><a href="javascript:void(0);" class="remove" index="user#{userType.users[index].id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div></h4>\
             <div style="display:none;" class="content">\
 	            <font style="padding-left:250px;">Item maked with "*" are mandatory.</font>\
                 <ul>\
@@ -431,13 +429,11 @@
 		'<form id="regist_hotel"><div class="content-regist">\
 			<input type="hidden" name="hotel.uid" value="{userType.users[index].id}">\
             <h4>\
-				<span style="float:left">Hotel arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 28th</span>\
+				<span style="float:left">Hotel arrangement &nbsp;&nbsp;&nbsp;&nbsp; *This function will be switched off at 24:00, November 30th</span>\
 				<div class="operate-message"><a href="javascript:void(0);" class="remove" index="hotel#{userType.users[index].hotel.id}">Delete</a><a class="reviwe" href="javascript:void(0);">Unfold</a></div>\
 			</h4>\
 	            <div style="display:none;" class="content">\
-					{if userType.type == 2}\
-					<font class="remark">* The closing time point of hotel module website system is 24:00, November 28th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
-					{/if}\
+					<font class="remark">* The closing time point of hotel module website system is 24:00, November 30th, and you can e-mail or call the affairs division to modify your hotel information offline after the system being closed. It should be paid special attention to that the deadline of modifying hotel information offline is 18:00, December 20th, and the affairs division will make hotel reservation for your according to the hotel information you submitted in advance; in principle the room having been booked can’t be changed and the corresponding expenses should be paid along with checking in.</font>\
 	                <ol>\
 	                <li><strong style="width:350px;">* Whether check into the hotel appointed by FTMS:</strong>\
 						<div class="left">\
@@ -470,7 +466,7 @@
 	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips remark_en">\
-						<font style="font-size:12px;"><strong>Remarks:</strong></font>\
+						<font><strong>Remarks:</strong></font>\
 						<font style="padding-left:36px;float:none;">1. According to the requirements of the hotel, normal check in time is after 14:00 of the day; if you arrive in advance you can have a rest in the resting area in the hall and the affairs division will help you checking in as soon as possible.</font>\
 			            <font style="padding-left:36px;float:none;">2. The unified room reservation time of this convention is January 15th to 17th.</font>\
 			            <font style="padding-left:36px;float:none;">3. Please pay the accommodation expense by yourself at the registration department or reception desk.</font>\
@@ -585,8 +581,8 @@
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Whether need airport drop-off service:</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>Yes<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>No</li>\
                    	</ol>\
 					<div class="tips remark_en">\
-						<font style="font-size:12px;"><strong>Remarks:</strong></font>\
-			            <font style="font-size:12px;">1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
+						<font><strong>Remarks:</strong></font>\
+			            <font>1. Affairs division will be responsible to for arranging airport pick-up and drop-off service of Shenzhen and Guangzhou airport, and guests choosing other transportation means (such as train or cars) need to arrange the transfer to hotel by your own.</font>\
 			            <font style="display:block; width:100%">2. After the switching off of system, please proactively contact the affairs division for information update if there is any information change, contact the committee: telephone: 400-110-3271;e-mail: <a style="color:blue;" href="mailto:service@ftmsdlr.cn">service@ftmsdlr.cn</a></font>\
 			    	</div>\
 	            </div>\
@@ -701,17 +697,30 @@
 	template.compile('notice',
 		'<div class="content">\
 			<div class="tips-attention">\
-	            <font style="font-size:12px;"><strong>Announcements:</strong></font>\
-	            <font style="font-size:12px;">1. The registration information can be only submitted once, and after submitting you can click “Information Management” to enter into account information management interface to modify the information.</font>\
-	            <font style="font-size:12px;">2. The registration system will be switched off step by step, and you can’t modify information on webpage once the system is closed, so you distinguished guests please make sure to the accuracy of your information when you fill in, and please contact the affairs division proactively for the changes of information if there is any after the close of system.</font>\
-	            <font style="font-size:12px;">3. During the applying and proceed stages of the convention the affairs division will inform various arrangements and tips of the convention by short messages and e-mails, and please be attention to receive them at that time. </font><br/>\
-				<font><strong>Tips of closing time nodes of every module in the system:</strong></font>\
-				<font>1. System functions of personal information and hotel information module will be switched off at 24:00, November 28th, 2013, and you will can’t modify your personal information online after the system closing, so please know in advance and be sure to finish the submitting of relevant information before this time.</font>\
-				<font>2. System functions of traffic information and tour information module will be switched off at 24:00, December 10th, 2013, and you will can’t modify your personal information online after the system closing, so please know in advance and be sure to finish the submitting of relevant information before this time.</font>\
-				<font>3. Please inform the affairs division for the changes of information through phone call or e-mail if there is any information changes after the close of system.</font><br/>\
-				Contact information of the affairs division hotline: 440-110-3271 e-mail: service@ftmsdlr.cn\
+				<table border="0" cellspacing="0" cellpadding="0" width="100%">\
+					<tr>\
+						<td colspan="3"><strong>Announcements:</strong></td>\
+					</tr>\
+					<tr>\
+						<td>1</td><td>. </td><td>The DLR conference does not allow the use of any photography equipment.</td>\
+					</tr>\
+					<tr>\
+						<td>2</td><td>. </td><td>During the applying and proceed stages of the convention, the affairs division will inform various arrangements and tips of the convention by short messages and e-mail, and please be attention to receive them at that time.</td>\
+					</tr>\
+					<tr>\
+						<td>3</td><td>. </td><td>Please do not bring any family members.</td>\
+					</tr>\
+					<tr>\
+						<td>4</td><td>. </td><td>You distinguished guests who participate in Hongkong line, please apply for Valid Exit-Entry Permit (EEP) to HK / Macau by yourself, and make sure your visa label available.</td>\
+					</tr>\
+					<tr>\
+						<td>5</td><td>. </td><td>The website registration system will be switched off step by step. System functions of personal information and hotel information module will be switched off at 24:00, November 28th. System functions of traffic information and business activities information will be switched off at 24:00, December 10th.Please inform the affairs division for the changes of information through phone call or e-mail if there is any information changes after the close of the system. Please pay attention to the changes of information offline deadline. It will be end at 18:00, December 20th. After that, the affairs division proactively will not accept any of your information change’s requests. So please be sure to submit your information accurately and on time.</td>\
+					</tr>\
+					<tr>\
+						<td colspan="3" style="vertical-align:bottom;">Contact information of the affairs division hotline: 440-110-3271 e-mail: service@ftmsdlr.cn</td>\
+					</tr>\
+				</table>\
 	    	</div>\
-			{if pageName == "regist"}<div style="margin-top:40px;" class="operate"><a href="javascript:void(0);" class="confirm" index="{if user != null}{user.id}{/if}">Confirm</a></div>{/if}\
 		</div>'
 	);
 })();

@@ -317,26 +317,28 @@ $(function(){
 			return false;
 		}
 		var method = $(this).attr('index');
-		var name = $(this).attr('name');
+		var name = $(this).attr('name');		
 		var bigId = '';
 		if(pageName == 'regist'){
 			bigId = $('input[name="user.uid"]').val();
 		}
 		if(verify('#regist_traffic') && verify('#regist_other')){
-			$.post(
-				'/web/traffic_saveTraffic',
-				$('#regist_traffic').serialize()+'&'+$('#regist_other').serialize()+'&method='+method+'&lang='+lang+'&bigId='+bigId,
-				function(data){
-					if(data.status == 1){
-						alert(tipArr[lang].saveSuccess);
-						if(method == 'submit' && pageName == 'regist'){
-							location.href = 'messageManage.html';
-						}else{
-							getMessage(name);
-						}
+			if(pageName == 'regist'){
+				var noticeContent = template.render('notice',null);
+				easyDialog.open({
+					container:{
+						header:tipArr[lang].notice,
+						content:noticeContent,
+						yesFn : function dtnFn(){
+							submit2(method,name,bigId);
+							return true;
+						},
+						yesText : tipArr[lang].deleteConfirm
 					}
-				}
-			);
+				});
+			}else{
+				submit2(method,name,bigId);				
+			}
 		}else{
 			alert(tipArr[lang].infoLack);
 		}
@@ -422,6 +424,23 @@ $(function(){
 	});
 	
 });
+
+function submit2(method,name,bigId){
+	$.post(
+			'/web/traffic_saveTraffic',
+			$('#regist_traffic').serialize()+'&'+$('#regist_other').serialize()+'&method='+method+'&lang='+lang+'&bigId='+bigId,
+			function(data){
+				if(data.status == 1){
+					alert(tipArr[lang].saveSuccess);
+					if(method == 'submit' && pageName == 'regist'){
+						location.href = 'messageManage.html';
+					}else{
+						getMessage(name);
+					}
+				}
+			}
+		);
+};
 
 //放入隐藏域
 function inputValue(prefix,id){
@@ -719,11 +738,19 @@ function validateImage(obj) {
 
 //个人和酒店
 function compare1(currentDate){
-	return compDate("2013/11/29",currentDate);
+	var date = "2013/12/01";
+	if(window.data.userType.type == 1){
+		date = "2014/01/11";
+	}
+	return compDate(date,currentDate);
 };
 //交通和游览
 function compare2(currentDate){
-	return compDate("2013/12/11",currentDate);
+	var date = "2013/12/11";
+	if(window.data.userType.type == 1){
+		date = "2014/01/11";
+	}
+	return compDate(date,currentDate);
 }
 //日期比较
 function compDate(b,currentDate){
