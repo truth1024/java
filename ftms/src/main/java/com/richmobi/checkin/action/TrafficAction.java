@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.mail.SendFailedException;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -44,7 +45,9 @@ public class TrafficAction extends BasicAction {
 		//交通安排
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-ddHH:mm");
 		if(traffic.getDepartureTrafficTool().equals("1")){
-			traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));
+			if(StringUtils.isNotBlank(arrivalDate) && StringUtils.isNotBlank(arrivalTime)){				
+				traffic.setArrivalDate(format1.parse(arrivalDate+arrivalTime));
+			}
 		}else{
 			traffic.setPickUp(0);
 			traffic.setDepartureCity1("");
@@ -53,7 +56,9 @@ public class TrafficAction extends BasicAction {
 			traffic.setDepartureFlight("");
 		}
 		if(traffic.getBackTrafficTool().equals("1")){
-			traffic.setBackDate(format1.parse(backDate+backTime));			
+			if(StringUtils.isNotBlank(backDate) && StringUtils.isNotBlank(backTime)){
+				traffic.setBackDate(format1.parse(backDate+backTime));			
+			}
 		}else{
 			traffic.setSend(0);
 			traffic.setBackCity1("");

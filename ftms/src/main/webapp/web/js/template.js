@@ -92,18 +92,18 @@
 					<font class="remark">* 酒店板块网站系统的关闭时间是11月30日24:00，系统关闭后，您可通过发送邮件或拨打热线电话的方式联系事务局线下更改您的酒店信息。需特别注意，线下更改酒店信息的截止时间为12月20日18:00，事务局将根据您提交的酒店信息为您提前预定酒店房间，按照酒店要求，房间预定后，原则上不允许进行更改，且对应的房费需在办理入住时一并支付。</font>\
 	                <ol>\
 	                <li><strong>* 是否入住FTMS指定酒店：</strong><div class="left"><input class="required" name="hotel.isStay" type="radio" value="1" />是<input class="required" name="hotel.isStay" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div></li>\
-	                <li class="stayHide" style="display:none;"><strong>酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
-	                <li class="stayHide" style="display:none;"><strong>酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
-	                <li class="stayHide" style="display:none;"><strong>住宿类型：</strong><select index="hotel." id="room">\
+	                <li class="stayHide" style="display:none;"><strong>* 酒店入住日期：</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong>* 酒店离店日期：</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong>* 住宿类型：</strong><select index="hotel." id="room">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}">{n.name}</option>\
 						{/each}\
                       </select><input class="isStay" type="hidden" name="hotel.room">\
                     </li>\
-	                <li class="stayHide" style="display:none;"><strong>是否指定同住人：</strong><div class="left"><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div></li>\
-	                <li class="hide stayHide" style="display:none;"><strong>同住人姓名：</strong><input name="hotel.withName" type="text" class="input-regist isStay" /></li>\
-	                <li class="hide stayHide" style="display:none;"><strong>同住人经销店：</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong>* 是否指定同住人：</strong><div class="left"><input class="required" name="hotel.isWith" type="radio" value="1" />是<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>否</div><div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div></li>\
+	                <li class="hide stayHide" style="display:none;"><strong>* 同住人姓名：</strong><input name="hotel.withName" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" style="display:none;"><strong>* 同住人经销店：</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
@@ -154,9 +154,9 @@
 					<div class="tips">\
 			            <font style="font-size:12px;">* 16日在广州南峰朗豪酒店参加TMCI会议的嘉宾，TMCI事务局会统一安排车辆从广州南峰朗豪酒店送您至东莞嘉华酒店，请您根据自身需求，选择乘坐</font>\
 			    	</div>\
-                    <li class="depar" style="display:none;"><strong>出发城市：</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;"><strong>* 出发城市：</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
 					<li class="depar" style="display:none;">\
-					<strong>抵达城市：</strong>\
+					<strong>* 抵达城市：</strong>\
 					<select index="traffic." id="departureCity2">\
 			            <option value="0">--请选择--</option>\
 						{each selectArr[10] as n}\
@@ -164,10 +164,10 @@
 						{/each}\
 		          	</select><input type="hidden" name="traffic.departureCity2">\
 					</li>\
-                    <li class="depar" style="display:none;"><strong>航班号：</strong><input name="traffic.departureFlight" type="text" class="input-regist" /></li>\
-                    <li class="depar" style="display:none;"><strong>抵达日期：</strong><input name="arrivalDate" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;"><strong>* 航班号：</strong><input name="traffic.departureFlight" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;"><strong>* 抵达日期：</strong><input name="arrivalDate" type="text" class="input-regist" /></li>\
                     <li class="depar" style="display:none;">\
-						<strong>抵达时间：</strong>\
+						<strong>* 抵达时间：</strong>\
 						<select id="arrivalHour">\
 							<option value="0">--请选择--</option>\
 							{each hourArr}\
@@ -183,7 +183,7 @@
 						</select>\
 						<input name="arrivalTime" type="hidden" class="input-regist" />\
 					</li>\
-                    <li class="depar" style="display:none;"><strong>是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" />是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
+                    <li class="depar" style="display:none;"><strong>* 是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" />是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
                     <li>\
 						<strong>* 返程交通方式：</strong>\
 						<select index="traffic." id="backTrafficTool">\
@@ -197,7 +197,7 @@
 			            <font style="font-size:12px;">* 17日从酒店前往蛇口码头去往澳门参加GTMC会议的嘉宾，事务局会统一安排车辆从东莞嘉华酒店送您至深圳蛇口码头，请您根据自身需求，选择乘坐</font>\
 			    	</div>\
                     <li class="back" style="display:none;">\
-						<strong>出发城市：</strong>\
+						<strong>* 出发城市：</strong>\
 						<select index="traffic." id="backCity2">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[10] as n}\
@@ -205,10 +205,10 @@
 							{/each}\
 				      	</select><input type="hidden" name="traffic.backCity2">\
 					</li>\
-                    <li class="back" style="display:none;"><strong>航班号：</strong><input name="traffic.backFlight" type="text" class="input-regist" /></li>\
-                    <li class="back" style="display:none;"><strong>返程日期：</strong><input name="backDate" type="text" class="input-regist" /></li>\
+                    <li class="back" style="display:none;"><strong>* 航班号：</strong><input name="traffic.backFlight" type="text" class="input-regist" /></li>\
+                    <li class="back" style="display:none;"><strong>* 返程日期：</strong><input name="backDate" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;">\
-						<strong>航班起飞时间：</strong>\
+						<strong>* 航班起飞时间：</strong>\
 						<select id="backHour">\
 							<option value="0">--请选择--</option>\
 							{each hourArr}\
@@ -224,7 +224,7 @@
 						</select>\
 						<input name="backTime" type="hidden" class="input-regist" />\
 					</li>\
-                    <li class="back" style="display:none;"><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" />是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
+                    <li class="back" style="display:none;"><strong>* 是否需要送机：</strong><input name="traffic.send" type="radio" value="1" />是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>否</li>\
                    	</ol>\
                    	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
@@ -262,7 +262,7 @@
 					</li>\
                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">查看商务活动线路</a></li>\
                  	<li class="touristRouteB" style="display:none;">\
-						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
+						<strong style="width:230px;">* 您是否持有有效赴港证件：</strong>\
 						<input name="pass" type="radio" value="1" />是\
 						<input name="pass" type="radio" value="3" style="margin-left:20px;" checked/>正在办理中\
 					</li>\
@@ -279,44 +279,44 @@
                     <li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
                     <li class="touristRouteB" style="color:#b91414;display:none;">*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
 					<li class="hasPassHide" style="display:none;">\
-						<strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
+						<strong style="width:230px;">* 您的港澳通行证是否具有有效签注：</strong>\
 						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;"/><em>是</em>\
 						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" checked/><em>即将办理</em>\
 					</li>\
                     <div style="display:none"  class="showMessage">\
-	                    <li><strong style="width:230px;">您的港澳通行证的签注类型是：</strong>\
+	                    <li><strong style="width:230px;">* 您的港澳通行证的签注类型是：</strong>\
 	                        <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G签</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L签</em>\
 	                    </li>\
 	                    <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注类型</a></li>\
 	                    <li>\
-							<strong style="width:230px;">您的签注有效期至：</strong>\
+							<strong style="width:230px;">* 您的签注有效期至：</strong>\
 							<input name="other.effectiveDate" type="text" class="input-regist" />\
 	                    </li>\
 	                    <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注有效期</a></li>\
 	                    <li>\
-							<strong style="width:230px;">请上传您的港澳通行证首页扫描件：</strong>\
+							<strong style="width:230px;">* 请上传您的港澳通行证首页扫描件：</strong>\
 							<input name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 	                    </li>\
 	                    <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-首页扫描件）</li>\
 	                    <li>\
-							<strong style="width:230px;">请上传您的港澳通行证签注页扫描件：</strong>\
+							<strong style="width:230px;">* 请上传您的港澳通行证签注页扫描件：</strong>\
 							<input name="file" id="visaFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 	                    </li>\
 	                    <li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-签证页扫描件）</li>\
 					</div>\
 					<div style="display:none"  class="showMessage">\
-						<li>游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
+						<li>* 游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
 							<input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" checked/><em>是</em><br />\
 							<input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" /><em>否，我自行从香港离开</em><br />\
 							<input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" /><em>否，我自行从深圳离开</em>\
 						</li>\
 					</div>\
 					<div style="display:none;" class="showMessage">\
-						<li><strong style="width:230px;">打球差点：</strong><input name="other.playAlmost" type="text" class="input-regist" /></li>\
+						<li><strong style="width:230px;">* 打球差点：</strong><input name="other.playAlmost" type="text" class="input-regist" /></li>\
 						<li style="color:#b91414"><strong>&nbsp;</strong>*请准确提供您的差点证明, 我们将据此为您安排分组</li>\
-						<li><strong style="width:230px;">身高：</strong><input name="other.stature" type="text" class="input-regist" />CM</li>\
-						<li><strong style="width:230px;">服装号码：</strong>\
+						<li><strong style="width:230px;">* 身高：</strong><input name="other.stature" type="text" class="input-regist" />CM</li>\
+						<li><strong style="width:230px;">* 服装号码：</strong>\
 							<select index="other." id="playSize">\
 								<option value="0">--请选择--</option>\
 								{each selectArr[8] as n}\
@@ -324,7 +324,7 @@
 								{/each}\
 							</select><input type="hidden" name="other.playSize">\
 						</li>\
-						<li><strong style="width:230px;">赛后您的行程如何安排：</strong>\
+						<li><strong style="width:230px;">* 赛后您的行程如何安排：</strong>\
 							<select index="other." id="playBack">\
 								<option value="0">--请选择--</option>\
 								{each selectArr[11] as n}\
@@ -444,9 +444,9 @@
 						</div>\
 						<div style="padding-left:40px; float:left">*本次大会指定酒店：东莞嘉华酒店  <a href="javascript:void(0);" id="map">查看酒店地图</a></div>\
 					</li>\
-	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>酒店入住日期：</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>酒店离店日期：</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>住宿类型：</strong>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>* 酒店入住日期：</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>* 酒店离店日期：</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong>* 住宿类型：</strong>\
 						<select index="hotel." id="room">\
                         <option value="0">--请选择--</option>\
 						{each selectArr[4] as n}\
@@ -455,15 +455,15 @@
                       	</select><input class="isStay {if userType.users[index].hotel.isStay == 1}required{/if}" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
 	                <li class="stayHide" {if userType.users[index].hotel.room != 2}style="display:none;"{/if} >\
-						<strong>是否指定同住人：</strong>\
+						<strong>* 是否指定同住人：</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>是\
 							<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isWith != 1}checked{/if}/>否\
 						</div>\
 						<div style="padding-left:40px; float:left">如无指定同住人，将由大会事务局统一安排</div>\
 					</li>\
-	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人姓名：</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist isStay" /></li>\
-	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>同住人经销店：</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>* 同住人姓名：</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong>* 同住人经销店：</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
@@ -517,21 +517,21 @@
 					<div class="tips">\
 			            <font style="font-size:12px;">* 16日在广州南峰朗豪酒店参加TMCI会议的嘉宾，TMCI事务局会统一安排车辆从广州南峰朗豪酒店送您至东莞嘉华酒店，请您根据自身需求，选择乘坐</font>\
 			    	</div>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>出发城市：</strong><input name="traffic.departureCity1" value="{userType.users[index].traffic.departureCity1}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>* 出发城市：</strong><input name="traffic.departureCity1" value="{userType.users[index].traffic.departureCity1}" type="text" class="input-regist" /></li>\
 					<li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
-						<strong>抵达城市：</strong>\
+						<strong>* 抵达城市：</strong>\
 						<select index="traffic." id="departureCity2">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[10] as n}\
 				            <option value="{n.value}" {select userType.users[index].traffic.departureCity2 n.value}>{n.name}</option>\
 							{/each}\
 				        </select>\
-						<input type="hidden" {if userType.users[index].traffic.departureTrafficTool == 1}class="required"{/if} value="{userType.users[index].traffic.departureCity2}" name="traffic.departureCity2">\
+						<input type="hidden" class="{if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" value="{userType.users[index].traffic.departureCity2}" name="traffic.departureCity2">\
 					</li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>航班号：</strong><input name="traffic.departureFlight" value="{userType.users[index].traffic.departureFlight}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>抵达日期：</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>* 航班号：</strong><input name="traffic.departureFlight" value="{userType.users[index].traffic.departureFlight}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>* 抵达日期：</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
-						<strong>抵达时间：</strong>\
+						<strong>* 抵达时间：</strong>\
 						<select id="arrivalHour">\
 							<option value="0">--请选择--</option>\
 							{each hourArr}\
@@ -547,7 +547,7 @@
 						</select>\
 						<input name="arrivalTime" type="hidden" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" />\
 					</li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>否</li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong>* 是否需要接机：</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>是<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>否</li>\
                     <li>\
 						<strong>* 返程交通方式：</strong>\
 						<select index="traffic." id="backTrafficTool">\
@@ -563,19 +563,19 @@
 			            <font style="font-size:12px;">* 17日从酒店前往蛇口码头去往澳门参加GTMC会议的嘉宾，事务局会统一安排车辆从东莞嘉华酒店送您至深圳蛇口码头，请您根据自身需求，选择乘坐</font>\
 			    	</div>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}>\
-						<strong>出发城市：</strong>\
+						<strong>* 出发城市：</strong>\
 						<select index="traffic." id="backCity2">\
 				            <option value="0">--请选择--</option>\
 							{each selectArr[10] as n}\
 				            <option value="{n.value}" {select userType.users[index].traffic.backCity2 n.value}>{n.name}</option>\
 							{/each}\
 				        </select>\
-						<input type="hidden" {if userType.users[index].traffic.backTrafficTool == 1}class="required"{/if} value="{userType.users[index].traffic.backCity2}" name="traffic.backCity2">\
+						<input type="hidden" class="{if userType.users[index].traffic.backTrafficTool == 1}required{/if}" value="{userType.users[index].traffic.backCity2}" name="traffic.backCity2">\
 					</li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>航班号：</strong><input name="traffic.backFlight" value="{userType.users[index].traffic.backFlight}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>返程日期：</strong><input name="backDate" value="{dateFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>* 航班号：</strong><input name="traffic.backFlight" value="{userType.users[index].traffic.backFlight}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>* 返程日期：</strong><input name="backDate" value="{dateFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}>\
-						<strong>航班起飞时间：</strong>\
+						<strong>* 航班起飞时间：</strong>\
 						<select id="backHour">\
 							<option value="0">--请选择--</option>\
 							{each hourArr}\
@@ -591,7 +591,7 @@
 						</select>\
 						<input name="backTime" value="{timeFormat userType.users[index].traffic.backDate}" type="hidden" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" />\
 					</li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>是否需要送机：</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>否</li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong>* 是否需要送机：</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>是<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>否</li>\
                    	</ol>\
                    	<div class="tips">\
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">\
@@ -636,7 +636,7 @@
 					</li>\
                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">查看商务活动线路</a></li>\
 					<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
-						<strong style="width:230px;">您是否持有有效赴港证件：</strong>\
+						<strong style="width:230px;">* 您是否持有有效赴港证件：</strong>\
 						<input name="pass" type="radio" value="1" {if userType.users[index].other.hasPass == 1 || userType.users[index].other.hasPass == 2}checked{/if}/>是\
 						<input name="pass" type="radio" value="3" style="margin-left:20px;" {if userType.users[index].other.hasPass == 3 || userType.users[index].other.hasPass == 0}checked{/if}/>正在办理中\
 					</li>\
@@ -652,38 +652,38 @@
 					</li>\
                    	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" id="passCardTip">港澳通行证办理提示</a></li>\
                     <li class="touristRouteB" style="color:#b91414; {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}display:none;{/if}" >*请务必在报名后及时办理您的港澳通行证及签注, 并在办理完成后致电或邮件联系事务局反馈您的通行证信息</li>\
-					<li class="hasPassHide" {if userType.users[index].other.hasPass != 1}style="display:none;"{/if}><strong style="width:230px;">您的港澳通行证是否具有有效签注：</strong>\
+					<li class="hasPassHide" {if userType.users[index].other.hasPass != 1}style="display:none;"{/if}><strong style="width:230px;">* 您的港澳通行证是否具有有效签注：</strong>\
 						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa == 1}checked{/if}/><em>是</em>\
 						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa != 1}checked{/if}/><em>即将办理</em>\
 					</li>\
 					<div {if userType.users[index].other.isVisa != 1}style="display:none"{/if}  class="showMessage">\
-						<li><strong style="width:230px;">您的港澳通行证的签注类型是：</strong>\
+						<li><strong style="width:230px;">* 您的港澳通行证的签注类型是：</strong>\
 							<input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.sign != 2}checked{/if}/><em>G签</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.sign == 2}checked{/if}/><em>L签</em>\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注类型</a></li>\
-						<li><strong style="width:230px;">您的签注有效期至：</strong><input name="other.effectiveDate" value="{dateFormat userType.users[index].other.effectiveDate}" type="text" class="input-regist" />\
+						<li><strong style="width:230px;">* 您的签注有效期至：</strong><input name="other.effectiveDate" value="{dateFormat userType.users[index].other.effectiveDate}" type="text" class="input-regist" />\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">如何分辨签注有效期</a></li>\
-						<li><strong style="width:230px;">请上传您的港澳通行证首页扫描件：</strong><input name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
+						<li><strong style="width:230px;">* 请上传您的港澳通行证首页扫描件：</strong><input name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-首页扫描件）</li>\
-						<li><strong style="width:230px;">请上传您的港澳通行证签注页扫描件：</strong><input name="file" id="visaFile" type="file" onchange="return ajaxFileUpload(this);"/>\
+						<li><strong style="width:230px;">* 请上传您的港澳通行证签注页扫描件：</strong><input name="file" id="visaFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong>（*图片命名格式：姓名-签证页扫描件）</li>\
 					</div>\
-                  	<div {if userType.users[index].other.touristRoute == 4 || userType.users[index].other.touristRoute == 0}style="display:none;"{/if}  class="showMessage">\
-                      	<li>游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
+                  	<div {if userType.users[index].other.touristRoute == 4 || userType.users[index].other.touristRoute == 0 || userType.users[index].other.touristRoute == 5}style="display:none;"{/if}  class="showMessage">\
+                      	<li>* 游览完毕后您是否随统一大巴返回东莞住宿酒店：<br />\
                           	<input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" {if userType.users[index].other.touristBack == 1 || userType.users[index].other.touristBack == 0}checked{/if}/><em>是</em><br />\
                           	<input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" {if userType.users[index].other.touristBack == 2}checked{/if}/><em>否，我自行从香港离开</em><br />\
                           	<input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" {if userType.users[index].other.touristBack == 3}checked{/if}/><em>否，我自行从深圳离开</em>\
                       	</li>\
                   	</div>\
                  	<div {if userType.users[index].other.touristRoute != 4}style="display:none;"{/if} class="showMessage">\
-                      	<li><strong style="width:230px;">打球差点：</strong><input name="other.playAlmost" value="{userType.users[index].other.playAlmost}" type="text" class="input-regist" /></li>\
+                      	<li><strong style="width:230px;">* 打球差点：</strong><input name="other.playAlmost" value="{userType.users[index].other.playAlmost}" type="text" class="input-regist" /></li>\
                       	<li style="color:#b91414"><strong>&nbsp;</strong>*请准确提供您的差点证明, 我们将据此为您安排分组</li>\
-                      	<li><strong style="width:230px;">身高：</strong><input name="other.stature" type="text" class="input-regist" value="{userType.users[index].other.stature}"/>CM</li>\
-                      	<li><strong style="width:230px;">服装号码：</strong>\
+                      	<li><strong style="width:230px;">* 身高：</strong><input name="other.stature" type="text" class="input-regist" value="{userType.users[index].other.stature}"/>CM</li>\
+                      	<li><strong style="width:230px;">* 服装号码：</strong>\
 							<select index="other." id="playSize">\
 			            		<option value="0">--请选择--</option>\
 								{each selectArr[8] as n}\
@@ -691,7 +691,7 @@
 								{/each}\
 			          		</select><input type="hidden" name="other.playSize" value="{userType.users[index].other.playSize}">\
                       	</li>\
-						<li><strong style="width:230px;">赛后您的行程如何安排：</strong>\
+						<li><strong style="width:230px;">* 赛后您的行程如何安排：</strong>\
 							<select index="other." id="playBack">\
 				        		<option value="0">--请选择--</option>\
 								{each selectArr[11] as n}\

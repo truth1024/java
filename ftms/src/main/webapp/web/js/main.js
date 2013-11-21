@@ -61,7 +61,8 @@ var tipArr = {
 			'registered' : '您已注册，如需查看或修改信息，请点击进入<a style="color:blue;" href="messageManage.html">信息管理</a>界面完成相应操作',
 			'unregistered' : '尚未注册，现在马上前往<a style="color:blue;" href="registMessage.html">注册</a>',
 			'saveSuccess' : '提交成功',
-			'infoLack' : '您尚有信息未填写，请补充完整',
+			'infoLack1' : '您尚有信息未填写 ',
+			'infoLack2' : '，请补充完整',
 			'userLack' : '请先填写用户信息并提交',
 			'add' : '添加人员',
 			'upload' : '因命名不符合要求无法上传',
@@ -78,13 +79,18 @@ var tipArr = {
 			'deleteTip' : '删除提示',
 			'login' : '登录',
 			'logining' : '登录中...',
-			'notice' : '注意事项'
+			'notice' : '注意事项',
+			'basicTitle' : '【个人信息】',
+			'hotelTitle' : '【酒店安排】',
+			'trafficTitle' : '【交通安排】',
+			'otherTitle' : '【商务活动】'
 		},
 		'en' : {
 			'registered' : 'Registered already, for any review and modification, please click into <a style="color:blue;" href="messageManage.html">Information Management</a>  interface to operate.',
 			'unregistered' : 'Not yet registered, <a style="color:blue;" href="registMessage.html">register now</a>',
 			'saveSuccess' : 'submit successfully',
-			'infoLack' : 'There is vacancy of information, please complete',
+			'infoLack1' : 'There is vacancy of information ',
+			'infoLack2' : ', please complete',
 			'userLack' : 'please fill in the user information and submit',
 			'add' : 'Add Dealer',
 			'upload' : 'it can’t be uploaded due to the naming doesn’t meet requirement',
@@ -101,7 +107,11 @@ var tipArr = {
 			'deleteTip' : 'Delete tip',
 			'login' : 'Login',
 			'logining' : 'Login...',
-			'notice' : 'Announcements'
+			'notice' : 'Announcements',
+			'basicTitle' : '[Personal information]',
+			'hotelTitle' : '[Hotel arrangement]',
+			'trafficTitle' : '[Transfer arrangement]',
+			'otherTitle' : '[Commercial activities]'
 		}
 };
 

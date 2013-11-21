@@ -1,17 +1,4 @@
-//window.onload = function(){
-//	setTimeout(function(){
-//		$('head').append($('<link id="easybug" href="/web/css/easybug.css" rel="stylesheet" type="text/css" />'));
-//		easyDialog.open({
-//			container : {
-//			    content : ''
-//			  },
-//			  autoClose : 1,
-//			  overlay : false
-//		});
-//		$('#easybug').remove();
-//	},1000);
-//};
-
+//解决IE6 png透明度问题
 function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
 {
     var arVersion = navigator.appVersion.split("MSIE")
@@ -42,12 +29,6 @@ function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
     }    
 };
 
-//if(window.ActiveXObject){
-//	if($.browser.version == '6.0'){
-//		window.attachEvent("onload", correctPNG);
-//	}
-//}
-
 $(function(){
 	if(window.ActiveXObject){
 		if($.browser.version == '6.0'){
@@ -73,25 +54,6 @@ $(function(){
 			$('input[name="backTime"]').val(0);
 		}
 	});
-	
-//	$('body').delegate('.confirm','click',function(){
-//		var uid = $(this).attr('index');
-//		if(uid == null || uid == ''){
-//			alert(tipArr[lang].infoLack);
-//		}else{
-//			$.post(
-//				'/web/user_confirmSubmit',
-//				{uid:uid,lang:lang},
-//				function(data){
-//					if(data.status == 0){
-//						alert(tipArr[lang].infoLack);
-//					}else{
-//						location.href = 'messageManage.html';
-//					}
-//				}
-//			);
-//		}
-//	});
 	
 	//展开收起功能
 	$('body').delegate('.reviwe','click',function(){
@@ -224,7 +186,7 @@ $(function(){
 				$('#regist_other .showMessage:eq(2)').hide();
 				$('#regist_other .showMessage:eq(2) input').removeClass('required');
 			}
-			if(value == 4 || value == 0){
+			if(value == 4 || value == 0 || value == 5){
 				$('#regist_other .showMessage:eq(1)').hide();
 				$('#regist_other .showMessage:eq(1) input').removeClass('required');				
 			}else{				
@@ -261,7 +223,9 @@ $(function(){
 	$('body').delegate('#user_hotel','click',function(){
 		var method = $(this).attr('index');
 		var name = $(this).attr('name');
-		if(verify('#regist_basic') && verify('#regist_hotel')){
+		var basicFlag = verify('#regist_basic');
+		var hotelFlag = verify('#regist_hotel'); 
+		if(basicFlag && hotelFlag){
 			$.post(
 				'/web/user_saveUser',
 				$('#regist_basic').serialize()+'&'+$('#regist_hotel').serialize()+'&method='+method+'&lang='+lang+'&page='+pageName,
@@ -278,37 +242,16 @@ $(function(){
 				}
 			);
 		}else{
-			alert(tipArr[lang].infoLack);
+			if(!basicFlag){
+				alert(tipArr[lang].infoLack1+tipArr[lang].basicTitle+tipArr[lang].infoLack2);
+				return false;
+			}
+			if(!hotelFlag){
+				alert(tipArr[lang].infoLack1+tipArr[lang].hotelTitle+tipArr[lang].infoLack2);
+				return false;
+			}
 		}
 	});
-	
-//	//酒店信息保存功能
-//	$('body').delegate('#regist_hotel .save','click',function(){
-//		if($('input[name="hotel.uid"]').val() == '' || $('input[name="hotel.uid"]').val() == 0){
-//			alert(tipArr[lang].userLack);
-//			return false;
-//		}
-//		var method = $(this).attr('index');
-//		var name = $(this).attr('name');
-//		if(verify('#regist_hotel')){
-//			$.post(
-//				'/web/hotel_saveHotel',
-//				$('#regist_hotel').serialize()+'&method='+method+'&lang='+lang,
-//				function(data){
-//					if(data.status == 1){
-//						alert(tipArr[lang].saveSuccess);
-//						if(method == 'submit' && name == null){
-//							getMessage(0);
-//						}else{
-//							getMessage(name);
-//						}
-//					}
-//				}
-//			);
-//		}else{
-//			alert(tipArr[lang].infoLack);
-//		}
-//	});
 	
 	//交通信息保存功能
 	$('body').delegate('#traffic_other','click',function(){
@@ -322,7 +265,9 @@ $(function(){
 		if(pageName == 'regist'){
 			bigId = $('input[name="user.uid"]').val();
 		}
-		if(verify('#regist_traffic') && verify('#regist_other')){
+		var trafficFlag = verify('#regist_traffic');
+		var otherFlag = verify('#regist_other');
+		if(trafficFlag && otherFlag){
 			if(pageName == 'regist'){
 				var noticeContent = template.render('notice',null);
 				easyDialog.open({
@@ -340,38 +285,16 @@ $(function(){
 				submit2(method,name,bigId);				
 			}
 		}else{
-			alert(tipArr[lang].infoLack);
+			if(!trafficFlag){
+				alert(tipArr[lang].infoLack1+tipArr[lang].trafficTitle+tipArr[lang].infoLack2);
+				return false;
+			}
+			if(!otherFlag){
+				alert(tipArr[lang].infoLack1+tipArr[lang].otherTitle+tipArr[lang].infoLack2);
+				return false;
+			}
 		}
 	});
-	
-//	//其他信息保存功能
-//	$('body').delegate('#regist_other .save','click',function(){
-//		if($('input[name="other.uid"]').val() == '' || $('input[name="other.uid"]').val() == 0){
-//			alert(tipArr[lang].userLack);
-//			return false;
-//		}
-//		var method = $(this).attr('index');
-//		var name = $(this).attr('name');
-//		// console.log(verify('#regist_other'));
-//		if(verify('#regist_other')){
-//			$.post(
-//				'/web/other_saveOther',
-//				$('#regist_other').serialize()+'&method='+method+'&lang='+lang,
-//				function(data){
-//					if(data.status == 1){
-//						alert(tipArr[lang].saveSuccess);
-//						if(method == 'submit' && name == null){
-//							getMessage(0);
-//						}else{
-//							getMessage(name);
-//						}
-//					}
-//				}
-//			);
-//		}else{
-//			alert(tipArr[lang].infoLack);
-//		}
-//	});
 	
 	//是否指定同住
 	$('body').delegate('input[name="hotel.isWith"]','click',function(){

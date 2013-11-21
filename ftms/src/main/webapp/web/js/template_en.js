@@ -103,9 +103,9 @@
 							<a href="javascript:void(0);" id="map">check the map of the hotel</a>\
 						</div>\
 					</li>\
-	                <li class="stayHide" style="display:none;"><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
-	                <li class="stayHide" style="display:none;"><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
-	                <li class="stayHide" style="display:none;"><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
+	                <li class="stayHide" style="display:none;"><strong style="width:350px;">* Check in date:</strong><input name="hotel.inDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong style="width:350px;">* Check out date:</strong><input name="hotel.outDate" type="text" class="input-regist isStay" /></li>\
+	                <li class="stayHide" style="display:none;"><strong style="width:350px;">* Accommodation type:</strong><select index="hotel." id="room">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}">{n.name}</option>\
@@ -113,15 +113,15 @@
                       </select><input class="isStay" type="hidden" name="hotel.room">\
                     </li>\
 	                <li class="stayHide" style="display:none;">\
-						<strong style="width:350px;">Whether assign roommate sharing room with you:</strong>\
+						<strong style="width:350px;">* Whether assign roommate sharing room with you:</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isWith" type="radio" value="1" />Yes\
 							<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" checked/>No\
 						</div>\
 						<div style="padding-left:40px; float:left">the convention affairs division will make unified arrangement if doesn’t assign roommate.</div>\
 					</li>\
-	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">Name of roommate:</strong><input name="hotel.withName" type="text" class="input-regist isStay" /></li>\
-	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">* Name of roommate:</strong><input name="hotel.withName" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" style="display:none;"><strong style="width:350px;">* The outlet your roommate belongs to:</strong><input name="hotel.withShop" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips remark_en">\
 		                <font><strong>Remarks:</strong></font>\
@@ -160,9 +160,9 @@
 					<div class="tips">\
 			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests participating TMCI conference at Guangzhou Nanfeng Langhao Hotel, TMCI affairs division will arrange vehicles to transfer you from Guangzhou Nanfeng Langhao Hotel to Dongguan Jiahua Hotel, and you can choose to use according to your own requirements.</font>\
 			    	</div>\
-                    <li class="depar" style="display:none;"><strong style="width:380px;">Departure city:</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;"><strong style="width:380px;">* Departure city:</strong><input name="traffic.departureCity1" type="text" class="input-regist" /></li>\
 					<li class="depar" style="display:none;">\
-						<strong style="width:380px;">Destination city:</strong>\
+						<strong style="width:380px;">* Destination city:</strong>\
 						<select index="traffic." id="departureCity2">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[10] as n}\
@@ -170,10 +170,10 @@
 							{/each}\
 			          	</select><input type="hidden" name="traffic.departureCity2">\
 					</li>\
-                    <li class="depar" style="display:none;"><strong style="width:380px;">Flight number:</strong><input name="traffic.departureFlight" type="text" class="input-regist" /></li>\
-                    <li class="depar" style="display:none;"><strong style="width:380px;">Date of arrival:</strong><input name="arrivalDate" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;"><strong style="width:380px;">* Flight number:</strong><input name="traffic.departureFlight" type="text" class="input-regist" /></li>\
+                    <li class="depar" style="display:none;"><strong style="width:380px;">* Date of arrival:</strong><input name="arrivalDate" type="text" class="input-regist" /></li>\
                     <li class="depar" style="display:none;">\
-						<strong style="width:380px;">Time of arrival:</strong>\
+						<strong style="width:380px;">* Time of arrival:</strong>\
 						<select id="arrivalHour">\
 							<option value="0">--Please choose--</option>\
 							{each hourArr}\
@@ -190,7 +190,7 @@
 						<input name="arrivalTime" type="hidden" class="input-regist" />\
 					</li>\
                     <li class="depar" style="display:none;">\
-						<strong style="width:380px;">Whether need airport pick-up service:</strong>\
+						<strong style="width:380px;">* Whether need airport pick-up service:</strong>\
 						<input name="traffic.pickUp" type="radio" value="1" />Yes\
 						<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;" checked/>No\
 					</li>\
@@ -205,7 +205,7 @@
 			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests who will go Macau to participate GTMC conference on 17th, affairs division will arrange vehicles to transfer you from Dongguan Jiahua Hotel to Shenzhen Shekou Ferry Terminal, and you can choose to use according to your own requirements.</font>\
 			    	</div>\
 					<li class="back" style="display:none;">\
-						<strong style="width:380px;">Departure city:</strong>\
+						<strong style="width:380px;">* Departure city:</strong>\
 						<select index="traffic." id="backCity2">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[10] as n}\
@@ -213,10 +213,10 @@
 							{/each}\
 				      	</select><input type="hidden" name="traffic.backCity2">\
 					</li>\
-                    <li class="back" style="display:none;"><strong style="width:380px;">Flight number:</strong><input name="traffic.backFlight" type="text" class="input-regist" /></li>\
-                    <li class="back" style="display:none;"><strong style="width:380px;">Date of arrival:</strong><input name="backDate" type="text" class="input-regist" /></li>\
+                    <li class="back" style="display:none;"><strong style="width:380px;">* Flight number:</strong><input name="traffic.backFlight" type="text" class="input-regist" /></li>\
+                    <li class="back" style="display:none;"><strong style="width:380px;">* Date of arrival:</strong><input name="backDate" type="text" class="input-regist" /></li>\
                     <li class="back" style="display:none;">\
-						<strong style="width:380px;">Take off time:</strong>\
+						<strong style="width:380px;">* Take off time:</strong>\
 						<select id="backHour">\
 							<option value="0">--Please choose--</option>\
 							{each hourArr}\
@@ -233,7 +233,7 @@
 						<input name="backTime" type="hidden" class="input-regist" />\
 					</li>\
                     <li class="back" style="display:none;">\
-						<strong style="width:380px;">Whether need airport drop-off service:</strong>\
+						<strong style="width:380px;">* Whether need airport drop-off service:</strong>\
 						<input name="traffic.send" type="radio" value="1" />Yes\
 						<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" checked/>No\
 					</li>\
@@ -273,7 +273,7 @@
 					</li>\
                  	<li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">Check commercial activity routes</a></li>\
 					<li class="touristRouteB"  style="display:none;">\
-						<strong style="width:380px;">Do you hold valid documentation to go to Hong Kong:</strong>\
+						<strong style="width:380px;">* Do you hold valid documentation to go to Hong Kong:</strong>\
 						<input name="pass" type="radio" value="1" />Yes\
 						<input name="pass" type="radio" value="3" style="margin-left:20px;" checked/>In progress\
 					</li>\
@@ -289,40 +289,40 @@
 					</li>\
 					<li class="touristRouteB" style="display:none;"><strong style="width:230px;">&nbsp;</strong><a  href="javascript:void(0);" id="passCardTip">Exit－Entry Permit for Travelling to and from Hong Kong and Macau handling tips</a></li>\
 		            <li class="touristRouteB" style="color:#b91414;display:none;">*Please be sure to handle your Exit－Entry Permit for Travelling to and from Hong Kong and Macau and endorsement in time after your applying, and feedback your permit information to affairs division in time by telephone or e-mail after you finishing handling.</li>\
-					<li class="hasPassHide" style="display:none;"><strong style="width:380px;">Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
+					<li class="hasPassHide" style="display:none;"><strong style="width:380px;">* Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
 						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;"/><em>Yes</em>\
 						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" checked/><em>to be handled</em>\
 					</li>\
                     <div style="display:none"  class="showMessage">\
-                        <li><strong style="width:380px;">The endorsement type of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau is:</strong>\
+                        <li><strong style="width:380px;">* The endorsement type of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau is:</strong>\
                             <input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" checked/><em>G endorsement</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" /><em>L endorsement</em>\
                         </li>\
                         <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement type</a></li>\
-                        <li><strong style="width:380px;">Your endorsement is valid until:</strong><input name="other.effectiveDate" type="text" class="input-regist" />\
+                        <li><strong style="width:380px;">* Your endorsement is valid until:</strong><input name="other.effectiveDate" type="text" class="input-regist" />\
                     	</li>\
                         <li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement’s period of valid</a></li>\
-                        <li><strong style="width:580px;">Please upload the scanning copy of the first page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
+                        <li><strong style="width:580px;">* Please upload the scanning copy of the first page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
 							<input style="width:140px;" name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
                         </li>\
                         <li><strong style="width:230px;">&nbsp;</strong>(*picture naming format: name-first page scanning copy)</li>\
-                        <li><strong  style="width:580px;">Please upload the scanning copy of the endorsement page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
+                        <li><strong  style="width:580px;">* Please upload the scanning copy of the endorsement page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
 							<input style="width:140px;" name="file" id="visaFile" type="file" onchange="return ajaxFileUpload(this);"/>\
                         </li>\
                         <li><strong style="width:230px;">&nbsp;</strong>(*picture naming format: name-first page scanning copy)</li>\
                   	</div>\
                   	<div style="display:none"  class="showMessage touristRouteB">\
-                      	<li>Will you return to Dongguan and stay in hotel by unified bus after finishing visit:<br />\
+                      	<li>* Will you return to Dongguan and stay in hotel by unified bus after finishing visit:<br />\
                           	<input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" checked/><em>Yes</em><br />\
                           	<input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" /><em>No, I will leave from Hong Kong by myself</em><br />\
                           	<input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" /><em>No, I will leave form Shenzhen by myself</em>\
                       	</li>\
                   	</div>\
                  	<div style="display:none;" class="showMessage">\
-                      	<li><strong style="width:380px;">Playing handicap:</strong><input name="other.playAlmost" type="text" class="input-regist" /></li>\
+                      	<li><strong style="width:380px;">* Playing handicap:</strong><input name="other.playAlmost" type="text" class="input-regist" /></li>\
 				      	<li style="color:#b91414">*please provide your handicap certification accurately so that we can arrange the grouping for you according to it</li>\
-                      	<li><strong style="width:380px;">Height:</strong><input name="other.stature" type="text" class="input-regist" />cm</li>\
-                      	<li><strong style="width:380px;">Clothing size:</strong>\
+                      	<li><strong style="width:380px;">* Height:</strong><input name="other.stature" type="text" class="input-regist" />cm</li>\
+                      	<li><strong style="width:380px;">* Clothing size:</strong>\
 							<select index="other." id="playSize">\
 			            		<option value="0">--Please choose--</option>\
 								{each selectArr[8] as n}\
@@ -330,7 +330,7 @@
 								{/each}\
 			          		</select><input type="hidden" name="other.playSize">\
                       	</li>\
-						<li><strong style="width:380px;">Means of transportation after match:</strong>\
+						<li><strong style="width:340px;">* Means of transportation after match:</strong>\
 							<select index="other." id="playBack">\
 								<option value="0">--Please choose--</option>\
 								{each selectArr[11] as n}\
@@ -445,9 +445,9 @@
 							<a href="javascript:void(0);" id="map">check the map of the hotel</a>\
 						</div>\
 					</li>\
-	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">Check in date:</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">Check out date:</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
-	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">Accommodation type:</strong><select index="hotel." id="room">\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">* Check in date:</strong><input name="hotel.inDate" value="{dateFormat userType.users[index].hotel.inDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">* Check out date:</strong><input name="hotel.outDate" value="{dateFormat userType.users[index].hotel.outDate}" type="text" class="input-regist  isStay {if userType.users[index].hotel.isStay == 1}required{/if}" /></li>\
+	                <li class="stayHide" {if userType.users[index].hotel.isStay != 1}style="display:none;"{/if}><strong style="width:350px;">* Accommodation type:</strong><select index="hotel." id="room">\
                         <option value="0">--Please choose--</option>\
 						{each selectArr[4] as n}\
 			            <option value="{n.value}" {select userType.users[index].hotel.room n.value}>{n.name}</option>\
@@ -455,15 +455,15 @@
                       </select><input class=" isStay {if userType.users[index].hotel.isStay == 1}required{/if}" type="hidden" value="{userType.users[index].hotel.room}" name="hotel.room">\
                     </li>\
 	                <li class="stayHide" {if userType.users[index].hotel.room != 2}style="display:none;"{/if}>\
-						<strong style="width:350px;">Whether assign roommate sharing room with you:</strong>\
+						<strong style="width:350px;">* Whether assign roommate sharing room with you:</strong>\
 						<div class="left">\
 							<input class="required" name="hotel.isWith" type="radio" value="1" {if userType.users[index].hotel.isWith == 1}checked{/if}/>Yes\
 							<input class="required" name="hotel.isWith" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].hotel.isWith != 1}checked{/if}/>No\
 						</div>\
 						<div style="padding-left:40px; float:left">the convention affairs division will make unified arrangement if doesn’t assign roommate.</div>\
 					</li>\
-	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">Name of roommate:</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist isStay" /></li>\
-	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">The outlet your roommate belongs to:</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">* Name of roommate:</strong><input name="hotel.withName" value="{userType.users[index].hotel.withName}" type="text" class="input-regist isStay" /></li>\
+	                <li class="hide stayHide" {if userType.users[index].hotel.isWith != 1}style="display:none;"{/if}><strong style="width:350px;">* The outlet your roommate belongs to:</strong><input name="hotel.withShop" value="{userType.users[index].hotel.withShop}" type="text" class="input-regist isStay" /></li>\
 	               	</ol>\
 	               	<div class="tips remark_en">\
 						<font><strong>Remarks:</strong></font>\
@@ -505,21 +505,21 @@
 					<div class="tips">\
 			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests participating TMCI conference at Guangzhou Nanfeng Langhao Hotel, TMCI affairs division will arrange vehicles to transfer you from Guangzhou Nanfeng Langhao Hotel to Dongguan Jiahua Hotel, and you can choose to use according to your own requirements.</font>\
 			    	</div>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Departure city:</strong><input name="traffic.departureCity1" value="{userType.users[index].traffic.departureCity1}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">* Departure city:</strong><input name="traffic.departureCity1" value="{userType.users[index].traffic.departureCity1}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
 					<li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
-						<strong style="width:380px;">Destination city:</strong>\
+						<strong style="width:380px;">* Destination city:</strong>\
 						<select index="traffic." id="departureCity2">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[10] as n}\
 				            <option value="{n.value}" {select userType.users[index].traffic.departureCity2 n.value}>{n.name}</option>\
 							{/each}\
 				        </select>\
-						<input {if userType.users[index].traffic.departureTrafficTool == 1}class="required"{/if} type="hidden" value="{userType.users[index].traffic.departureCity2}" name="traffic.departureCity2">\
+						<input type="hidden" class="{if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" value="{userType.users[index].traffic.departureCity2}" name="traffic.departureCity2">\
 					</li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Flight number:</strong><input name="traffic.departureFlight" value="{userType.users[index].traffic.departureFlight}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Date of arrival:</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">* Flight number:</strong><input name="traffic.departureFlight" value="{userType.users[index].traffic.departureFlight}" type="text" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">* Date of arrival:</strong><input name="arrivalDate" type="text" value="{dateFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" /></li>\
                     <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}>\
-						<strong style="width:380px;">Time of arrival:</strong>\
+						<strong style="width:380px;">* Time of arrival:</strong>\
 						<select id="arrivalHour">\
 							<option value="0">--Please choose--</option>\
 							{each hourArr}\
@@ -535,7 +535,7 @@
 						</select>\
 						<input name="arrivalTime" type="hidden" value="{timeFormat userType.users[index].traffic.arrivalDate}" class="input-regist {if userType.users[index].traffic.departureTrafficTool == 1}required{/if}" />\
 					</li>\
-                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Whether need airport pick-up service:</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>Yes<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>No</li>\
+                    <li class="depar" {if userType.users[index].traffic.departureTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">* Whether need airport pick-up service:</strong><input name="traffic.pickUp" type="radio" value="1" {if userType.users[index].traffic.pickUp == 1}checked{/if}/>Yes<input name="traffic.pickUp" type="radio" value="2" style="margin-left:20px;"  {if userType.users[index].traffic.pickUp != 1}checked{/if}/>No</li>\
                     <li style="margin-top:20px;"><strong style="width:380px;">* Means of transportation to return:</strong>\
 						<select index="traffic." id="backTrafficTool">\
 				            <option value="0">--Please choose--</option>\
@@ -550,19 +550,19 @@
 			            <font style="font-size:12px;"><strong>Notice:</strong>for the guests who will go Macau to participate GTMC conference on 17th, affairs division will arrange vehicles to transfer you from Dongguan Jiahua Hotel to Shenzhen Shekou Ferry Terminal, and you can choose to use according to your own requirements.</font>\
 			    	</div>\
 					<li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}>\
-						<strong style="width:380px;">Departure city:</strong>\
+						<strong style="width:380px;">* Departure city:</strong>\
 						<select index="traffic." id="backCity2">\
 				            <option value="0">--Please choose--</option>\
 							{each selectArr[10] as n}\
 				            <option value="{n.value}" {select userType.users[index].traffic.backCity2 n.value}>{n.name}</option>\
 							{/each}\
 				        </select>\
-						<input  {if userType.users[index].traffic.backTrafficTool == 1}class="required"{/if} type="hidden" value="{userType.users[index].traffic.backCity2}" name="traffic.backCity2">\
+						<input type="hidden" class="{if userType.users[index].traffic.backTrafficTool == 1}required{/if}" value="{userType.users[index].traffic.backCity2}" name="traffic.backCity2">\
 					</li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Flight number:</strong><input name="traffic.backFlight" value="{userType.users[index].traffic.backFlight}" type="text" class="input-regist  {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Date of arrival:</strong><input name="backDate" value="{dateFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">* Flight number:</strong><input name="traffic.backFlight" value="{userType.users[index].traffic.backFlight}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">* Date of arrival:</strong><input name="backDate" value="{dateFormat userType.users[index].traffic.backDate}" type="text" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" /></li>\
                     <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}>\
-						<strong style="width:380px;">Take off time:</strong>\
+						<strong style="width:380px;">* Take off time:</strong>\
 						<select id="backHour">\
 							<option value="0">--Please choose--</option>\
 							{each hourArr}\
@@ -578,7 +578,7 @@
 						</select>\
 						<input name="backTime" value="{timeFormat userType.users[index].traffic.backDate}" type="hidden" class="input-regist {if userType.users[index].traffic.backTrafficTool == 1}required{/if}" />\
 					</li>\
-                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">Whether need airport drop-off service:</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>Yes<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>No</li>\
+                    <li class="back" {if userType.users[index].traffic.backTrafficTool != 1}style="display:none;"{/if}><strong style="width:380px;">* Whether need airport drop-off service:</strong><input name="traffic.send" type="radio" value="1" {if userType.users[index].traffic.send == 1}checked{/if}/>Yes<input name="traffic.send" type="radio" value="2" style="margin-left:20px;" {if userType.users[index].traffic.send != 1}checked{/if}/>No</li>\
                    	</ol>\
 					<div class="tips remark_en">\
 						<font><strong>Remarks:</strong></font>\
@@ -616,7 +616,7 @@
 					</li>\
                     <li><strong style="width:230px;">&nbsp;</strong><a href="travel.html#review" target="_blank">Check commercial activity routes</a></li>\
 					<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}>\
-						<strong style="width:380px;">Do you hold valid documentation to go to Hong Kong:</strong>\
+						<strong style="width:380px;">* Do you hold valid documentation to go to Hong Kong:</strong>\
 						<input name="pass" type="radio" value="1" {if userType.users[index].other.hasPass == 1 || userType.users[index].other.hasPass == 2}checked{/if}/>Yes\
 						<input name="pass" type="radio" value="3" style="margin-left:20px;" {if userType.users[index].other.hasPass == 3 || userType.users[index].other.hasPass == 0}checked{/if}/>In progress\
 					</li>\
@@ -633,40 +633,40 @@
                    	<li class="touristRouteB" {if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}style="display:none;"{/if}><strong style="width:230px;">&nbsp;</strong><a  href="javascript:void(0);" id="passCardTip">Exit－Entry Permit for Travelling to and from Hong Kong and Macau handling tips</a></li>\
 					<li class="touristRouteB" style="color:#b91414;{if userType.users[index].other.touristRoute != 1 && userType.users[index].other.touristRoute != 2}display:none;{/if}">*Please be sure to handle your Exit－Entry Permit for Travelling to and from Hong Kong and Macau and endorsement in time after your applying, and feedback your permit information to affairs division in time by telephone or e-mail after you finishing handling.</li>\
 					<li class="hasPassHide" {if userType.users[index].other.hasPass != 1}style="display:none;"{/if}>\
-						<strong style="width:380px;">Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
+						<strong style="width:380px;">* Does your Exit－Entry Permit for Travelling to and from Hong Kong and Macau have valid endorsement:</strong>\
 						<input name="other.isVisa" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa == 1}checked{/if}/><em>Yes</em>\
 						<input name="other.isVisa" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.isVisa != 1}checked{/if}/><em>to be handled</em>\
 					</li>\
 					<div {if userType.users[index].other.isVisa != 1}style="display:none"{/if}  class="showMessage">\
-						<li><strong style="width:380px;">The endorsement type of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau is:</strong>\
+						<li><strong style="width:380px;">* The endorsement type of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau is:</strong>\
 							<input name="other.sign" type="radio" value="1" style="margin-top:8px; float:left;" {if userType.users[index].other.sign != 2}checked{/if}/><em>G endorsement</em>\
 							<input name="other.sign" type="radio" value="2" style="margin-top:8px; float:left;" {if userType.users[index].other.sign == 2}checked{/if}/><em>L endorsement</em>\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement type</a></li>\
-						<li><strong style="width:380px;">Your endorsement is valid until:</strong><input name="other.effectiveDate" value="{dateFormat userType.users[index].other.effectiveDate}" type="text" class="input-regist" />\
+						<li><strong style="width:380px;">* Your endorsement is valid until:</strong><input name="other.effectiveDate" value="{dateFormat userType.users[index].other.effectiveDate}" type="text" class="input-regist" />\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong><a href="javascript:void(0);" class="visa">how to distinguish endorsement’s period of valid</a></li>\
-						<li><strong style="width:580px;">Please upload the scanning copy of the first page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
+						<li><strong style="width:580px;">* Please upload the scanning copy of the first page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
 							<input style="width:140px;" name="file" id="passFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong>(*picture naming format: name-first page scanning copy)</li>\
-						<li><strong style="width:580px;">Please upload the scanning copy of the endorsement page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
+						<li><strong style="width:580px;">* Please upload the scanning copy of the endorsement page of your Exit－Entry Permit for Travelling to and from Hong Kong and Macau:</strong>\
 							<input style="width:140px;" name="file" id="visaFile" type="file" onchange="return ajaxFileUpload(this);"/>\
 						</li>\
 						<li><strong style="width:230px;">&nbsp;</strong>(*picture naming format: name-first page scanning copy)</li>\
 					</div>\
-                  	<div {if userType.users[index].other.touristRoute == 0 || userType.users[index].other.touristRoute == 4}style="display:none;"{/if}  class="showMessage touristRouteB">\
-                      	<li>Will you return to Dongguan and stay in hotel by unified bus after finishing visit:<br />\
+                  	<div {if userType.users[index].other.touristRoute == 0 || userType.users[index].other.touristRoute == 4 || userType.users[index].other.touristRoute == 5}style="display:none;"{/if}  class="showMessage touristRouteB">\
+                      	<li>* Will you return to Dongguan and stay in hotel by unified bus after finishing visit:<br />\
 				 			<input name="other.touristBack" type="radio" value="1" style="margin:8px 0 0 220px; float:left;" checked/><em>Yes</em><br />\
 	            			<input name="other.touristBack" type="radio" value="2" style="margin:8px 0 0 220px; float:left;" /><em>No, I will leave from Hong Kong by myself</em><br />\
 	            			<input name="other.touristBack" type="radio" value="3" style="margin:8px 0 0 220px; float:left;" /><em>No, I will leave form Shenzhen by myself</em>\
                       	</li>\
                   	</div>\
                  	<div {if userType.users[index].other.touristRoute != 4}style="display:none;"{/if} class="showMessage">\
-                      	<li><strong style="width:380px;">Playing handicap:</strong><input name="other.playAlmost" value="{userType.users[index].other.playAlmost}" type="text" class="input-regist" /></li>\
+                      	<li><strong style="width:380px;">* Playing handicap:</strong><input name="other.playAlmost" value="{userType.users[index].other.playAlmost}" type="text" class="input-regist" /></li>\
 						<li style="color:#b91414">*please provide your handicap certification accurately so that we can arrange the grouping for you according to it</li>\
-                      	<li><strong style="width:380px;">Height:</strong><input name="other.stature" type="text" class="input-regist" value="{userType.users[index].other.stature}"/>cm</li>\
-                      	<li><strong style="width:380px;">Clothing size:</strong>\
+                      	<li><strong style="width:380px;">* Height:</strong><input name="other.stature" type="text" class="input-regist" value="{userType.users[index].other.stature}"/>cm</li>\
+                      	<li><strong style="width:380px;">* Clothing size:</strong>\
 							<select index="other." id="playSize">\
 			            		<option value="0">--Please choose--</option>\
 								{each selectArr[8] as n}\
@@ -674,9 +674,9 @@
 								{/each}\
 			          		</select><input type="hidden" name="other.playSize" value="{userType.users[index].other.playSize}">\
                       	</li>\
-						<li><strong style="width:380px;">Means of transportation after match:</strong>\
+						<li><strong style="width:340px;">* Means of transportation after match:</strong>\
 							<select index="other." id="playBack">\
-				        		<option value="0">--请选择--</option>\
+				        		<option value="0">--Please choose--</option>\
 								{each selectArr[11] as n}\
 				        		<option value="{n.value}" {select userType.users[index].other.playBack n.value}>{n.name}</option>\
 								{/each}\
@@ -688,7 +688,6 @@
                   	</div>\
                    	</ol>\
 					<div class="tips remark_en"><font><strong>Remarks:</strong>all commercial activities routes have a minium of 35 people, and if the actual number of participants is less than 35 the affairs division will reserve the right to adjust your commercial activities route according to actual conditions.</font></div>\
-					{if compare2() }<div class="operate" style="padding-bottom:20px;"><a href="javascript:void(0);" class="save" index="update">Submit</a></div>{/if}\
             	</div>\
 			</div>\
 		</form>\

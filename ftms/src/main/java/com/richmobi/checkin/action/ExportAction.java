@@ -215,7 +215,7 @@ public class ExportAction extends BasicAction {
             			cell = row.createCell(25);
             			cell.setCellValue(t.getDepartureFlight());
             			cell = row.createCell(26);
-            			cell.setCellValue(t.getDepartureCity1());
+            			cell.setCellValue(Utils.city(t.getDepartureCity2(), null));
             			cell = row.createCell(27);
             			cell.setCellValue(Utils.timeFormat(t.getArrivalDate()));
             			cell = row.createCell(28);
