@@ -46,8 +46,10 @@ public class Utils {
 		return isMatch(value,phoneRegex);
 	}
 	public static void main(String[] args) {
-		System.out.println(clearSpaceCharacter("      王 冉　" ));
-		System.out.println(isMobile(clearSpaceCharacter("     13434543434     ")));
+//		System.out.println(clearSpaceCharacter("      王 冉　" ));
+//		System.out.println(isMobile(clearSpaceCharacter("     13434543434     ")));
+		
+		System.out.println(timeFormat(new Date()));
 	}
 	
 	public static String dateFormat(Date myDate){
@@ -55,7 +57,7 @@ public class Utils {
 	}
 	
 	public static String timeFormat(Date myDate){
-		return basicFormat(myDate, "hh:mm");
+		return basicFormat(myDate, "HH:mm");
 	}
 	
 	public static String basicFormat(Date myDate,String fromatString){

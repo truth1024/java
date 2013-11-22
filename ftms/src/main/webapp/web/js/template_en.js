@@ -716,7 +716,7 @@
 						<td>5</td><td>. </td><td>The website registration system will be switched off step by step. System functions of personal information and hotel information module will be switched off at 24:00, November 28th. System functions of traffic information and business activities information will be switched off at 24:00, December 10th.Please inform the affairs division for the changes of information through phone call or e-mail if there is any information changes after the close of the system. Please pay attention to the changes of information offline deadline. It will be end at 18:00, December 20th. After that, the affairs division proactively will not accept any of your information change’s requests. So please be sure to submit your information accurately and on time.</td>\
 					</tr>\
 					<tr>\
-						<td colspan="3" style="vertical-align:bottom;">Contact information of the affairs division hotline: 440-110-3271 e-mail: service@ftmsdlr.cn</td>\
+						<td colspan="3" style="vertical-align:bottom;">Contact information of the affairs division hotline: 400-110-3271 e-mail: service@ftmsdlr.cn</td>\
 					</tr>\
 				</table>\
 	    	</div>\
