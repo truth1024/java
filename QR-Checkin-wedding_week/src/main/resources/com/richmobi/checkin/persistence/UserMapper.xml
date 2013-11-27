@@ -150,8 +150,8 @@
 					and exists (select COUNT(id) AS cn from t_checkin_record where t_user.id = t_checkin_record.u_id HAVING cn = #{checkinNum})
 			</if>
 		</where>
-		<if test="smsPage">		
-			GROUP BY register_id
+		<if test="smsPage">
+			GROUP BY phone
 		</if>
 			ORDER BY 
 			create_date DESC
@@ -187,7 +187,7 @@
 			</if>
 		</where>
 		<if test="smsPage">		
-			GROUP BY register_id
+			GROUP BY phone
 		</if>
 		ORDER BY 
 			create_date DESC
@@ -197,7 +197,7 @@
 	<select id="getCountByConditions" resultType="int" parameterType="map">
 		SELECT 
 			<if test="smsPage">
-				count(DISTINCT register_id)
+				count(DISTINCT phone)
 			</if>
 			<if test="!smsPage">
 				count(id) 
@@ -284,7 +284,7 @@
 			</if>
 		</where>
 		<if test="smsPage">		
-			GROUP BY register_id
+			GROUP BY phone
 		</if>
 			<if test="orderType == 2">
 		ORDER BY 
