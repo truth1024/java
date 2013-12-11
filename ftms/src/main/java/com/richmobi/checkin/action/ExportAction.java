@@ -146,6 +146,8 @@ public class ExportAction extends BasicAction {
             cell.setCellValue("球赛后去向");
             cell = row.createCell(51);
             cell.setCellValue("唯一识别码");
+            cell = row.createCell(52);
+            cell.setCellValue("是否参加16日上午大区会议");
             List<UserType> userTypes = userTypeService.getAll();
             for(UserType ut : userTypes){
             	for(int i=0;i<ut.getUsers().size();i++){
@@ -258,6 +260,8 @@ public class ExportAction extends BasicAction {
             			cell.setCellValue("");
             			cell = row.createCell(50);
             			cell.setCellValue(Utils.playBack(o.getPlayBack(),null));
+            			cell = row.createCell(52);
+            			cell.setCellValue(Utils.yseOrNo(o.getMeeting(),null));
             		}
             		cell = row.createCell(46);
             		cell.setCellValue(Utils.dateFormat(ut.getLoginDate()));

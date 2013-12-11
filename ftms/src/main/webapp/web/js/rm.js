@@ -7,23 +7,23 @@ function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
     {
        for(var j=0; j<document.images.length; j++)
        {
-          var img = document.images[j]
+          var img = document.images[j];
           var imgName = img.src.toUpperCase();
           if (img.src.indexOf('icon') > -1)
           {
-             var imgID = (img.id) ? "id='" + img.id + "' " : ""
-             var imgClass = (img.className) ? "class='" + img.className + "' " : ""
-             var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
-             var imgStyle = "display:inline-block;margin:8px 8px 8px 0;float:left;" + img.style.cssText
-             if (img.align == "left") imgStyle = "float:left;" + imgStyle
-             if (img.align == "right") imgStyle = "float:right;" + imgStyle
-             if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+             var imgID = (img.id) ? "id='" + img.id + "' " : "";
+             var imgClass = (img.className) ? "class='" + img.className + "' " : "";
+             var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' ";
+             var imgStyle = "display:inline-block;margin:8px 8px 8px 0;float:left;" + img.style.cssText;
+             if (img.align == "left") imgStyle = "float:left;" + imgStyle;
+             if (img.align == "right") imgStyle = "float:right;" + imgStyle;
+             if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle;
              var strNewHTML = "<span " + imgID + imgClass + imgTitle
              + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
              + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
-             + "(src=\'" + img.src + "\', sizingMethod='image');\"></span>"
-             img.outerHTML = strNewHTML
-             j = j-1
+             + "(src=\'" + img.src + "\', sizingMethod='image');\"></span>";
+             img.outerHTML = strNewHTML;
+             j = j-1;
           }
        }
     }    
